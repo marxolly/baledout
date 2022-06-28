@@ -1,6 +1,6 @@
 ---
 deployment:
     tasks:
-    - export DEPLOYPATH=/home/baledout/portal.baledout.com.au
+    - export DEPLOYPATH=/home/baledout/portaldev
     - /bin/cp -R app $DEPLOYPATH
     - /bin/cp -R public_html $DEPLOYPATH
