@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/baledout/
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R public_html $DEPLOYPATH
