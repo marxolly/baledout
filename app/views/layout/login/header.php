@@ -10,8 +10,8 @@
     <title>FSG Warehouse Management System: Login</title>
 
 	<!-- Icons -->
-        <link rel="shortcut icon" href="/images/icons/favicon.jpg?v=4" type="image/x-icon">
-        <link rel="icon" href="/images/icons/favicon.jpg?v=4" type="image/x-icon">
+        <link rel="shortcut icon" href="/images/icons/favicon.ico?v=4" type="image/x-icon">
+        <link rel="icon" href="/images/icons/favicon.ico?v=4" type="image/x-icon">
     <!-- END Icons -->
 	
 	
