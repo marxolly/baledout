@@ -11,11 +11,11 @@ if(!isset($pht))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>FSG Warehouse Management System<?php echo $pht;?></title>
+    <title>Baledout Shipment Management System<?php echo $pht;?></title>
 
     <!-- Icons -->
-        <link rel="shortcut icon" href="/images/icons/favicon.jpg?v=4" type="image/x-icon">
-        <link rel="icon" href="/images/icons/favicon.jpg?v=4" type="image/x-icon">
+        <link rel="shortcut icon" href="/images/icons/favicon.ico?v=4" type="image/x-icon">
+        <link rel="icon" href="/images/icons/favicon.ico?v=4" type="image/x-icon">
     <!-- END Icons -->
 
     <!-- Stylesheets -->
