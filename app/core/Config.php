@@ -79,7 +79,7 @@ class Config{
      * @param mixed  $value
      */
     public static function setJsConfig($key, $value){
-        echo $key.":".$value;
+        //echo $key.":".$value;
         self::_set($key, $value, self::$prefix['js']);
     }
 
@@ -134,7 +134,7 @@ class Config{
      * @param $source string
      */
     private static function _set($key, $value, $source){
-        print_r(self::$config);//return;
+        //print_r(self::$config);//return;
         // load configurations if not already loaded
         if (!isset(self::$config[$source])) {
             echo "Its loaded:".$config[$source];
