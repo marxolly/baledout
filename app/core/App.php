@@ -57,7 +57,7 @@ class App {
         $this->request  = new Request();
         $this->response = new Response();
         $this->redirector = new Redirector();
-        date_default_timezone_set('Australia/Melbourne');
+        date_default_timezone_set('Australia/Adelaide');
     }
 
     public function run()
@@ -255,7 +255,7 @@ class App {
             $url = explode('/', filter_var(trim($url, '/'), FILTER_SANITIZE_URL));
 
             $this->controller = !empty($url[0]) ? ucwords(str_replace("-","",$url[0])) . 'Controller' : null;
-            //echo $this->controller;//die();
+            echo $this->controller;die();
             $this->method = !empty($url[1]) ? $url[1] : null;
             if( !is_null($this->method))
             {
