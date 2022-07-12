@@ -27,7 +27,6 @@
                 "app/core/",
                 "app/core/components/",
                 "app/models/",
-                "app/packaging/",
                 "app/utility/"
             ]
         }
