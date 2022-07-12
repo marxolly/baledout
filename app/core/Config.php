@@ -29,7 +29,7 @@ class Config{
 
     public static function tester()
     {
-        return self::_get('csrfToken', self::$prefix['js']);
+        return self::_get('csrfToken', self::$prefix['pages']);
     }
 
     /**
