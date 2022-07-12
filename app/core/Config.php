@@ -137,13 +137,8 @@ class Config{
         //print_r(self::$config);//return;
         //echo "gonna run _set for $key in ".self::$config[$source];
         // load configurations if not already loaded
-        if (!isset(self::$config[$source])) {
-            echo "Its loaded:".$config[$source];
+        if (!isset(self::$config[$source])) { 
             self::_get($key, $source);
-        }
-        else
-        {
-            echo "Its NOT loaded:".$config[$source];
         }
         if($key && $source){
             self::$config[$source][$key] = $value;
