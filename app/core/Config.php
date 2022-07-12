@@ -140,7 +140,10 @@ class Config{
             echo "Its loaded:".$config[$source];
             self::_get($key, $source);
         }
-
+        else
+        {
+            echo "Its NOT loaded:".$config[$source];
+        }
         if($key && $source){
             self::$config[$source][$key] = $value;
         }

@@ -18,7 +18,6 @@
         <script src="/scripts/common.js"></script>
 
         <!-- Assign CSRF Token to JS variable -->
-        <?php echo "Gonna set ".Session::generateCsrfToken();?>
         <?php Config::setJsConfig('csrfToken', Session::generateCsrfToken()); ?>
         <!-- Assign all configuration variables -->
         <script>config = <?php echo json_encode(Config::getJsConfig()); ?>;</script>
