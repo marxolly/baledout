@@ -1,5 +1,5 @@
 <?php
- echo "<pre>",print_r(Config::$config),"</pre>"; 
+ echo "<pre>",var_dump(Config),"</pre>";
 ?>
      <div class="container">
         <div class="row">
