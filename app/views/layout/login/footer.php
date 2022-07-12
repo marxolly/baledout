@@ -15,12 +15,13 @@
         <!-- Block UI JavaScript -->
         <script src="/scripts/jquery.blockUI.js"></script>
         <!-- WMS JavaScript -->
+        <script src="/scripts/common.js"></script>
+
         <!-- Assign CSRF Token to JS variable -->
+        <?php echo "Gonna set ".Session::generateCsrfToken();?>
         <?php Config::setJsConfig('csrfToken', Session::generateCsrfToken()); ?>
         <!-- Assign all configuration variables -->
         <script>config = <?php echo json_encode(Config::getJsConfig()); ?>;</script>
-        <script src="/scripts/common.js"></script>
-
         <script>
             $(document).ready(function(e){
                 $('button#link-forgot-password').click(function(e){
