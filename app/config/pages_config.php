@@ -167,7 +167,7 @@ $client = array(
 
 
 //add the errors pages
-//echo "<pre>",print_r($admin),"</pre>";die();
+echo "<pre>",print_r($admin),"</pre>";die();
 //return the pages
 return array(
     "ADMIN_PAGES"                     => $admin ,
