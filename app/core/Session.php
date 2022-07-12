@@ -358,11 +358,8 @@ class Session{
         $_SESSION['users_name']          = $data['users_name'];
         $_SESSION['client_id']           = $data['client_id'];
         $_SESSION['is_admin_user']       = $data['is_admin_user'];
-        $_SESSION['is_production_user']  = $data['is_production_user'];
         $_SESSION['is_warehouse_user']   = $data['is_warehouse_user'];
         //extra client data
-        $db = Database::openConnection();
-        $_SESSION['is_delivery_client'] = ($db->queryValue('clients', array('id' => $data['client_id']), 'delivery_client') > 0);
 
         // save these values in the session,
         // they are needed to avoid session hijacking and fixation
