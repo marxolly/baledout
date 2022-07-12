@@ -131,7 +131,7 @@ class App {
          $this->controller = new $controller($this->request, $this->response);
 
          $result = $this->controller->startupProcess();
-         //echo "<pre>",print_r($result),"</pre>";die();
+         echo "<pre>",print_r($result),"</pre>";die();
          if ($result instanceof Response)
          {
             return $result->send();
@@ -249,7 +249,7 @@ class App {
     {
 
         $url = $this->request->query("url");
-        die($url);
+        //die($url);
         if ( !empty($url) )
         {
             $this->args = [];
