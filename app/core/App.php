@@ -249,14 +249,14 @@ class App {
     {
 
         $url = $this->request->query("url");
-        die($url);
+        //die($url);
         if ( !empty($url) )
         {
             $this->args = [];
             $url = explode('/', filter_var(trim($url, '/'), FILTER_SANITIZE_URL));
 
             $this->controller = !empty($url[0]) ? ucwords(str_replace("-","",$url[0])) . 'Controller' : null;
-            echo $this->controller;die();
+            //echo $this->controller;die();
             $this->method = !empty($url[1]) ? $url[1] : null;
             if( !is_null($this->method))
             {
