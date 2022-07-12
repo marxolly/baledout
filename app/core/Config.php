@@ -29,7 +29,7 @@ class Config{
 
     public static function tester()
     {
-        return "test";
+        return self::$prefix;
     }
 
     /**
