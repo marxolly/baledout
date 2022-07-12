@@ -134,8 +134,8 @@ class Config{
      * @param $source string
      */
     private static function _set($key, $value, $source){
-        print_r(self::$config);//return;
-        echo "gonna run _set for $key in ".self::$config[$source];
+        //print_r(self::$config);//return;
+        //echo "gonna run _set for $key in ".self::$config[$source];
         // load configurations if not already loaded
         if (!isset(self::$config[$source])) {
             echo "Its loaded:".$config[$source];
@@ -148,5 +148,6 @@ class Config{
         if($key && $source){
             self::$config[$source][$key] = $value;
         }
+        echo "<pre>",print_r(self::$config),"</pre>";
     }
 }
