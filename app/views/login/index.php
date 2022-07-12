@@ -1,5 +1,5 @@
 <?php
- echo "<pre>",var_dump(Config),"</pre>";
+ echo "<pre>",var_dump(Config::tester()),"</pre>";
 ?>
      <div class="container">
         <div class="row">
