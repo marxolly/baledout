@@ -1,6 +1,6 @@
 <?php
- //echo "<pre>",var_dump(Config::tester()),"</pre>";
- echo "<pre>",var_dump($GLOBALS),"</pre>";
+ echo "<pre>",var_dump(Config::tester()),"</pre>";
+ //echo "<pre>",var_dump($GLOBALS),"</pre>";
 ?>
      <div class="container">
         <div class="row">
