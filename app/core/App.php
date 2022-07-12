@@ -249,6 +249,7 @@ class App {
     {
 
         $url = $this->request->query("url");
+        die($url);
         if ( !empty($url) )
         {
             $this->args = [];
