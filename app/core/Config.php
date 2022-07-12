@@ -135,6 +135,7 @@ class Config{
      */
     private static function _set($key, $value, $source){
         //print_r(self::$config);//return;
+        echo "gonna run _set for $key";
         // load configurations if not already loaded
         if (!isset(self::$config[$source])) {
             echo "Its loaded:".$config[$source];
