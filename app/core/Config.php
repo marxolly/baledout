@@ -29,7 +29,12 @@ class Config{
 
     public static function tester()
     {
-        return self::_get('csrfToken', self::$prefix['default']);
+        try{
+            return self::_get('csrfToken', self::$prefix['default']);
+        }
+        catch (Exception $e){
+            echo "<pre>",print_r($e),"</pre>";die();
+        }
         //return self::getPages('admin');
     }
 
