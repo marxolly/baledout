@@ -101,15 +101,14 @@ class FormController extends Controller {
             //echo "<pre>",print_r($this->request),"</pre>"; die();
             // reset session
             Session::reset([
-                "user_id"       => $userId,
-                "role"          => $this->user->getUserRoleName($user["role_id"]),
-                "ip"            => $userIp,
-                "user_agent"    => $userAgent,
-                "users_name"    => $user['name'],
-                "client_id"     => $user['client_id'],
-                "is_admin_user" => $this->user->isAdminUser($userId),
-                "is_production_user"    => $this->user->isProductionUser($userId),
-                "is_warehouse_user"     => $this->user->isWarehouseUser($userId)
+                "user_id"           => $userId,
+                "role"              => $this->user->getUserRoleName($user["role_id"]),
+                "ip"                => $userIp,
+                "user_agent"        => $userAgent,
+                "users_name"        => $user['name'],
+                "client_id"         => $user['client_id'],
+                "is_admin_user"     => $this->user->isAdminUser($userId),
+                "is_warehouse_user" => $this->user->isWarehouseUser($userId)
             ]);
             //set the cookie to remember the user
             Cookie::reset($userId);
