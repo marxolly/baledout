@@ -134,9 +134,10 @@ class Config{
      * @param $source string
      */
     private static function _set($key, $value, $source){
-        echo $key.":".$value.":".$source;
+
         // load configurations if not already loaded
         if (!isset(self::$config[$source])) {
+            echo "Its loaded:".$config[$source];
             self::_get($key, $source);
         }
 
