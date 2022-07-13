@@ -47,11 +47,9 @@ return array(
      * Configuration for Email
      *
      */
-    "EMAIL_FROM"        => "FSGWMS@fsg.com.au",
-    "EMAIL_FROM_NAME"   => "Film Shot Graphics Warehouse Management System",
-    "EMAIL_REPLY_TO"    => "FSGWMS@fsg.com.au",
-    "EMAIl_HOST"        => "smtp.office365.com",
-    "EMAIL_PORT"        => 587,
+    "EMAIL_FROM"        => "no-reply@baledout.com.au",
+    "EMAIL_FROM_NAME"   => "Baledout Pty Ltd",
+    "EMAIL_REPLY_TO"    => "no-reply@baledout.com.au",
 
     "EMAIL_PASSWORD_RESET_URL" => PUBLIC_ROOT . "login/resetPassword",
 
@@ -77,29 +75,17 @@ return array(
     'MAX_SHIPPING_CHARGE' => 80,
 
     /*************************************************************************
-    * 3PL Address
+    * Baledout Address
     **************************************************************************/
-    "THREEPL_ADDRESS" => array(
-      	'address'	=>	'5 Mosrael Place',
+    "BALEDOUT_ADDRESS" => array(
+      	'address'	=>	'',
 		'address_2'	=>	'',
-		'suburb'	=>	'Rowville',
-		'city'		=>	'Melbourne',
-		'state'		=>	'VIC',
+		'suburb'	=>	'',
+		'city'		=>	'',
+		'state'		=>	'SA',
 		'country'	=>	'AU',
-		'postcode'	=>	'3178'
-	),
-    /*************************************************************************
-    * FSG Address
-    **************************************************************************/
-    "FSG_ADDRESS" => array(
-        'address'	=>	'865 Mountain Hwy',
-        'address_2'	=>	'',
-        'suburb'	=>	'Bayswater',
-        'city'		=>	'Melbourne',
-        'state'		=>	'VIC',
-        'country'	=>	'AU',
-        'postcode'	=>	'3153'
-    ),
+		'postcode'	=>	''
+	)
 
     
     /**
