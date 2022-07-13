@@ -122,7 +122,7 @@ class FormController extends Controller {
 
     public function procForgotPassword()
     {
-        echo "<pre>",print_r($this->request),"</pre>"; //die();
+        //echo "<pre>",print_r($this->request),"</pre>"; //die();
         $email      = $this->request->data('email');
         $userIp     = $this->request->clientIp();
         $userAgent  = $this->request->userAgent();
