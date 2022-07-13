@@ -174,6 +174,44 @@ class FormController extends Controller {
         return $this->redirector->login();
     }// End procForgotPassword()
 
+    public function procUpdatePassword()
+    {
+        echo "<pre>",print_r($this->request),"</pre>";die();
+        $password        = $this->request->data("password");
+        $confirmPassword = $this->request->data("confirm_password");
+        $userId          = Session::get("user_id_reset_password");
+
+        if(!$this->dataSubbed($password))
+        {
+            Form::setError('password', 'A new password is required');
+        }
+        if(!$this->dataSubbed($confirmPassword))
+        {
+            Form::setError('confirm_password', 'Please retype you password');
+        }
+        elseif($password !== $confirmPassword)
+        {
+            Form::setError('confirm_password', 'Passwords do not match');
+        }
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+            return $this->redirector->to(PUBLIC_ROOT . "login/resetPassword", ['id' => $this->request->data("id"), 'token' => $this->request->data("token")]);
+        }
+        else
+        {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT, array('cost' => Config::get('HASH_COST_FACTOR')));
+            $this->login->updatePassword($hashedPassword, $userId);
+            $this->login->resetPasswordToken($userId);
+            // logout, and clear any existing session and cookies
+            Session::remove();
+            Cookie::remove($userId);
+            //return $this->redirector->to(PUBLIC_ROOT."login/passwordUpdated");
+            $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/login/", Config::get('LOGIN_PATH') . 'passwordUpdated.php');
+        }
+    }// End procPasswordUpdate()
+
     /********************************************************************************************************************************
     *   Helper functions below this
     *******************************************************************************************************************************/
