@@ -22,7 +22,7 @@
         <!-- Assign CSRF Token to JS variable -->
         <?php Config::setJsConfig('csrfToken', Session::generateCsrfToken()); ?>
         <!-- Assign all configuration variables -->
-        <script>config = <?php echo json_encode(Config::getJsConfig()); ?>;</script>
+        <script>var config = <?php echo json_encode(Config::getJsConfig()); ?>;</script>
         <script>
             $(document).ready(function(e){
                 $('button#link-forgot-password').click(function(e){
