@@ -1,5 +1,7 @@
         <!-- Assign CSRF Token to JS variable -->
         <?php Config::setJsConfig('csrfToken', Session::generateCsrfToken()); ?>
+        <!-- Assign all configuration variables -->
+        <script>var config = <?php echo json_encode(Config::getJsConfig()); ?>;</script>
         <!-- Jquery JavaScript -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -19,10 +21,7 @@
         <!-- WMS JavaScript -->
         <script src="/scripts/common.js"></script>
 
-        <!-- Assign CSRF Token to JS variable -->
-        <?php Config::setJsConfig('csrfToken', Session::generateCsrfToken()); ?>
-        <!-- Assign all configuration variables -->
-        <script>var config = <?php echo json_encode(Config::getJsConfig()); ?>;</script>
+
         <script>
             $(document).ready(function(e){
                 $('button#link-forgot-password').click(function(e){
