@@ -38,7 +38,7 @@ class Postcode extends Model{
         return $return_array;
     }
 
-    public function validatePostcode($postcode = NULL, $suburb = NULL, $state = NULL)
+    public function validateSuburb($suburb = NULL, $state = NULL, $postcode = NULL)
     {
         $response = array(
             'found' => true
