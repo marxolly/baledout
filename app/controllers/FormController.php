@@ -148,8 +148,9 @@ class FormController extends Controller {
                 //die('email found');
                 //only do stuff if the email exists in the system
                 $user     = $db->queryRow("SELECT * FROM users WHERE email = :email", array('email' => $email));
-                echo "<pre>",print_r($user),"<pre>";die();
+                echo "<pre>",print_r($user),"<pre>";//die();
                 $forgottenPassword = $db->queryRow("SELECT * FROM forgotten_passwords WHERE user_id = ".$user['id']);
+                echo "<pre>",print_r($forgottenPassword),"<pre>";die();
                 $last_time = isset($forgottenPassword["password_last_reset"])? $forgottenPassword["password_last_reset"]: null;
                 $count     = isset($forgottenPassword["forgotten_password_attempts"])? $forgottenPassword["forgotten_password_attempts"]: null;
                 $block_time = (10 * 60);
