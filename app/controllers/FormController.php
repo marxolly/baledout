@@ -201,7 +201,7 @@ class FormController extends Controller {
         }
         else
         {
-            die('all good');
+            //die('all good');
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT, array('cost' => Config::get('HASH_COST_FACTOR')));
             $this->login->updatePassword($hashedPassword, $userId);
             $this->login->resetPasswordToken($userId);
