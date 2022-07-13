@@ -153,8 +153,12 @@ $(document).ready(function() {
         }
     });
     ////////////////////////////////////////////////////////////
-    $('form#form-login').validate({ });
+    $('form#form-login').validate({
+
+     });
     ////////////////////////////////////////////////////////////
-    $('form#form-forgot-password').validate({});
+    $('form#form-forgot-password').validate({
+        
+    });
 
 });//end doc ready function
