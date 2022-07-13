@@ -163,7 +163,7 @@ class FormController extends Controller {
                     return $this->redirector->login();
                 }
                 $newPasswordToken = $this->login->generateForgottenPasswordToken($user["id"], $forgottenPassword);
-                echo "<p>generated this token: $newPasswordToken</p>";die();
+                //echo "<p>generated this token: $newPasswordToken</p>";die();
                 if(!Email::sendPasswordReset($user['id'], $user['name'], $email, $newPasswordToken))
                 {
                     die('mail error');
