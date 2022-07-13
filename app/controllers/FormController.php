@@ -120,6 +120,57 @@ class FormController extends Controller {
         }
     }// End procLogin()
 
+    public function procForgotPassword()
+    {
+        //echo "<pre>",print_r($this->request),"</pre>"; die();
+        $email      = $this->request->data('email');
+        $userIp     = $this->request->clientIp();
+        $userAgent  = $this->request->userAgent();
+        Session::set('display-form', 'forgot-password');
+        $db = Database::openConnection();
+        if(!$this->dataSubbed($email))
+        {
+            Form::setError('email', 'Please enter your email address');
+        }
+        elseif(!$this->emailValid($email))
+        {
+            Form::setError('email', 'Please enter a valid email address');
+        }
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            if($db->fieldValueTaken('users', $email, 'email'))
+            {
+                //die('email found');
+                //only do stuf if the email exists in the system
+                $user     = $db->queryRow("SELECT * FROM users WHERE email = :email", array('email' => $email));
+                $forgottenPassword = $db->queryRow("SELECT * FROM forgotten_passwords WHERE user_id = ".$user['id']);
+                $last_time = isset($forgottenPassword["password_last_reset"])? $forgottenPassword["password_last_reset"]: null;
+                $count     = isset($forgottenPassword["forgotten_password_attempts"])? $forgottenPassword["forgotten_password_attempts"]: null;
+                $block_time = (10 * 60);
+                $time_elapsed = time() - $last_time;
+                if ($count >= 5 && $time_elapsed < $block_time)
+                {
+                    Form::setError('toomanytimes', "You exceeded number of possible attempts, please try again later after " .date("i", $block_time - $time_elapsed) . " minutes");
+                    Session::set('value_array', $_POST);
+                    Session::set('error_array', Form::getErrorArray());
+                    return $this->redirector->login();
+                }
+                $newPasswordToken = $this->login->generateForgottenPasswordToken($user["id"], $forgottenPassword);
+                if(!Email::sendPasswordReset($user['id'], $user['name'], $email, $newPasswordToken))
+                {
+                    die('mail error');
+                }
+            }
+            Session::set('feedback', "<p>An email has been sent with a reset password link. This link will remain valid for 24 hours</p>");
+        }
+        return $this->redirector->login();
+    }// End procForgotPassword() 
+
     /********************************************************************************************************************************
     *   Helper functions below this
     *******************************************************************************************************************************/

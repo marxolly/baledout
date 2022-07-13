@@ -139,7 +139,7 @@ $(document).ready(function() {
 
     //Validators
     ///////////////////////////////////////////////////////////////////////////////
-    
+
     ///////////////////////////////////////////////////////////////////////////////
     $('form#contact_us').validate({
         ignore: "[contenteditable='true']:not([name])",
@@ -153,8 +153,8 @@ $(document).ready(function() {
         }
     });
     ////////////////////////////////////////////////////////////
-    $('form#form-login').validate({
-
-    });
+    $('form#form-login').validate({ });
+    ////////////////////////////////////////////////////////////
+    $('form#form-forgot-password').validate({});
 
 });//end doc ready function
