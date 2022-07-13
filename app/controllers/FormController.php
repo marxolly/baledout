@@ -122,7 +122,7 @@ class FormController extends Controller {
 
     public function procForgotPassword()
     {
-        //echo "<pre>",print_r($this->request),"</pre>"; die();
+        echo "<pre>",print_r($this->request),"</pre>"; die();
         $email      = $this->request->data('email');
         $userIp     = $this->request->clientIp();
         $userAgent  = $this->request->userAgent();
@@ -169,7 +169,7 @@ class FormController extends Controller {
             Session::set('feedback', "<p>An email has been sent with a reset password link. This link will remain valid for 24 hours</p>");
         }
         return $this->redirector->login();
-    }// End procForgotPassword() 
+    }// End procForgotPassword()
 
     /********************************************************************************************************************************
     *   Helper functions below this
