@@ -157,7 +157,7 @@ class FormController extends Controller {
                 $time_elapsed = time() - $last_time;
                 if ($count >= 5 && $time_elapsed < $block_time)
                 {
-                    Form::setError('toomanytimes', "You exceeded number of possible attempts, please try again later after " .date("i", $block_time - $time_elapsed) . " minutes");
+                    Form::setError('toomanytimes', "You exceeded number of permissable attempts, please try again later after " .date("i", $block_time - $time_elapsed) . " minutes");
                     Session::set('value_array', $_POST);
                     Session::set('error_array', Form::getErrorArray());
                     return $this->redirector->login();
