@@ -176,7 +176,7 @@ class FormController extends Controller {
 
     public function procUpdatePassword()
     {
-        echo "<pre>",print_r($this->request),"</pre>";die();
+        //echo "<pre>",print_r($this->request),"</pre>";die();
         $password        = $this->request->data("password");
         $confirmPassword = $this->request->data("confirm_password");
         $userId          = Session::get("user_id_reset_password");
@@ -201,6 +201,7 @@ class FormController extends Controller {
         }
         else
         {
+            die('all good');
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT, array('cost' => Config::get('HASH_COST_FACTOR')));
             $this->login->updatePassword($hashedPassword, $userId);
             $this->login->resetPasswordToken($userId);
