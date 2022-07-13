@@ -120,5 +120,213 @@ class FormController extends Controller {
         }
     }// End procLogin()
 
+    /********************************************************************************************************************************
+    *   Helper functions below this
+    *******************************************************************************************************************************/
+    /*******************************************************************
+    ** validates addresses
+    ********************************************************************/
+    public function validateAddress($address, $suburb, $state, $postcode, $country, $ignore_address_error, $prefix = "", $session_var = false)
+    {
+        if( !$this->dataSubbed($address) )
+        {
+            if($session_var)
+            {
+                Session::set($session_var, true);
+            }
+            Form::setError($prefix.'address', 'An address is required');
+        }
+        elseif( !$ignore_address_error )
+        {
+            if( (!preg_match("/(?:[A-Za-z].*?\d|\d.*?[A-Za-z])/i", $address)) && (!preg_match("/(?:care of)|(c\/o)|( co )/i", $address)) )
+            {
+                if($session_var)
+                {
+                    Session::set($session_var, true);
+                }
+                Form::setError($prefix.'address', 'The address must include both letters and numbers');
+            }
+        }
+        if(!$this->dataSubbed($postcode))
+        {
+            if($session_var)
+            {
+                Session::set($session_var, true);
+            }
+            Form::setError($prefix.'postcode', "A delivery postcode is required");
+        }
+        if(!$this->dataSubbed($country))
+        {
+            if($session_var)
+            {
+                Session::set($session_var, true);
+            }
+            Form::setError($prefix.'country', "A delivery country is required");
+        }
+        elseif(strlen($country) > 2)
+        {
+            if($session_var)
+            {
+                Session::set($session_var, true);
+            }
+            Form::setError($prefix.'country', "Please use the two letter ISO code");
+        }
+        elseif($country == "AU")
+        {
+            if(!$this->dataSubbed($suburb))
+    		{
+    		    if($session_var)
+                {
+                    Session::set($session_var, true);
+                }
+    			Form::setError($prefix.'suburb', "A delivery suburb is required for Australian addresses");
+    		}
+    		if(!$this->dataSubbed($state))
+    		{
+    		    if($session_var)
+                {
+                    Session::set($session_var, true);
+                }
+    			Form::setError($prefix.'state', "A delivery state is required for Australian addresses");
+    		}
+            $aResponse = $this->Postcode->validateSuburb($suburb, $state, str_pad($postcode,4,'0',STR_PAD_LEFT));
+            $error_string = "";
+            if(isset($aResponse['errors']))
+            {
+                foreach($aResponse['errors'] as $e)
+                {
+                    $error_string .= $e['message']." ";
+                }
+            }
+            elseif($aResponse['found'] === false)
+            {
+                $error_string .= "Postcode does not match suburb or state";
+            }
+            if(strlen($error_string))
+            {
+                if($session_var)
+                {
+                    Session::set($session_var, true);
+                }
+                Form::setError($prefix.'postcode', $error_string);
+            }
+        }
+    }
+
+    /*******************************************************************
+    ** validates empty data fields
+    ********************************************************************/
+	public function dataSubbed($data)
+	{
+		if(!$data || strlen($data = trim($data)) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}//end dataSubbed()
+
+    /*******************************************************************
+   ** validates email addresses
+   ********************************************************************/
+	public function emailValid($email)
+	{
+		if(!$email || strlen($email = trim($email)) == 0)
+		{
+         	return false;
+      	}
+      	else
+		{
+            return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+        	 /* Check if valid email address
+         	$regex = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i";
+         	if(!preg_match($regex,$email))
+			{
+            	return false;
+         	}
+         	else
+			{
+				return true;
+			}
+            */
+      	}
+	}//end emailValid()
+
+    /*******************************************************************
+   ** Returns human readable errors for file uploads
+   ********************************************************************/
+	private function file_upload_error_message($error_code) {
+        switch ($error_code) {
+            case UPLOAD_ERR_INI_SIZE:
+                return 'The uploaded file exceeds the maximum upload size allowed by the server';
+            case UPLOAD_ERR_FORM_SIZE:
+                return 'The uploaded file exceeds the maximum upload size allowed by the server';
+            case UPLOAD_ERR_PARTIAL:
+                return 'The uploaded file was only partially uploaded';
+            case UPLOAD_ERR_NO_FILE:
+                return 'No file was selected for uploading';
+            case UPLOAD_ERR_NO_TMP_DIR:
+                return 'Missing a temporary folder';
+            case UPLOAD_ERR_CANT_WRITE:
+                return 'Failed to write file to disk';
+            case UPLOAD_ERR_EXTENSION:
+                return 'File upload stopped by extension';
+            default:
+                return 'Unknown upload error';
+        	}
+	}
+
+
+
+    private function uploadImage($field, $width, $height = false, $picturename = "image", $format = 'jpg', $overwrite = false, $dir = '/images/uploads/')
+    {
+        //namespace Verot\Upload;
+        if ($_FILES[$field]['error']  === UPLOAD_ERR_OK)
+        {//////////////////////////////////////////////////////////////////////only if entered?
+                //$handle = new Upload($_FILES[$field]);
+                $handle = new \Verot\Upload\Upload($_FILES[$field]);
+                if($handle->uploaded)
+                {
+                    //file uploaded.
+                    //die($field);
+                        //Image settings
+                        $handle->image_resize = true;
+                        $handle->image_ratio = true;
+                        $handle->file_auto_rename = !$overwrite;
+                        $handle->file_overwrite = $overwrite;
+                        $handle->image_x = $width;
+                        if($height)
+                        {
+                            $handle->image_y = $height;
+                            $handle->image_ratio = true;
+                        }
+                        else
+                        {
+                            $handle->image_ratio_y = true;
+                        }
+                        $handle->file_new_name_body = $picturename;
+                        $handle->image_convert = $format;
+                        $handle->Process(IMAGES.$dir);
+                        if(!$handle->processed)
+                        {
+                            Form::setError($field, $handle->error);
+                        }
+                        return $handle->file_dst_name_body;
+                }
+                else
+                {
+                    //error uploading file
+                    Form::setError($field, $handle->error);
+                }
+        }///end if picture uploaded
+        else
+        {
+            //error uploading file
+            $error_message = $this->file_upload_error_message($_FILES[$field]['error']);
+            Form::setError($field, $error_message);
+        }
+    }//end function
 
 }// end class
