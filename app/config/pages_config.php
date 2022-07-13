@@ -16,6 +16,7 @@
 include(APP."/config/icons.php");
 
 $admin = array(
+    /*
    'orders' => array(
         'orders-index'  => true,
         'default-icon'  => array(
@@ -23,6 +24,7 @@ $admin = array(
             'icon'      => $fontastic_icons['orders']['default']
         )
     ),
+    */
     'jobs'      => array(
         'jobs-index'    => true,
         'default-icon'  => array(
