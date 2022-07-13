@@ -330,7 +330,7 @@ class Database {
         $this->output .= "=========================================================================================================".PHP_EOL;
         $this->output .= "UPDATE `$table` SET `$field` = :field WHERE `$idfield` = :id".PHP_EOL;
         $this->output .= print_r($params, true).PHP_EOL;
-        $this->recordOutput('database_logs/log');
+        //$this->recordOutput('database_logs/log');
         return $this->stmt->rowCount();
    }
 
@@ -367,7 +367,7 @@ class Database {
         $this->output .= "=========================================================================================================".PHP_EOL;
         $this->output .= $q.PHP_EOL;
         $this->output .= print_r($params, true).PHP_EOL;
-        $this->recordOutput('database_logs/log');
+        //$this->recordOutput('database_logs/log');
           return $this->stmt->rowCount();
    }
 
