@@ -37,5 +37,42 @@ class Postcode extends Model{
         }
         return $return_array;
     }
+
+    public function validatePostcode($postcode = NULL, $suburb = NULL, $state = NULL)
+    {
+        $response = array(
+            'found' => true
+        );
+        if( empty($postcode) || empty($suburb) || empty($state) )
+        {
+            if( empty($postcode) )
+            {
+                $response['errors'][]['message'] = "No Postcode Supplied";
+            }
+            if( empty($suburb) )
+            {
+                $response['errors'][]['message'] = "No Suburb Supplied";
+            }
+            if( empty($state) )
+            {
+                $response['errors'][]['message'] = "No State Supplied";
+            }
+        }
+        else
+        {
+            $db = Database::openConnection();
+            $row = $db->queryRow(
+                "SELECT * FROM ".$this->table." WHERE `postcode` = :postcode AND `suburb` = :suburb AND `state` = :state",
+                [
+                    'postcode'  => $postcode,
+                    'suburb'    => $suburb,
+                    'state'     => $state
+                ]
+            );
+            if( empty($row) )
+                $response['found'] = false;
+        }
+        return $response;
+    }
 }
 ?>
