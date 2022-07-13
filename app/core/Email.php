@@ -109,7 +109,7 @@
     public static function sendPasswordReset($user_id, $name, $email, $password_token)
     {
         $mail = new PHPMailer();
-        die("Reset URL: ".Config::get('EMAIL_FROM'));
+        //die("Reset URL: ".Config::get('EMAIL_FROM'));
         $body = file_get_contents(Config::get('EMAIL_TEMPLATES_PATH')."passwordreset.html");
         $replace_array = array("{LINK}", "{NAME}");
         $replace_with_array = array(Config::get('EMAIL_PASSWORD_RESET_URL') . "?id=" . urlencode(Encryption::encryptId($user_id)) . "&token=" . urlencode($password_token), $name);
