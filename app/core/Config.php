@@ -74,7 +74,7 @@ class Config{
      * @return string|array|null
      */
     public static function getJsConfig($key = ""){
-        die("getJsConfig: ".$key);
+        //die("getJsConfig: ".$key);
         return self::_get($key, self::$prefix['js']);
     }
 
