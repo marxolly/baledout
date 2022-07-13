@@ -125,8 +125,13 @@
 
         $mail->MsgHTML($body);
 
-        if(!$mail->Send())
+        if($mail->Send())
         {
+            return true;
+        }
+        else
+        {
+            echo "<pre>",print_r($mail->ErrorInfo),"</pre>"; die();
             Logger::log("Mail Error", print_r($mail->ErrorInfo, true), __FILE__, __LINE__);
             throw new Exception("Email couldn't be sent to ". $name);
         }
