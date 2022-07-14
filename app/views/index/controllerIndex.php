@@ -1,4 +1,5 @@
 <?php
+echo "PAGE NAME: <p>$page_name</p>";
 echo "<pre>",print_r($pages),"</pre>"; die();
 $con_index = strtolower(str_replace(" ", "-", $page_name));
 //die($page_name);
