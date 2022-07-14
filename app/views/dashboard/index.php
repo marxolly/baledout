@@ -29,19 +29,19 @@ $c = 1;
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod mattis felis et iaculis. Donec iaculis vehicula consequat. Curabitur ac elit vel urna molestie iaculis. Etiam tristique ligula nec commodo imperdiet. Phasellus iaculis, elit at porttitor congue, odio orci faucibus lacus, vel dapibus enim urna id sapien. Sed ultricies nulla est, quis consectetur sapien placerat ut. Morbi congue congue erat non iaculis. Nam ultrices sem sit amet interdum egestas. Etiam vel placerat tortor. Cras non pulvinar purus. Nam id feugiat dui. Quisque eleifend varius nisl, ac varius augue fringilla dapibus. Quisque quis volutpat lacus, et ultricies nisi. Aliquam erat volutpat. Sed rhoncus nibh eget nunc fringilla, vel pretium eros dictum.</p>
             </div><!-- end 1st row -->
             <div class="row"><!-- second row -->
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Quisque consequat tellus vitae justo pharetra ultricies.</li>
-                        <li>Mauris eget nisl dictum, tristique lorem vitae, rhoncus leo.</li>
-                        <li>Aliquam non tellus interdum, tincidunt lorem vitae, varius purus.</li>
-                        <li>Morbi eu nisi finibus, scelerisque orci non, consequat felis.</li>
-                        <li>Sed non felis a arcu vestibulum mattis quis eget metus.</li>
+                    <ul class="list-group">
+                        <li class="list-group-item">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li class="list-group-item">Quisque consequat tellus vitae justo pharetra ultricies.</li>
+                        <li class="list-group-item">Mauris eget nisl dictum, tristique lorem vitae, rhoncus leo.</li>
+                        <li class="list-group-item">Aliquam non tellus interdum, tincidunt lorem vitae, varius purus.</li>
+                        <li class="list-group-item">Morbi eu nisi finibus, scelerisque orci non, consequat felis.</li>
+                        <li class="list-group-item">Sed non felis a arcu vestibulum mattis quis eget metus.</li>
                     </ul>
-                    <ul>
-                        <li>Morbi iaculis diam id lectus sagittis vestibulum.</li>
-                        <li>Etiam facilisis est ultrices nunc porta malesuada.</li>
-                        <li>Nunc vel diam varius mi tempus lacinia.</li>
-                    </ul> 
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Morbi iaculis diam id lectus sagittis vestibulum.</li>
+                        <li class="list-group-item">Etiam facilisis est ultrices nunc porta malesuada.</li>
+                        <li class="list-group-item">Nunc vel diam varius mi tempus lacinia.</li>
+                    </ul>
             </div> <!-- end 2nd row -->
             <div class="row">
                 <h2>Buttons</h2>
