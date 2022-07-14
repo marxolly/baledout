@@ -18,7 +18,8 @@ body{
 
 #page-wrapper {
     padding: 5px 10px;
-    background-color: #2b4b6f;
+    background: rgb(43,75,111);
+    background: linear-gradient(180deg, rgba(43,75,111,1) 20%, rgba(42,61,83,1) 80%, rgba(34,34,34,1) 100%);
 }
 
 div#page_container{
