@@ -21,7 +21,10 @@ $c = 1;
             <input type="hidden" id="admin_from_value" value="<?php echo strtotime('last friday', strtotime('-3 months'));?>" />
             <input type="hidden" id="admin_to_value" value="<?php echo strtotime('last friday', strtotime('tomorrow'));?>" />
             <div class="row">
-                <h1>Header 1</h1>
+                <div class="cell">
+                    <h1>Header 1</h1> 
+                </div>
+
                 <h2>Header 2</h2>
                 <h3>Header 3</h3>
                 <h4>Header 4</h4>
