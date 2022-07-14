@@ -7,7 +7,7 @@
  * @author     Mark Solly <mark@baledout.com.au>
  */
 
-class sitesettingsController extends Controller
+class SiteSettingsController extends Controller
 {
     public function beforeAction()
     {
