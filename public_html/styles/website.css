@@ -532,8 +532,8 @@ div#page_header{
     text-align: center;
     color: #fbfbfb;
     padding-top: 100px;
-    background: rgb(25,92,167);
-    background: linear-gradient(132deg, rgba(25,92,167,1) 0%, rgba(42,61,83,1) 20%, rgba(34,44,55,1) 40%, rgba(34,44,55,1) 70%, rgba(42,61,83,1) 90%, rgba(37,85,139,1) 100%);
+    background: rgb(43,75,111);
+background: linear-gradient(132deg, rgba(43,75,111,1) 0%, rgba(42,61,83,1) 20%, rgba(34,44,55,1) 40%, rgba(34,44,55,1) 70%, rgba(42,61,83,1) 90%, rgba(43,75,111,1) 100%);
     box-shadow: 0 5px 10px 0 rgba(50, 50, 50, 0.3);
     transition:all 600ms linear;
 }
