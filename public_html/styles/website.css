@@ -18,7 +18,7 @@ body{
 
 #page-wrapper {
     background: rgb(253,253,253);
-    background: linear-gradient(180deg, rgba(253,253,253,1) 80%, rgba(43,75,111,1) 100%);
+    background: linear-gradient(180deg, rgba(253,253,253,1) 90%, rgba(218,228,241,1) 100%)
 }
 
 div#page_container{
