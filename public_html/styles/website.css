@@ -34,7 +34,8 @@ footer{
     position: relative;
     text-align: center;
     padding: 35px 0px;
-    background: #2b4b6f;
+    background: rgba(218,228,241,1);
+    background: linear-gradient(180deg, rgba(218,228,241,1) 40%, rgba(200,214,234,1) 100%);
     font-weight: 500;
     color: #bbbbbb;
     font-size: 14px;
