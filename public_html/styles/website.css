@@ -17,13 +17,12 @@ body{
 }
 
 #page-wrapper {
-    background: rgb(43,75,111);
-    background: linear-gradient(180deg, rgba(43,75,111,1) 20%, rgba(42,61,83,1) 80%, rgba(34,34,34,1) 100%);
+    background: rgb(253,253,253);
+    background: linear-gradient(180deg, rgba(253,253,253,1) 80%, rgba(43,75,111,1) 100%);
 }
 
 div#page_container{
     background-color: #fdfdfd;
-    box-shadow: -5px 0 5px -5px rgba(50, 50, 50, 0.3), 5px 0 5px -5px rgba(50, 50, 50, 0.3);
     padding-bottom: 20px;
     overflow-x: auto;
     min-height: 665px;
@@ -35,7 +34,7 @@ footer{
     position: relative;
     text-align: center;
     padding: 35px 0px;
-    background: #222222;
+    background: #2b4b6f;
     font-weight: 500;
     color: #bbbbbb;
     font-size: 14px;
