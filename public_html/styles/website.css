@@ -685,7 +685,7 @@ div.bubble {
     position: absolute;
     border-left: 24px solid #2b4b6f;
     border-right: 12px solid transparent;
-    border-top: 12px solid 2b4b6f;
+    border-top: 12px solid #2b4b6f;
     border-bottom: 20px solid transparent;
     left: 32px;
     bottom: -24px;
