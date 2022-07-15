@@ -81,10 +81,11 @@ $c = 1;
             <div class="row">
                 <h3>Three Columns</h3>
                 <div class="col-md-4">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">Info Panel</div>
-                        <div class="panel-body">
-                            Panel content
+                    <div class="card border-info mb-3 h-100">
+                        <div class="card-header border-info bg-info text-white h-100">Info Card</div>
+                        <div class="card-body">
+                            <h5 class="card-title text-info">Info card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
                 </div>
