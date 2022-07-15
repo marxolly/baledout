@@ -37,7 +37,7 @@ footer{
     background: rgba(218,228,241,1);
     background: linear-gradient(180deg, rgba(218,228,241,1) 40%, rgba(200,214,234,1) 100%);
     font-weight: 500;
-    color: #bbbbbb;
+    color: #25558b;
     font-size: 14px;
 }
 
@@ -1047,7 +1047,7 @@ bootstrap adjustments
 
     .breadcrumb{
         padding: 0.75rem 1rem;
-        background-color: #e9ecef;
+        background-color: rgba(218,228,241,1) ;
         border-radius: 0.25rem;
     }
 
