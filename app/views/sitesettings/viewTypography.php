@@ -54,12 +54,12 @@ $c = 1;
 
             </div>
             <div class="row">
-                <h2>Panels</h2>
+                <h2>Cards</h2>
             </div>
             <div class="row">
                 <h3>Two Columns</h3>
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card border-primary mb-3">
                         <div class="card-header">Primary Card</div>
                         <div class="card-body">
                             <h5 class="card-title">Primary card title</h5>
