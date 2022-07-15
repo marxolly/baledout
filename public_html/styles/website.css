@@ -1047,7 +1047,7 @@ bootstrap adjustments
         content: "|";
     }
 
-    .breadcrumb-item{
+    .breadcrumb-item a{
         color: #1c518c ;
     }
 
