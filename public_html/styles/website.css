@@ -1044,6 +1044,13 @@ bootstrap adjustments
     .breadcrumb-item:first-child + .breadcrumb-item::before{
             content: ">";
         }
+
+    .breadcrumb{
+        padding: 075rem 1rem;
+        background-color: #e9ecef;
+        border-radius: 0.25rem;
+    }
+
     /** Dashed Border **/
     .border-bottom-dashed{
         border-bottom-style: dashed !important;
