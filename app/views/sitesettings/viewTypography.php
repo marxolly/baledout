@@ -80,8 +80,8 @@ $c = 1;
             </div>
             <div class="row">
                 <h3>Three Columns</h3>
-                <div class="col-md-4">
-                    <div class="card border-info mb-3 h-100">
+                <div class="col-md-4 mb-3">
+                    <div class="card border-info h-100">
                         <div class="card-header border-info bg-info text-white h-100">Info Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-info">Info card title</h5>
@@ -89,8 +89,8 @@ $c = 1;
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card border-warning mb-3 h-100">
+                <div class="col-md-4 mb-3">
+                    <div class="card border-warning h-100">
                         <div class="card-header border-warning bg-warning text-white h-100">Warning Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-warning">Warning card title</h5>
@@ -98,8 +98,8 @@ $c = 1;
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card border-danger mb-3 h-100">
+                <div class="col-md-4 mb-3">
+                    <div class="card border-danger h-100">
                         <div class="card-header border-danger bg-danger text-white h-100">Danger Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-danger">Danger card title</h5>
