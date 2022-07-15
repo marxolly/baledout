@@ -59,10 +59,11 @@ $c = 1;
             <div class="row">
                 <h3>Two Columns</h3>
                 <div class="col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Primary Panel</div>
-                        <div class="panel-body">
-                            Panel content
+                    <div class="card">
+                        <div class="card-header">Primary Card</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Primary card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
                 </div>
