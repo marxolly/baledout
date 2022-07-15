@@ -90,18 +90,20 @@ $c = 1;
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="panel panel-warning">
-                        <div class="panel-heading">Warning Panel</div>
-                        <div class="panel-body">
-                            Panel content
+                    <div class="card border-warning mb-3 h-100">
+                        <div class="card-header border-warning bg-warning text-white h-100">Warning Card</div>
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">Warning card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">Danger Panel</div>
-                        <div class="panel-body">
-                            Panel content
+                    <div class="card border-danger mb-3 h-100">
+                        <div class="card-header border-danger bg-danger text-white h-100">Danger Card</div>
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">Danger card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
                 </div>
