@@ -47,6 +47,7 @@ a{
 }
 
 a:hover{
+    color: #70582c;
     text-decoration: underline;
 }
 
