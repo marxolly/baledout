@@ -60,7 +60,7 @@ $c = 1;
                 <h3>Two Columns</h3>
                 <div class="col-md-6 mb-3">
                     <div class="card border-primary h-100">
-                        <div class="card-header border-primary bg-primary text-white h-100">Primary Card<br><br>more..</div>
+                        <div class="card-header border-primary bg-primary text-white">Primary Card<br><br>more..</div>
                         <div class="card-body">
                             <h5 class="card-title text-primary">Primary card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -69,7 +69,7 @@ $c = 1;
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="card border-success h-100">
-                        <div class="card-header border-success bg-success text-white h-100">Success Card</div>
+                        <div class="card-header border-success bg-success text-white">Success Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-success">Success card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -82,7 +82,7 @@ $c = 1;
                 <h3>Three Columns</h3>
                 <div class="col-md-4 mb-3">
                     <div class="card border-info h-100">
-                        <div class="card-header border-info bg-info text-white h-100">Info Card</div>
+                        <div class="card-header border-info bg-info text-white">Info Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-info">Info card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -91,7 +91,7 @@ $c = 1;
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card border-warning h-100">
-                        <div class="card-header border-warning bg-warning text-white h-100">Warning Card</div>
+                        <div class="card-header border-warning bg-warning text-white">Warning Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-warning">Warning card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -100,7 +100,7 @@ $c = 1;
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card border-danger h-100">
-                        <div class="card-header border-danger bg-danger text-white h-100">Danger Card</div>
+                        <div class="card-header border-danger bg-danger text-white">Danger Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-danger">Danger card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
