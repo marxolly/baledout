@@ -59,16 +59,16 @@ $c = 1;
             <div class="row">
                 <h3>Two Columns</h3>
                 <div class="col-md-6">
-                    <div class="card border-primary mb-3">
+                    <div class="card border-primary mb-3 h-100">
                         <div class="card-header border-primary bg-primary text-white">Primary Card</div>
                         <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
+                            <h5 class="card-title text-primary">Primary card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card border-success mb-3">
+                    <div class="card border-success mb-3 h-100">
                         <div class="card-header border-success bg-success text-white">Success Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-success">Success card title</h5>
