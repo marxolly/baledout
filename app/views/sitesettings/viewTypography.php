@@ -71,7 +71,8 @@ $c = 1;
                     <div class="card border-success mb-3">
                         <div class="card-header border-success bg-success text-white">Success Card</div>
                         <div class="card-body">
-                            <h5 class="card-title">Success card title</h5>
+                            <h5 class="card-title text-success">Success card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
