@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6
 {
     font-family: "Roboto Condensed";
     font-style: normal;
-    color: #282c69;
+    color: #195ca7;
 }
 
 h2.page-header{
@@ -59,7 +59,7 @@ h2.page-header{
     text-transform: uppercase;
     text-align: center;
     margin-top: 25px;
-    color: #282c69;
+    color: #244a4d;
 }
 
 h2.page-header i{
