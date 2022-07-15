@@ -1052,7 +1052,7 @@ bootstrap adjustments
     }
 
     .breadcrumb-item a:hover{
-        color: #bda624 ;
+        color: #70582c ;
     }
 
     .breadcrumb-item:first-child + .breadcrumb-item::before{
