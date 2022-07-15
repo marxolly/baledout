@@ -1051,6 +1051,10 @@ bootstrap adjustments
         color: #1c518c ;
     }
 
+    .breadcrumb-item a:hover{
+        color: #bda624 ;
+    }
+
     .breadcrumb-item:first-child + .breadcrumb-item::before{
         content: ">";
     }
