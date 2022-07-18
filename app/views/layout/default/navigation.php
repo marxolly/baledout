@@ -19,8 +19,8 @@ endif;
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: transparent; height:120px;">
     <a href="/" class="navbar-brand" rel="home" itemprop="url">
-        <img width="130" src="/images/FSG_logo@130px.png" class="custom-logo" alt="FSG" style="display:none;" title="WMS Home" />
-        <img width="130" src="/images/FSG_logo_white@130px.png" class="custom-logo-transparent" alt="FSG logo" title="WMS Home" />
+        <img width="130" src="/images/FSG_logo@130px.png" class="custom-logo" alt="Baledout Logo" style="display:none;" title="Portal Home" />
+        <img width="130" src="/images/FSG_logo_white@130px.png" class="custom-logo-transparent" alt="Baledout Logo" title="Portal Home" />
     </a>
     <button id="navbar_toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,13 +32,6 @@ endif;
                     if( (isset($pages[$section]['super_admin_only']) && $pages[$section]['super_admin_only'] == true) )
                     {
                         if(Session::getUserRole() != "super admin")
-                            continue;
-                    }
-                    if( isset($pages[$section]['delivery-clients']) )
-                    {
-                        if( $pages[$section]['delivery-clients'] && !Session::isDeliveryClientUser())
-                            continue;
-                        if( !$pages[$section]['delivery-clients'] && Session::isDeliveryClientUser())
                             continue;
                     }
                     if($pages[$section][$section."-index"]):
