@@ -21,7 +21,7 @@ endif;
     <a href="/" class="navbar-brand" rel="home" itemprop="url">
         <!--img width="130" src="/images/FSG_logo@130px.png" class="custom-logo" alt="Baledout Logo" style="display:none;" title="Portal Home" /!-->
         <!--img width="130" src="/images/FSG_logo_white@130px.png" class="custom-logo-transparent" alt="Baledout Logo" title="Portal Home" /!-->
-        <img width="130" src="/images/white_truck_clear_back.png" class="custom-logo-transparent" alt="Baledout Logo" title="Portal Home" />
+        <img width="130" src="/images/white_truck_clear_back.png" class="custom-logo" alt="Baledout Logo" title="Portal Home" />
         <img width="130" src="/images/blue_truck_clear_back.png" class="custom-logo-transparent" alt="Baledout Logo" title="Portal Home" />
     </a>
     <button id="navbar_toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
