@@ -74,6 +74,6 @@ endif;
 <!-- Common Page Header -->
 <div id="page_header" class="row">
     <div class="col-lg-12">
-        <h1>Baled Web Portal</h1>
+        <h1>Baledout Web Portal</h1>
     </div>
 </div>
