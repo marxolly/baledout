@@ -72,6 +72,11 @@ h2.page-header svg{
     vertical-align: middle;
 }
 
+img.bo_logo {
+    width: 250px;
+    height: auto;
+}
+
 /********
 website colours
 ********/
@@ -245,57 +250,6 @@ div#order_activity_chart{
     background: none;
 }
 
-@media screen and (min-width: 576px) {
-    .homepagecard,
-    .backordercard,
-    .indexpagecard {
-        flex: 48% !important;
-        max-width: 48% !important;
-    }
-
-    .homepagedeck,
-    .backorderdeck,
-    .indexpagedeck {
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-
-    .homepagecard .card-header{
-        height:110px;
-        /*height: 45%*/
-    }
-
-    .indexpagecard .card-header,
-    .backordercard .card-header {
-        height:90px;
-    }
-
-}
-
-@media screen and (min-width: 768px) {
-    .backordercard,
-    .indexpagecard {
-        flex: 33% !important;
-        max-width: 31% !important;
-        }
-
-}
-
-@media screen and (min-width: 960px) {
-    .backordercard,
-    .indexpagecard {
-        flex: 25% !important;
-        max-width: 23% !important;
-    }
-}
-
-@media screen and (min-width: 1500px){
-    .backordercard,
-    .indexpagecard {
-        flex: 20% !important;
-        max-width: 18% !important;
-    }
-}
 
 /*****
 View Orders
@@ -1374,6 +1328,15 @@ bootstrap adjustments
 /********
 Responsive adjustments
 *******  */
+@media(min-width:768px)
+{
+   img.bo_logo{
+       width:250px;
+       height: auto;
+   }
+
+}
+
 @media(min-width: 992px)
 {
     .navbar-expand-lg .navbar-nav{
