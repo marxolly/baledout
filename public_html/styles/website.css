@@ -1346,6 +1346,11 @@ Responsive adjustments
         margin-top:25px;
     }
 
+
+}
+
+@media(min-width: 1200px)
+{
     img.bo_logo{
        width:250px;
        height: auto;
