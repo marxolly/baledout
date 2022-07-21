@@ -60,7 +60,7 @@ $c = 1;
                 <h3>Two Columns On All But Phone</h3>
             </div>
             <div class="row row-cols-1 row-cols-sm-2">
-                <div class="col">
+                <div class="col mb-3">
                     <div class="card border-primary h-100">
                         <div class="card-header border-primary bg-primary text-white">Primary Card<br><br>more..</div>
                         <div class="card-body">
@@ -69,7 +69,7 @@ $c = 1;
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col mb-3">
                     <div class="card border-success h-100">
                         <div class="card-header border-success bg-success text-white">Success Card</div>
                         <div class="card-body">
