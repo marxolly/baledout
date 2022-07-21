@@ -80,10 +80,10 @@ $c = 1;
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <h3>Three Columns</h3>
-                <div class="col-md-4 mb-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                <div class="row">
+                <h3>Adjust Up to Four Columns</h3>
+                <div class="col mb-3">
                     <div class="card border-info h-100">
                         <div class="card-header border-info bg-info text-white">Info Card</div>
                         <div class="card-body">
@@ -92,7 +92,7 @@ $c = 1;
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col mb-3">
                     <div class="card border-warning h-100">
                         <div class="card-header border-warning bg-warning text-white">Warning Card</div>
                         <div class="card-body">
@@ -101,11 +101,20 @@ $c = 1;
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col mb-3">
                     <div class="card border-danger h-100">
                         <div class="card-header border-danger bg-danger text-white">Danger Card</div>
                         <div class="card-body">
                             <h5 class="card-title text-danger">Danger card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="card border-dark h-100">
+                        <div class="card-header border-dark bg-dark text-white">Dark Card</div>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Dark card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
