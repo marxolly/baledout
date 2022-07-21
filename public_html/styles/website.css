@@ -73,8 +73,7 @@ h2.page-header svg{
 }
 
 img.bo_logo {
-    width: 250px;
-    height: auto;
+    display: none;
 }
 
 /********
