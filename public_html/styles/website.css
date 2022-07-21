@@ -399,6 +399,7 @@ User Info
 *****/
 ul.user-info{
     list-style: none;
+    margin-right: 1rem;
 }
 
 ul.user-info li a.dropdown-toggle,
