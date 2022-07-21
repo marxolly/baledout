@@ -23,7 +23,7 @@ endif;
         <!--img width="130" src="/images/FSG_logo_white@130px.png" class="custom-logo-transparent" alt="Baledout Logo" title="Portal Home" /!-->
         <!--img width="130" src="/images/white_truck_clear_back.png" class="custom-logo-transparent" alt="Baledout Logo" title="Portal Home" />
         <img width="130" src="/images/blue_truck_clear_back_BO.png" class="custom-logo" alt="Baledout Logo" title="Portal Home" /!-->
-        <img width="130" src="/images/BO_logo1.png" alt="Baledout Logo" title="Portal Home" /!-->
+        <img  src="/images/BO_logo1.png" alt="Baledout Logo" title="Portal Home" /!-->
     </a>
     <button id="navbar_toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
