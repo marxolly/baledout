@@ -490,7 +490,7 @@ Page Header
 div#page_header{
     text-align: center;
     color: #fbfbfb;
-    padding-top: 100px;
+    padding-top: 110px;
     background: rgb(43,75,111);
 background: linear-gradient(90deg, rgba(43,75,111,1) 0%, rgba(42,61,83,1) 20%, rgba(34,44,55,1) 40%, rgba(34,44,55,1) 70%, rgba(42,61,83,1) 80%, rgba(43,75,111,1) 100%);
     box-shadow: 0 5px 10px 0 rgba(50, 50, 50, 0.3);
@@ -1330,11 +1330,10 @@ Responsive adjustments
 @media(min-width:768px)
 {
    img.bo_logo{
-       width:250px;
+       width:180px;
        height: auto;
        display: block;
    }
-
 }
 
 @media(min-width: 992px)
@@ -1346,6 +1345,12 @@ Responsive adjustments
     ul.user-info img.img-user{
         margin-top:25px;
     }
+
+    img.bo_logo{
+       width:250px;
+       height: auto;
+       display: block;
+   }
 }
 
 /********
