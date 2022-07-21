@@ -80,9 +80,10 @@ $c = 1;
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-                <div class="row">
+            <div class="row">
                 <h3>Adjust Up to Four Columns</h3>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
                 <div class="col mb-3">
                     <div class="card border-info h-100">
                         <div class="card-header border-info bg-info text-white">Info Card</div>
