@@ -397,8 +397,7 @@ div.order-items div:last-child{
 /*****
 User Info
 *****/
-ul.user-info{
-    list-style: none;
+div#user_info ul.user-info{
     margin-right: 1rem;
 }
 
