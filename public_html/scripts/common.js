@@ -106,11 +106,11 @@ var scroller = {
         $nav.toggleClass('scrolled', $(window).scrollTop() > $nav.height());
         if( $(window).scrollTop() > $nav.height() )
         {
-            $('div#user_info img.img-user'),css({height: '3rem'})
+            $('div#user_info img.img-user').css({height: '3rem'})
         }
         else
         {
-            $('div#user_info img.img-user'),css({height: '5rem'})
+            $('div#user_info img.img-user').css({height: '5rem'})
         }
     },
     cardsInView: function(){
