@@ -65,7 +65,7 @@ $c = 1;
                     <div class="form-group row">
                         <div class="col-md-4 offset-md-3 text-center text-md-start">
                             <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
-                            <button type="submit" class="btn btn-outline-fsg" id="submitter">Submit The Form</button>
+                            <button type="submit" class="btn btn-outline-bo" id="submitter">Submit The Form</button>
                         </div>
                     </div>
                </div>
