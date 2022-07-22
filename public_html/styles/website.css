@@ -1041,74 +1041,74 @@ bootstrap adjustments
     }
 
     /** BaledOut border colour **/
-    .border-fsg{
+    .border-bo{
         border-color: #2b4b6f !important;
     }
 
 
     /** Baledout button type - outline only */
-    .btn-outline-fsg {
+    .btn-outline-bo {
         color: #2b4b6f;
         border-color: #2b4b6f;
     }
 
-    .btn-outline-fsg:hover {
+    .btn-outline-bo:hover {
         color: #fff !important;
         background-color: #2b4b6f;
         border-color: #2b4b6f;
     }
 
-    .btn-outline-fsg:focus, .btn-outline-fsg.focus {
+    .btn-outline-bo:focus, .btn-outline-bo.focus {
         box-shadow: 0 0 0 0.2rem rgba(43,75,111, 0.5);
     }
 
-    .btn-outline-fsg.disabled, .btn-outline-fsg:disabled {
+    .btn-outline-bo.disabled, .btn-outline-bo:disabled {
         color: #2b4b6f;
         background-color: transparent;
     }
 
-    .btn-outline-fsg:not(:disabled):not(.disabled):active, .btn-outline-fsg:not(:disabled):not(.disabled).active,
-    .show > .btn-outline-fsg.dropdown-toggle {
+    .btn-outline-bo:not(:disabled):not(.disabled):active, .btn-outline-bo:not(:disabled):not(.disabled).active,
+    .show > .btn-outline-bo.dropdown-toggle {
         color: #fff;
         background-color: #2b4b6f;
         border-color: #2b4b6f;
     }
 
-    .btn-outline-fsg:not(:disabled):not(.disabled):active:focus, .btn-outline-fsg:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-outline-fsg.dropdown-toggle:focus {
+    .btn-outline-bo:not(:disabled):not(.disabled):active:focus, .btn-outline-bo:not(:disabled):not(.disabled).active:focus,
+    .show > .btn-outline-bo.dropdown-toggle:focus {
         box-shadow: 0 0 0 0.2rem rgba(43,75,111, 0.5);
     }
 
-    /** FSG LIGHT button type - outline only */
-    .btn-outline-fsglight {
+    /** bo LIGHT button type - outline only */
+    .btn-outline-bolight {
         color: #b6cbe2;
         border-color: #b6cbe2;
     }
 
-    .btn-outline-fsglight:hover {
+    .btn-outline-bolight:hover {
         color: #fff !important;
         background-color: #b6cbe2;
         border-color: #b6cbe2;
     }
 
-    .btn-outline-fsglight:focus, .btn-outline-fsglight.focus {
+    .btn-outline-bolight:focus, .btn-outline-bolight.focus {
         box-shadow: 0 0 0 0.2rem rgba(182,203,226, 0.5);
     }
 
-    .btn-outline-fsglight.disabled, .btn-outline-fsglight:disabled {
+    .btn-outline-bolight.disabled, .btn-outline-bolight:disabled {
         color: #b6cbe2;
         background-color: transparent;
     }
 
-    .btn-outline-fsglight:not(:disabled):not(.disabled):active, .btn-outline-fsglight:not(:disabled):not(.disabled).active,
-    .show > .btn-outline-fsglight.dropdown-toggle {
+    .btn-outline-bolight:not(:disabled):not(.disabled):active, .btn-outline-bolight:not(:disabled):not(.disabled).active,
+    .show > .btn-outline-bolight.dropdown-toggle {
         color: #fff;
         background-color: #b6cbe2;
         border-color: #b6cbe2;
     }
 
-    .btn-outline-fsglight:not(:disabled):not(.disabled):active:focus, .btn-outline-fsglight:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-outline-fsglight.dropdown-toggle:focus {
+    .btn-outline-bolight:not(:disabled):not(.disabled):active:focus, .btn-outline-bolight:not(:disabled):not(.disabled).active:focus,
+    .show > .btn-outline-bolight.dropdown-toggle:focus {
         box-shadow: 0 0 0 0.2rem rgba(182,203,226, 0.5);
     }
     /** Extra Big Container **/
@@ -1244,14 +1244,14 @@ Colorpicker adjustments
 }
 
 /********
-FSG Background colors
+bo Background colors
 *******  */
 
 .bg-bo{
     background-color: rgba(43,75,111,0.1) !important;
 }
 
-.bg-bd-fsg{
+.bg-bd-bo{
     background-color: rgba(43,75,111,0.1) !important;
     border: 1px solid rgba(43,75,111,0.2);
 }
