@@ -399,6 +399,8 @@ User Info
 *****/
 div#user_info{
     margin-right: 1rem;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 ul.user-info li a.dropdown-toggle,
@@ -413,8 +415,7 @@ div#user_info img.img-user{
     width: auto;
     height: 5rem;
     border: 3px solid #fff;
-    border-radius: 5px;
-    margin-top: 5px;
+    border-radius: 5px; 
 }
 
 div#user_info div.contact_link a{
