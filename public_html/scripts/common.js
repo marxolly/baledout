@@ -104,20 +104,13 @@ var scroller = {
         //console.log('check display');
         var $nav = $("nav.fixed-top");
         $nav.toggleClass('scrolled', $(window).scrollTop() > $nav.height());
-        $('ul.user-info li').toggleClass('white', $(window).scrollTop() > $nav.height());
-        $('ul.user-info div#countdown').toggleClass('text-white', $(window).scrollTop() < $nav.height());
-        //$('ul.user-info div#contact-link a').toggleClass('text-white', $(window).scrollTop() < $nav.height());
-        $nav.toggleClass('navbar-light', $(window).scrollTop() > $nav.height());
-        $nav.toggleClass('navbar-dark', $(window).scrollTop() < $nav.height());
         if( $(window).scrollTop() > $nav.height() )
         {
-            $('img.custom-logo-transparent').hide();
-            $('img.custom-logo').show();
+            $('div#user_info img.img-user'),css({height: '3rem'})
         }
         else
         {
-            $('img.custom-logo-transparent').show();
-            $('img.custom-logo').hide();
+            $('div#user_info img.img-user'),css({height: '5rem'})
         }
     },
     cardsInView: function(){
