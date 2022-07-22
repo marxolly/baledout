@@ -44,7 +44,7 @@ $c = 1;
                             <span class="inst">Instructions</span></label>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="signature_req" name="signature_req" <?php if(!empty(Form::value('signature_req'))) echo 'checked';?> aria-label="..." />
+                                    <input class="form-check-input" type="checkbox" id="signature_req" name="signature_req" <?php if(!empty(Form::value('signature_req'))) echo 'checked';?>/>
                                 </div>
                             </div>
                         </div>
