@@ -56,7 +56,7 @@ endif;
                     <img class="img-user" src="<?php echo $image;?>" /><br/>
                     <strong><?php echo Session::getUsersName(); ?></strong>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDropdownMenuLink">
                     <li><a href="/user/profile" class="dropdown-item"><i class="fa fa-user fa-fw"></i> Profile</a></li>
                     <li><a href="/login/logOut" class="dropdown-item"><i class="fa fa-sign-out fa-fw"></i> Logout</a> </li>
                 </ul>
