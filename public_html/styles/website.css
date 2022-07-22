@@ -1040,206 +1040,76 @@ bootstrap adjustments
         left: initial;
     }
 
-    /** FSG border colour **/
+    /** BaledOut border colour **/
     .border-fsg{
-        border-color: #030c57 !important;
+        border-color: #2b4b6f !important;
     }
 
-    /** Pickup button type - outline only - on the home page */
-    .btn-outline-pickup {
-        color: #466a99;
-        border-color: #466a99;
-    }
 
-    .btn-outline-pickup:hover {
-        color: #fff !important;
-        background-color: #466a99;
-        border-color: #466a99;
-    }
-
-    .btn-outline-pickup:focus, .btn-outline-pickup.focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-
-    .btn-outline-pickup.disabled, .btn-outline-pickup:disabled {
-        color: #466a99;
-        background-color: transparent;
-    }
-
-    .btn-outline-pickup:not(:disabled):not(.disabled):active, .btn-outline-pickup:not(:disabled):not(.disabled).active,
-    .show > .btn-outline-pickup.dropdown-toggle {
-        color: #fff;
-        background-color: #466a99;
-        border-color: #466a99;
-    }
-
-    .btn-outline-pickup:not(:disabled):not(.disabled):active:focus, .btn-outline-pickup:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-outline-pickup.dropdown-toggle:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-
-    /** backorders button type - outline only - on the home page */
-    .btn-outline-backorder {
-        color: #744368;
-        border-color: #744368;
-    }
-
-    .btn-outline-backorder:hover {
-        color: #fff !important;
-        background-color: #744368;
-        border-color: #744368;
-    }
-
-    .btn-outline-backorder:focus, .btn-outline-backorder.focus {
-        box-shadow: 0 0 0 0.2rem rgba(116,67,104, 0.5);
-    }
-
-    .btn-outline-backorder.disabled, .btn-outline-backorder:disabled {
-        color: #744368;
-        background-color: transparent;
-    }
-
-    .btn-outline-backorder:not(:disabled):not(.disabled):active, .btn-outline-backorder:not(:disabled):not(.disabled).active,
-    .show > .btn-outline-backorder.dropdown-toggle {
-        color: #fff;
-        background-color: #744368;
-        border-color: #744368;
-    }
-
-    .btn-outline-backorder:not(:disabled):not(.disabled):active:focus, .btn-outline-backorder:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-outline-backorder.dropdown-toggle:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-
-    /** Delivery button type - outline only - on the home page */
-    .btn-outline-delivery {
-        color: #0640c6;
-        border-color: #0640c6;
-    }
-
-    .btn-outline-delivery:hover {
-        color: #fff !important;
-        background-color: #0640c6;
-        border-color: #0640c6;
-    }
-
-    .btn-outline-delivery:focus, .btn-outline-delivery.focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-
-    .btn-outline-delivery.disabled, .btn-outline-delivery:disabled {
-        color: #0640c6;
-        background-color: transparent;
-    }
-
-    .btn-outline-delivery:not(:disabled):not(.disabled):active, .btn-outline-delivery:not(:disabled):not(.disabled).active,
-    .show > .btn-outline-delivery.dropdown-toggle {
-        color: #fff;
-        background-color: #0640c6;
-        border-color: #0640c6;
-    }
-
-    .btn-outline-delivery:not(:disabled):not(.disabled):active:focus, .btn-outline-delivery:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-outline-delivery.dropdown-toggle:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-
-    /** Orders button type - outline only - on the home page */
-    .btn-outline-order {
-        color: #052f95;
-        border-color: #052f95;
-    }
-
-    .btn-outline-order:hover {
-        color: #fff !important;
-        background-color: #052f95;
-        border-color: #052f95;
-    }
-
-    .btn-outline-order:focus, .btn-outline-order.focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-
-    .btn-outline-order.disabled, .btn-outline-order:disabled {
-        color: #052f95;
-        background-color: transparent;
-    }
-
-    .btn-outline-order:not(:disabled):not(.disabled):active, .btn-outline-order:not(:disabled):not(.disabled).active,
-    .show > .btn-outline-order.dropdown-toggle {
-        color: #fff;
-        background-color: #052f95;
-        border-color: #052f95;
-    }
-
-    .btn-outline-order:not(:disabled):not(.disabled):active:focus, .btn-outline-order:not(:disabled):not(.disabled).active:focus,
-    .show > .btn-outline-order.dropdown-toggle:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-    /** FSG button type - outline only */
+    /** Baledout button type - outline only */
     .btn-outline-fsg {
-        color: #030c57;
-        border-color: #030c57;
+        color: #2b4b6f;
+        border-color: #2b4b6f;
     }
 
     .btn-outline-fsg:hover {
         color: #fff !important;
-        background-color: #030c57;
-        border-color: #030c57;
+        background-color: #2b4b6f;
+        border-color: #2b4b6f;
     }
 
     .btn-outline-fsg:focus, .btn-outline-fsg.focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(43,75,111, 0.5);
     }
 
     .btn-outline-fsg.disabled, .btn-outline-fsg:disabled {
-        color: #030c57;
+        color: #2b4b6f;
         background-color: transparent;
     }
 
     .btn-outline-fsg:not(:disabled):not(.disabled):active, .btn-outline-fsg:not(:disabled):not(.disabled).active,
     .show > .btn-outline-fsg.dropdown-toggle {
         color: #fff;
-        background-color: #030c57;
-        border-color: #030c57;
+        background-color: #2b4b6f;
+        border-color: #2b4b6f;
     }
 
     .btn-outline-fsg:not(:disabled):not(.disabled):active:focus, .btn-outline-fsg:not(:disabled):not(.disabled).active:focus,
     .show > .btn-outline-fsg.dropdown-toggle:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(43,75,111, 0.5);
     }
 
     /** FSG LIGHT button type - outline only */
     .btn-outline-fsglight {
-        color: #74a3d4;
-        border-color: #74a3d4;
+        color: #b6cbe2;
+        border-color: #b6cbe2;
     }
 
     .btn-outline-fsglight:hover {
         color: #fff !important;
-        background-color: #74a3d4;
-        border-color: #74a3d4;
+        background-color: #b6cbe2;
+        border-color: #b6cbe2;
     }
 
     .btn-outline-fsglight:focus, .btn-outline-fsglight.focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(182,203,226, 0.5);
     }
 
     .btn-outline-fsglight.disabled, .btn-outline-fsglight:disabled {
-        color: #030c57;
+        color: #b6cbe2;
         background-color: transparent;
     }
 
     .btn-outline-fsglight:not(:disabled):not(.disabled):active, .btn-outline-fsglight:not(:disabled):not(.disabled).active,
     .show > .btn-outline-fsglight.dropdown-toggle {
         color: #fff;
-        background-color: #030c57;
-        border-color: #030c57;
+        background-color: #b6cbe2;
+        border-color: #b6cbe2;
     }
 
     .btn-outline-fsglight:not(:disabled):not(.disabled):active:focus, .btn-outline-fsglight:not(:disabled):not(.disabled).active:focus,
     .show > .btn-outline-fsglight.dropdown-toggle:focus {
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(182,203,226, 0.5);
     }
     /** Extra Big Container **/
     .container-xxl{
@@ -1377,13 +1247,13 @@ Colorpicker adjustments
 FSG Background colors
 *******  */
 
-.bg-fsg{
-    background-color: rgba(8,80,247,0.1) !important;
+.bg-bo{
+    background-color: rgba(43,75,111,0.1) !important;
 }
 
 .bg-bd-fsg{
-    background-color: rgba(8,80,247,0.1) !important;
-    border: 1px solid rgba(8,80,247,0.2);
+    background-color: rgba(43,75,111,0.1) !important;
+    border: 1px solid rgba(43,75,111,0.2);
 }
 
 /**
