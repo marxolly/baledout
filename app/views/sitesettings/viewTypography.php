@@ -39,7 +39,9 @@ $c = 1;
                         </div>
                         <div class="form-group row">
                             <div class="form-check">
-                                <input class="form-check-input col-md-3" type="checkbox" id="signature_req" name="signature_req" <?php if(!empty(Form::value('signature_req'))) echo 'checked';?> />
+                                <div class="col-md-3">
+                                    <input class="form-check-input" type="checkbox" id="signature_req" name="signature_req" <?php if(!empty(Form::value('signature_req'))) echo 'checked';?> />
+                                </div>
                                 <label class="form-check-label col-md-4" for="signature_req">A Checkbox</label><br/>
                                 <span class="inst">Instructions</span>
                             </div>
