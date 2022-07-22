@@ -40,12 +40,12 @@ $c = 1;
 
 
                         <div class="form-group row mb-3">
-                            <label class="col-md-3 col-form-label text-end d-sm-none" for="signature_req">A Checkbox<br/>
+                            <label class="col-md-3 col-form-label text-end d-none d-md-block" for="signature_req">A Checkbox<br/>
                             <span class="inst">Instructions</span></label>
                             <div class="col-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="signature_req" name="signature_req" <?php if(!empty(Form::value('signature_req'))) echo 'checked';?>>
-                                    <label class="form-check-label d-md-none" for="signature_req">A Checkbox</label>
+                                    <label class="form-check-label d-md-none" for="signature_req">A Phone Checkbox</label>
                                 </div>
                             </div>
                         </div>
