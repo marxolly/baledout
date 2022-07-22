@@ -416,11 +416,11 @@ div#user_info img.img-user{
     border-radius: 5px;
 }
 
-ul.user-info div.contact_link a{
+div#user_info div.contact_link a{
     color: #fafafa;
 }
 
-ul.user-info div.contact_link a:hover{
+div#user_info div.contact_link a:hover{
     color: #aeaeae;
 }
 
