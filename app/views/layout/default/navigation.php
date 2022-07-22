@@ -47,19 +47,23 @@ endif;
             <?php endif;?>
         </ul>
     </div>
-    <ul class="navbar user-info">
-        <li class="nav-item dropdown">
-            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="img-user" src="<?php echo $image;?>" /><br/>
-                <strong><?php echo Session::getUsersName(); ?></strong>
-            </a>
-            <div id="contact-link"><a href="/contact/contact-us/" class="nav-link"><i class="fad fa-envelope-open"></i> Contact Us</a></div>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/user/profile" class="dropdown-item"><i class="fa fa-user fa-fw"></i> Profile</a>
-                <a href="/login/logOut" class="dropdown-item"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-            </div>
-        </li>
-    </ul>
+
+
+    <div class="collapse navbar-collapse" id="user_info">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="img-user" src="<?php echo $image;?>" /><br/>
+                    <strong><?php echo Session::getUsersName(); ?></strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a href="/user/profile" class="dropdown-item"><i class="fa fa-user fa-fw"></i> Profile</a></li>
+                    <li><a href="/login/logOut" class="dropdown-item"><i class="fa fa-sign-out fa-fw"></i> Logout</a> </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
 </nav>
 <!-- End Navigation -->
 <!-- Common Page Header -->
