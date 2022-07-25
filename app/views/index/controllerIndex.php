@@ -29,7 +29,7 @@ $resource = strtolower(str_replace(" ", "", $page_name));
                                 <h4><?php echo $SectionName;?></h4>
                             </div>
                             <div class="card-body text-center">
-                            	<a class="btn btn-lg btn-outline-fsg controller-index-link" href="/<?php echo $con_index."/".$section_name;?>"><?php echo $details['icon'];?></a>
+                            	<a class="btn btn-lg btn-outline-bo controller-index-link" href="/<?php echo $con_index."/".$section_name;?>"><?php echo $details['icon'];?></a>
                             </div>
                         </div>
                     </div>
