@@ -157,7 +157,7 @@ div#order_activity_chart{
 
 .indexpagecard{
     margin: 5px 1% !important;
-    border: 1px solid #2b4b6f;
+    border: 2px solid #2b4b6f;
     color: #2b4b6f;
 }
 
@@ -169,7 +169,7 @@ div#order_activity_chart{
 .indexpagecard .card-header{
     text-align: center;
     background-color: rgba(218,228,241,1);
-    border-bottom: 2px solid #2b4b6f;
+    border-bottom: 1px solid #2b4b6f;
 }
 
 .homepagecard .card-footer{
