@@ -131,8 +131,22 @@ a.index-link:hover div.index-card
 /*****
 Home page
 ******/
-div#order_activity_chart{
-    margin:1rem 0;
+.cardholder{
+    border-style: solid;
+    border-width: thick;
+}
+
+.cardholder .card-header{
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.jobscardholder{
+    border-color:  #2f4052;
+}
+
+.jpbscardholder .card-header{
+    color: #2f4052;
 }
 
 .homepagedeck,
@@ -144,7 +158,7 @@ div#order_activity_chart{
 }
 
 .homepagecard{
-    
+
 }
 
 .indexpagecard{
