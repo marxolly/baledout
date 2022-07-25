@@ -133,12 +133,13 @@ Home page
 ******/
 .cardholder{
     border-style: solid;
-    border-width: thick;
+    border-width: 2px;
 }
 
 .cardholder .card-header{
     font-size: 2rem;
     text-transform: uppercase;
+    border-bottom: solid thin;
 }
 
 .jobscardholder{
@@ -147,6 +148,8 @@ Home page
 
 .jpbscardholder .card-header{
     color: #2f4052;
+    border-bottom-color: #2f4052; \
+    background-color: rgba(47,64,82,0.2);
 }
 
 .homepagedeck,
