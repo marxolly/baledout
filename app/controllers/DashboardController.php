@@ -16,17 +16,17 @@ class DashboardController extends Controller
     public function index()
     {
         //die('index controller');
-        $orders = array();
+        $jobs = array();
         $client_id = 0;
         $clients = array();
         $user_role = (Session::isAdminUser())? 'admin' : Session::getUserRole();;
         Config::setJsConfig('curPage', "dashboard");
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/dashboard/", Config::get('VIEWS_PATH') . 'dashboard/index.php',[
-            'pht'                   =>  ": Home Page",
-            'client_id'             =>  $client_id,
-            'orders'                =>  $orders,
-            'clients'               =>  $clients,
-            'user_role'             =>  $user_role
+            'pht'       =>  ": Home Page",
+            'client_id' =>  $client_id,
+            'jobs'      =>  $jobs,
+            'clients'   =>  $clients,
+            'user_role' =>  $user_role
         ]);
     }
 
