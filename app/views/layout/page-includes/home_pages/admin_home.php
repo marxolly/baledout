@@ -16,7 +16,7 @@ $cc = 5;
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-5 d-sm-none d-md-block col-md-5">
-                                            <img src="/images/client_logos/tn_<?php echo $o['logo'];?>" alt="client logo" class="img-thumbnail" />
+                                            <img src="/images/client_logos/tn_default.png" alt="client logo" class="img-thumbnail" />
                                         </div>
                                         <div class="col-7 col-sm-12 col-md-7">
                                             <h5 class="d-none d-md-block">Client Number <?php echo $c;?> Name</h5>
