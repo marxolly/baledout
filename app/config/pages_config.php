@@ -32,13 +32,6 @@ $admin = array(
             'icon'      => $fontastic_icons['jobs']['default']
         ),
     ),
-    'deliveries'    => array(
-        'deliveries-index'  => true,
-        'default-icon'  => array(
-            'display'   => false,
-            'icon'      => '<i class="fad fa-truck fa-2x"></i>'
-        ),
-    ),
     'clients'	=> array(
         'clients-index' => true,
         'default-icon'  => array(
