@@ -9,9 +9,9 @@ $cc = 5;
             <div class="card-header text-center">Jobs</div>
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-                    <div class="col mb-3">
-                        <?php for($c = 1; $c <= 5; $c++):
-                            $logo_path = DOC_ROOT.'/images/client_logos/tn_default.png';?>
+                    <?php for($c = 1; $c <= 5; $c++):
+                        $logo_path = DOC_ROOT.'/images/client_logos/tn_default.png';?>
+                        <div class="col mb-3">
                             <div class="card homepagecard">
                                 <div class="card-header">
                                     <div class="row">
@@ -31,8 +31,8 @@ $cc = 5;
                                     <a class="btn btn-outline-bo" href="#">Manage Jobs</a>
                                 </div>
                             </div>
-                        <?php endfor;?>
-                    </div>
+                        </div>
+                    <?php endfor;?>
                 </div>
             </div>
         </div>
