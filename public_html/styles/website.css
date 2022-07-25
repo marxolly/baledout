@@ -136,20 +136,26 @@ Home page
     border-width: 2px;
 }
 
+.cardholder .card{
+    border-style: solid;
+    border-width: 1px;
+}
+
 .cardholder .card-header{
     font-size: 2rem;
     text-transform: uppercase;
     border-bottom: solid thin;
 }
 
-.jobscardholder{
+.jobscardholder,
+.jobscardholder .card{
     border-color:  #2f4052;
 }
 
 .jobscardholder .card-header{
     color: #2f4052;
     border-bottom-color: #2f4052;
-    background-color: rgba(47,64,82,0.2);
+    background-color: rgba(47,64,82,0.1);
 }
 
 .homepagedeck,
