@@ -38,7 +38,7 @@ $cc = 5;
         </div>
     </div>
     <div class="col-md-4 col-xl-3 d-none d-md-block">
-        <div class="card cardholder quicklinkscardholder">
+        <div class="card cardholder quicklinkscardholder h-100">
             <div class="card-header text-center">Quick Links</div>
             <div class="card-body">
 
