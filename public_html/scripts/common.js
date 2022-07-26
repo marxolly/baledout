@@ -114,7 +114,7 @@ var scroller = {
         }
         else
         {
-            $('div#user_info img.img-user').css({height: '5rem'});
+            $('div#user_info img.img-user').css({height: '4rem'});
             $('div#user_info').css({marginTop: '1rem'})
         }
     },
