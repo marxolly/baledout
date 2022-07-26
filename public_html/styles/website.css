@@ -411,23 +411,23 @@ nav.fixed-top.scrolled div#contact-link a:hover {
 }
 
 .navbar-dark #contact-link a,
-.navbar-dark #navbarDropdownMenuLink a
+.navbar-dark a#navbarDropdownMenuLink
 {
     color: rgba(255,255,255,0.5);
 }
 
 .navbar-dark #contact-link a:hover,
-.navbar-dark #navbarDropdownMenuLink a:hover{
+.navbar-dark a#navbarDropdownMenuLink:hover{
     color: rgba(255,255,255,0.75);
 }
 
 .navbar-light #contact-link a,
-.navbar-light #navbarDropdownMenuLink a{
+.navbar-light a#navbarDropdownMenuLink{
     color: rgba(0,0,0,0.5);
 }
 
 .navbar-light #contact-link a:hover,
-.navbar-light #navbarDropdownMenuLink a:hover{
+.navbar-light a#navbarDropdownMenuLink:hover{
     color: rgba(0,0,0,0.75);
 }
 
