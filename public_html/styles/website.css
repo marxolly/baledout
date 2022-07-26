@@ -356,6 +356,7 @@ div#user_info{
     margin-right: 1rem;
     margin-top: 1rem;
     text-align: center;
+    padding-top: 0;
 }
 
 ul.user-info li a.dropdown-toggle,
