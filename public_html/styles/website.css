@@ -163,7 +163,11 @@ Home page
     border-color: rgba(243,109,37,1);
 }
 
-
+.quicklinkscardholder .card-header{
+    color: rgba(243,109,37,1);;
+    border-bottom-color: rgba(243,109,37,1);;
+    background-color: rgba(243,109,37,0.1);;
+}
 
 
 
