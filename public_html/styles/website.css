@@ -73,7 +73,6 @@ h2.page-header svg{
 }
 
 img.bo_logo {
-    display: none;
     margin-left: 1rem;
 }
 
@@ -1150,7 +1149,6 @@ Responsive adjustments
    img.bo_logo{
        width:180px;
        height: auto;
-       display: block;
    }
 }
 
@@ -1172,7 +1170,6 @@ Responsive adjustments
     img.bo_logo{
        width:250px;
        height: auto;
-       display: block;
    }
 }
 
