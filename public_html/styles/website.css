@@ -158,8 +158,8 @@ Home page
     background-color: rgba(47,64,82,0.1);
 }
 
-.quicklinksholder,
-.quicklinksholder .card{
+.quicklinkscardholder,
+.quicklinkscardholder .card{
     border-color: rgba(243,109,37,1);
 }
 
