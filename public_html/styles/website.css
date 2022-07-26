@@ -354,7 +354,7 @@ User Info
 *****/
 div#user_info{
     margin-right: 1rem;
-    margin-top: 1rem;
+    margin-top: 0;
     text-align: center;
     padding-top: 0;
 }
