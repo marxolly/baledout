@@ -360,7 +360,13 @@ div#user_info{
     padding-top: 0;
 }
 
-div#user_info a.dropdown-toggle
+nav.navbar-light div#user_info a.dropdown-toggle
+{
+    min-height: 50px;
+    color: #2f2f2f;
+}
+
+nav.navbar-light div#user_info a.dropdown-toggle
 {
     min-height: 50px;
     color: #f2f2f2;
@@ -426,6 +432,10 @@ nav.fixed-top.scrolled div#contact-link a:hover {
 
 .navbar-light #contact-link a{
     color: rgba(0,0,0,0.5);
+}
+
+.navbar-light #contact-link a:hover{
+    color: rgba(0,0,0,0.75);
 }
 
 div#contact-link a{
