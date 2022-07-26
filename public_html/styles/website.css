@@ -360,8 +360,7 @@ div#user_info{
     padding-top: 0;
 }
 
-div.user-info a.dropdown-toggle,
-div.user-info li.white a.dropdown-toggle
+div#user-info a.dropdown-toggle
 {
     min-height: 50px;
     color: #f2f2f2;
