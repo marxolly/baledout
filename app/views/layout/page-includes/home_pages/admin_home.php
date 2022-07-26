@@ -4,7 +4,7 @@ $cc = 5;
 <input type="hidden" id="admin_from_value" value="<?php echo strtotime('last friday', strtotime('-3 months'));?>" />
 <input type="hidden" id="admin_to_value" value="<?php echo strtotime('last friday', strtotime('tomorrow'));?>" />
 <div class="row">
-    <div class="col">
+    <div class="col col-md-10 col-xl-11">
         <div class="card cardholder jobscardholder">
             <div class="card-header text-center">Jobs</div>
             <div class="card-body">
@@ -25,7 +25,7 @@ $cc = 5;
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    Count the orders
+                                    Count the jobs
                                 </div>
                                 <div class="card-footer text-center">
                                     <a class="btn btn-outline-bo" href="#">Manage Jobs</a>
@@ -34,6 +34,14 @@ $cc = 5;
                         </div>
                     <?php endfor;?>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 col-xl-1 d-none d-md-block">
+        <div class="card cardholder quicklinkscardholder">
+            <div class="card-header text-center">Quick Links</div>
+            <div class="card-body">
+                
             </div>
         </div>
     </div>
