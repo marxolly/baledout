@@ -932,8 +932,9 @@ bootstrap adjustments
         @media (max-width: 992px) {
             .navbar-nav{
                 background-color: #fff;
-                border: thin solid #efefef;
-                border-radius: 0.5rem;
+                border: 1px solid rgba(0,0,0,.15);
+                border-radius: 0.25rem;
+                padding: 0.5rem, 0;
             }
 
             .navbar-dark .navbar-nav .nav-link,
