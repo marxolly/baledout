@@ -24,7 +24,7 @@ endif;
 </div>
 <!-- Navigation -->
 <div class="row fixed-top">
-    <div class="col-10">
+    <div class="col-6 col-lg-10">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: transparent; height:120px;">
         <div class="container-fluid">
             <a href="/" class="navbar-brand">
@@ -53,7 +53,7 @@ endif;
         </div>
     </nav>
     </div>
-    <div id="user_info" class="nav-item dropdown col-2">
+    <div id="user_info" class="nav-item dropdown col-4 offset-2 offset-lg-0 col-lg-2">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img class="img-user" src="<?php echo $image;?>" /><br/>
             <strong><?php echo Session::getUsersName(); ?></strong>
