@@ -937,7 +937,7 @@ bootstrap adjustments
     }
 
     /** Navbar small screen dropdown **/
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
         .navbar-light .navbar-nav .nav-link {
             color: rgba(0,0,0,.55);
             background-color: #fff;
