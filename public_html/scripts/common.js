@@ -111,12 +111,12 @@ var scroller = {
         if( $(window).scrollTop() > $nav_holder.height() )
         {
             $('div#user_info img.img-user').css({height: '3rem'});
-            $('div#user_info').css({marginTop: '-1rem'})
+            //$('div#user_info').css({marginTop: '-1rem'})
         }
         else
         {
             $('div#user_info img.img-user').css({height: '4rem'});
-            $('div#user_info').css({marginTop: '1rem'})
+            //$('div#user_info').css({marginTop: '1rem'})
         }
     },
     cardsInView: function(){
