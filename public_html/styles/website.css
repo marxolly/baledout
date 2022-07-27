@@ -938,14 +938,18 @@ bootstrap adjustments
 
     /** Navbar small screen dropdown **/
         @media (max-width: 992px) {
-        .navbar-light .navbar-nav .nav-link {
-            color: rgba(0,0,0,.55);
-            background-color: #fff;
-        }
-        .navbar-dark .navbar-nav .nav-link {
-            color: rgba(255,255,255, .55);
-            background-color: #2b4b6f;
-        }
+            .navbar-nav{
+                background-color: #fff;
+                border: thin solid #efefef;
+                border-radius: 0.5rem;
+            }
+
+            .navbar-light .navbar-nav {
+
+            }
+            .navbar-dark .navbar-nav .nav-link {
+                
+            }
     }
 
     /** List Items for instructions **/
