@@ -48,6 +48,8 @@ endif;
                 <?php endif;?>
             </div>
         </div>
+    </div>
+</nav>
         <div id="user_info" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="img-user" src="<?php echo $image;?>" /><br/>
@@ -59,6 +61,4 @@ endif;
                 <a href="/login/logOut" class="dropdown-item"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
             </div>
         </div>
-    </div>
-</nav>
 <!-- End Navigation -->
