@@ -944,12 +944,14 @@ bootstrap adjustments
                 border-radius: 0.5rem;
             }
 
-            .navbar-light .navbar-nav {
+            .navbar-nav .nav-link {
+                color: rgba(0,0,0,0.55);
+            }
 
+            .navbar-nav .nav-link:hover {
+                color: rgba(125,125,125,0.55);
             }
-            .navbar-dark .navbar-nav .nav-link {
-                
-            }
+
     }
 
     /** List Items for instructions **/
