@@ -16,6 +16,12 @@ endif;
 //echo "<pre>",print_r($pages),"</pre>";die();
 //echo "<pre>",print_r($_SESSION),"</pre>";
 ?>
+<!-- Common Page Header -->
+<div id="page_header" class="row">
+    <div class="col-lg-12">
+        <h1>Baledout Web Portal</h1>
+    </div>
+</div>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: transparent; height:120px;">
     <div class="container-fluid">
@@ -56,9 +62,3 @@ endif;
     </div>
 </nav>
 <!-- End Navigation -->
-<!-- Common Page Header -->
-<div id="page_header" class="row">
-    <div class="col-lg-12">
-        <h1>Baledout Web Portal</h1>
-    </div>
-</div>
