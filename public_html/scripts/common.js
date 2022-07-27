@@ -103,12 +103,12 @@ var scroller = {
     checkDisplay: function(){
         //console.log('check display');
         var $nav_holder = $("div.fixed-top");
-        $nav_holder.toggleClass('scrolled', $(window).scrollTop() > $nav.height());
+        $nav_holder.toggleClass('scrolled', $(window).scrollTop() > $nav_holder.height());
 
         var $nav = $("div.fixed-top nav");
-        $nav.toggleClass('navbar-light', $(window).scrollTop() > $nav.height());
-        $nav.toggleClass('navbar-dark', $(window).scrollTop() < $nav.height());
-        if( $(window).scrollTop() > $nav.height() )
+        $nav.toggleClass('navbar-light', $(window).scrollTop() > $nav_holder.height());
+        $nav.toggleClass('navbar-dark', $(window).scrollTop() < $nav_holder.height());
+        if( $(window).scrollTop() > $nav_holder.height() )
         {
             $('div#user_info img.img-user').css({height: '3rem'});
             $('div#user_info').css({marginTop: '-1rem'})
