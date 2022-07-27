@@ -110,12 +110,12 @@ var scroller = {
         $nav.toggleClass('navbar-dark', $(window).scrollTop() < $nav_holder.height());
         if( $(window).scrollTop() > $nav_holder.height() )
         {
-            $('div#user_info img.img-user').css({height: '3rem', borderColor: '#2f2f2f'});
+            $('div#user_info img.img-user').css({height: '3rem', borderColor: '#a2a2a2'});
             //$('div#user_info').css({marginTop: '-1rem'})
         }
         else
         {
-            $('div#user_info img.img-user').css({height: '4rem', borderColor: 'fff'});
+            $('div#user_info img.img-user').css({height: '4rem', borderColor: '#fff'});
             //$('div#user_info').css({marginTop: '1rem'})
         }
     },
