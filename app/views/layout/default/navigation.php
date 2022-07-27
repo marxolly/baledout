@@ -23,8 +23,8 @@ endif;
     </div>
 </div>
 <!-- Navigation -->
-<div class="row">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark col-10" style="background-color: transparent; height:120px;">
+<div class="row fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark col-10" style="background-color: transparent; height:120px;">
         <div class="container-fluid">
             <a href="/" class="navbar-brand">
                 <img class="bo_logo"  src="/images/BO_logo1.png" alt="Baledout Logo" title="Portal Home">
