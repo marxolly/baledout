@@ -102,9 +102,10 @@ $('button#navbar_toggler').click(function(e){
 var scroller = {
     checkDisplay: function(){
         //console.log('check display');
-        var $nav = $("nav.fixed-top");
-        $nav.toggleClass('scrolled', $(window).scrollTop() > $nav.height());
+        var $nav_holder = $("div.fixed-top");
+        $nav_holder.toggleClass('scrolled', $(window).scrollTop() > $nav.height());
 
+        var $nav = $("div.fixed-top nav");
         $nav.toggleClass('navbar-light', $(window).scrollTop() > $nav.height());
         $nav.toggleClass('navbar-dark', $(window).scrollTop() < $nav.height());
         if( $(window).scrollTop() > $nav.height() )
@@ -904,7 +905,7 @@ var shippingEstimates = function(){
                             .html(d.html)
                             .slideDown();
                     }
-                    var $nav = $("nav.fixed-top");
+                    var $nav = $("div.fixed-top");
                     var scrollSpot = $("h2#page_header").offset().top - $nav.height();
                     $('html, body').animate({
                         scrollTop: scrollSpot
