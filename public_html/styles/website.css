@@ -355,7 +355,6 @@ User Info
 *****/
 div#user_info{
     margin-top: 0;
-    text-align: right;
     padding-top: 0;
 }
 
@@ -945,6 +944,12 @@ bootstrap adjustments
             .navbar-dark .navbar-nav .nav-link:hover,
             .navbar-light .navbar-nav .nav-link:hover {
                 color: rgba(125,125,125,0.55);
+            }
+
+            div#user_info{
+                margin-top: 0;
+                text-align: center;
+                padding-top: 0;
             }
 
     }
