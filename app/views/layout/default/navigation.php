@@ -44,7 +44,7 @@ endif;
                             }
                             if($pages[$section][$section."-index"]):
                                 $Section = ucwords(str_replace("-", " ", $section));?>
-                                <a class="nav-link" id="<?php echo $section;?>" href="<?php echo "/$section/";?>"><?php echo $pages[$section]['default-icon']." ".$Section;?></a>
+                                <a class="nav-link" id="<?php echo $section;?>" href="<?php echo "/$section/";?>"><?php echo $pages[$section]['default-icon']['icon']." ".$Section;?></a>
                             <?php endif;?>
                         <?php endforeach;?>
                     <?php endif;?>
