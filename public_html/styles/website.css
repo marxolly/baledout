@@ -170,6 +170,12 @@ Home page
     background-color: rgba(243,109,37,0.1);;
 }
 
+.quicklinksholder .cardbody{
+    background: rgb(255,255,255);
+    background: linear-gradient(166deg, rgba(243,109,37,0.01) 0%, rgba(243,109,37,0.1) 90%);
+}
+}
+
 
 
 .homepagedeck,
