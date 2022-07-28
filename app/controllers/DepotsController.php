@@ -9,7 +9,7 @@
  * @author     Mark Solly <mark@baledout.com.au>
  */
 
-class DepotController extends Controller
+class DepotsController extends Controller
 {
     public function beforeAction()
     {
