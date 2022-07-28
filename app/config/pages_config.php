@@ -32,6 +32,10 @@ $admin = array(
             'icon'      => '<i class="fa-duotone fa-truck-container fa-2x"></i>',
             'menu-icon' => '<i class="fa-duotone fa-truck-container d-lg-none"></i>'
         ),
+        'add-job'   => [
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><div class="fa-3x"><i class="fad fa-users-cog"></i></div></div>'
+        ]
     ),
     'clients'	=> array(
         'clients-index' => true,
