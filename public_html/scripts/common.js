@@ -1,6 +1,6 @@
 /************
 Refresh Page if no activity and show a countdown
-*************/
+************
 var time = new Date().getTime();
 var refresh_rate = 300000; //milliseconds
 $('form').attr('autocomplete','off');
@@ -44,7 +44,7 @@ function refresh() {
         }
         setTimeout(refresh, 1000);
     }
-}
+}*/
 /************
 * Navigation Scripting
 ************/
