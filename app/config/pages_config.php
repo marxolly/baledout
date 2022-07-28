@@ -29,7 +29,8 @@ $admin = array(
         'jobs-index'    => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fa-duotone fa-truck-container d-lg-none"></i>'
+            'icon'      => '<i class="fa-duotone fa-truck-container fa-2x"></i>',
+            'menu-icon' => '<i class="fa-duotone fa-truck-container d-lg-none"></i>'
         ),
     ),
     'clients'	=> array(
