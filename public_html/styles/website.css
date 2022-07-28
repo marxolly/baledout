@@ -395,13 +395,17 @@ div.fixed-top.scrolled {
     transition:all 600ms linear;
 }
 
-div.fixed-top.scrolled a.nav-link:hover,
-div.fixed-top.scrolled div#contact-link a:hover {
-    color:#4382c1;
-}
 
-.navbar-dark #contact-link a,
-.navbar-dark a#navbarDropdownMenuLink
+
+
+
+
+
+
+
+
+div.fixed-top #user_info #contact-link a,
+div.fixed-top #user_info  a#navbarDropdownMenuLink
 {
     color: rgba(255,255,255,0.5);
 }
@@ -424,6 +428,10 @@ div.fixed-top.scrolled div#contact-link a:hover {
 div#contact-link a{
     padding: 0;
 }
+
+
+
+
 
 /*****
 Page Header
