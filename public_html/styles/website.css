@@ -933,7 +933,7 @@ bootstrap adjustments
                 background-color: #fff;
                 border: 1px solid rgba(0,0,0,.15);
                 border-radius: 0.25rem;
-                padding-left:0;
+                padding:0.5rem 0;
             }
 
             .navbar-dark .navbar-nav .nav-link,
@@ -944,7 +944,7 @@ bootstrap adjustments
 
             .navbar-dark .navbar-nav .nav-link:hover,
             .navbar-light .navbar-nav .nav-link:hover {
-                background-color: rgba(0,0,0,0.5);
+                background-color: #eaeaea;
             }
 
             div#user_info{
