@@ -182,6 +182,11 @@ Home page
     border-bottom: 1px solid rgba(243,109,37,1);
 }
 
+.quicklink:hover{
+    background-color: #fafafa;
+    border-bottom-color: #afafaf;
+}
+
 .quicklink a:hover{
     text-decoration: none;
 }
