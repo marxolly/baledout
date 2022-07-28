@@ -6,7 +6,7 @@
 
  Manages Production Jobs
 
- * @author     Mark Solly <mark.solly@fsg.com.au>
+ * @author     Mark Solly <mark@baledout.com.au>
  */
 
 class JobsController extends Controller
