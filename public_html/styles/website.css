@@ -939,12 +939,12 @@ bootstrap adjustments
             .navbar-dark .navbar-nav .nav-link,
             .navbar-light .navbar-nav .nav-link {
                 color: #212529;
-                padding: 0.5rem;
+                padding: 1rem;
             }
 
             .navbar-dark .navbar-nav .nav-link:hover,
             .navbar-light .navbar-nav .nav-link:hover {
-                background-color: rgba(255,255,255,0.5);
+                background-color: rgba(0,0,0,0.5);
             }
 
             div#user_info{
