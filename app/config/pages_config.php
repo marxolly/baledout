@@ -37,42 +37,48 @@ $admin = array(
         'clients-index' => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-user-tie d-lg-none"></i>'
+            'icon'      => '<i class="fad fa-user-tie fa-2x"></i>',
+            'menu-icon' => '<i class="fad fa-user-tie d-lg-none"></i>'
         )
     ),
     'depots'    => array(
         'depots-index'  => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fa-duotone fa-warehouse-full d-lg-none"></i>'
+            'icon'      => '<i class="fa-duotone fa-warehouse-full fa-2x"></i>',
+            'menu-icon' => '<i class="fa-duotone fa-warehouse-full d-lg-none"></i>'
         )
     ),
     'financials'    => array(
         'financials-index'  => true,
         'default-icon'      => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-usd-circle d-lg-none"></i>'
+            'icon'      => '<i class="fad fa-usd-circle fa-2x"></i>',
+            'menu-icon' => '<i class="fad fa-usd-circle d-lg-none"></i>'
         ),
     ),
     'reports'   => array(
         'reports-index' => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-chart-bar d-lg-none"></i>'
+            'icon'      => '<i class="fad fa-chart-bar fa-2x"></i>',
+            'menu-icon' => '<i class="fad fa-chart-bar d-lg-none"></i>'
         )
     ),
     'data-entry'    =>  array(
         'data-entry-index'  => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-indent d-lg-none"></i>'
+            'icon'      => '<i class="fad fa-indent fa-2x"></i>',
+            'menu-icon' => '<i class="fad fa-indent d-lg-none"></i>'
         )
     ),
     'site-settings'		=> array(
         'site-settings-index'   => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-cog d-lg-none"></i>'
+            'icon'      => '<i class="fad fa-cog fa-2x"></i>',
+            'menu-icon' => '<i class="fad fa-cog d-lg-none"></i>'
         ),/**/
         'manage-users'    => array(
             'display'   => true,
@@ -105,7 +111,8 @@ $admin = array(
         'super_admin_only'  => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-download d-lg-none"></i>'
+            'icon'      => '<i class="fad fa-download fa-2x"></i>',
+            'menu-icon' => '<i class="fad fa-download d-lg-none"></i>'
         )
     ),
     'admin-only'    => array(
@@ -113,7 +120,8 @@ $admin = array(
         'super_admin_only'  => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-lock-alt d-lg-none"></i>'
+            'icon'      => '<i class="fad fa-lock-alt fa-2x"></i>',
+            'menu-icon' => '<i class="fad fa-lock-alt d-lg-none"></i>'
         )
     )
 );
