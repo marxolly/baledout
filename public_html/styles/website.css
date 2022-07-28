@@ -415,13 +415,13 @@ div.fixed-top #user_info a#navbarDropdownMenuLink:hover{
     color: rgba(255,255,255,0.75);
 }
 
-.navbar-light #contact-link a,
-.navbar-light a#navbarDropdownMenuLink{
+div.fixed-top.scrolled #user_info #contact-link a,
+div.fixed-top.scrolled #user_info a#navbarDropdownMenuLink{
     color: rgba(0,0,0,0.5);
 }
 
-.navbar-light #contact-link a:hover,
-.navbar-light a#navbarDropdownMenuLink:hover{
+div.fixed-top.scrolled #user_info #contact-link a:hover,
+div.fixed-top.scrolled #user_info a#navbarDropdownMenuLink:hover{
     color: rgba(0,0,0,0.75);
 }
 
