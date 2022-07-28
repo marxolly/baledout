@@ -29,7 +29,7 @@ $admin = array(
         'jobs-index'    => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-tasks d-lg-none"></i>'
+            'icon'      => '<i class="fa-duotone fa-truck-container d-lg-none"></i>'
         ),
     ),
     'clients'	=> array(
