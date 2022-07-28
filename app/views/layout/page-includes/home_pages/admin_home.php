@@ -49,13 +49,13 @@ $cc = 5;
                 </div>
                 <div class="quicklink">
                     <a href="#">
-                        <span class="fa-layers fa-fw"><i class="fa-duotone fa-user-tie"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-5 up-4 right-10"></i></span>&nbsp;
+                        <span class="fa-layers fa-fw"><i class="fa-duotone fa-user-tie"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-5 up-4 right-12"></i></span>&nbsp;
                         Add A Client
                     </a>
                 </div>
                 <div class="quicklink">
                     <a href="#">
-                        <span class="fa-layers fa-fw"><i class="fa-duotone fa-warehouse-full"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-5 up-4 right-10"></i></span>&nbsp;
+                        <span class="fa-layers fa-fw"><i class="fa-duotone fa-warehouse-full"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-5 up-4 right-12"></i></span>&nbsp;
                         Add A Depot
                     </a>
                 </div>
