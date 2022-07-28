@@ -34,7 +34,7 @@ $admin = array(
         ),
         'add-job'   => [
             'display'   => true,
-            'icon'      => '<div class="fa-3x"><div class="fa-3x"><i class="fad fa-users-cog"></i></div></div>'
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-5 up-4 right-12"></i></span></div>'
         ]
     ),
     'clients'	=> array(
