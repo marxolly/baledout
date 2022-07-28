@@ -13,7 +13,7 @@ else:
     $pages = array();
     $image = "/images/profile_pictures/default.png";
 endif;
-echo "<pre>",print_r($pages),"</pre>";//die();
+//echo "<pre>",print_r($pages),"</pre>";//die();
 //echo "<pre>",print_r($_SESSION),"</pre>";
 ?>
 <!-- Common Page Header -->
@@ -44,7 +44,7 @@ echo "<pre>",print_r($pages),"</pre>";//die();
                             }
                             if($pages[$section][$section."-index"]):
                                 $Section = ucwords(str_replace("-", " ", $section));?>
-                                <a class="nav-link" id="<?php echo $section;?>" href="<?php echo "/$section/";?>"><i class="fad fa-tasks d-md-none"></i><?php echo $Section;?></a>
+                                <a class="nav-link" id="<?php echo $section;?>" href="<?php echo "/$section/";?>"><?php echo $pages[$section]['default-icon']." ".$Section;?></a>
                             <?php endif;?>
                         <?php endforeach;?>
                     <?php endif;?>
