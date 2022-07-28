@@ -29,42 +29,42 @@ $admin = array(
         'jobs-index'    => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => $fontastic_icons['jobs']['default']
+            'icon'      => '<i class="fad fa-tasks d-lg-none"></i>'
         ),
     ),
     'clients'	=> array(
         'clients-index' => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-user-tie fa-2x"></i>'
+            'icon'      => '<i class="fad fa-user-tie d-lg-none"></i>'
         )
     ),
     'financials'    => array(
         'financials-index'  => true,
         'default-icon'      => array(
             'display'   => false,
-            'icon'      => $fontastic_icons['financials']['default']
+            'icon'      => '<i class="fad fa-usd-circle d-lg-none"></i>'
         ),
     ),
     'reports'   => array(
         'reports-index' => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-chart-bar fa-2x"></i>'
+            'icon'      => '<i class="fad fa-chart-bar d-lg-none"></i>'
         )
     ),
     'data-entry'    =>  array(
         'data-entry-index'  => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-indent fa-2x"></i>'
+            'icon'      => '<i class="fad fa-indent d-lg-none"></i>'
         )
     ),
     'site-settings'		=> array(
         'site-settings-index'   => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-cog fa-2x"></i>'
+            'icon'      => '<i class="fad fa-cog d-lg-none"></i>'
         ),/**/
         'manage-users'    => array(
             'display'   => true,
@@ -97,7 +97,7 @@ $admin = array(
         'super_admin_only'  => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-download fa-2x"></i>'
+            'icon'      => '<i class="fad fa-download d-lg-none"></i>'
         )
     ),
     'admin-only'    => array(
@@ -105,17 +105,16 @@ $admin = array(
         'super_admin_only'  => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-lock-alt fa-2x"></i>'
+            'icon'      => '<i class="fad fa-lock-alt d-lg-none"></i>'
         )
     )
 );
 $client = array(
     'deliveries'    => array(
         'delivery-clients'  => true,
-        'deliveries-index'  => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-truck fa-2x"></i>'
+            'icon'      => '<i class="fad fa-truck d-lg-none"></i>'
         )
     ),
     'orders'			=>	array(
@@ -123,7 +122,7 @@ $client = array(
         'orders-index'   => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-truck fa-2x"></i>'
+            'icon'      => '<i class="fad fa-truck d-lg-none"></i>'
         ),
         'client-orders' =>  array(
             'display'   => true,
@@ -150,14 +149,14 @@ $client = array(
         'inventory-index'   => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-warehouse-alt fa-2x"></i>'
+            'icon'      => '<i class="fad fa-warehouse-alt d-lg-none"></i>'
         ),
     ),
     'reports'           =>  array(
         'reports-index'   => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<i class="fad fa-chart-bar fa-2x"></i>'
+            'icon'      => '<i class="fad fa-chart-bar d-lg-none"></i>'
         )
     )
 );
