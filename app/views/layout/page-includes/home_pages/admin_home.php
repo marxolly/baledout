@@ -41,7 +41,12 @@ $cc = 5;
         <div class="card cardholder quicklinkscardholder h-100">
             <div class="card-header text-center">Quick Links</div>
             <div class="card-body">
-
+                <div class="quicklink">
+                    <a href="#">
+                        <span class="fa-layers fa-fw"><i class="fad fa-tasks"></i><i class="far fa-plus" data-fa-transform="shrink-4 up-3 right-4"></i></span>&nbsp;
+                        Add A Job
+                    </a>
+                </div>
             </div>
         </div>
     </div>
