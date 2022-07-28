@@ -43,7 +43,8 @@ $cc = 5;
             <div class="card-body">
                 <div class="quicklink">
                     <a href="#">
-                        <span class="fa-layers fa-fw"><i class="fad fa-tasks"></i><i class="far fa-plus" data-fa-transform="shrink-4 up-3 right-4"></i></span>&nbsp;
+                        <span class="fa-layers fa-fw"><i class="fa-light fa-truck-container"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-5 up-2 right-10"></i></span>&nbsp;
+                        <i class="fa-light fa-truck-container"></i>
                         Add A Job
                     </a>
                 </div>
