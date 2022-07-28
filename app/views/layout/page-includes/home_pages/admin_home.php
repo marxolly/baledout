@@ -48,6 +48,14 @@ $cc = 5;
                     </a>
                 </div>
             </div>
+            <div class="card-body">
+                <div class="quicklink">
+                    <a href="#">
+                        <span class="fa-layers fa-fw"><i class="fad fa-user-tie"></i><i class="far fa-plus" data-fa-transform="shrink-4 up-3 right-4"></i></span>&nbsp;
+                        Add A Client
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
