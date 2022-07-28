@@ -39,6 +39,13 @@ $admin = array(
             'icon'      => '<i class="fad fa-user-tie d-lg-none"></i>'
         )
     ),
+    'depots'    => array(
+        'depots-index'  => true,
+        'default-icon'  => array(
+            'display'   => false,
+            'icon'      => '<i class="fa-duotone fa-warehouse-full d-lg-none"></i>'
+        )
+    ),
     'financials'    => array(
         'financials-index'  => true,
         'default-icon'      => array(
