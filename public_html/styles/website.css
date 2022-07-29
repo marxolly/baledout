@@ -207,7 +207,7 @@ Coming Soon Page
 ******/
 div#coming-soon img{
     width: 95%;
-    margin-top: 5rem;    
+    margin-top: 5rem;
 }
 
 /*****
@@ -386,6 +386,11 @@ Navigation
 .navbar-nav{
     margin-top: 5px;
     padding-left: 10px;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link,
+.navbar-light .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    color: rgba(243,109,37,1);
 }
 
 .navbar-nav li{
