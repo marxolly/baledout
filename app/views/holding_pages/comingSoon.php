@@ -6,7 +6,7 @@
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?>
         <div class="row">
             <div class="col text-center" id="coming-soon">
-                <img src="/images/coming_soon.png" alt="Coming Soon" />
+                <img src="/images/coming_soon2.png" alt="Coming Soon" />
             </div>
         </div>
     </div>
