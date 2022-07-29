@@ -164,7 +164,7 @@ var scroller = {
 
 /************
 Homepage card fadeins
-*************/
+************
  $(function () {
     scroller.cardsInView();
     $(window).on('scroll resize', function (e) {
@@ -172,7 +172,7 @@ Homepage card fadeins
         scroller.cardsInView();
     });
 });
-
+*/ 
 /************
 * File Uploading
 ************/
