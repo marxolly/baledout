@@ -28,7 +28,7 @@ class JobsController extends Controller
     {
         Config::setJsConfig('curPage', "add-job");
         Config::set('curPage', "add-job");
-        return perent::comingSoon('jobs');
+        return parent::comingSoon('jobs');
     }
 
     public function isAuthorized()
