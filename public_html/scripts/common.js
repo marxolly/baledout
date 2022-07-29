@@ -65,7 +65,7 @@ function refresh() {
             if(config.curPage == page)
             {
                 //console.log("found: "+page);
-                $("a#"+cat+" > a").addClass("active");
+                $("a#"+cat).addClass("active");
                 foundpage = true;
                 break;
             }
