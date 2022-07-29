@@ -43,6 +43,10 @@ $admin = array(
         'search-jobs' => [
             'display'   => true,
             'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-search" data-fa-transform="shrink-10 up-3 left-3"></i></span></div>'
+        ],
+        'edit-job'  => [
+            'display'   => false,
+            'icon'      => ''
         ]
     ),
     'clients'	=> array(
