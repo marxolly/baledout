@@ -31,6 +31,20 @@ class JobsController extends Controller
         return parent::comingSoon('jobs');
     }
 
+    public function searchJobs()
+    {
+        Config::setJsConfig('curPage', "search-jobs");
+        Config::set('curPage', "search-jobs");
+        return parent::comingSoon('jobs');
+    }
+
+    public function viewJobs()
+    {
+        Config::setJsConfig('curPage', "view-jobs");
+        Config::set('curPage', "view-jobs");
+        return parent::comingSoon('jobs');
+    }
+
     public function isAuthorized()
     {
         $action = $this->request->param('action');
