@@ -997,6 +997,10 @@ bootstrap adjustments
         border-radius: 0.25rem;
     }
 
+    .breadcrumb-item.active {
+        color: rgba(243,109,37,1);
+    }
+
     /** Dashed Border **/
     .border-bottom-dashed{
         border-bottom-style: dashed !important;
