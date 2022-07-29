@@ -36,11 +36,11 @@ $admin = array(
             'display'   => true,
             'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-5 right-10"></i></span></div>'
         ],
-        'search-jobs'   => [
+        'view-jobs'   => [
             'display'   => true,
             'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-binoculars" data-fa-transform="shrink-10 up-7 right-8 rotate-30"></i></span></div>'
         ],
-        'view-jobs' => [
+        'search-jobs' => [
             'display'   => true,
             'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-search" data-fa-transform="shrink-4 up-1 right-4"></i></span></div>'
         ]
