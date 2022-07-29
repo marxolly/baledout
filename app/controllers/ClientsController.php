@@ -24,6 +24,13 @@ class ClientsController extends Controller
         parent::displayIndex(get_class());
     }
 
+    public function addClient()
+    {
+        Config::setJsConfig('curPage', "add-client");
+        Config::set('curPage', "add-client");
+        return parent::comingSoon('clients');
+    }
+
     public function isAuthorized()
     {
         $action = $this->request->param('action');
