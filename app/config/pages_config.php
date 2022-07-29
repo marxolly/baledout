@@ -55,7 +55,11 @@ $admin = array(
             'display'   => false,
             'icon'      => '<i class="fad fa-user-tie fa-2x"></i>',
             'menu-icon' => '<i class="fad fa-user-tie d-lg-none"></i>'
-        )
+        ),
+        'add-client'   => [
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-5 right-10"></i></span></div>'
+        ],
     ),
     'depots'    => array(
         'depots-index'  => true,
