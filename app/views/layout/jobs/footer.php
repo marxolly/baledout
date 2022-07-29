@@ -13,6 +13,21 @@
                     init: function(){
 
                     }
+                },
+                'edit-job':{
+                    init: function(){
+
+                    }
+                },
+                'search-jobs':{
+                    init: function(){
+
+                    }
+                },
+                'view-jobs':{
+                    init: function(){
+
+                    }
                 }
             }
 
