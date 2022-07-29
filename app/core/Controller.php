@@ -336,4 +336,12 @@ class Controller {
             'page_name'     => $page_name
         ]);
     }
+
+    /*******************************************************************
+    ** Display the Coming Soon Page
+    ********************************************************************/
+    public function comingSoon($section)
+    {
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/$section/", Config::get('VIEWS_PATH') . 'holding_pages/comingSoon.php',[]);
+    }
 }

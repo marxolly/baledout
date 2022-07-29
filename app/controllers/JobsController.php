@@ -26,7 +26,8 @@ class JobsController extends Controller
 
     public function addJob()
     {
-        
+        Config::setJsConfig('curPage', "add-job");
+        Config::set('curPage', "add-job");
     }
 
     public function isAuthorized()
