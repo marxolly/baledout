@@ -58,11 +58,11 @@ $admin = array(
         ),
         'add-client'   => [
             'display'   => true,
-            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-user-tie"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-5 right-8"></i></span></div>'
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-user"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-5 right-8"></i></span></div>'
         ],
         'view-clients'   => [
             'display'   => true,
-            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-user-tie"></i><i class="fa-solid fa-binoculars" data-fa-transform="shrink-10 up-5 right-6 rotate-30"></i></span></div>'
+            'icon'      => '<div class="fa-3x"><i class="fa-duotone fa-users"></i></div>'
         ],
     ),
     'depots'    => array(
