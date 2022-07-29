@@ -100,33 +100,10 @@ div#countdown{
 }
 
 /*****
-The Section Cards
+The Index Cards
 ******/
-a.index-link{
-    font-family: "Roboto Condensed";
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.2;
-    font-size: 25px
-}
-
-div.index-card{
-    color:#fff;
-    background-color: #4382c1;
-    margin-bottom: 2%;
-    height: 98% !important;
-    word-wrap: normal; /*WTF would Boostrap break the word!*/
-}
-
-a.index-link:hover{
-    color:#4382c1 !important;
-}
-
-a.index-link:hover div.index-card
-{
-    background-color:#fff;
-    border-color: #4382c1;
-    color: #4382c1;
+a.controller-index-link{
+    padding: 0.5rem 1.5rem;
 }
 
 /*****
