@@ -31,6 +31,13 @@ class JobsController extends Controller
         return parent::comingSoon('jobs');
     }
 
+    public function editJob()
+    {
+        Config::setJsConfig('curPage', "edit-job");
+        Config::set('curPage', "edit-job");
+        return parent::comingSoon('jobs');
+    }
+
     public function searchJobs()
     {
         Config::setJsConfig('curPage', "search-jobs");
