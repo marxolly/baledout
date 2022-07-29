@@ -42,7 +42,7 @@ $admin = array(
         ],
         'search-jobs' => [
             'display'   => true,
-            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-search" data-fa-transform="shrink-9 up-4"></i></span></div>'
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-search" data-fa-transform="shrink-10 up-4"></i></span></div>'
         ]
     ),
     'clients'	=> array(
