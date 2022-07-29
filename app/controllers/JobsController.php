@@ -24,6 +24,11 @@ class JobsController extends Controller
         parent::displayIndex(get_class());
     }
 
+    public function addJob()
+    {
+        
+    }
+
     public function isAuthorized()
     {
         $action = $this->request->param('action');
@@ -32,9 +37,6 @@ class JobsController extends Controller
         $resource = "jobs";
         //only for admin
         Permission::allow(['admin', 'super admin'], $resource, "*");
-
-
-
         return Permission::check($role, $resource, $action);
     }
 }
