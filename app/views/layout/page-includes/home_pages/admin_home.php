@@ -49,7 +49,7 @@ $cc = 5;
                 </div>
                 <div class="quicklink">
                     <a href="#">
-                        <span class="fa-layers fa-fw"><i class="fa-duotone fa-user-tie"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-5 right-8"></i></span>&nbsp;
+                        <span class="fa-layers fa-fw"><i class="fa-duotone fa-user"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-5 right-8"></i></span>&nbsp;
                         Add A Client
                     </a>
                 </div>
