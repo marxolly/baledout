@@ -38,6 +38,13 @@ class ClientsController extends Controller
         return parent::comingSoon('clients');
     }
 
+    public function editClient()
+    {
+        Config::setJsConfig('curPage', "edit-clients");
+        Config::set('curPage', "edit-clients");
+        return parent::comingSoon('clients');
+    }
+
     public function isAuthorized()
     {
         $action = $this->request->param('action');

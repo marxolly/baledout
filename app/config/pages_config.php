@@ -64,6 +64,10 @@ $admin = array(
             'display'   => true,
             'icon'      => '<div class="fa-3x"><i class="fa-duotone fa-users"></i></div>'
         ],
+        'edit-client'   => [
+            'display'   => false,
+            'icon'      => ''
+        ]
     ),
     'depots'    => array(
         'depots-index'  => true,
@@ -71,7 +75,19 @@ $admin = array(
             'display'   => false,
             'icon'      => '<i class="fa-duotone fa-warehouse-full fa-2x"></i>',
             'menu-icon' => '<i class="fa-duotone fa-warehouse-full d-lg-none"></i>'
-        )
+        ),
+        'add-depot'   => [
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-5 right-10"></i></span></div>'
+        ],
+        'view-depots'   => [
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-duotone fa-truck-container"></i><i class="fa-solid fa-binoculars" data-fa-transform="shrink-10 up-3 left-3 rotate-30"></i></span></div>'
+        ],
+        'edit-depot'  => [
+            'display'   => false,
+            'icon'      => ''
+        ]
     ),
     'financials'    => array(
         'financials-index'  => true,
