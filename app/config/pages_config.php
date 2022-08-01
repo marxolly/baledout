@@ -141,7 +141,7 @@ $admin = array(
             'icon'      => '<div class="fa-3x"><i class="fa-light fa-kerning"></i></div>'
         ),
         'drivers'   => array(
-            'display'   => true,
+            'display'   => false,
             //'icon'      => '<span class="fa-layers fa-fw fa-3x align-middle"><i class="fal fa-user"></i><i class="fad fa-steering-wheel" data-fa-transform="shrink-6 down-6"></i></span>'
             'icon'      => '<span class="fa-3x align-middle"><i class="fad fa-steering-wheel" data-fa-transform="shrink-6 down-6" data-fa-mask="fad fa-user"></i></span>'
         )
