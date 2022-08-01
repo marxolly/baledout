@@ -21,6 +21,23 @@ class SiteSettingsController extends Controller
         parent::displayIndex(get_class());
     }
 
+    public function manageUsers()
+    {
+        //$client_users = $this->user->getAllUsers('client');
+        //$admin_users = $this->user->getAllUsers('admin');
+        $user_roles = $this->user->getUserRoles();
+        $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
+        //render the page
+        Config::setJsConfig('curPage', "manage-users");
+        Config::set('curPage', "manage-users");
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/manageUsers.php',
+        [
+            'page_title'    =>  'Manage Users',
+            'user_roles'    =>  $user_roles,
+            'active'        =>  $active
+        ]);
+    }
+
     public function viewTypography()
     {
         $user_role = (Session::isAdminUser())? 'admin' : Session::getUserRole();
