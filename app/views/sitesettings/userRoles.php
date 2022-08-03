@@ -8,22 +8,35 @@
         <?php echo Form::displayError('general');?>
         <form id="add-userrole"  method="post" enctype="multipart/form-data" action="/form/procUserRoleAdd">
             <div class="row">
-                <div class="col-lg-12">
-                    <h3>Add New Role</h3>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Add New Role</h3>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <div class="form-group row mb-3">
+                            <div class="col-md-4 offset-md-3">
+                                <input type="text" class="form-control required" name="name" id="name" value="<?php echo Form::value('name');?>" />
+                                <?php echo Form::displayError('name');?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Name</label>
-                <div class="col-md-4">
-                    <input type="text" class="form-control required" name="name" id="name" value="<?php echo Form::value('name');?>" />
-                    <?php echo Form::displayError('name');?>
-                </div>
-            </div>
-            <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label">&nbsp;</label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-secondary">Add Role</button>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Add The Row</h3>
+                        </div>
+                   </div>
+                   <div class="p-3 light-grey mb-3">
+                        <div class="form-group row">
+                            <div class="col-md-4 offset-md-3 text-center text-md-start">
+                                <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
+                                <button type="submit" class="btn btn-outline-bo" id="submitter">Submit The Form</button>
+                            </div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </form>
