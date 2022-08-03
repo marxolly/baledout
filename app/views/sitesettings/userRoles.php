@@ -16,7 +16,7 @@
                     </div>
                     <div class="p-3 light-grey mb-3">
                         <div class="form-group row mb-3">
-                            <label class="md-3">Role name</label>
+                            <label class="col-md-3 col-form-label">Role name</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control required" name="name" id="name" value="<?php echo Form::value('name');?>" />
                                 <?php echo Form::displayError('name');?>
