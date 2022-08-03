@@ -9,6 +9,16 @@
 
                     }
                 },
+                'manage-users': {
+                    init: function(){
+
+                    }
+                },
+                'user-roles': {
+                    init: function(){
+                        
+                    }
+                }
                 'view-typography':{
                     init: function(){
 
