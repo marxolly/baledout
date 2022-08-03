@@ -38,6 +38,18 @@ class SiteSettingsController extends Controller
         ]);
     }
 
+    public function userRoles()
+    {
+        $roles = $this->user->getUserRoles();
+        //render the page
+        Config::setJsConfig('curPage', "user-roles");
+        Config::set('curPage', "user-roles");
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/userRoles.php',[
+            'page_title'  =>  'Manage User Roles',
+            'roles'       =>  $roles
+        ]);
+    }
+
     public function viewTypography()
     {
         $user_role = (Session::isAdminUser())? 'admin' : Session::getUserRole();
@@ -59,6 +71,7 @@ class SiteSettingsController extends Controller
         Permission::allow('super admin', $resource, ['*']);
         // all other admins
         Permission::allow(['admin'], $resource, [
+            'index',
             'viewTypography'
         ]);
 
