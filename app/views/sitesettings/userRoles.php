@@ -11,33 +11,25 @@
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
                     <div class="row">
                         <div class="col">
-                            <h3>Add New Role</h3>
+                            <h3>Add A New Role</h3>
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
                         <div class="form-group row mb-3">
-                            <div class="col-md-4 offset-md-3">
+                            <label class="md-3">Role name</label>
+                            <div class="col-md-4">
                                 <input type="text" class="form-control required" name="name" id="name" value="<?php echo Form::value('name');?>" />
                                 <?php echo Form::displayError('name');?>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Add The Row</h3>
-                        </div>
-                   </div>
-                   <div class="p-3 light-grey mb-3">
                         <div class="form-group row">
                             <div class="col-md-4 offset-md-3 text-center text-md-start">
                                 <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
-                                <button type="submit" class="btn btn-outline-bo" id="submitter">Submit The Form</button>
+                                <button type="submit" class="btn btn-outline-bo" id="submitter">Add This Role</button>
                             </div>
                         </div>
-                   </div>
-                </div>
+                    </div>
+               </div>
             </div>
         </form>
         <div class="row">
