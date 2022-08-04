@@ -31,7 +31,7 @@ class UserController extends Controller{
 
         //render the page
         Config::setJsConfig('curPage', "profile");
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/users/", Config::get('VIEWS_PATH') . 'user/profile.php',[
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/user/", Config::get('VIEWS_PATH') . 'user/profile.php',[
             'page_title'    =>  "User Profile",
             'info'          =>  $info
         ]);
