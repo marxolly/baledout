@@ -18,6 +18,7 @@ class UserController extends Controller{
         $client_role_id = $this->user->getClientRoleId();
         //render the page
         Config::setJsConfig('curPage', "add-user");
+        Config::set('curPage', "add-user");
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/users/", Config::get('VIEWS_PATH') . 'user/addUser.php',
         [
             'page_title'        =>  'Add New User',
@@ -31,6 +32,7 @@ class UserController extends Controller{
 
         //render the page
         Config::setJsConfig('curPage', "profile");
+        Config::set('curPage', "profile");
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/user/", Config::get('VIEWS_PATH') . 'user/profile.php',[
             'page_title'    =>  "User Profile",
             'info'          =>  $info
