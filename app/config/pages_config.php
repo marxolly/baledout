@@ -219,8 +219,16 @@ $client = array(
 
 //userpages to allow breadcrumbs to appear
 $user = array(
-    'profile'   => array(
-
+    'user'  => array(
+        'user-index'    => false,
+        'default-icon'  => array(
+            'display'   => false,
+            'icon'      => ''
+        ),
+        'profile'   => array(
+            'display'   => false,
+            'icon'      => ''
+        )
     )
 );
 $admin['user'] = $user;
