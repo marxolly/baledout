@@ -61,6 +61,7 @@ $name = (empty(Form::value('name')))? $info['name'] : Form::value('name');
                             <label class="col-md-3 col-form-label">New Password</label>
                             <div class="col-md-4">
                                 <input type="password" class="form-control" name="new_password" id="new_password" value="" />
+                                <span class="inst">Leave blank if you don't want to change your password</span>
                             </div>
                         </div>
                         <div class="form-group row mb-3">
