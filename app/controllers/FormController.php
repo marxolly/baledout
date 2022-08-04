@@ -40,11 +40,20 @@ class FormController extends Controller {
         parent::beforeAction();
         $action = $this->request->param('action');
         $actions = [
-            'procLogin'
+            'procForgotPassword',
+            'procLogin',
+            'procProfileUpdate',
+            'procUpdatePassword'
         ];
         $this->Security->config("form", [ 'fields' => ['csrf_token']]);
         $this->Security->requirePost($actions);
     }// End beforAction()
+
+/********************************************************************************************************************
+********************************************************************************************************************
+                        Form processing Actions
+********************************************************************************************************************
+********************************************************************************************************************/
 
     public function procLogin()
     {
@@ -119,7 +128,8 @@ class FormController extends Controller {
             return $this->redirector->root($redirect);
         }
     }// End procLogin()
-
+/********************************************************************************************************************
+********************************************************************************************************************/
     public function procForgotPassword()
     {
         //echo "<pre>",print_r($this->request),"</pre>"; //die();
@@ -173,7 +183,101 @@ class FormController extends Controller {
         }
         return $this->redirector->login();
     }// End procForgotPassword()
-
+/********************************************************************************************************************
+********************************************************************************************************************/
+    public function procProfileUpdate()
+    {
+        echo "<pre>",print_r($this->request->data),"</pre>"; die();
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        if( !$this->dataSubbed($name) )
+        {
+            Form::setError('name', 'Your name is required');
+        }
+        //image uploads
+        $field = "image";
+        if($_FILES[$field]["size"] > 0)
+        {
+            if(getimagesize($this->request->data[$field]['tmp_name']) !== false)
+            {
+                $filename = pathinfo($this->request->data[$field]['name'], PATHINFO_FILENAME);
+                $image_name = preg_replace("/[^A-Za-z0-9 ]/", '', $filename);//strip out non alphanumeric characters
+                $image_name = strtolower(str_replace(' ','_',$image_name));
+                //main image
+                $image_name = $this->uploadImage($field, 200, 200, $image_name, 'jpg', false, 'profile_pictures/');
+                //thumbnail image
+                //$this->uploadImage($field, 100, false, "tn_".$image_name, 'jpg', false, 'products/');
+                $post_data['image_name'] = $image_name;
+            }
+            else
+            {
+                Form::setError($field, 'Only upload images here');
+            }
+        }
+        elseif($_FILES[$field]['error']  !== UPLOAD_ERR_NO_FILE)
+        {
+            $error_message = $this->file_upload_error_message($_FILES[$field]['error']);
+            Form::setError($field, $error_message);
+        }
+        if($this->dataSubbed($new_password))
+        {
+            if(!$this->dataSubbed($conf_new_password))
+            {
+                Form::setError('conf_new_password', 'Please retype new password for confirmation');
+            }
+            elseif($conf_new_password !== $new_password)
+            {
+                Form::setError('conf_new_password', 'Passwords do not match');
+            }
+            else
+            {
+                $post_data['hashed_password'] = password_hash($new_password, PASSWORD_DEFAULT, array('cost' => Config::get('HASH_COST_FACTOR')));
+            }
+        }
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+            return $this->redirector->to(PUBLIC_ROOT . "login/resetPassword", ['id' => $this->request->data("id"), 'token' => $this->request->data("token")]);
+        }
+        else
+        {
+            $this->user->updateProfileInfo($post_data, Session::getUserId());
+            //reset some session data
+            Session::reset([
+                "user_id"       => Session::getUserId(),
+                "role"          => $this->user->getUserRoleName($role_id),
+                "ip"            => $this->request->clientIp(),
+                "user_agent"    => $this->request->userAgent(),
+                "users_name"    => $name,
+                "client_id"     => $client_id,
+                "is_admin_user" => $this->user->isAdminUser(),
+                "is_production_user"    => $this->user->isProductionUser(),
+                "is_warehouse_user"     => $this->user->isWarehouseUser()
+            ]);
+            //set the cookie to remember the user
+            Cookie::reset(Session::getUserId());
+        }
+        return $this->redirector->to(PUBLIC_ROOT."user/profile");
+    }
+/********************************************************************************************************************
+********************************************************************************************************************/
     public function procUpdatePassword()
     {
         //echo "<pre>",print_r($this->request),"</pre>";die();
@@ -213,9 +317,11 @@ class FormController extends Controller {
         }
     }// End procPasswordUpdate()
 
-    /********************************************************************************************************************************
-    *   Helper functions below this
-    *******************************************************************************************************************************/
+/********************************************************************************************************************
+********************************************************************************************************************
+                        Helper Functions
+********************************************************************************************************************
+********************************************************************************************************************/
     /*******************************************************************
     ** validates addresses
     ********************************************************************/
