@@ -50,7 +50,7 @@ if(isset($pages) && !empty($pages) && count($pages))
             break;
         }
     }
-    //echo "<pre>",print_r($bcs),"</pre>";
+    echo "BCS<pre>",print_r($bcs),"</pre>";
 }
 ?>
 <?php if(count($bcs)):?>
