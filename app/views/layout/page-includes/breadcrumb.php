@@ -2,9 +2,9 @@
 $this_page = Config::get('curPage');
 $role = Session::getUserRole();
 $bcs = array();
+echo "PAGES<pre>",print_r($pages),"</pre>";
 if(isset($pages) && !empty($pages) && count($pages))
 {
-
     foreach($pages as $section => $spages)
     {
         if( (isset($pages[$section]['super_admin_only']) && $pages[$section]['super_admin_only'] == true) && (strtolower($role) != "super admin") )
@@ -50,7 +50,7 @@ if(isset($pages) && !empty($pages) && count($pages))
             break;
         }
     }
-    echo "BCS<pre>",print_r($bcs),"</pre>";
+    //echo "<pre>",print_r($bcs),"</pre>";
 }
 ?>
 <?php if(count($bcs)):?>
