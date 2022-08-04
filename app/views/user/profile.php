@@ -3,7 +3,7 @@ $name = (empty(Form::value('name')))? $info['name'] : Form::value('name');
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
-        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?>
+        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?> 
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
         <form id="profile_update" method="post" enctype="multipart/form-data" action="/form/procProfileUpdate">
