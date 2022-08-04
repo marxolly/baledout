@@ -12,6 +12,7 @@ $name = (empty(Form::value('name')))? $info['name'] : Form::value('name');
                     <div class="row">
                         <div class="col">
                             <h3>User Details</h3>
+                            <p class="inst">fields marked <sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> are required</p>
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
