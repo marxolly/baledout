@@ -217,6 +217,14 @@ $client = array(
     )
 );
 
+//userpages to allow breadcrumbs to appear
+$user = array(
+    'profile'   => array(
+
+    )
+);
+$admin['user'] = $user;
+$client['user'] = $user;
 //merge and tidy page arrays
 
 
