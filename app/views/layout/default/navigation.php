@@ -42,7 +42,7 @@ endif;
                                 if(Session::getUserRole() != "super admin")
                                     continue;
                             }
-                            if($pages[$section][$section."-index"]):
+                            if( isset($pages[$section][$section."-index"]) && $pages[$section][$section."-index"]):
                                 $Section = ucwords(str_replace("-", " ", $section));?>
                                 <a class="nav-link" id="<?php echo $section;?>" href="<?php echo "/$section/";?>"><?php echo $pages[$section]['default-icon']['menu-icon']." ".$Section;?></a>
                             <?php endif;?>
