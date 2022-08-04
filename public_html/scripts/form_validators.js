@@ -160,5 +160,24 @@ $(document).ready(function() {
     $('form#form-forgot-password').validate({
         
     });
+    ////////////////////////////////////////////////////////////
+    $('form#profile_update').validate({
+    	rules:{
+    		image:{
+    			accept: "image/*"
+    		},
+            conf_new_password:{
+                equalTo: "#new_password"
+            }
+    	},
+        messages:{
+            image:{
+                accept: "Only upload image files here"
+            },
+            conf_new_password:{
+                equalTo: "This does not match. Please check"
+            }
+        }
+    });
 
 });//end doc ready function
