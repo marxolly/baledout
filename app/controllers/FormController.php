@@ -254,7 +254,8 @@ class FormController extends Controller {
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
-            return $this->redirector->to(PUBLIC_ROOT . "login/resetPassword", ['id' => $this->request->data("id"), 'token' => $this->request->data("token")]);
+            //return $this->redirector->to(PUBLIC_ROOT . "/user/profile");
+            //return $this->redirector->to(PUBLIC_ROOT . "login/resetPassword", ['id' => $this->request->data("id"), 'token' => $this->request->data("token")]);
         }
         else
         {
@@ -266,10 +267,7 @@ class FormController extends Controller {
                 "ip"            => $this->request->clientIp(),
                 "user_agent"    => $this->request->userAgent(),
                 "users_name"    => $name,
-                "client_id"     => $client_id,
-                "is_admin_user" => $this->user->isAdminUser(),
-                "is_production_user"    => $this->user->isProductionUser(),
-                "is_warehouse_user"     => $this->user->isWarehouseUser()
+                "is_admin_user" => $this->user->isAdminUser()
             ]);
             //set the cookie to remember the user
             Cookie::reset(Session::getUserId());
