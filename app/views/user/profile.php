@@ -79,12 +79,14 @@ $name = (empty(Form::value('name')))? $info['name'] : Form::value('name');
                             <h3>Save Changes</h3>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-md-4 offset-md-3 text-center text-md-start">
-                            <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
-                            <input type="hidden" name="client_id" value="<?php echo $info['client_id'];?>" />
-                            <input type="hidden" name="role_id" value="<?php echo $info['role_id'];?>" />
-                            <button type="submit" class="btn btn-outline-bo" id="submitter">Submit The Form</button>
+                    <div class="p-3 light-grey mb-3">
+                        <div class="form-group row">
+                            <div class="col-md-4 offset-md-3 text-center text-md-start">
+                                <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
+                                <input type="hidden" name="client_id" value="<?php echo $info['client_id'];?>" />
+                                <input type="hidden" name="role_id" value="<?php echo $info['role_id'];?>" />
+                                <button type="submit" class="btn btn-outline-bo" id="submitter">Submit The Form</button>
+                            </div>
                         </div>
                     </div>
                 </div>
