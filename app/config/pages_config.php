@@ -218,17 +218,15 @@ $client = array(
 );
 
 //userpages to allow breadcrumbs to appear
-$user = array(
-    'user'  => array(
-        'user-index'    => true,
-        'default-icon'  => array(
-            'display'   => false,
-            'icon'      => ''
-        ),
-        'profile'   => array(
-            'display'   => false,
-            'icon'      => ''
-        )
+$user =  array(
+    'user-index'    => true,
+    'default-icon'  => array(
+        'display'   => false,
+        'icon'      => ''
+    ),
+    'profile'   => array(
+        'display'   => false,
+        'icon'      => ''
     )
 );
 $admin['user'] = $user;
