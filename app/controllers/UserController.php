@@ -13,19 +13,6 @@ class UserController extends Controller{
         parent::beforeAction();
     }
 
-    public function addUser()
-    {
-        $client_role_id = $this->user->getClientRoleId();
-        //render the page
-        Config::setJsConfig('curPage', "add-user");
-        Config::set('curPage', "add-user");
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/users/", Config::get('VIEWS_PATH') . 'user/addUser.php',
-        [
-            'page_title'        =>  'Add New User',
-            'client_role_id'    =>  $client_role_id
-        ]);
-    }
-
     public function profile(){
         //data
         $info = $this->user->getProfileInfo(Session::getUserId());
