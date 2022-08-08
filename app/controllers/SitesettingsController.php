@@ -44,7 +44,7 @@ class SiteSettingsController extends Controller
         //render the page
         Config::setJsConfig('curPage', "add-user");
         Config::set('curPage', "add-user");
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/site-settings/", Config::get('VIEWS_PATH') . 'site-settings/addUser.php',
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/addUser.php',
         [
             'page_title'        =>  'Add New User',
             'client_role_id'    =>  $client_role_id
