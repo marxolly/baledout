@@ -230,8 +230,8 @@ $user =  array(
         'icon'      => ''
     )
 );
-$admin['user'] = $user;
-$client['user'] = $user;
+//$admin['user'] = $user;
+//$client['user'] = $user;
 //merge and tidy page arrays
 
 
