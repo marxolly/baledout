@@ -49,6 +49,7 @@ class UserController extends Controller{
 
         //render the page
         Config::setJsConfig('curPage', "edit-user-profile");
+        Config::set('curPage', "edit-user-profile");
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/users/", Config::get('VIEWS_PATH') . 'user/editUserProfile.php',[
             'page_title'    =>  "Edit User Profile",
             'info'          =>  $info
