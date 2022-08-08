@@ -5,14 +5,14 @@ $bcs = array();
 //echo "PAGES<pre>",print_r($pages),"</pre>"; die();
 if(isset($pages) && !empty($pages) && count($pages))
 {
-    foreach($pages as $section => $spages)
-    {
-        $bcs[] = array(
+            $bcs[] = array(
                 'icon'      => '<i class="fad fa-home"></i>',
                 'p_name'    => '',
                 'link'      => '/',
                 'active'    => false
             );
+    foreach($pages as $section => $spages)
+    {
         if( (isset($pages[$section]['super_admin_only']) && $pages[$section]['super_admin_only'] == true) && (strtolower($role) != "super admin") )
             continue;
         $SectionName = ucwords(str_replace("-", " ", $section));
