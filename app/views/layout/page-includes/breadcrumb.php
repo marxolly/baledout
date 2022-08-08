@@ -11,8 +11,8 @@ if(isset($pages) && !empty($pages) && count($pages))
             continue;
         $SectionName = ucwords(str_replace("-", " ", $section));
         $action = Utility::toCamelCase($SectionName);
-        if( array_key_exists($this_page, $spages) )
-        {
+        //if( array_key_exists($this_page, $spages) )
+        //{
             $bcs[] = array(
                 'icon'      => '<i class="fad fa-home"></i>',
                 'p_name'    => '',
@@ -49,7 +49,7 @@ if(isset($pages) && !empty($pages) && count($pages))
             }
             break;
         }
-    }
+    //}
     //echo "<pre>",print_r($bcs),"</pre>";
 }
 ?>
