@@ -133,8 +133,8 @@ $admin = array(
             'icon'      => ''
         ),
         'add-user'    => array(
-            'display'   => false,
-            'icon'      => ''
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><i class="fad fa-user-plus"></i></div>'
         ),
         'view-typography'   => array(
             'display'   => true,
