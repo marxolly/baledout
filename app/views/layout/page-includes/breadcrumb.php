@@ -7,18 +7,19 @@ if(isset($pages) && !empty($pages) && count($pages))
 {
     foreach($pages as $section => $spages)
     {
+        $bcs[] = array(
+                'icon'      => '<i class="fad fa-home"></i>',
+                'p_name'    => '',
+                'link'      => '/',
+                'active'    => false
+            );
         if( (isset($pages[$section]['super_admin_only']) && $pages[$section]['super_admin_only'] == true) && (strtolower($role) != "super admin") )
             continue;
         $SectionName = ucwords(str_replace("-", " ", $section));
         $action = Utility::toCamelCase($SectionName);
         //if( array_key_exists($this_page, $spages) )
         //{
-            $bcs[] = array(
-                'icon'      => '<i class="fad fa-home"></i>',
-                'p_name'    => '',
-                'link'      => '/',
-                'active'    => false
-            );
+
             if($pages[$section][$section."-index"])
             {
                 $Section = ucwords(str_replace("-", " ", $section));
