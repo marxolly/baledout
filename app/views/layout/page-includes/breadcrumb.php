@@ -47,9 +47,9 @@ if(isset($pages) && !empty($pages) && count($pages))
                     }
                 }
             }
-            break;
-        }
-    //}
+            //break;
+        //}
+    }
     //echo "<pre>",print_r($bcs),"</pre>";
 }
 ?>
