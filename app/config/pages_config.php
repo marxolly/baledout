@@ -220,7 +220,7 @@ $client = array(
 //userpages to allow breadcrumbs to appear
 $user = array(
     'user'  => array(
-        'user-index'    => false,
+        'user-index'    => true,
         'default-icon'  => array(
             'display'   => false,
             'icon'      => ''
