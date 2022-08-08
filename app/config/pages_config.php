@@ -222,7 +222,8 @@ $user =  array(
     'user-index'    => true,
     'default-icon'  => array(
         'display'   => false,
-        'icon'      => ''
+        'icon'      => '',
+        'menu-icon' => ''
     ),
     'profile'   => array(
         'display'   => false,
