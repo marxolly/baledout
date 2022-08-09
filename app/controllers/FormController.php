@@ -43,7 +43,8 @@ class FormController extends Controller {
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
-            'procUpdatePassword'
+            'procUpdatePassword',
+            'procUserAdd'
         ];
         $this->Security->config("form", [ 'fields' => ['csrf_token']]);
         $this->Security->requirePost($actions);
@@ -315,6 +316,67 @@ class FormController extends Controller {
             $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/login/", Config::get('LOGIN_PATH') . 'passwordUpdated.php');
         }
     }// End procPasswordUpdate()
+/********************************************************************************************************************
+********************************************************************************************************************/
+    public function procUserAdd()
+    {
+        echo "<pre>",print_r($this->request->data),"</pre>"; die();
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+        }
+
+        if( !$this->dataSubbed($name) )
+        {
+            Form::setError('name', 'A name is required');
+        }
+        if(!$this->dataSubbed($email))
+        {
+            Form::setError('email', 'An email is required');
+        }
+        elseif( !$this->emailValid($email))
+        {
+            Form::setError('email', 'Please enter a valid email');
+        }
+        elseif( $this->user->emailTaken($email))
+        {
+            Form::setError('email', 'This email is already registered');
+        }
+        if($role_id == 0)
+        {
+            Form::setError('role_id', 'Please select a role');
+        }
+        elseif($role_id == $client_role_id)
+        {
+            if( $client_id == 0 )
+            {
+                Form::setError('client_id', 'Please select a client');
+            }
+        }
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //insert the user
+            $this->user->addUser($post_data);
+            Session::set('feedback', "<p>That user has been added to the system</p>");
+            if(!isset($test_user))
+            {
+                //send the email
+                Email::sendNewUserEmail($name, $email);
+                $_SESSION['feedback'] .= "<p>password setup instructions have been emailed to $email</p>";
+            }
+        }
+        return $this->redirector->to(PUBLIC_ROOT."user/add-user");
+    }// End procUserAdd()
 
 /********************************************************************************************************************
 ********************************************************************************************************************
