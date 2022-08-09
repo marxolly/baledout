@@ -329,6 +329,14 @@ class FormController extends Controller {
                 ${$field} = $value;
                 $post_data[$field] = $value;
             }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
         }
 
         if( !$this->dataSubbed($name) )
@@ -375,7 +383,7 @@ class FormController extends Controller {
                 $_SESSION['feedback'] .= "<p>password setup instructions have been emailed to $email</p>";
             }
         }
-        return $this->redirector->to(PUBLIC_ROOT."user/add-user");
+        return $this->redirector->to(PUBLIC_ROOT."site-settings/add-user");
     }// End procUserAdd()
 
 /********************************************************************************************************************
