@@ -50,7 +50,7 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
                              <div class="form-group row mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="test_user" name="test_user" <?php if(!empty(Form::value('test_user'))) echo 'checked';?>>
-                                    <label class="form-check-label d-md-none" for="test_user">Test User</label>
+                                    <label class="form-check-label" for="test_user">Test User</label>
                                 </div>
                              </div>
                         <?php endif;?>
