@@ -273,6 +273,7 @@ class FormController extends Controller {
             ]);
             //set the cookie to remember the user
             Cookie::reset(Session::getUserId());
+            Session::set('feedback', "<p>Your details have been updated</p>");
         }
         return $this->redirector->to(PUBLIC_ROOT."user/profile");
     }
