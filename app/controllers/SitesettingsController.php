@@ -33,6 +33,7 @@ class SiteSettingsController extends Controller
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/manageUsers.php',
         [
             'page_title'    =>  'Manage Users',
+            'pht'           =>  ": Manage Users",
             'user_roles'    =>  $user_roles,
             'active'        =>  $active
         ]);
@@ -47,6 +48,7 @@ class SiteSettingsController extends Controller
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/addUser.php',
         [
             'page_title'        =>  'Add New User',
+            'pht'               =>  ": Add New User",
             'client_role_id'    =>  $client_role_id
         ]);
     }
@@ -59,6 +61,7 @@ class SiteSettingsController extends Controller
         Config::set('curPage', "user-roles");
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/userRoles.php',[
             'page_title'  =>  'Manage User Roles',
+            'pht'         =>  ": Manage User Roles",
             'roles'       =>  $roles
         ]);
     }
