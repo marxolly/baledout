@@ -5,9 +5,7 @@
   *
   * Handles all permissions for accessing resources(usually controllers), and what are the actions a user can perform
   *
-  * This class requires from you to define all permission rules in you PHP code,
-  * Another approach you could take is to define them in the database,
-  * But, i find this approach is simpler and less costly at least for this application.
+  * TODO - store permissions in database
   *
   
   * @author     Mark Solly <mark.solly@fsg.com.au>
@@ -144,6 +142,10 @@ class Permission {
     /** ********************************************************* **/
     /** **************    Specific Permissions     ************** **/
     /** ********************************************************* **/
+    public static function canManageRole()
+    {
+        
+    }
 
     public static function canDoRunsheets($user_role)
     {
