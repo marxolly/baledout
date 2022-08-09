@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-        <?php else:?>
+        <?php elseif(isset($_SESSION['feedback'])):?>
             <div class="feedbackbox">
                 <div class="row">
                     <div class="col-4 col-md-2 text-end">
@@ -27,10 +27,7 @@
                     </div>
                     <div class="col-8 col-md-10">
                         <h2>Form successfully processed</h2>
-                        <?php if(isset($_SESSION['feedback'])) :
-                            echo Session::getAndDestroy('feedback');
-                        endif;?>
-                        <p>Please correct where shown and re-submit.</p>
+                        <?php echo Session::getAndDestroy('feedback');?>
                     </div>
                 </div>
             </div>
