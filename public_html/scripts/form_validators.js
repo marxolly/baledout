@@ -139,7 +139,19 @@ $(document).ready(function() {
 
     //Validators
     ///////////////////////////////////////////////////////////////////////////////
-
+    ////////////////////////////////////////////////////////////
+    $('form#add_user').validate({
+        rules:{
+            role_id:{
+                notNone: true
+            }
+        },
+        messages:{
+            role_id:{
+                notNone: "Please select a role"
+            }
+        }
+    });
     ///////////////////////////////////////////////////////////////////////////////
     $('form#contact_us').validate({
         ignore: "[contenteditable='true']:not([name])",

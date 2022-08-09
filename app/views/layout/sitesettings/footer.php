@@ -9,6 +9,36 @@
 
                     }
                 },
+                'add-user':{
+                    init: function(){
+                        $('select#role_id').change(function(e){
+                            if($(this).val() == $('#client_role_id').val())
+                            {
+                                $('#client_holder').slideDown();
+                                $('#client_id').rules('add', 'notNone');
+                            }
+                            else
+                            {
+                                $('#client_holder').slideUp();
+                                $('#client_id').rules('remove');
+                            }
+                            $(this).valid();
+                        });
+                        $('select#role_id, select#client_id').change(function(e){
+                            $(this).valid();
+                        });
+                        $('form#add_user').submit(function(){
+                            if($(this).valid())
+                            {
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Adding user and sending email...</h2></div>' });
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        });
+                    }
+                },
                 'manage-users': {
                     init: function(){
 
