@@ -10,10 +10,10 @@
         <?php if(Form::$num_errors > 0) :?>
             <div class="errorbox">
                 <div class="row">
-                    <div class="col-4 col-lg-2 text-end">
+                    <div class="col-4 col-md-2 text-end">
                         <i class="fad fa-exclamation-triangle fa-6x"></i>
                     </div>
-                    <div class="col-8 col-lg-10">
+                    <div class="col-8 col-md-10">
                         <h2>Sorry, some errors were found with the form.</h2>
                         <p>Please correct where shown and re-submit.</p>
                     </div>
