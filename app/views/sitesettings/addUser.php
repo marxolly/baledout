@@ -69,6 +69,7 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
                         <div class="form-group row">
                             <div class="col-md-4 offset-md-3 text-center text-md-start">
                                 <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
+                                <input type="hidden" name="client_role_id" id="client_role_id" value="<?php echo $client_role_id;?>" />
                                 <button type="submit" class="btn btn-outline-bo" id="submitter">Submit The Form</button>
                             </div>
                         </div>
