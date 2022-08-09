@@ -47,8 +47,6 @@
                                         <?php else:?>
                                             <a class="btn btn-sm btn-outline-success reactivate" data-userid="<?php echo $user['id'];?>">Reactivate User</a>
                                         <?php endif;?>
-                                        </p>
-                                        <a class="btn btn-sm btn-outline-secondary mb-3" href="/user/edit-user-profile/user=<?php echo $user['id'];?>">Edit Profile</a>
                                     </div>
                                 </div>
                             <?php endforeach;?>
