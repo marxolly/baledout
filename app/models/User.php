@@ -97,7 +97,7 @@ class User extends Model{
         );
         if(isset($data['test_user']))
         {
-            $vals['hashed_password'] = password_hash('BALEDout', PASSWORD_DEFAULT, array('cost' => Config::get('HASH_COST_FACTOR')));
+            $vals['hashed_password'] = password_hash('IsMELInG', PASSWORD_DEFAULT, array('cost' => Config::get('HASH_COST_FACTOR')));
         }
         $user_id = $db->insertQuery($this->table, $vals);
         return $user_id;
