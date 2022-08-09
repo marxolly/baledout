@@ -19,6 +19,21 @@
                     </div>
                 </div>
             </div>
+        <?php else:?>
+            <div class="feedbackbox">
+                <div class="row">
+                    <div class="col-4 col-md-2 text-end">
+                        <i class="fad fa-badge-check fa-6x"></i>
+                    </div>
+                    <div class="col-8 col-md-10">
+                        <h2>Form successfully processed</h2>
+                        <?php if(isset($_SESSION['feedback'])) :
+                            echo Session::getAndDestroy('feedback');
+                        endif;?>
+                        <p>Please correct where shown and re-submit.</p>
+                    </div>
+                </div>
+            </div>
         <?php endif ?>
         <!--p class="text-info">fields marked <sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> are required</p-->
     </div>
