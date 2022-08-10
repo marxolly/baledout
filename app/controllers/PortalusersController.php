@@ -69,7 +69,7 @@ class PortalUsersController extends Controller
     public function isAuthorized(){
         $role = Session::getUserRole();
         $action = $this->request->param('action');
-        $resource = "sitesettings";
+        $resource = "portalusers";
         // only for super admins
         Permission::allow('super admin', $resource, ['*']);
         // all other admins
