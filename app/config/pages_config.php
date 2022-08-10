@@ -118,7 +118,19 @@ $admin = array(
         'default-icon'  => array(
             'display'   => false,
             'icon'      => '<i class="fa-duotone fa-people-group fa-2x"></i>',
-            'menu-icon' => '<i class="fa-duotone fa-people-group d-lg-none"></i>' 
+            'menu-icon' => '<i class="fa-duotone fa-people-group d-lg-none"></i>'
+        ),
+        'manage-users'    => array(
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><i class="fad fa-users"></i></div>'
+        ),
+        'user-roles'    => array(
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><i class="fad fa-users-cog"></i></div>'
+        ),
+        'add-user'    => array(
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><i class="fad fa-user-plus"></i></div>'
         )
     ),
     'site-settings'		=> array(
@@ -128,22 +140,6 @@ $admin = array(
             'icon'      => '<i class="fad fa-cog fa-2x"></i>',
             'menu-icon' => '<i class="fad fa-cog d-lg-none"></i>'
         ),/**/
-        'manage-users'    => array(
-            'display'   => true,
-            'icon'      => '<div class="fa-3x"><i class="fad fa-users"></i></div>'
-        ),
-        'user-roles'    => array(
-            'display'   => true,
-            'icon'      => '<div class="fa-3x"><i class="fad fa-users-cog"></i></div>'
-        ),
-        'edit-user-profile'    => array(
-            'display'   => false,
-            'icon'      => ''
-        ),
-        'add-user'    => array(
-            'display'   => true,
-            'icon'      => '<div class="fa-3x"><i class="fad fa-user-plus"></i></div>'
-        ),
         'view-typography'   => array(
             'display'   => true,
             'icon'      => '<div class="fa-3x"><i class="fa-light fa-kerning"></i></div>'
