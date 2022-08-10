@@ -130,7 +130,7 @@ $admin = array(
         ),
         'add-user'    => array(
             'display'   => true,
-            'icon'      => '<div class="fa-3x"><i class="fad fa-user-plus"></i></div>'
+            'icon'      => '<div class="fa-3x"><i class="fad fa-person-circle-plus"></i></div>'
         )
     ),
     'site-settings'		=> array(
