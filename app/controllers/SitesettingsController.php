@@ -21,51 +21,6 @@ class SiteSettingsController extends Controller
         parent::displayIndex(get_class());
     }
 
-    public function manageUsers()
-    {
-        //$client_users = $this->user->getAllUsers('client');
-        //$admin_users = $this->user->getAllUsers('admin');
-        $user_roles = $this->user->getUserRoles();
-        $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
-        //render the page
-        Config::setJsConfig('curPage', "manage-users");
-        Config::set('curPage', "manage-users");
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/manageUsers.php',
-        [
-            'page_title'    =>  'Manage Users',
-            'pht'           =>  ": Manage Users",
-            'user_roles'    =>  $user_roles,
-            'active'        =>  $active
-        ]);
-    }
-
-    public function addUser()
-    {
-        $client_role_id = $this->user->getClientRoleId();
-        //render the page
-        Config::setJsConfig('curPage', "add-user");
-        Config::set('curPage', "add-user");
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/addUser.php',
-        [
-            'page_title'        =>  'Add New User',
-            'pht'               =>  ": Add New User",
-            'client_role_id'    =>  $client_role_id
-        ]);
-    }
-
-    public function userRoles()
-    {
-        $roles = $this->user->getUserRoles();
-        //render the page
-        Config::setJsConfig('curPage', "user-roles");
-        Config::set('curPage', "user-roles");
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/sitesettings/", Config::get('VIEWS_PATH') . 'sitesettings/userRoles.php',[
-            'page_title'  =>  'Manage User Roles',
-            'pht'         =>  ": Manage User Roles",
-            'roles'       =>  $roles
-        ]);
-    }
-
     public function viewTypography()
     {
         $user_role = (Session::isAdminUser())? 'admin' : Session::getUserRole();
@@ -77,7 +32,6 @@ class SiteSettingsController extends Controller
             'user_role'     =>  $user_role
         ]);
     }
-
 
     public function isAuthorized(){
         $role = Session::getUserRole();
