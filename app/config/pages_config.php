@@ -113,6 +113,14 @@ $admin = array(
             'menu-icon' => '<i class="fad fa-indent d-lg-none"></i>'
         )
     ),
+    'portal-users'  => array(
+        'portal-users-index'    => true,
+        'default-icon'  => array(
+            'display'   => false,
+            'icon'      => '<i class="fa-duotone fa-people-group fa-2x"></i>',
+            'menu-icon' => '<i class="fa-duotone fa-people-group d-lg-none"></i>' 
+        )
+    ),
     'site-settings'		=> array(
         'site-settings-index'   => true,
         'default-icon'  => array(
