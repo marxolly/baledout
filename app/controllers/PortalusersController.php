@@ -17,7 +17,7 @@ class PortalUsersController extends Controller
     public function index()
     {
         //set the page name for menu display
-        Config::setJsConfig('curPage', 'site-settings-index');
+        Config::setJsConfig('curPage', 'portal-users-index');
         parent::displayIndex(get_class());
     }
 
