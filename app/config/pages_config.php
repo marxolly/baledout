@@ -134,7 +134,7 @@ $admin = array(
         )
     ),
     'site-settings'		=> array(
-        'site-settings-index'   => true,
+        'site-settings-index'   => false,
         'default-icon'  => array(
             'display'   => false,
             'icon'      => '<i class="fad fa-cog fa-2x"></i>',
@@ -151,7 +151,7 @@ $admin = array(
         )
     ),
     'downloads' => array(
-        'downloads-index'   => true,
+        'downloads-index'   => false,
         'super_admin_only'  => true,
         'default-icon'  => array(
             'display'   => false,
