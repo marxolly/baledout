@@ -78,7 +78,7 @@ a.bo_logo {
     height: 56px;
     margin-left: 1rem;
     background: url("/images/BO_logo1.png") no-repeat;
-    background-size: cover;
+    background-size: 100%;
 }
 
 /********
