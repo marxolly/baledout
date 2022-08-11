@@ -77,7 +77,8 @@ a.bo_logo {
     width:180px;
     height: 56px;
     margin-left: 1rem;
-    background: url("/images/BO_logo1.png") no-repeat cover;
+    background: url("/images/BO_logo1.png") no-repeat;
+    background-size: cover;
 }
 
 /********
@@ -1217,9 +1218,9 @@ Responsive adjustments
 
 @media(min-width: 1200px)
 {
-    img.bo_logo{
-       width:250px;
-       height: auto;
+    a.bo_logo{
+       width:270px;
+       height: 85px;
    }
 }
 
