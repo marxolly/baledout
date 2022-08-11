@@ -72,10 +72,11 @@ h2.page-header svg{
     vertical-align: middle;
 }
 
-img.bo_logo {
+a.bo_logo {
     width:180px;
     height: auto;
     margin-left: 1rem;
+    background: url("/images/BO_logo1.png") no-repeat;
 }
 
 /********
