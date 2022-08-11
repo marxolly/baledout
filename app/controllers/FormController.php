@@ -384,7 +384,7 @@ class FormController extends Controller {
                 $_SESSION['feedback'] .= "<p>password setup instructions have been emailed to $email</p>";
             }
         }
-        return $this->redirector->to(PUBLIC_ROOT."site-settings/add-user");
+        return $this->redirector->to(PUBLIC_ROOT."portal-users/add-user");
     }// End procUserAdd()
 
 /********************************************************************************************************************
