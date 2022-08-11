@@ -330,6 +330,7 @@ class FormController extends Controller {
             else
             {
                 Session::set('value_array', $_POST);
+                Session::set('error_array', Form::getErrorArray());
                 Session::set('errorfeedback',"<p>There has been error emailing your message</p>");
             }
         }
