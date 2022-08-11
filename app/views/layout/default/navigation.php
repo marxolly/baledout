@@ -27,8 +27,8 @@ endif;
     <div class="col-8 col-lg-10">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: transparent; height:120px;">
         <div class="container-fluid">
-            <a href="/" class="navbar-brand bo_logo" title="Portal Home">
-                <!--img class="bo_logo"  src="/images/BO_logo1.png" alt="Baledout Logo" title="Portal Home"-->
+            <a href="/" class="navbar-brand" title="Portal Home">
+                <img class="bo_logo"  src="/images/BO_logo1.png" alt="Baledout Logo" title="Portal Home">
             </a>
             <button id="navbar_toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
