@@ -81,6 +81,10 @@ a.bo_logo {
     background-size: 100%;
 }
 
+a.bo_logo:hover{
+    background: url("/images/BO_logo1_hover.png") no-repeat;
+}
+
 /********
 website colours
 ********/
