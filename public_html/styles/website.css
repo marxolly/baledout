@@ -68,22 +68,14 @@ h2.page-header{
     color: rgba(243,109,37,1);
 }
 
-
 h2.page-header svg{
     vertical-align: middle;
 }
 
-a.bo_logo {
+img.bo_logo {
     width:180px;
-    height: 56px;
+    height: auto;
     margin-left: 1rem;
-    background: url("/images/BO_logo1.png") no-repeat;
-    background-size: 100%;
-}
-
-a.bo_logo:hover{
-    background: url("/images/BO_logo1_hover.png") no-repeat;
-    background-size: 100%;
 }
 
 /********
@@ -1223,9 +1215,9 @@ Responsive adjustments
 
 @media(min-width: 1200px)
 {
-    a.bo_logo{
-       width:270px;
-       height: 85px;
+    img.bo_logo{
+       width:250px;
+       height: auto;
    }
 }
 
