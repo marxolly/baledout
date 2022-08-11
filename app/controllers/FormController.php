@@ -330,7 +330,7 @@ class FormController extends Controller {
             else
             {
                 Session::set('value_array', $_POST);
-                Session::set('feedback',"<h2><i class='far fa-times-circle'></i>Your Message Failed to Send</h2><p>Sorry, there has been an error</p><p>Please try again</p>");
+                Session::set('errorfeedback',"<p>There has been error emailing your message</p>");
             }
         }
         return $this->redirector->to(PUBLIC_ROOT."contacts/send-a-message/");

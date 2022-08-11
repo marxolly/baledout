@@ -1,7 +1,17 @@
 <div class="row">
     <div class="col-lg-12 offset-xl-1 col-xl-10">
         <?php if(isset($_SESSION['errorfeedback'])) :?>
-           <div class='errorbox'><?php echo Session::getAndDestroy('errorfeedback');?></div>
+           <div class='errorbox'>
+                <div class="row">
+                    <div class="col-4 col-md-2 text-end">
+                        <i class="fad fa-exclamation-triangle fa-6x"></i>
+                    </div>
+                    <div class="col-8 col-md-10">
+                        <h2>Sorry, there was an error processing the form data.</h2>
+                        <?php echo Session::getAndDestroy('errorfeedback');?>
+                    </div>
+                </div>
+           </div>
         <?php endif; ?>
         <a id="form_top"></a>
         <?php if(Form::$num_errors > 0) :?>
