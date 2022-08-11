@@ -13,26 +13,47 @@ $country = Form::value('country');
         <?php echo Form::displayError('general');?>
         <div class="row">
             <div class="col">
-                <form id="contact_us" method="post"  action="/form/procContactUs">
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Subject</label>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control required" name="subject" id="subject" value="<?php echo Form::value('subject');?>" />
-                            <?php echo Form::displayError('subject');?>
+                <form id="send_a_message" method="post"  action="/form/procSendAMessage">
+                    <div class="row">
+                        <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Type Your Message</h3>
+                                    <p class="inst">fields marked <sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> are required</p>
+                                </div>
+                            </div>
+                            <div class="p-3 light-grey mb-3">
+                                <div class="form-group row mb-3">
+                                    <label class="col-md-3 col-form-label"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Subject</label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control required" name="subject" id="subject" value="<?php echo Form::value('subject');?>" />
+                                        <?php echo Form::displayError('subject');?>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                    <label class="col-md-3 col-form-label"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Message</label>
+                                    <div class="col-md-4">
+                                        <textarea class="form-control required ckeditor" name="message" id="message"><?php echo Form::value('message');?></textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-3 col-form-label"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Message</label>
-                        <div class="col-md-4">
-                            <textarea class="form-control required ckeditor" name="message" id="message"><?php echo Form::value('message');?></textarea>
-                        </div>
-                    </div>
-                    <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
-                    <input type="hidden" name="the_website" id="the_website" value="" />
-                    <input type="hidden" name="loaded" id="loaded" value="<?php echo time();?>" />
-                    <div class="form-group row">
-                        <div class="col-md-4 offset-md-3">
-                            <button type="submit" class="btn btn-outline-secondary">Send Message</button>
+                        <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Send Your Message</h3>
+                                </div>
+                            </div>
+                            <div class="p-3 light-grey mb-3">
+                                <div class="form-group row">
+                                    <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>">
+                                    <input type="hidden" name="the_website" id="the_website" value="">
+                                    <input type="hidden" name="loaded" id="loaded" value="<?php echo time();?>">
+                                    <div class="col-md-4 offset-md-3 text-center text-md-start">
+                                        <button type="submit" class="btn btn-outline-bo" id="submitter">Send It</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
