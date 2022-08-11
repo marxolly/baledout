@@ -153,7 +153,7 @@ $(document).ready(function() {
         }
     });
     ///////////////////////////////////////////////////////////////////////////////
-    $('form#contact_us').validate({
+    $('form#send_a_message').validate({
         ignore: "[contenteditable='true']:not([name])",
         messages: {
             message:{
