@@ -106,7 +106,7 @@ $admin = array(
         )
     ),
     'data-entry'    =>  array(
-        'data-entry-index'  => true,
+        'data-entry-index'  => false,
         'default-icon'  => array(
             'display'   => false,
             'icon'      => '<i class="fad fa-indent fa-2x"></i>',
