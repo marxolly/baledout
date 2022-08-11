@@ -13,7 +13,7 @@ class ContactController extends Controller
      * Generic Contact Us
      *
      */
-    public function sendAmessage()
+    public function sendAMessage()
     {
         Config::setJsConfig('curPage', "send-a-message");
         Config::set('curPage', "send-a-messag");
