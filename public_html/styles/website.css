@@ -73,7 +73,7 @@ h2.page-header svg{
     vertical-align: middle;
 }
 
-a.bo_logo {
+div.bo_logo {
     width:180px;
     height: 56px;
     margin-left: 1rem;
@@ -1197,7 +1197,7 @@ Responsive adjustments
 *******  */
 @media(min-width:768px)
 {
-   img.bo_logo{
+   div.bo_logo{
        width:180px;
        height: auto;
    }
@@ -1218,7 +1218,7 @@ Responsive adjustments
 
 @media(min-width: 1200px)
 {
-    a.bo_logo{
+    div.bo_logo{
        width:270px;
        height: 85px;
    }
