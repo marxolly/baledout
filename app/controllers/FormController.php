@@ -43,6 +43,7 @@ class FormController extends Controller {
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
+            'procSendAMessage',
             'procUpdatePassword',
             'procUserAdd'
         ];
@@ -184,6 +185,7 @@ class FormController extends Controller {
         }
         return $this->redirector->login();
     }// End procForgotPassword()
+
 /********************************************************************************************************************
 ********************************************************************************************************************/
     public function procProfileUpdate()
@@ -277,6 +279,61 @@ class FormController extends Controller {
         }
         return $this->redirector->to(PUBLIC_ROOT."user/profile");
     }
+/********************************************************************************************************************
+********************************************************************************************************************/
+    public function procSendAMessage()
+    {
+        echo "<pre>",print_r($this->request->data),"</pre>"; die();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        //robot catcher
+        $load_time = time() - $loaded;
+        if( $load_time < 10 && $this->dataSubbed($the_website) )
+            return false;
+        //end robot catcher
+        if(!$this->dataSubbed($subject))
+        {
+            Form::setError('subject', "Please enter a subject");
+        }
+        if(!$this->dataSubbed($message))
+        {
+            Form::setError('message', "Please enter a message");
+        }
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //echo "ALL GOOD<pre>",print_r($post_data),"</pre>"; die();
+            //Session::set('feedback',"<h2><i class='far fa-check-circle'></i>The Job Delivery Details Have Been Updated</h2>");
+            if(Email::sendContactUsEmail($subject,$message))
+            {
+                Session::set('feedback',"<h2><i class='far fa-check-circle'></i>Your Message Has Been Sent</h2><p>We will be in contact soon</p>");
+            }
+            else
+            {
+                Session::set('value_array', $_POST);
+                Session::set('feedback',"<h2><i class='far fa-times-circle'></i>Your Message Failed to Send</h2><p>Sorry, there has been an error</p><p>Please try again</p>");
+            }
+        }
+        return $this->redirector->to(PUBLIC_ROOT."contact/contact-us/");
+    }// End proc sendAMessage
 /********************************************************************************************************************
 ********************************************************************************************************************/
     public function procUpdatePassword()
