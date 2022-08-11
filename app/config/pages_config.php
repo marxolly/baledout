@@ -159,6 +159,18 @@ $admin = array(
             'menu-icon' => '<i class="fad fa-download d-lg-none"></i>'
         )
     ),
+    'contacts'  => array(
+        'contacts-index'    => false,
+        'default-icon'  => array(
+            'display'   => false,
+            'icon'      => '<i class="fa-duotone fa-envelopes-bulk fa-2x"></i>',
+            'menu-icon' => '<i class="fa-duotone fa-envelopes-bulk d-lg-none"></i>'
+        ),
+        'send-a-message'    => array(
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><i class="fa-duotone fa-envelope-open-text"></i></div>'
+        )
+    ),
     'admin-only'    => array(
         'admin-only-index'  => true,
         'super_admin_only'  => true,
