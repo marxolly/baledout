@@ -68,13 +68,14 @@ h2.page-header{
     color: rgba(243,109,37,1);
 }
 
+
 h2.page-header svg{
     vertical-align: middle;
 }
 
 a.bo_logo {
     width:180px;
-    height: auto;
+    height: 56px;
     margin-left: 1rem;
     background: url("/images/BO_logo1.png") no-repeat;
 }
