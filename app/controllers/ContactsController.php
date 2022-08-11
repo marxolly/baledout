@@ -7,7 +7,7 @@
  * @author     Mark Solly <mark.solly@fsg.com.au>
  */
 
-class ContactController extends Controller
+class ContactsController extends Controller
 {
     /**
      * Generic Contact Us
