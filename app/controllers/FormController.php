@@ -325,7 +325,7 @@ class FormController extends Controller {
             //if(Email::sendContactUsEmail($subject,$message))
             if(1 == 2)
             {
-                Session::set('feedback',"<h2><i class='far fa-check-circle'></i>Your Message Has Been Sent</h2><p>We will be in contact soon</p>");
+                Session::set('feedback',"<p>Your Message Has Been Sent</p><p>We will be in contact soon</p>");
             }
             else
             {
