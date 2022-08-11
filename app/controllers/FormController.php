@@ -283,7 +283,7 @@ class FormController extends Controller {
 ********************************************************************************************************************/
     public function procSendAMessage()
     {
-        echo "<pre>",print_r($this->request->data),"</pre>"; die();
+        //echo "<pre>",print_r($this->request->data),"</pre>"; die();
         foreach($this->request->data as $field => $value)
         {
             if(!is_array($value))
@@ -322,7 +322,8 @@ class FormController extends Controller {
         {
             //echo "ALL GOOD<pre>",print_r($post_data),"</pre>"; die();
             //Session::set('feedback',"<h2><i class='far fa-check-circle'></i>The Job Delivery Details Have Been Updated</h2>");
-            if(Email::sendContactUsEmail($subject,$message))
+            //if(Email::sendContactUsEmail($subject,$message))
+            if(1 == 2)
             {
                 Session::set('feedback',"<h2><i class='far fa-check-circle'></i>Your Message Has Been Sent</h2><p>We will be in contact soon</p>");
             }
@@ -332,7 +333,7 @@ class FormController extends Controller {
                 Session::set('feedback',"<h2><i class='far fa-times-circle'></i>Your Message Failed to Send</h2><p>Sorry, there has been an error</p><p>Please try again</p>");
             }
         }
-        return $this->redirector->to(PUBLIC_ROOT."contact/contact-us/");
+        return $this->redirector->to(PUBLIC_ROOT."contacts/send-a-message/");
     }// End proc sendAMessage
 /********************************************************************************************************************
 ********************************************************************************************************************/
