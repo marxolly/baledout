@@ -5,7 +5,6 @@ public_html/*.pdf
 public_html/zz_*
 app/logs/
 app/config/constants*
-public_html/images/
 public_html/data/
 STORE/
 .bash_logout
