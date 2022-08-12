@@ -30,8 +30,8 @@
         $replace_array = array("{SUBJECT}", "{FROM}", "{FROM_EMAIL}", "{MESSAGE}");
     	$replace_with_array = array($subject, $sender_details['name'], $sender_details['email'], $message);
     	$body = str_replace($replace_array, $replace_with_array, $body);
-
         $mail->SetFrom(Config::get('EMAIL_FROM'), Config::get('EMAIL_FROM_NAME'));
+        $mail->addReplyTo($sender_details['email'], $sender_details['name']);
         if(SITE_LIVE)
     	    $mail->AddAddress('mark.solly@fsg.com.au', 'Mark Solly');
         else

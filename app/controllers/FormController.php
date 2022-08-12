@@ -322,8 +322,8 @@ class FormController extends Controller {
         {
             //echo "ALL GOOD<pre>",print_r($post_data),"</pre>"; die();
             //Session::set('feedback',"<h2><i class='far fa-check-circle'></i>The Job Delivery Details Have Been Updated</h2>");
-            //if(Email::sendContactUsEmail($subject,$message))
-            if(1 == 2)
+            if(Email::sendContactUsEmail($subject,$message))
+            //if(1 == 2)
             {
                 Session::set('feedback',"<p>Your Message Has Been Sent</p><p>We will be in contact soon</p>");
             }
