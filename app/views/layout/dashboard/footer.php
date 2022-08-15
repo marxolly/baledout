@@ -8,31 +8,31 @@
                 common: {
                     init: function(){
 
-                    },
-                    'create_calendar' : function(options){
-                        const container = document.getElementById('calendar');
-                        const opts = {
-                            usageStatistics: false,
-                            defaultView: 'week',
-                            timezone: {
-                                zones: [
-                                    {
-                                        timezoneName: 'Australia/Adelaide',
-                                        displayLabel: 'Adelaide',
-                                    }
-                                ],
-                            },
-                            calendars: [
+                    }
+                },
+                'create_calendar' : function(options){
+                    const container = document.getElementById('calendar');
+                    const opts = {
+                        usageStatistics: false,
+                        defaultView: 'week',
+                        timezone: {
+                            zones: [
                                 {
-                                    id: 'all_drivers',
-                                    name: 'All Drivers',
-                                    backgroundColor: '#03bd9e',
+                                    timezoneName: 'Australia/Adelaide',
+                                    displayLabel: 'Adelaide',
                                 }
                             ],
-                        };
-                        $.extend( opts, options );
-                        const calendar = new Calendar(container, opts);
-                    }
+                        },
+                        calendars: [
+                            {
+                                id: 'all_drivers',
+                                name: 'All Drivers',
+                                backgroundColor: '#03bd9e',
+                            }
+                        ],
+                    };
+                    $.extend( opts, options );
+                    const calendar = new Calendar(container, opts);
                 },
                 admin: {
                     init: function(){
