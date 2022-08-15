@@ -283,6 +283,7 @@ class Utility{
         $next_ten = (ceil($total_sum/10))*10;
         $check_digit = $next_ten - $total_sum;
         return $digits . $check_digit;
+        
     }
 
     public static function validate_EAN13Barcode($barcode)
