@@ -5,7 +5,7 @@ $cc = 5;
 <input type="hidden" id="admin_to_value" value="<?php echo strtotime('last friday', strtotime('tomorrow'));?>" />
 <div class="row">
     <div class="col col-md-8 col-xl-9">
-        <div class="card cardholder jobscardholder">
+        <div class="card cardholder jobscardholder h-100">
             <div class="card-header text-center">Jobs</div>
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
