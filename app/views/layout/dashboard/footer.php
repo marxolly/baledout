@@ -32,7 +32,7 @@
                         ],
                     };
                     $.extend( opts, options );
-                    const calendar = new Calendar(container, opts);
+                    const calendar = new tui.Calendar(container, opts);
                 },
                 admin: {
                     init: function(){
