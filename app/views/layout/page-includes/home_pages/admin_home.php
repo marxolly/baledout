@@ -8,7 +8,7 @@ $cc = 5;
         <div class="card cardholder jobscardholder h-100">
             <div class="card-header text-center">Jobs</div>
             <div class="card-body">
-                <div id="calendar"></div>
+                <div id="calendar" style="height: 800px"></div>
             </div>
         </div>
     </div>
