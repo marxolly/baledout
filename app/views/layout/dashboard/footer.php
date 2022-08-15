@@ -19,7 +19,7 @@
                             workweek: true,
                             hourStart: 3,
                             hourEnd: 18,
-                            eventView: true,
+                            eventView: ['time'],
                             taskView: false
                         },
                         timezone: {
