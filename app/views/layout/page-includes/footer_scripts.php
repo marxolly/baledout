@@ -66,4 +66,4 @@
         <!-- Bootstrap Colour Picker -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.2.0/js/bootstrap-colorpicker.min.js" integrity="sha512-INXxqXxcP6zawSei7i47Xmu+6ZIBRbsYN1LHAy5H1gzl1XIfTbI/OLjUcvBnDD8F3ZSVB6mf8asEPTMxz4VNjw==" crossorigin="anonymous"></script>
         <!-- Toast UI Calendar -->
-        <script src="https://uicdn.toast.com/calendar /latest/toastui-calendar.min.js"></script>
+        <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
