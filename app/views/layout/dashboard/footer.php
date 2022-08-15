@@ -15,6 +15,9 @@
                     const opts = {
                         usageStatistics: false,
                         defaultView: 'week',
+                        week: {
+                            workweek: true,
+                        },
                         timezone: {
                             zones: [
                                 {
