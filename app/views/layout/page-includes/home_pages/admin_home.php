@@ -8,6 +8,21 @@ $cc = 5;
         <div class="card cardholder jobscardholder h-100">
             <div class="card-header text-center">Jobs</div>
             <div class="card-body">
+                 <header class="header">
+                    <nav class="navbar">
+                      <button class="button is-rounded today">Today</button>
+                      <button class="button is-rounded prev">
+                        <img alt="prev" src="./images/ic-arrow-line-left.png" srcset="./images/ic-arrow-line-left@2x.png 2x, ./images/ic-arrow-line-left@3x.png 3x">
+                      </button>
+                      <button class="button is-rounded next">
+                        <img alt="prev" src="./images/ic-arrow-line-right.png" srcset="
+                            ./images/ic-arrow-line-right@2x.png 2x,
+                            ./images/ic-arrow-line-right@3x.png 3x
+                          ">
+                      </button>
+                      <span class="navbar--range"></span>
+                    </nav>
+                  </header>
                 <div id="calendar" style="height: 650px"></div>
             </div>
         </div>
