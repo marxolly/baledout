@@ -17,6 +17,10 @@
                         defaultView: 'week',
                         week: {
                             workweek: true,
+                            hourStart: 3,
+                            hourEnd: 18,
+                            eventView: false,
+                            taskView: false
                         },
                         timezone: {
                             zones: [
