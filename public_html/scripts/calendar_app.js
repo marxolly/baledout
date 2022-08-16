@@ -51,13 +51,13 @@
         if (viewType === 'month') {
             middle = new Date(start.getTime() + (end.getTime() - start.getTime()) / 2);
 
-            return moment(middle).format('YYYY-MM');
+            return moment(middle).format('MMMM YYYY');
         }
         if (viewType === 'day') {
-            return moment(start).format('YYYY-MM-DD');
+            return moment(start).format('MMM Do YYYY');
         }
         if (viewType === 'week') {
-            return moment(start).format('MMM Do YYYY') + ' ~ ' + moment(end).format('YYYY-MM-DD');
+            return moment(start).format('MMM Do YYYY') + ' ---- ' + moment(end).format('MMM Do YYYY');
         }
         throw new Error('no view type');
     }
