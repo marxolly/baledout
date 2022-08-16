@@ -20,14 +20,16 @@ $cc = 5;
                         <button id="today" class="btn btn-outline-bo mb-3">Today</button>
                     </div>
                     <div class="col-md-5">
-                         <div id="prev" class="col-1">
-                            <i class="fa-light fa-circle-chevron-left"></i>
-                        </div>
-                        <div class="col-3 text-center">
-                            <span class="navbar--range">gggg</span>
-                        </div>
-                        <div id="next" class="col-1">
-                            <i class="fa-light fa-circle-chevron-right"></i>
+                        <div class="row">
+                             <div id="prev" class="col-1">
+                                <i class="fa-light fa-circle-chevron-left"></i>
+                            </div>
+                            <div class="col-3 text-center">
+                                <span class="navbar--range">gggg</span>
+                            </div>
+                            <div id="next" class="col-1">
+                                <i class="fa-light fa-circle-chevron-right"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
