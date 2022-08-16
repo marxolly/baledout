@@ -71,22 +71,22 @@
     function bindAppEvents() {
         //dropdownTrigger.addEventListener('click', toggleDropdownState);
 
-        prevButton.addEventListener('click', function () {
+        prevButton.on('click', function () {
             cal.prev();
             update();
         });
 
-        nextButton.addEventListener('click', function () {
+        nextButton.on('click', function () {
             cal.next();
             update();
         });
 
-        todayButton.addEventListener('click', function () {
+        todayButton.on('click', function () {
             cal.today();
             update();
         });
 
-        dropdownContent.addEventListener('click', function (e) {
+        dropdownContent.on('click', function (e) {
             var targetViewName;
 
             if ('viewName' in e.target.dataset) {
@@ -98,33 +98,6 @@
             }
         });
 
-
-
-        sidebar.addEventListener('click', function (e) {
-            if ('value' in e.target) {
-                if (e.target.value === 'all') {
-                    if (appState.activeCalendarIds.length > 0) {
-                        cal.setCalendarVisibility(appState.activeCalendarIds, false);
-                        appState.activeCalendarIds = [];
-                        setAllCheckboxes(false);
-                    } else {
-                        appState.activeCalendarIds = MOCK_CALENDARS.map(function (calendar) {
-                            return calendar.id;
-                        });
-                        cal.setCalendarVisibility(appState.activeCalendarIds, true);
-                        setAllCheckboxes(true);
-                    }
-                } else if (appState.activeCalendarIds.indexOf(e.target.value) > -1) {
-                    appState.activeCalendarIds.splice(appState.activeCalendarIds.indexOf(e.target.value), 1);
-                    cal.setCalendarVisibility(e.target.value, false);
-                    setCheckboxBackgroundColor(e.target);
-                } else {
-                    appState.activeCalendarIds.push(e.target.value);
-                    cal.setCalendarVisibility(e.target.value, true);
-                    setCheckboxBackgroundColor(e.target);
-                }
-            }
-        });
     }
 
     function bindInstanceEvents() {

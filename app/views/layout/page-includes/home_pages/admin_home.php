@@ -8,21 +8,15 @@ $cc = 5;
         <div class="card cardholder jobscardholder h-100">
             <div class="card-header text-center">Jobs</div>
             <div class="card-body">
-                 <header class="header">
-                    <nav class="navbar">
-                      <button class="button is-rounded today">Today</button>
-                      <button class="button is-rounded prev">
-                        <img alt="prev" src="./images/ic-arrow-line-left.png" srcset="./images/ic-arrow-line-left@2x.png 2x, ./images/ic-arrow-line-left@3x.png 3x">
-                      </button>
-                      <button class="button is-rounded next">
-                        <img alt="prev" src="./images/ic-arrow-line-right.png" srcset="
-                            ./images/ic-arrow-line-right@2x.png 2x,
-                            ./images/ic-arrow-line-right@3x.png 3x
-                          ">
-                      </button>
-                      <span class="navbar--range"></span>
-                    </nav>
-                  </header>
+                <div class="row">
+                    <div class="col-md-3">
+                        <select id="calendar_span"  class="form-control selectpicker" data-style="btn-outline-secondary">
+                            <option data-view-name="week" value="month">Weekly</option>
+                            <option data-view-name="month" value="month">Monthly</option>
+                            <option data-view-name="day" value="month">Daily</option>
+                        </select>
+                    </div>
+                </div>
                 <div id="calendar" style="height: 650px"></div>
             </div>
         </div>
