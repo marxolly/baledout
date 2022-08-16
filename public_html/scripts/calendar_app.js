@@ -78,10 +78,15 @@
     function bindAppEvents() {
         //dropdownTrigger.addEventListener('click', toggleDropdownState);
 
-        prevButton.on('click', function () {
-            cal.prev();
-            update();
-        });
+        prevButton
+            .css("cursor","pointer")
+            .on('click',
+                function () {
+                    cal.prev();
+                    update();
+                }
+            )
+        ;
 
         nextButton.on('click', function () {
             cal.next();
@@ -213,7 +218,7 @@
     });
 
     // Init
-    $('#prev')
+    /*prevButton
     .css("cursor","pointer")
     .hover(
         function(){
@@ -224,7 +229,7 @@
             $(this).html("<h2><i class='fa-light fa-circle-chevron-left'></i></h2>");
             console.log('hover out');
         }
-    );
+    );*/
     bindInstanceEvents();
     bindAppEvents();
     update();
