@@ -41,7 +41,7 @@
         var rangeStart = cal.getDateRangeStart();
         var rangeEnd = cal.getDateRangeEnd();
 
-        navbarRange.html("<h2>"+getNavbarRange(rangeStart, rangeEnd, cal.getViewName())+"</h2>");
+        navbarRange.html("<h4>"+getNavbarRange(rangeStart, rangeEnd, cal.getViewName())+"</h4>");
     }
 
     function getNavbarRange(tzStart, tzEnd, viewType) {
@@ -57,7 +57,7 @@
             return moment(start).format('MMM Do YYYY');
         }
         if (viewType === 'week') {
-            return moment(start).format('MMM Do YYYY') + ' ---- ' + moment(end).format('MMM Do YYYY');
+            return moment(start).format('MMM D YYYY') + ' -- ' + moment(end).format('MMM D YYYY');
         }
         throw new Error('no view type');
     }
