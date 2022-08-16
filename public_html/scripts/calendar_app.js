@@ -57,7 +57,7 @@
             return moment(start).format('YYYY-MM-DD');
         }
         if (viewType === 'week') {
-            return moment(start).format('YYYY-MM-DD') + ' ~ ' + moment(end).format('YYYY-MM-DD');
+            return moment(start).format('MMM Do YYYY') + ' ~ ' + moment(end).format('YYYY-MM-DD');
         }
         throw new Error('no view type');
     }
