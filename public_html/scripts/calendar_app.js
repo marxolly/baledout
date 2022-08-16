@@ -218,9 +218,11 @@
     .hover(
         function(){
             $(this).html("<h2><i class='fa-regular fa-circle-chevron-left'></i></h2>");
+            console.log('hover in');
         },
         function(){
             $(this).html("<h2><i class='fa-light fa-circle-chevron-left'></i></h2>");
+            console.log('hover out');
         }
     );
     bindInstanceEvents();
