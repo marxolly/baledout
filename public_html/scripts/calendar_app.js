@@ -76,7 +76,8 @@
         });
 
         $('select#calendar_view').change(function(e){
-            var targetViewName = e.target.data('view-name');
+            var targetViewName = e.target.val();
+            console.log(targetViewName);
             cal.changeView(targetViewName);
             update();
         });
