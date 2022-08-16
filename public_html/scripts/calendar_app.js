@@ -41,7 +41,7 @@
         var rangeStart = cal.getDateRangeStart();
         var rangeEnd = cal.getDateRangeEnd();
 
-        navbarRange.textContent = getNavbarRange(rangeStart, rangeEnd, cal.getViewName());
+        navbarRange.text(getNavbarRange(rangeStart, rangeEnd, cal.getViewName()));
     }
 
     function getNavbarRange(tzStart, tzEnd, viewType) {
@@ -94,7 +94,7 @@
         });
 
         $('select#calendar_view').change(function(e){
-            console.log('calling change');
+            //console.log('calling change');
             var targetViewName = $(e.target).val();
             //console.log(targetViewName);
             cal.changeView(targetViewName);
