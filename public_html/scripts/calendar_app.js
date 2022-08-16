@@ -213,8 +213,17 @@
     });
 
     // Init
+    $('#prev')
+    .css("cursor","pointer")
+    .hover(
+        function(){
+            $(this).html("<h2><i class='fa-regular fa-circle-chevron-left'></i></h2>");
+        },
+        function(){
+            $(this).html("<h2><i class='fa-light fa-circle-chevron-left'></i></h2>");
+        }
+    );
     bindInstanceEvents();
     bindAppEvents();
-    //initCheckbox();
     update();
 })(tui.Calendar);
