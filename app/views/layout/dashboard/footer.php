@@ -1,6 +1,7 @@
 
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/footer_common.php");?>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/footer_scripts.php");?>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
         <script src="/scripts/calendar_app.js"></script>
         <script>
             //the actions for each page
