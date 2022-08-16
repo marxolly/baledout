@@ -10,7 +10,7 @@ $cc = 5;
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3">
-                        <select id="calendar_view"  class="form-control selectpicker mb-3" data-style="btn-outline-secondary">
+                        <select id="calendar_view"  class="form-control selectpicker mb-3" data-style="btn-outline-bo">
                             <option data-view-name="week" value="month">Weekly</option>
                             <option data-view-name="month" value="month">Monthly</option>
                             <option data-view-name="day" value="month">Daily</option>
