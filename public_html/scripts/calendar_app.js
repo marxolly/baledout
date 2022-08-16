@@ -69,7 +69,7 @@
     }
 
     function bindAppEvents() {
-        dropdownTrigger.addEventListener('click', toggleDropdownState);
+        //dropdownTrigger.addEventListener('click', toggleDropdownState);
 
         prevButton.addEventListener('click', function () {
             cal.prev();
