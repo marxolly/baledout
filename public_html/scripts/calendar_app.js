@@ -41,7 +41,7 @@
         var rangeStart = cal.getDateRangeStart();
         var rangeEnd = cal.getDateRangeEnd();
 
-        navbarRange.text(getNavbarRange(rangeStart, rangeEnd, cal.getViewName()));
+        navbarRange.html("<h2>"+getNavbarRange(rangeStart, rangeEnd, cal.getViewName())+"</h2>");
     }
 
     function getNavbarRange(tzStart, tzEnd, viewType) {
