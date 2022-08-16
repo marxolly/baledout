@@ -16,8 +16,8 @@ $cc = 5;
                             <option data-view-name="day" value="month">Daily</option>
                         </select>
                     </div>
-                    <div class="col-md-3">
-                        <button id="today" class="btn btn-sm btn-outline-bo">Today</button>
+                    <div class="col-md-1">
+                        <button id="today" class="btn btn-outline-bo">Today</button>
                     </div>
                 </div>
                 <div id="calendar" style="height: 650px"></div>
