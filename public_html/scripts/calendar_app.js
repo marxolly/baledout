@@ -9,10 +9,10 @@
 
     // Elements
     var navbarRange = $('.navbar--range');
-    var prevButton = $('.prev');
-    var nextButton = $('.next');
-    var todayButton = $('.today');
-    var dropdown = $('.dropdown');
+    var prevButton = $('#prev');
+    var nextButton = $('#next');
+    var todayButton = $('#today');
+    var dropdown = $('#calendar_view');
 
     // App State
     var appState = {
@@ -21,15 +21,7 @@
 
     // functions to handle calendar behaviors
     function reloadEvents() {
-        var randomEvents;
 
-        cal.clear();
-        randomEvents = generateRandomEvents(
-            cal.getViewName(),
-            cal.getDateRangeStart(),
-            cal.getDateRangeEnd()
-        );
-        cal.createEvents(randomEvents);
     }
 
     function getReadableViewName(viewType) {
@@ -52,18 +44,15 @@
         navbarRange.textContent = getNavbarRange(rangeStart, rangeEnd, cal.getViewName());
     }
 
-    function setDropdownTriggerText() {
+    function setSelectViewValue()
+    {
         var viewName = cal.getViewName();
-        var buttonText = $('.dropdown .button-text');
-        buttonText.textContent = getReadableViewName(viewName);
-    }
-
-    function setCheckboxBackgroundColor(checkbox) {
-
+        $("#calendar_view").val(viewName).change();
     }
 
     function update() {
-        setDropdownTriggerText();
+        //setDropdownTriggerText();
+        setSelectViewValue();
         displayRenderRange();
         reloadEvents();
     }
@@ -86,16 +75,10 @@
             update();
         });
 
-        dropdownContent.on('click', function (e) {
-            var targetViewName;
-
-            if ('viewName' in e.target.dataset) {
-                targetViewName = e.target.dataset.viewName;
-                cal.changeView(targetViewName);
-                checkboxCollapse.disabled = targetViewName === 'month';
-                toggleDropdownState();
-                update();
-            }
+        $('select#calendar_view').change(function(e){
+            var targetViewName = e.target.data('view-name');
+            cal.changeView(targetViewName);
+            update();
         });
 
     }
