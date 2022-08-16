@@ -65,17 +65,17 @@
                         );
                     }
 
-                    todayButton.addEventListener('click', function () {
+                    todayButton.on('click', function () {
                         cal.today();
                         displayEvents();
                         displayRenderRange();
                     });
-                    prevButton.addEventListener('click', function () {
+                    prevButton.on('click', function () {
                         cal.prev();
                         displayEvents();
                         displayRenderRange();
                     });
-                    nextButton.addEventListener('click', function () {
+                    nextButton.on('click', function () {
                         cal.next();
                         displayEvents();
                         displayRenderRange();
