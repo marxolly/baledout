@@ -67,21 +67,21 @@
 
                     todayButton.on('click', function () {
                         cal.today();
-                        displayEvents();
+                        //displayEvents();
                         displayRenderRange();
                     });
                     prevButton.on('click', function () {
                         cal.prev();
-                        displayEvents();
+                        //displayEvents();
                         displayRenderRange();
                     });
                     nextButton.on('click', function () {
                         cal.next();
-                        displayEvents();
+                        //displayEvents();
                         displayRenderRange();
                     });
 
-                    displayEvents();
+                    //displayEvents();
                     displayRenderRange();
                 },
                 admin: {
