@@ -22,13 +22,13 @@ $cc = 5;
                     <div class="col-md-7">
                         <div class="row">
                              <div id="prev" class="col-1">
-                                <i class="fa-light fa-circle-chevron-left"></i>
+                                <h2><i class="fa-light fa-circle-chevron-left"></i></h2>
                             </div>
                             <div class="col-5 text-center">
                                 <span class="navbar--range">gggg</span>
                             </div>
                             <div id="next" class="col-1">
-                                <i class="fa-light fa-circle-chevron-right"></i>
+                                <h2><i class="fa-light fa-circle-chevron-right"></i> </h2>
                             </div>
                         </div>
                     </div>
