@@ -39,7 +39,50 @@
                         ],
                     };
                     $.extend( opts, options );
-                    const calendar = new tui.Calendar(container, opts);
+                    var cal = new tui.Calendar(container, opts);
+                    var todayButton = $('.today');
+                    var prevButton = $('.prev');
+                    var nextButton = $('.next');
+                    var range = $('.navbar--range');
+
+                    function displayEvents() {
+                        var events = generateRandomEvents(
+                            cal.getViewName(),
+                            cal.getDateRangeStart(),
+                            cal.getDateRangeEnd()
+                        );
+                        cal.clear();
+                        cal.createEvents(events);
+                    }
+
+                    function displayRenderRange() {
+                        var viewName = cal.getViewName();
+
+                        range.textContent = getNavbarRange(
+                            cal.getDateRangeStart(),
+                            cal.getDateRangeEnd(),
+                            viewName
+                        );
+                    }
+
+                    todayButton.addEventListener('click', function () {
+                        cal.today();
+                        displayEvents();
+                        displayRenderRange();
+                    });
+                    prevButton.addEventListener('click', function () {
+                        cal.prev();
+                        displayEvents();
+                        displayRenderRange();
+                    });
+                    nextButton.addEventListener('click', function () {
+                        cal.next();
+                        displayEvents();
+                        displayRenderRange();
+                    });
+
+                    displayEvents();
+                    displayRenderRange();
                 },
                 admin: {
                     init: function(){
