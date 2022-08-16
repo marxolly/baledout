@@ -52,7 +52,7 @@
 
     function update() {
         //setDropdownTriggerText();
-        setSelectViewValue();
+        //setSelectViewValue();
         displayRenderRange();
         reloadEvents();
     }
