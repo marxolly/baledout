@@ -79,7 +79,11 @@
         //dropdownTrigger.addEventListener('click', toggleDropdownState);
 
         prevButton
-            .css("cursor","pointer")
+            .on('mouseover',
+                function(){
+                    this.innerHTML = "<h2><i class='fa-regular fa-circle-chevron-left'></i></h2>"
+                }
+            )
             .on('click',
                 function () {
                     cal.prev();
