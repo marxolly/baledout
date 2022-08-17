@@ -1,50 +1,7 @@
 /************
-Refresh Page if no activity and show a countdown
-************
-var time = new Date().getTime();
-var refresh_rate = 300000; //milliseconds
-$('form').attr('autocomplete','off');
-//console.log("Current Page: "+config.curPage);
-if( config.curPage == "dashboard" || config.curPage == "view-jobs" )
-{
-    refresh();
-    $(document).ready(function(e){
-        console.log( "ready!" );
-        $(document).bind("mousemove keypress", function(e) {
-            time = new Date().getTime();
-            refresh();
-        });
-    });
-}
+* The Calendar Scripting
+************/
 
-function refresh() {
-    var now = new Date().getTime();
-    if (now - time >= refresh_rate)
-    {
-        window.location.reload(true);
-    }
-    else
-    {
-        var left = Math.ceil( (refresh_rate - (now -time))/1000 );
-        var minutes = Math.floor(left/60);
-        var seconds = left - (minutes * 60);
-        --seconds;
-        minutes = (seconds < 0) ? --minutes : minutes;
-        minutes = (minutes < 10) ? '0' + minutes : minutes;
-        seconds = (seconds < 0) ? 59 : seconds;
-        seconds = (seconds < 10) ? '0' + seconds : seconds;
-        $('div#countdown span').html(minutes+":"+seconds);
-        if(left <= 60)
-        {
-            $('div#countdown span').addClass("text-danger");
-        }
-        else
-        {
-            $('div#countdown span').removeClass();
-        }
-        setTimeout(refresh, 1000);
-    }
-}*/
 /************
 * Navigation Scripting
 ************/
@@ -172,7 +129,7 @@ Homepage card fadeins
         scroller.cardsInView();
     });
 });
-*/ 
+*/
 /************
 * File Uploading
 ************/
