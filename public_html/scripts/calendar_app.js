@@ -97,6 +97,19 @@
             )
         ;
 
+        nextButton.hover(
+            function(){
+                $(this).html("<h2><i class='fa-regular fa-circle-chevron-right'></i></h2>")
+            },
+            function(){
+                $(this).html( "<h2><i class='fa-light fa-circle-chevron-right'></i></h2>" )
+            }
+        )
+        .click(function(e){
+            cal.next();
+            update();
+        });
+        /*
         nextButton
             .on('mouseenter',
                 function(){
@@ -115,7 +128,7 @@
                 }
             )
         ;
-
+        */
         todayButton.on('click', function () {
             cal.today();
             update();
@@ -224,8 +237,8 @@
             ],
         },
         usageStatistics: false,
-        useFormPopup: true,
-        useDetailPopup: true,
+        useFormPopup: false,
+        useDetailPopup: false,
         eventFilter: function (event) {
             var currentView = cal.getViewName();
             if (currentView === 'month') {
