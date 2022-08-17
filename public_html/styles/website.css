@@ -120,9 +120,10 @@ Home page
 }
 
 .cardholder .card-header{
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
     border-bottom: solid thin;
+    word-wrap: normal; /*WTF would Boostrap break the word!*/
 }
 
 .jobscardholder,
