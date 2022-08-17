@@ -211,6 +211,9 @@
             eventView: ['time'],
             taskView: false
         },
+        month: {
+            workweek: true
+        },
         timezone: {
             zones: [
                 {
