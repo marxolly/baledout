@@ -97,10 +97,24 @@
             )
         ;
 
-        nextButton.on('click', function () {
-            cal.next();
-            update();
-        });
+        nextButton
+            .on('mouseenter',
+                function(){
+                    this.innerHTML = "<h2><i class='fa-regular fa-circle-chevron-right'></i></h2>"
+                }
+            )
+            .on('mouseleave',
+                function(){
+                    this.innerHTML = "<h2><i class='fa-light fa-circle-chevron-right'></i></h2>"
+                }
+            )
+            .on('click',
+                function () {
+                    cal.next();
+                    update();
+                }
+            )
+        ;
 
         todayButton.on('click', function () {
             cal.today();
