@@ -4,7 +4,7 @@ $cc = 5;
 <input type="hidden" id="admin_from_value" value="<?php echo strtotime('last friday', strtotime('-3 months'));?>" />
 <input type="hidden" id="admin_to_value" value="<?php echo strtotime('last friday', strtotime('tomorrow'));?>" />
 <div class="row">
-    <div class="col-md-12 col-xl-2 offset-xl-10">
+    <div class="col-md-12 col-xl-2 order-xl-2 mb-3">
         <div class="card cardholder quicklinkscardholder h-100">
             <div class="card-header text-center">Quick Links</div>
             <div class="card-body">
@@ -29,7 +29,7 @@ $cc = 5;
             </div>
         </div>
     </div>
-    <div class="col col-md-12 col-xl-10">
+    <div class="col col-md-12 col-xl-10 order-xl-1">
         <div class="card cardholder jobscardholder h-100">
             <div class="card-header text-center">Jobs</div>
             <div class="card-body">
