@@ -27,7 +27,7 @@ $cc = 5;
                             <div class="col-8 text-center">
                                 <span class="navbar--range"></span>
                             </div>
-                            <div id="next" class="col-1">
+                            <div id="next" class="direction col-1">
                                 <h2><i class="fa-light fa-circle-chevron-right"></i> </h2>
                             </div>
                         </div>
