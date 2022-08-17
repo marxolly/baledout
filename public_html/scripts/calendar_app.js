@@ -1,5 +1,5 @@
 // JavaScript Document
-(function (Calendar) {
+(function ($) {
     var cal;
     // Constants
     var CALENDAR_CSS_PREFIX = 'toastui-calendar-';
@@ -204,6 +204,7 @@
                 backgroundColor: '#03bd9e',
             }
         ],
+        defaultView: 'week',
         week: {
             workweek: true,
             hourStart: 3,
@@ -244,19 +245,7 @@
     });
 
     // Init
-    /*prevButton
-    .css("cursor","pointer")
-    .hover(
-        function(){
-            $(this).html("<h2><i class='fa-regular fa-circle-chevron-left'></i></h2>");
-            console.log('hover in');
-        },
-        function(){
-            $(this).html("<h2><i class='fa-light fa-circle-chevron-left'></i></h2>");
-            console.log('hover out');
-        }
-    );*/
     bindInstanceEvents();
     bindAppEvents();
     update();
-})(tui.Calendar);
+})(jQuery);
