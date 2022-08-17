@@ -21,7 +21,7 @@ $cc = 5;
                     </div>
                     <div class="col-md-7">
                         <div class="row">
-                             <div id="prev" class="col-1">
+                             <div id="prev" class="direction col-1">
                                 <h2><i class="fa-light fa-circle-chevron-left"></i></h2>
                             </div>
                             <div class="col-8 text-center">
