@@ -79,9 +79,14 @@
         //dropdownTrigger.addEventListener('click', toggleDropdownState);
 
         prevButton
-            .on('mouseover',
+            .on('mouseenter',
                 function(){
                     this.innerHTML = "<h2><i class='fa-regular fa-circle-chevron-left'></i></h2>"
+                }
+            )
+            .on('mousleave',
+                function(){
+                    this.innerHTML = "<h2><i class='fa-light fa-circle-chevron-left'></i></h2>"
                 }
             )
             .on('click',
