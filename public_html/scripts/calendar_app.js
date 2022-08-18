@@ -261,4 +261,4 @@
     bindInstanceEvents();
     bindAppEvents();
     update();
-})(jQuery);
+})(tui.Calendar);
