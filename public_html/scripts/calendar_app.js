@@ -217,6 +217,10 @@
                 backgroundColor: '#03bd9e',
             }
         ],
+        gridSelection: {
+            enableDblClick: true,
+            enableClick: false
+        },
         defaultView: 'week',
         week: {
             workweek: true,
