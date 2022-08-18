@@ -70,7 +70,7 @@ $postcode = Form::value('postcode');
                             <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>
                         </div>
                         <div class="col-md-3">
-                            <a id="remove-all-contacts" style="cursor:pointer" title="Leave Only First"><h4><i class="fad fa-times-square text-danger"></i> Leave only one contact</a></h4>
+                            <a class="remove-all-contacts" style="cursor:pointer" title="Leave Only First"><h4><i class="fad fa-times-square text-danger"></i> Leave only one contact</a></h4>
                         </div>
                     </div>
                     <div id="contacts_holder" class="p-3 light-grey mb-3">
