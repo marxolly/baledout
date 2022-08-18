@@ -17,7 +17,7 @@
                             var data = {
                                 i: contact_count
                             }
-                            $.post('/ajaxfunctions/addFinisherContact', data, function(d){
+                            $.post('/ajaxfunctions/addClientContact', data, function(d){
                                 $('div#contacts_holder').append(d.html);
                             });
                         });
