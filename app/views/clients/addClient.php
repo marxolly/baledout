@@ -32,6 +32,13 @@ $postcode = Form::value('postcode');
                             </div>
                         </div>
                         <div class="form-group row mb-3">
+                            <label class="col-md-3">Logo</label>
+                            <div class="col-md-4">
+                                <input type="file" name="client_logo" id="client_logo" />
+                                <?php echo Form::displayError('client_logo');?>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
                             <label class="col-md-3">Phone</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" name="phone" id="phone" value="<?php echo Form::value('phone');?>" />
