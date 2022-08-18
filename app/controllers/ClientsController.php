@@ -28,7 +28,11 @@ class ClientsController extends Controller
     {
         Config::setJsConfig('curPage', "add-client");
         Config::set('curPage', "add-client");
-        return parent::comingSoon('clients');
+        //return parent::comingSoon('clients');
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/addClient.php', [
+            'page_title'    =>  "Add Client",
+            'pht'           =>  ": Add Client"
+        ]);
     }
 
     public function viewClients()
