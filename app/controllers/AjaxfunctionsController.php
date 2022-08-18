@@ -15,6 +15,12 @@ class ajaxfunctionsController extends Controller
         $actions = [
             'addClientContact'
         ];
+        $form_actions = [];
+        if(!in_array($action, $form_actions))
+            $this->Security->config("validateForm", false);
+        else
+            $this->Security->config("form", [ 'fields' => ['csrf_token']]);
+        $this->Security->requireAjax($actions);
     }
 
     public function addClientContact()
