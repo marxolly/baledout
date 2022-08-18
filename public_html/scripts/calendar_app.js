@@ -1,5 +1,5 @@
 // JavaScript Document
-(function ($) {
+(function (Calendar) {
     var cal;
     // Constants
     var CALENDAR_CSS_PREFIX = 'toastui-calendar-';
