@@ -40,12 +40,3 @@ if(!isset($required))
         <?php echo Form::displayError('postcode');?>
     </div>
 </div>
-<div class="form-group row mb-3">
-    <label class="col-md-3"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Country</label>
-    <div class="col-md-4">
-        <input type="text" class="form-control <?php echo $required;?>" name="country" id="country" value="<?php echo $country;?>" />
-        <span class="inst">use the 2 letter ISO code</span>
-        <p><a href="https://www.nationsonline.org/oneworld/country_code_list.htm" target="_blank" class="btn btn-outline-success">Click Here To Look Up Codes</a></p>
-        <?php echo Form::displayError('country');?>
-    </div>
-</div>
