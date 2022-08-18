@@ -1,3 +1,10 @@
+<?php
+$address = Form::value('address');
+$address2 = Form::value('address2');
+$suburb = Form::value('suburb');
+$state = Form::value('state');
+$postcode = Form::value('postcode');
+?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?>
@@ -13,7 +20,7 @@
                     <div class="row">
                         <div class="col">
                             <h3>Client Details</h3>
-                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/required_fields.php");?>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
@@ -48,8 +55,8 @@
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>ClientContacts</h3>
-                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/required_fields.php");?>
+                            <h3>Client Contacts</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
                             <p class="inst">At least one contact name is required</p>
                         </div>
                         <div class="col-md-3">
@@ -60,6 +67,17 @@
                         </div>
                     </div>
                     <div id="contacts_holder" class="p-3 light-grey mb-3">
+
+                    </div>
+                </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Client Address</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
 
                     </div>
                 </div>
