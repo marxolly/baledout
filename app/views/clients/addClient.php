@@ -6,6 +6,64 @@
                 <p><a href="/clients/view-clients/" class="btn btn-outline-bo">Return to Client List</a></p>
             </div>
         </div>
-        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
+        <?php echo Form::displayError('general');?>
+        <form id="client_add" method="post" enctype="multipart/form-data" action="/form/procClientAdd">
+            <div class="row">
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Client Details</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/required_fields.php");?>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup>Client Name</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control required" name="client_name" id="client_name" value="<?php echo Form::value('client_name');?>" />
+                                <?php echo Form::displayError('client_name');?>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Phone</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="phone" id="phone" value="<?php echo Form::value('phone');?>" />
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Email</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control email" name="email" id="email" value="<?php echo Form::value('email');?>" />
+                                <?php echo Form::displayError('email');?>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Website</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="website" id="website" value="<?php echo Form::value('website');?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>ClientContacts</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/required_fields.php");?>
+                            <p class="inst">At least one contact name is required</p>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>
+                        </div>
+                        <div class="col-md-3">
+                            <a id="remove-all-contacts" style="cursor:pointer" title="Leave Only First"><h4><i class="fad fa-times-square text-danger"></i> Leave only one contact</a></h4>
+                        </div>
+                    </div>
+                    <div id="contacts_holder" class="p-3 light-grey mb-3">
+
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
