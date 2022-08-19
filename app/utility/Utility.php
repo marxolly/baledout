@@ -208,7 +208,7 @@ class Utility{
         $options = array("ACT","NSW","NT","QLD","SA","TAS","VIC","WA");
         foreach($options as $state)
         {
-        	$return_string .= "<option ";
+        	$return_string .= "<option value = '$state' ";
         	if($selected && $selected == $state)
         	{
         		$return_string .= "selected='selected' ";
