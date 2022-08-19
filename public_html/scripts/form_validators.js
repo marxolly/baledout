@@ -157,7 +157,10 @@ $(document).ready(function() {
         rules:{
             client_logo:{
     			accept: "image/*"
-    		}
+    		},
+            website:{
+                url: true
+            }
         },
         messages:{
             client_logo:{
