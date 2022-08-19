@@ -804,10 +804,10 @@ var autoCompleter = {
             select: function(event, ui) {
                 $('#'+prefix+'address').val(ui.item.address).change();
                 $('#'+prefix+'address2').val(ui.item.address_2).change();
-                $('#'+prefix+'suburb').val(ui.item.suburb).change();
+                $('#'+prefix+'suburb').val(ui.item.suburb);
                 $('#'+prefix+'state').val(ui.item.state).change();
                 $('#'+prefix+'postcode').val(ui.item.postcode).change();
-                $('#'+prefix+'country').val("AU").change();
+                //$('#'+prefix+'country').val("AU").change();
                 $(event.target).val(ui.item.address);
                 console.log("will change value of #"+prefix+'state to '+ui.item.state);
             },
