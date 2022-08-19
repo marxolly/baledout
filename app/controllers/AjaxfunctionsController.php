@@ -13,7 +13,8 @@ class ajaxfunctionsController extends Controller
         parent::beforeAction();
         $action = $this->request->param('action');
         $actions = [
-            'addClientContact'
+            'addClientContact',
+            'getSuburbs'
         ];
         $form_actions = [];
         if(!in_array($action, $form_actions))
@@ -35,6 +36,13 @@ class ajaxfunctionsController extends Controller
             'i'     =>  $i
         ]);
         $data['html'] = $html;
+        $this->view->renderJson($data);
+    }
+
+    public function getSuburbs()
+    {
+        //echo "<pre>",print_r($this->request),"</pre>";
+        $data = $this->Postcode->getAutocompleteSuburb($this->request->query['term']);
         $this->view->renderJson($data);
     }
 
