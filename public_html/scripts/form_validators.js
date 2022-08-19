@@ -152,6 +152,8 @@ $(document).ready(function() {
             }
         }
     });
+    ////////////////////////////////////////////////////////////
+    $('form#client_add').validate({});
     ///////////////////////////////////////////////////////////////////////////////
     $('form#send_a_message').validate({
         ignore: "[contenteditable='true']:not([name])",
