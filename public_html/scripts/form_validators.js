@@ -153,7 +153,18 @@ $(document).ready(function() {
         }
     });
     ////////////////////////////////////////////////////////////
-    $('form#client_add').validate({});
+    $('form#client_add').validate({
+        rules:{
+            client_logo:{
+    			accept: "image/*"
+    		}
+        },
+        messages:{
+            client_logo:{
+                accept: "Only upload image files here"
+            }
+        }
+    });
     ///////////////////////////////////////////////////////////////////////////////
     $('form#send_a_message').validate({
         ignore: "[contenteditable='true']:not([name])",
