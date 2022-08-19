@@ -809,6 +809,7 @@ var autoCompleter = {
                 $('#'+prefix+'postcode').val(ui.item.postcode).change();
                 $('#'+prefix+'country').val("AU").change();
                 $(event.target).val(ui.item.address);
+                console.log("will change value of #"+prefix+'state to '+ui.item.state);
             },
             change: function (event, ui) {
                 return false;
