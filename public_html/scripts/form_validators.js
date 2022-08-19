@@ -165,6 +165,9 @@ $(document).ready(function() {
         messages:{
             client_logo:{
                 accept: "Only upload image files here"
+            },
+            website:{
+                url: "Please enter a valid URL, including the http(s) part"
             }
         }
     });
