@@ -625,6 +625,7 @@ var autoCompleter = {
             },
             select: function(event, ui) {
                 $('#'+prefix+'state').val(ui.item.state).change();
+                $('#'+prefix+'state').selectpicker('val',ui.item.state);
                 $('#'+prefix+'suburb').val(ui.item.suburb).change();
                 $('#'+prefix+'postcode').val(ui.item.postcode).change();
                 $('#'+prefix+'country').val('AU').change();
@@ -651,7 +652,8 @@ var autoCompleter = {
             },
             select: function(event, ui) {
                 $('#'+prefix+'state').val(ui.item.state).change();
-                console.log('suburb '+ui.item.suburb);
+                $('#'+prefix+'state').selectpicker('val',ui.item.state); 
+                //console.log('suburb '+ui.item.suburb);
                 $('#'+prefix+'suburb').val(ui.item.suburb);
                 $('#'+prefix+'postcode').val(ui.item.postcode).change();
                 $('#'+prefix+'country').val('AU');
