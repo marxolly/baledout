@@ -37,5 +37,9 @@ class ajaxfunctionsController extends Controller
         $data['html'] = $html;
         $this->view->renderJson($data);
     }
+
+    public function isAuthorized(){
+        return true;
+    }
 }//end class
 ?>
