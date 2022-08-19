@@ -21,7 +21,7 @@
                                 $('div#contacts_holder').append(d.html);
                             });
                         });
-                        $("a#remove-all-contacts").click(function(e){
+                        $("a.remove-all-contacts").click(function(e){
                             e.preventDefault();
                             $('div#contacts_holder div.acontact').not(':first').remove();
                         });
