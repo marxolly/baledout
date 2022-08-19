@@ -40,6 +40,7 @@ class FormController extends Controller {
         parent::beforeAction();
         $action = $this->request->param('action');
         $actions = [
+            'procClientAdd',
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
@@ -57,6 +58,30 @@ class FormController extends Controller {
 ********************************************************************************************************************
 ********************************************************************************************************************/
 
+    public function procClientAdd()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+
+    } // End procClientAdd()
+/********************************************************************************************************************
+********************************************************************************************************************/
     public function procLogin()
     {
         //echo "<pre>",print_r($this->request),"</pre>";die();
