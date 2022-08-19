@@ -792,7 +792,7 @@ var autoCompleter = {
                         returnData.value = address1;
                         returnData.address = address1;
                         returnData.address_2 = address2;
-                        //console.log(returnData);
+                        console.log(returnData);
                         return returnData
                       }));
                     },
