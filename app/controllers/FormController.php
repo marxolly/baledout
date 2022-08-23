@@ -91,7 +91,7 @@ class FormController extends Controller {
         }
         if( $this->dataSubbed($website) )
         {
-            if ( filter_var($url, FILTER_VALIDATE_URL) === false )
+            if ( filter_var($website, FILTER_VALIDATE_URL) === false )
             {
                 Form::setError('website', 'Please enter a valid URL');
             }
@@ -148,7 +148,7 @@ class FormController extends Controller {
         {
             die('All Good');
             //all good, add details
-            
+
             if($client_id = $this->client->addClient($post_data))
             {
                 Session::set('feedback', "$client_name has been added to the system");
