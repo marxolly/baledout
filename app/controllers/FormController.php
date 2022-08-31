@@ -146,8 +146,6 @@ class FormController extends Controller {
         }
         else
         {
-            echo "<pre>POST DATA",print_r($post_data),"</pre>"; 
-            die('All Good');
             //all good, add details
 
             if($client_id = $this->client->addClient($post_data))
