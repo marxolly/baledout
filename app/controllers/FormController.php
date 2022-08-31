@@ -151,7 +151,7 @@ class FormController extends Controller {
             if($client_id = $this->client->addClient($post_data))
             {
                 Session::set('feedback', "$client_name has been added to the system");
-                return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
+                //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
             }
             else
             {

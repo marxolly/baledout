@@ -43,44 +43,25 @@ class Client extends Model{
         );
         if(!empty($data['email'])) $client_vales['email'] = $data['email'];
         if(!empty($data['phone'])) $client_vales['phone'] = $data['phone'];
-        //echo "The request<pre>",print_r($client_values),"</pre>";die();
-        if(!empty($data['contact_name'])) $client_values['contact_name'] = $data['contact_name'];
+        if(!empty($data['website'])) $client_vales['website'] = $data['website'];
         if(isset($data['image_name'])) $client_values['logo'] = $data['image_name'].".jpg";
-        if(isset($data['production_client'])) $client_values['production_client'] = 1;
-        if(isset($data['delivery_client'])) $client_values['delivery_client'] = 1;
-        if(isset($data['pick_pack'])) $client_values['pick_pack'] = 1;
-        $client_values['can_adjust'] = (!isset($data['can_adjust']))? 0 : 1;
-        $client_values['products_description'] = (!empty($data['products_description']))? $data['products_description']: null;
-
-        $charges_values = array(
-            'standard_truck'        => $data['standard_truck'],
-            'urgent_truck'          => $data['urgent_truck'],
-            'standard_ute'          => $data['standard_ute'],
-            'urgent_ute'            => $data['urgent_ute'],
-            'standard_bay'          => $data['standard_bay'],
-            'oversize_bay'          => $data['oversize_bay'],
-            '40GP_loose'            => $data['40GP_loose'],
-            '20GP_loose'            => $data['20GP_loose'],
-            '40GP_palletised'       => $data['40GP_palletised'],
-            '20GP_palletised'       => $data['20GP_palletised'],
-            'max_loose_40GP'        => $data['max_loose_40GP'],
-            'max_loose_20GP'        => $data['max_loose_20GP'],
-            'additional_loose'      => $data['additional_loose'],
-            'repalletising'         => $data['repalletising'],
-            'shrinkwrap'            => $data['shrinkwrap'],
-            'service_fee'           => $data['service_fee'],
-            'manual_order_entry'    => $data['manual_order_entry'],
-            'pallet_in'             => $data['pallet_in'],
-            'pallet_out'            => $data['pallet_in'],
-            'carton_in'             => $data['carton_in'],
-            'carton_out'            => $data['carton_out']
-        );
-        //
-        //echo "CLIENT VALUES<pre>",print_r($client_values),"</pre>";die();
+        if(!empty($data['address'])) $client_vales['address'] = $data['address'];
+        if(!empty($data['address2'])) $client_vales['address_2'] = $data['address2'];
+        if(!empty($data['suburb'])) $client_vales['suburb'] = $data['suburb'];
+        if(!empty($data['state'])) $client_vales['state'] = $data['state'];
+        if(!empty($data['postcode'])) $client_vales['postcode'] = $data['postcode'];
         $client_id = $db->insertQuery($this->table, $client_values);
-        $charges_values['client_id'] = $client_id;
-        //echo "CHARGES VALUES<pre>",print_r($charges_values),"</pre>";  die();
-        $db->insertQuery($this->charges_table, $charges_values);
+        $client_contact = new Clientcontact();
+        foreach($post_data['contacts'] as $ind => $cd)
+        {
+            $contact = [];
+            $contact['name'] = $cd['name'];
+            $contact['client_id'] = $client_id;
+            if(isset($cd['role'])) $contact['role'] = $cd['role'];
+            if(isset($cd['email'])) $contact['email'] = $cd['email'];
+            if(isset($cd['phone'])) $contact['phone'] = $cd['phone'];
+            $client_contact->addContact($contact);
+        }
         return $client_id;
     }
 
