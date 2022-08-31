@@ -13,6 +13,7 @@ $postcode = Form::value('postcode');
                 <p><a href="/clients/view-clients/" class="btn btn-outline-bo">Return to Client List</a></p>
             </div>
         </div>
+        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
         <form id="client_add" method="post" enctype="multipart/form-data" action="/form/procClientAdd">
             <div class="row">

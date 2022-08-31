@@ -45,11 +45,11 @@ class Client extends Model{
         if(!empty($data['phone'])) $client_vales['phone'] = $data['phone'];
         if(!empty($data['website'])) $client_vales['website'] = $data['website'];
         if(isset($data['image_name'])) $client_values['logo'] = $data['image_name'].".jpg";
-        if(!empty($data['address'])) $client_vales['address'] = $data['address'];
-        if(!empty($data['address2'])) $client_vales['address_2'] = $data['address2'];
-        if(!empty($data['suburb'])) $client_vales['suburb'] = $data['suburb'];
-        if(!empty($data['state'])) $client_vales['state'] = $data['state'];
-        if(!empty($data['postcode'])) $client_vales['postcode'] = $data['postcode'];
+        if(!empty($data['address'])) $client_values['address'] = $data['address'];
+        if(!empty($data['address2'])) $client_values['address_2'] = $data['address2'];
+        if(!empty($data['suburb'])) $client_values['suburb'] = $data['suburb'];
+        if(!empty($data['state'])) $client_values['state'] = $data['state'];
+        if(!empty($data['postcode'])) $client_values['postcode'] = $data['postcode'];
         $client_id = $db->insertQuery($this->table, $client_values);
         $client_contact = new Clientcontact();
         foreach($data['contacts'] as $ind => $cd)
