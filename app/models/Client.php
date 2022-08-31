@@ -36,24 +36,13 @@ class Client extends Model{
 
     public function addClient($data)
     {
-        //echo "The request<pre>",print_r($data),"</pre>";//die();
+        echo "The request<pre>",print_r($data),"</pre>";die();
         $db = Database::openConnection();
         $client_values = array(
-            'client_name'		=>	$data['client_name'],
-            'billing_email'		=>	$data['billing_email'],
-            'sales_email'		=>	$data['sales_email'],
-            'inventory_email'	=>	$data['inventory_email'],
-            'deliveries_email'  =>  $data['deliveries_email'],
-            'sales_contact'		=>	$data['sales_contact'],
-            'inventory_contact'	=>	$data['inventory_contact'],
-            'deliveries_contact'=>  $data['deliveries_contact'],
-            'ref_1'				=>	$data['ref_1'],
-            'address'	        =>	$data['address'],
-            'suburb'	        =>	$data['suburb'],
-            'state'		        =>	$data['state'],
-            'postcode'	        =>	$data['postcode'],
-            'country'           =>  $data['country']
+            'client_name'		=>	$data['client_name']
         );
+        if(!empty($data['email'])) $client_vales['email'] = $data['email'];
+        if(!empty($data['phone'])) $client_vales['phone'] = $data['phone'];
         //echo "The request<pre>",print_r($client_values),"</pre>";die();
         if(!empty($data['contact_name'])) $client_values['contact_name'] = $data['contact_name'];
         if(isset($data['image_name'])) $client_values['logo'] = $data['image_name'].".jpg";
