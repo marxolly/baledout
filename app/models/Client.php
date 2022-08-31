@@ -52,7 +52,7 @@ class Client extends Model{
         if(!empty($data['postcode'])) $client_vales['postcode'] = $data['postcode'];
         $client_id = $db->insertQuery($this->table, $client_values);
         $client_contact = new Clientcontact();
-        foreach($post_data['contacts'] as $ind => $cd)
+        foreach($data['contacts'] as $ind => $cd)
         {
             $contact = [];
             $contact['name'] = $cd['name'];
