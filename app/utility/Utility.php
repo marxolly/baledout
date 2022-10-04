@@ -295,7 +295,7 @@ class Utility{
         $conts = explode("~", $contacts);
         foreach($conts as $c)
         {
-            list($contact_id, $c_name,$c_role,$c_email,$c_phone) = explode(',', $c);
+            list($contact_id, $c_name,$c_role,$c_email,$c_phone) = explode('|', $c);
             $contacts_string .= "<div class='border-bottom border-secondary border-bottom-dashed mb-3 pb-3'>";
             $contacts_string .= "<span class='font-weight-bold'>".ucwords($c_name)."</span>";
             if(!empty($c_role)) $contact_string .= "<br>$c_role";
