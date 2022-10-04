@@ -289,7 +289,7 @@ class Utility{
         return $ret_string;
     }
 
-    public static function generateContactsString(array $contacts)
+    public static function generateContactsString($contacts)
     {
         $contacts_string = "";
         $conts = explode("~", $contacts);
