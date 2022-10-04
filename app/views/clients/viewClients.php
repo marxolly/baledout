@@ -42,17 +42,19 @@
                                 ];
                                 $add_string = Utility::formatAddressWeb($add_array);
                                 ?>
-                                <td>
-                                    <?php if(file_exists($logo_path)):?>
-                                        <img src="/images/client_logos/tn_<?php echo $c['logo'];?>" alt="client logo" class="img-thumbnail" /><br>
-                                    <?php endif;?>
-                                    <?php echo $c['client_name'];?>
-                                </td>
-                                <td><?php echo $add_string;?></td>
-                                <td><?php if(!empty($c['contacts'])) echo Utility::generateContactsString($c['contacts']);?></td>
-                                <td>
-                                    <p><a class="btn btn-outline-bo" href="/clients/edit-client/client=<?php echo $c['id'];?>" >Edit Details</a></p>
-                                </td>
+                                <tr>
+                                    <td>
+                                        <?php if(file_exists($logo_path)):?>
+                                            <img src="/images/client_logos/tn_<?php echo $c['logo'];?>" alt="client logo" class="img-thumbnail" /><br>
+                                        <?php endif;?>
+                                        <?php echo $c['client_name'];?>
+                                    </td>
+                                    <td><?php echo $add_string;?></td>
+                                    <td><?php if(!empty($c['contacts'])) echo Utility::generateContactsString($c['contacts']);?></td>
+                                    <td>
+                                        <p><a class="btn btn-outline-bo" href="/clients/edit-client/client=<?php echo $c['id'];?>" >Edit Details</a></p>
+                                    </td>
+                                </tr>
                             <?php endforeach;?>
                         </tbody>
                     </table>
