@@ -11,6 +11,7 @@
             </div>
         </div>
         <?php if(count($clients)):?>
+            <?php echo "<pre>",print_r($clients),"</pre>";?>
             <div id="waiting" class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Drawing Table..</h2>
@@ -25,7 +26,7 @@
 
                         </thead>
                         <tbody>
-                            
+
                         </tbody>
                     </table>
                 </div>
