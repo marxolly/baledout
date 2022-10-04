@@ -49,7 +49,7 @@
                                     <?php echo $c['client_name'];?>
                                 </td>
                                 <td><?php echo $add_string;?></td>
-                                <td><?php if(!empty($c['contacts'])) echo Utility::generateContactsString($c['contacts']);?></td>
+                                <td><?php //if(!empty($c['contacts'])) echo Utility::generateContactsString($c['contacts']);?></td>
                                 <td>
                                     <p><a class="btn btn-outline-bo" href="/clients/edit-client/client=<?php echo $c['id'];?>" >Edit Details</a></p>
                                 </td>
