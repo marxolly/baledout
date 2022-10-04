@@ -147,61 +147,6 @@ class Utility{
 
     }
 
-    public static function getVehicleTypeSelect($selected = false)
-    {
-        $return_string = "";
-        $options = array("truck","ute","client_supplied");
-        foreach($options as $v)
-        {
-        	$return_string .= "<option value='$v'";
-
-        	if($selected && $selected == $v)
-        	{
-        		$return_string .= "selected='selected' ";
-        	}
-        	$return_string .= ">".ucwords(str_replace("_", " ", $v))."</option>";
-        }
-        return $return_string;
-    }
-
-    public static function getUrgencyChargeLevelSelect($selected = false)
-    {
-        $return_string = "";
-        $options = array("standard","urgent");
-        foreach($options as $v)
-        {
-        	$return_string .= "<option value='$v'";
-
-        	if($selected && $selected == $v)
-        	{
-        		$return_string .= "selected='selected' ";
-        	}
-        	$return_string .= ">".ucwords($v)."</option>";
-        }
-        return $return_string;
-    }
-
-    public static function getPalletSizeSelect($selected = false)
-    {
-        $return_string = "";
-        $options = array("standard","oversize","double-oversize");
-        foreach($options as $v)
-        {
-        	$return_string .= "<option value='$v'";
-
-        	if($selected && $selected == $v)
-        	{
-        		$return_string .= "selected='selected' ";
-        	}
-            elseif($v == "standard")
-            {
-                $return_string .= "selected='selected' ";
-            }
-        	$return_string .= ">".ucwords($v)."</option>";
-        }
-        return $return_string;
-    }
-
     public static function getStateSelect($selected = false)
     {
         $return_string = "";
@@ -214,23 +159,6 @@ class Utility{
         		$return_string .= "selected='selected' ";
         	}
         	$return_string .= ">$state</option>";
-        }
-        return $return_string;
-    }
-
-    public static function getPrioritySelect($selected = false)
-    {
-        $return_string = "";
-        //$f = new NumberFormatter("en", NumberFormatter::SPELLOUT);
-        for($p = 1; $p <= 10; $p++)
-        {
-        	$return_string .= "<option value='$p'";
-        	if($selected && $selected == $p)
-        	{
-        		$return_string .= "selected='selected' ";
-        	}
-        	//$return_string .= ">".ucwords($f->format($p))."</option>";
-            $return_string .= ">$p</option>";
         }
         return $return_string;
     }
@@ -356,10 +284,26 @@ class Utility{
         if(!empty($address['address_2'])) $ret_string .= "<br/>".$address['address_2'];
         $ret_string .= "<br/>".$address['suburb'];
         $ret_string .= "<br/>".$address['state'];
-        $ret_string .= "<br/>".$address['country'];
         $ret_string .= "<br/>".$address['postcode'];
 
         return $ret_string;
+    }
+
+    public static function generateContactsString(array $contacts)
+    {
+        $contacts_string = "";
+        $conts = explode("~", $contacts);
+        foreach($conts as $c)
+        {
+            list($contact_id, $c_name,$c_role,$c_email,$c_phone) = explode(',', $c);
+            $contacts_string .= "<div class='border-bottom border-secondary border-bottom-dashed mb-3 pb-3'>";
+            $contacts_string .= "<span class='font-weight-bold'>".ucwords($c_name)."</span>";
+            if(!empty($c_role)) $contact_string .= "<br>$c_role";
+            if(!empty($c_phone)) $contact_string .= "<br>$c_phone";
+            if(!empty($c_email)) $contact_string .= "<br><a href='mailto:".$c_email."'>$c_email</a>";
+            $contacts_string .= "</div>";
+        }
+        return $contacts_string;
     }
 
     public static function formatAddressCSV(array $address)

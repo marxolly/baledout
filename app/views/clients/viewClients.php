@@ -23,10 +23,37 @@
                 <div class="col-12">
                     <table id="client_list_table" class="table-striped table-hover" width="100%">
                         <thead>
-
+                            <tr>
+                                <th>Client Name</th>
+                                <th>Address</th>
+                                <th>Contacts</th>
+                                <th></th>
+                            </tr>
                         </thead>
                         <tbody>
-
+                            <?php foreach($clients as $c):
+                                $logo_path = DOC_ROOT.'/images/client_logos/tn_'.$c['logo'];
+                                $add_array = [
+                                    'address'   => $c['address'],
+                                    'address_2' => $c['address_2'],
+                                    'suburb'    => $c['suburbs'],
+                                    'state'     => $c['state'],
+                                    'postcode'  => $c['postcode']
+                                ];
+                                $add_string = Utility::formatAddressWeb($add_array);
+                                ?>
+                                <td>
+                                    <?php if(file_exists($logo_path)):?>
+                                        <img src="/images/client_logos/tn_<?php echo $c['logo'];?>" alt="client logo" class="img-thumbnail" /><br>
+                                    <?php endif;?>
+                                    <?php echo $c['client_name'];?>
+                                </td>
+                                <td><?php echo $add_string;?></td>
+                                <td><?php if(!empty($c['contacts'])) echo Utility::generateContactsString($c['contacts']);?></td>
+                                <td>
+                                    <p><a class="btn btn-outline-bo" href="/clients/edit-client/client=<?php echo $c['id'];?>" >Edit Details</a></p>
+                                </td>
+                            <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>

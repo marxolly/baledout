@@ -41,7 +41,15 @@
                 },
                 'view-clients': {
                     init: function(){
-                        
+                        var dt_options = {
+                            "columnDefs": [
+                                { "orderable": false, "targets": [1,2,3] },
+                                { "searchable": false, "targets": [4]}
+                            ],
+                            "order": [],
+                            "mark": true
+                        }
+                        var table = dataTable.init($('table#client_list_table'), dt_options );
                     }
                 }
             }
