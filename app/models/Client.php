@@ -4,7 +4,7 @@
   * Client Class
   *
 
-  * @author     Mark Solly <mark.solly@fsg.com.au>
+  * @author     Mark Solly <mark@baledout.com.au>
 
   FUNCTIONS
   addClient($data)
