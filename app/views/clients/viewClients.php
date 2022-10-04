@@ -36,7 +36,7 @@
                                 $add_array = [
                                     'address'   => $c['address'],
                                     'address_2' => $c['address_2'],
-                                    'suburb'    => $c['suburbs'],
+                                    'suburb'    => $c['suburb'],
                                     'state'     => $c['state'],
                                     'postcode'  => $c['postcode']
                                 ];
