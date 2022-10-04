@@ -84,7 +84,7 @@ class Client extends Model{
                 {$this->table} c JOIN
                 {$this->contacts_table} cc ON cc.client_id = c.id
             WHERE
-                c.active=1
+                c.active=$active
             GROUP BY
                 c.id
             ORDER BY
