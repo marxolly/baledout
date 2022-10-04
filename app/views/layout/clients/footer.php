@@ -38,6 +38,11 @@
                             }
                         });
                     }
+                },
+                'view-clients': {
+                    init: function(){
+                        
+                    }
                 }
             }
             //run the script for the current page

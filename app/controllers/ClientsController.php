@@ -39,7 +39,16 @@ class ClientsController extends Controller
     {
         Config::setJsConfig('curPage', "view-clients");
         Config::set('curPage', "view-clients");
-        return parent::comingSoon('clients');
+        $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
+        $clients = $this->client->getAllClients($active);
+        //return parent::comingSoon('clients');
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/viewClients.php',
+        [
+            'active'        =>  $active,
+            'pht'           =>  ": View Clients",
+            'clients'       =>  $clients,
+            'page_title'    =>  "View Clients"
+        ]);
     }
 
     public function editClient()
