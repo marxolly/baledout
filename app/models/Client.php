@@ -24,6 +24,7 @@ class Client extends Model{
       * @var string
       */
     public $table = "clients";
+    public $contacts_table = "clients_contacts";
     public $charges_table = "client_charges";
 
     public function __construct(){}
@@ -68,7 +69,27 @@ class Client extends Model{
     public function getAllClients($active = 1)
     {
         $db = Database::openConnection();
-        $query = "SELECT * FROM {$this->table} WHERE active = $active ORDER BY client_name";
+        $query = "
+            SELECT
+                c.*,
+                GROUP_CONCAT(
+                    IFNULL(cc.id,0),'|',
+                    IFNULL(cc.name,''),'|',
+                    IFNULL(cc.role,''),'|',
+                    IFNULL(cc.email,''),'|',
+                    IFNULL(cc.phone,''),'|'
+                    SEPARATOR '~'
+                ) AS contacts
+            FROM
+                {$this->table} c JOIN
+                {$this->contacts_table} cc ON cc.client_id = c.id
+            WHERE
+                c.active=1
+            GROUP BY
+                c.id
+            ORDER BY
+                c.client_name
+        ";
         return($db->queryData($query));
     }
 
