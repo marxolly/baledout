@@ -74,7 +74,6 @@ class ClientsController extends Controller
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/editClient.php', [
             'pht'           =>  ": Edit Client",
             'page_title'    =>  "Edit Client: ".ucwords($client['client_name']),
-            'pickup'        =>  $pickup,
             'client'        =>  $client
         ]);
     }
