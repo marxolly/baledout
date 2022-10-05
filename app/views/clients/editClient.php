@@ -11,5 +11,6 @@
         </div>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
+        <?php echo "<pre>",print_r($client),"</pre>";?>
     </div>
 </div>
