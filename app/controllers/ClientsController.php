@@ -58,7 +58,7 @@ class ClientsController extends Controller
         if(!isset($this->request->params['args']['client']))
         {
             //no client id to update
-            (new SiteErrorsController())->siteError("noPickupId")->send();
+            (new SiteErrorsController())->siteError("noClientId")->send();
             return;
         }
         $client_id = $this->request->params['args']['client'];
