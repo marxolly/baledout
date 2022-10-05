@@ -53,9 +53,30 @@ class ClientsController extends Controller
 
     public function editClient()
     {
-        Config::setJsConfig('curPage', "edit-clients");
-        Config::set('curPage', "edit-clients");
-        return parent::comingSoon('clients');
+        Config::setJsConfig('curPage', "edit-client");
+        Config::set('curPage', "edit-client");
+        if(!isset($this->request->params['args']['client']))
+        {
+            //no client id to update
+            (new SiteErrorsController())->siteError("noPickupId")->send();
+            return;
+        }
+        $client_id = $this->request->params['args']['client'];
+        $client = $this->client->getClientDetails($client_id);
+        if(empty($client))
+        {
+            //no client data found
+            (new SiteErrorsController())->siteError("noClientFound")->send();
+            return;
+        }
+        //return parent::comingSoon('clients');
+        //render the page
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/editClient.php', [
+            'pht'           =>  ": Edit Client",
+            'page_title'    =>  "Edit Client: ".ucwords($client['client_name']),
+            'pickup'        =>  $pickup,
+            'client'        =>  $client
+        ]);
     }
 
     public function isAuthorized()

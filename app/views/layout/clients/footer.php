@@ -39,6 +39,12 @@
                         });
                     }
                 },
+                'edit-client':{
+                    init: function(){
+                        actions.common.init();
+                        actions.common.addContact();
+                    }
+                },
                 'view-clients': {
                     init: function(){
                         var dt_options = {

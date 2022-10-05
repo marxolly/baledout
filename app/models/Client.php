@@ -93,7 +93,7 @@ class Client extends Model{
         return($db->queryData($query));
     }
 
-    public function getClientInfo($client_id)
+    public function getClientDetails($client_id)
     {
         $db = Database::openConnection();
         $q = "SELECT * FROM {$this->table} c JOIN {$this->charges_table} cc ON c.id = cc.client_id WHERE c.id = $client_id";
