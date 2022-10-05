@@ -96,7 +96,25 @@ class Client extends Model{
     public function getClientDetails($client_id)
     {
         $db = Database::openConnection();
-        $q = "SELECT * FROM {$this->table} c JOIN {$this->charges_table} cc ON c.id = cc.client_id WHERE c.id = $client_id";
+        $q = "
+            SELECT
+                c.*,
+                GROUP_CONCAT(
+                    IFNULL(cc.id,0),'|',
+                    IFNULL(cc.name,''),'|',
+                    IFNULL(cc.role,''),'|',
+                    IFNULL(cc.email,''),'|',
+                    IFNULL(cc.phone,''),'|'
+                    SEPARATOR '~'
+                ) AS contacts
+            FROM
+                {$this->table} c JOIN
+                {$this->contacts_table} cc ON cc.client_id = c.id
+            WHERE
+                c.id=$client_id
+            GROUP BY
+                c.id
+        ";
         return ($db->queryRow($q));
     }
 
