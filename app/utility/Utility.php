@@ -298,9 +298,9 @@ class Utility{
             list($contact_id, $c_name,$c_role,$c_email,$c_phone) = explode('|', $c);
             $contacts_string .= "<div class='border-bottom border-secondary border-bottom-dashed mb-3 pb-3'>";
             $contacts_string .= "<span class='font-weight-bold'>".ucwords($c_name)."</span>";
-            if(!empty($c_role)) $contact_string .= "<br>$c_role";
-            if(!empty($c_phone)) $contact_string .= "<br>$c_phone";
-            if(!empty($c_email)) $contact_string .= "<br><a href='mailto:".$c_email."'>$c_email</a>";
+            if(!empty($c_role)) $contacts_string .= "<br>$c_role";
+            if(!empty($c_phone)) $contacts_string .= "<br>$c_phone";
+            if(!empty($c_email)) $contacts_string .= "<br><a href='mailto:".$c_email."'>$c_email</a>";
             $contacts_string .= "</div>";
         }
         return $contacts_string;
