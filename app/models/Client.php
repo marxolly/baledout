@@ -115,6 +115,7 @@ class Client extends Model{
             GROUP BY
                 c.id
         ";
+        die($q);
         return ($db->queryRow($q));
     }
 
