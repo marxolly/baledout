@@ -34,26 +34,27 @@ $postcode   = empty(Form::value('postcode'))?   $client['postcode']     : Form::
                                 <?php echo Form::displayError('client_name');?>
                             </div>
                         </div>
-                    </div>
-                    <?php if( !is_null($client['logo']) && !empty($client['logo']) ) :?>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label">Current Logo</label>
+                        <?php if( !is_null($client['logo']) && !empty($client['logo']) ) :?>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Current Logo</label>
+                                <div class="col-md-4">
+                                    <img src="/images/client_logos/tn_<?php echo $client['logo'];?>" />
+                                </div>
+                            </div>
+                            <div class="form-group row custom-control custom-checkbox custom-control-right">
+                                <input class="custom-control-input" type="checkbox" id="delete_logo" name="delete_logo" />
+                                <label class="custom-control-label col-md-3" for="delete_logo">Delete Current Logo</label>
+                            </div>
+                        <?php endif;?>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Logo</label>
                             <div class="col-md-4">
-                                <img src="/images/client_logos/tn_<?php echo $client['logo'];?>" />
+                                <input type="file" name="client_logo" id="client_logo" />
+                                <?php echo Form::displayError('client_logo');?>
                             </div>
                         </div>
-                        <div class="form-group row custom-control custom-checkbox custom-control-right">
-                            <input class="custom-control-input" type="checkbox" id="delete_logo" name="delete_logo" />
-                            <label class="custom-control-label col-md-3" for="delete_logo">Delete Current Logo</label>
-                        </div>
-                    <?php endif;?>
-                    <div class="form-group row mb-3">
-                        <label class="col-md-3">Logo</label>
-                        <div class="col-md-4">
-                            <input type="file" name="client_logo" id="client_logo" />
-                            <?php echo Form::displayError('client_logo');?>
-                        </div>
                     </div>
+
                 </div>
             </div>
         </form>
