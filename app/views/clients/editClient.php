@@ -4,7 +4,7 @@ $address        = empty(Form::value('address'))?    $client['address']      : Fo
 $address2   = empty(Form::value('address2'))?   $client['address_2']    : Form::value('address2');
 $suburb     = empty(Form::value('suburb'))?     $client['suburb']       : Form::value('suburb');
 $state      = empty(Form::value('state'))?      $client['state']        : Form::value('state');
-$postcode   = empty(Form::value('postcode'))?   $client['postcode']     : Form::value('postcode');  
+$postcode   = empty(Form::value('postcode'))?   $client['postcode']     : Form::value('postcode');
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
@@ -16,7 +16,7 @@ $postcode   = empty(Form::value('postcode'))?   $client['postcode']     : Form::
         </div>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
-        <?php //echo "<pre>",print_r($client),"</pre>";?>
+        <?php echo "<pre>",print_r($client),"</pre>";?>
         <form id="client_add" method="post" enctype="multipart/form-data" action="/form/procClientEdit">
             <div class="row">
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
@@ -33,6 +33,25 @@ $postcode   = empty(Form::value('postcode'))?   $client['postcode']     : Form::
                                 <input type="text" class="form-control required" name="client_name" id="client_name" value="<?php echo $client_name;?>" />
                                 <?php echo Form::displayError('client_name');?>
                             </div>
+                        </div>
+                    </div>
+                    <?php if( !is_null($client['logo']) && !empty($client['logo']) ) :?>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Current Logo</label>
+                            <div class="col-md-4">
+                                <img src="/images/client_logos/tn_<?php echo $client['logo'];?>" />
+                            </div>
+                        </div>
+                        <div class="form-group row custom-control custom-checkbox custom-control-right">
+                            <input class="custom-control-input" type="checkbox" id="delete_logo" name="delete_logo" />
+                            <label class="custom-control-label col-md-3" for="delete_logo">Delete Current Logo</label>
+                        </div>
+                    <?php endif;?>
+                    <div class="form-group row mb-3">
+                        <label class="col-md-3">Logo</label>
+                        <div class="col-md-4">
+                            <input type="file" name="client_logo" id="client_logo" />
+                            <?php echo Form::displayError('client_logo');?>
                         </div>
                     </div>
                 </div>
