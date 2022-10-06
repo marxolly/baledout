@@ -9,6 +9,26 @@ $postcode       = empty(Form::value('postcode'))?       $client['postcode']     
 $phone          = empty(Form::value('phone'))?          $client['phone']        : Form::value('phone');
 $email          = empty(Form::value('email'))?          $client['email']        : Form::value('email');
 $website        = empty(Form::value('website'))?        $client['website']      : Form::value('website');
+
+//create the contacts array
+$contacts       = empty(Form::value('contacts'))?       $client['contacts']     : Form::value('contacts');
+if(!is_array($contacts))
+{
+    $contact_array = array();
+    if(!empty($contacts))
+    {
+        $ca = explode("|", $contacts);
+        foreach($ca as $c)
+        {
+            list($a['contact_id'], $a['name'],$a['email'],$a['phone'],$a['role']) = explode(',', $c);
+            $contact_array[] = $a;
+        }
+    }
+}
+else
+{
+    $contact_array = $contacts;
+}
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
@@ -82,7 +102,33 @@ $website        = empty(Form::value('website'))?        $client['website']      
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Client Contacts</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                            <p class="inst">At least one contact name is required</p>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="remove-all-contacts" style="cursor:pointer" title="Leave Only First"><h4><i class="fad fa-times-square text-danger"></i> Leave only one contact</a></h4>
+                        </div>
+                    </div>
+                    <div id="contacts_holder" class="p-3 light-grey mb-3">
+                        <?php //echo "<pre>", var_dump($contact_array) ,"</pre>";//die(); ?>
+                        <?php
+                        if(!empty($contact_array)):
+                            foreach($contact_array as $i => $d)
+                            {
+                                include(Config::get('VIEWS_PATH')."layout/page-includes/add_customer_contact.php");
+                            }
+                        else:
+                            include(Config::get('VIEWS_PATH')."layout/page-includes/add_customer_contact.php");
+                        endif;?>
+                    </div>
                 </div>
             </div>
         </form>
