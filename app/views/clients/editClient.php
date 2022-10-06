@@ -1,10 +1,14 @@
 <?php
-$client_name    = empty(Form::value('client_name'))?    $client['client_name']      : Form::value('client_name');
-$address        = empty(Form::value('address'))?    $client['address']      : Form::value('address');
-$address2   = empty(Form::value('address2'))?   $client['address_2']    : Form::value('address2');
-$suburb     = empty(Form::value('suburb'))?     $client['suburb']       : Form::value('suburb');
-$state      = empty(Form::value('state'))?      $client['state']        : Form::value('state');
-$postcode   = empty(Form::value('postcode'))?   $client['postcode']     : Form::value('postcode');
+$client_name    = empty(Form::value('client_name'))?    $client['client_name']  : Form::value('client_name');
+$address        = empty(Form::value('address'))?        $client['address']      : Form::value('address');
+$address2       = empty(Form::value('address2'))?       $client['address_2']    : Form::value('address2');
+$suburb         = empty(Form::value('suburb'))?         $client['suburb']       : Form::value('suburb');
+$state          = empty(Form::value('state'))?          $client['state']        : Form::value('state');
+$postcode       = empty(Form::value('postcode'))?       $client['postcode']     : Form::value('postcode');
+
+$phone          = empty(Form::value('phone'))?          $client['phone']        : Form::value('phone');
+$email          = empty(Form::value('email'))?          $client['email']        : Form::value('email');
+$website        = empty(Form::value('website'))?        $client['website']      : Form::value('website');
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
@@ -56,6 +60,25 @@ $postcode   = empty(Form::value('postcode'))?   $client['postcode']     : Form::
                             <div class="col-md-4">
                                 <input type="file" name="client_logo" id="client_logo" />
                                 <?php echo Form::displayError('client_logo');?>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Phone</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="phone" id="phone" value="<?php echo $phone;?>" />
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Email</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control email" name="email" id="email" value="<?php echo $email;?>" />
+                                <?php echo Form::displayError('email');?>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Website</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="website" id="website" value="<?php echo $website;?>" />
                             </div>
                         </div>
                     </div>
