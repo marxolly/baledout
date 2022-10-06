@@ -23,6 +23,7 @@ class ContactUsController extends Controller
         ]);
     }
 
+    
     public function isAuthorized(){
         return true;
     }
