@@ -17,10 +17,10 @@ if(!is_array($contacts))
     $contact_array = array();
     if(!empty($contacts))
     {
-        $ca = explode("|", $contacts);
+        $ca = explode("~", $contacts);
         foreach($ca as $c)
         {
-            list($a['contact_id'], $a['name'],$a['email'],$a['phone'],$a['role']) = explode(',', $c);
+            list($a['contact_id'], $a['name'],$a['role'],$a['email'],$a['phone']) = explode('|', $c);
             $contact_array[] = $a;
         }
     }
