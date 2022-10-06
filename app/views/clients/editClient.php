@@ -36,13 +36,13 @@ $postcode   = empty(Form::value('postcode'))?   $client['postcode']     : Form::
                         </div>
                         <?php if( !is_null($client['logo']) && !empty($client['logo']) ) :?>
                             <div class="form-group row">
-                                <label class="col-md-3 col-form-label">Current Logo</label>
+                                <label class="col-md-3">Current Logo</label>
                                 <div class="col-md-4">
                                     <img src="/images/client_logos/tn_<?php echo $client['logo'];?>" />
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
-                                <label class="col-md-3 col-form-label text-end d-none d-md-block" for="delete_logo">Delete Current Logo</label>
+                                <label class="col-md-3 text-start d-none d-md-block" for="delete_logo">Delete Current Logo</label>
                                 <div class="col-md-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="delete_logo" name="delete_logo" <?php if(!empty(Form::value('delete_logo'))) echo 'checked';?>>
