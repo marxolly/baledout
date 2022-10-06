@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Contact controller
+ * Contact Us controller
  *
 
- * @author     Mark Solly <mark.solly@fsg.com.au>
+ * @author     Mark Solly <mark@baledout.com.au>
  */
 
 class ContactUsController extends Controller
