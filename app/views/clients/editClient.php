@@ -123,10 +123,10 @@ else
                         if(!empty($contact_array)):
                             foreach($contact_array as $i => $d)
                             {
-                                include(Config::get('VIEWS_PATH')."layout/page-includes/add_customer_contact.php");
+                                include(Config::get('VIEWS_PATH')."layout/page-includes/forms/add_customer_contact.php");
                             }
                         else:
-                            include(Config::get('VIEWS_PATH')."layout/page-includes/add_customer_contact.php");
+                            include(Config::get('VIEWS_PATH')."layout/page-includes/forms/add_customer_contact.php");
                         endif;?>
                     </div>
                 </div>
