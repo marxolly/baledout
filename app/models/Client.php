@@ -174,7 +174,7 @@ class Client extends Model{
             ORDER BY
                 c.client_name
         ";
-        //die($q);
+        die($q);
         return ($db->queryRow($q));
     }
 
