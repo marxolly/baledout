@@ -40,7 +40,7 @@ class ClientsController extends Controller
         Config::setJsConfig('curPage', "view-clients");
         Config::set('curPage', "view-clients");
         $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
-        $clients = $this->client->getAllClients($active);
+        $clients = $this->client->getClientsDetails($active);
         //return parent::comingSoon('clients');
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/viewClients.php',
         [
@@ -62,7 +62,8 @@ class ClientsController extends Controller
             return;
         }
         $client_id = $this->request->params['args']['client'];
-        $client = $this->client->getClientDetails($client_id);
+        $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
+        $client = $this->client->getClientsDetails($active, $client_id);
         if(empty($client))
         {
             //no client data found
