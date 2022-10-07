@@ -174,8 +174,11 @@ class Client extends Model{
             ORDER BY
                 c.client_name
         ";
-        die($q);
-        return ($db->queryRow($q));
+        //die($q);
+        if($client_id > 0)
+            return ($db->queryRow($q));
+        else
+            return ($db->queryData($q));
     }
 
     public function getClientName($client_id)
