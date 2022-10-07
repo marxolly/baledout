@@ -77,7 +77,7 @@ class FormController extends Controller {
                 }
             }
         }
-        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
         if( !$this->dataSubbed($client_name) )
         {
             Form::setError('client_name', 'A client name is required');
@@ -110,9 +110,13 @@ class FormController extends Controller {
                 }
             }
         }
-        if(!empty($address) || !empty($suburb) || !empty($state) || !empty($postcode) )
+        if(!empty($postaladdress) || !empty($postalsuburb) || !empty($postalstate) || !empty($postalpostcode) )
         {
-            $this->validateAddress($address, $suburb, $state, $postcode );
+            $this->validateAddress($postaladdress, $postalsuburb, $postalstate, $postalpostcode );
+        }
+        if(!empty($billingaddress) || !empty($billingsuburb) || !empty($billingstate) || !empty($billingpostcode) )
+        {
+            $this->validateAddress($billingaddress, $billingsuburb, $billingstate, $billingpostcode );
         }
         //image uploads
         $field = "client_logo";
