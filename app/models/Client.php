@@ -53,11 +53,12 @@ class Client extends Model{
         {
             $postal_array = [
                 'address'   => $data['postaladdress'],
-                'address_2' => (!empty($data['postaladdress2']))? $data['postaladdress2'] : NULL,
                 'suburb'    => $data['postalsuburb'],
                 'state'     => $data['postalstate'],
                 'postcode'  => $data['postalpostcode'],
             ];
+            if( isset($data['postaladdress2']) && !empty($data['postaladdress2']))
+                $postal_array['address_2'] = $data['postaladdress2'];
             if( !$postal_id = $db->queryValue('addresses', $postal_array) )
             {
                 echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
