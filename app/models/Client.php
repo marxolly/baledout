@@ -60,7 +60,7 @@ class Client extends Model{
             ];
             if( !$postal_id = $db->queryValue('addresses', $postal_array) )
             {
-                echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";
+                echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
                 $postal_id = $db->insertQuery('addresses', $postal_array);
             }
             $db->updateDatabaseField($this->table, 'postal_address', $postal_id, $client_id);
