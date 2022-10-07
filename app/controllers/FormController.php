@@ -77,7 +77,7 @@ class FormController extends Controller {
                 }
             }
         }
-        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
         if( !$this->dataSubbed($client_name) )
         {
             Form::setError('client_name', 'A client name is required');
