@@ -86,9 +86,19 @@ $postcode = Form::value('postcode');
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <h4>Postal Address</h4>
+                            </div>
+                        </div>
                         <?php $prefix = "postal"; include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
                     </div>
                     <div class="p-3 light-grey mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <h4>Billing Address</h4>
+                            </div>
+                        </div>
                         <?php $prefix = "billing"; include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
                     </div>
                 </div>
