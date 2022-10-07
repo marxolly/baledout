@@ -61,9 +61,9 @@ class Client extends Model{
                 $postal_array['address_2'] = $data['postaladdress2'];
             if( !$postal_id = $db->queryValue('addresses', $postal_array) )
             {
-                echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
+                //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
                 $postal_id = $db->insertQuery('addresses', $postal_array);
-                
+
             }
             $db->updateDatabaseField($this->table, 'postal_address', $postal_id, $client_id);
         }
@@ -77,6 +77,8 @@ class Client extends Model{
                 'state'     => $data['billingstate'],
                 'postcode'  => $data['billingpostcode'],
             ];
+            if( isset($data['billingaddress2']) && !empty($data['billingaddress2']))
+                $billing_array['address_2'] = $data['billingaddress2'];
             if( !$billing_id = $db->queryValue('addresses', $billing_array) )
             {
                 $billing_id = $db->insertQuery('addresses', $billing_array);
@@ -125,7 +127,7 @@ class Client extends Model{
         return($db->queryData($query));
     }
 
-    public function getClientDetails($client_id)
+    public function getClientsDetails($active = 1, $client_id = 0)
     {
         $db = Database::openConnection();
         $q = "
@@ -138,14 +140,38 @@ class Client extends Model{
                     IFNULL(cc.email,''),'|',
                     IFNULL(cc.phone,''),'|'
                     SEPARATOR '~'
-                ) AS contacts
+                ) AS contacts,
+                GROUP_CONCAT(
+                	IFNULL(pa.address,''),'|',
+                    IFNULL(pa.address_2,''),'|',
+                    IFNULL(pa.suburb,''),'|',
+                    IFNULL(pa.state,''),'|',
+                    IFNULL(pa.postcode,''),'|'
+                    SEPARATOR '~'
+                ) AS delivery_address,
+                GROUP_CONCAT(
+                	IFNULL(ba.address,''),'|',
+                    IFNULL(ba.address_2,''),'|',
+                    IFNULL(ba.suburb,''),'|',
+                    IFNULL(ba.state,''),'|',
+                    IFNULL(ba.postcode,''),'|'
+                    SEPARATOR '~'
+                ) AS billing_address
             FROM
                 {$this->table} c JOIN
-                {$this->contacts_table} cc ON cc.client_id = c.id
+                {$this->contacts_table} cc ON cc.client_id = c.id LEFT JOIN
+                {$this->addresses_table} pa ON c.postal_address = pa.id LEFT JOIN
+                {$this->addresses_table} ba ON c.billing_address = ba.id
             WHERE
-                c.id=$client_id
+                c.active = $active
+        ";
+        if($client_id > 0)
+            $q .= " AND c.id = $client_id";
+        $q .= "
             GROUP BY
                 c.id
+            ORDER BY
+                c.client_name
         ";
         //die($q);
         return ($db->queryRow($q));
