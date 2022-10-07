@@ -37,7 +37,7 @@ class Client extends Model{
 
     public function addClient($data)
     {
-        echo "The request<pre>",print_r($data),"</pre>";die();
+        //echo "The request<pre>",print_r($data),"</pre>";die();
         $db = Database::openConnection();
         $client_values = array(
             'client_name'		=>	$data['client_name']
@@ -46,12 +46,41 @@ class Client extends Model{
         if(!empty($data['phone'])) $client_vales['phone'] = $data['phone'];
         if(!empty($data['website'])) $client_vales['website'] = $data['website'];
         if(isset($data['image_name'])) $client_values['logo'] = $data['image_name'].".jpg";
-        if(!empty($data['address'])) $client_values['address'] = $data['address'];
-        if(!empty($data['address2'])) $client_values['address_2'] = $data['address2'];
-        if(!empty($data['suburb'])) $client_values['suburb'] = $data['suburb'];
-        if(!empty($data['state'])) $client_values['state'] = $data['state'];
-        if(!empty($data['postcode'])) $client_values['postcode'] = $data['postcode'];
+
         $client_id = $db->insertQuery($this->table, $client_values);
+
+        if(!empty($data['postaladdress']) && !empty($data['postalsuburb']) && !empty($data['postalstate']) && !empty($data['postalpostcode']) )
+        {
+            $postal_array = [
+                'address'   => $data['postaladdress'],
+                'address_2' => (!empty($data['postaladdress2']))? $data['postaladdress2'] : NULL,
+                'suburb'    => $data['postalsuburb'],
+                'state'     => $data['postalstate'],
+                'postcode'  => $data['postalpostcode'],
+            ];
+            if( !$postal_id = $db->queryValue('addresses', $postal_array) )
+            {
+                $postal_id = $db->insertQuery('addresses', $postal_array);
+            }
+            $db->updateDatabaseField($this->table, 'postal_address', $postal_id, $client_id);
+        }
+
+        if(!empty($data['billingaddress']) && !empty($data['billingsuburb']) && !empty($data['billingstate']) && !empty($data['billingpostcode']) )
+        {
+            $billing_array = [
+                'address'   => $data['billingaddress'],
+                'address_2' => (!empty($data['billingaddress2']))? $data['billingaddress2'] : NULL,
+                'suburb'    => $data['billingsuburb'],
+                'state'     => $data['billingstate'],
+                'postcode'  => $data['billingpostcode'],
+            ];
+            if( !$billing_id = $db->queryValue('addresses', $billing_array) )
+            {
+                $billing_id = $db->insertQuery('addresses', $billing_array);
+            }
+            $db->updateDatabaseField($this->table, 'billing_address', $billing_id, $client_id);
+        }
+
         $client_contact = new Clientcontact();
         foreach($data['contacts'] as $ind => $cd)
         {
