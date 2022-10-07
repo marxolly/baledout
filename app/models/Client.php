@@ -142,22 +142,32 @@ class Client extends Model{
                     IFNULL(cc.phone,''),'|'
                     SEPARATOR '~'
                 ) AS contacts,
-                GROUP_CONCAT(
-                	IFNULL(pa.address,''),'|',
-                    IFNULL(pa.address_2,''),'|',
-                    IFNULL(pa.suburb,''),'|',
-                    IFNULL(pa.state,''),'|',
-                    IFNULL(pa.postcode,''),'|'
-                    SEPARATOR '~'
-                ) AS delivery_address,
-                GROUP_CONCAT(
-                	IFNULL(ba.address,''),'|',
-                    IFNULL(ba.address_2,''),'|',
-                    IFNULL(ba.suburb,''),'|',
-                    IFNULL(ba.state,''),'|',
-                    IFNULL(ba.postcode,''),'|'
-                    SEPARATOR '~'
-                ) AS billing_address
+                CASE
+                    WHEN c.postal_address = 0
+                    THEN NULL
+                    ELSE
+                    GROUP_CONCAT(
+                    	IFNULL(pa.address,''),'|',
+                        IFNULL(pa.address_2,''),'|',
+                        IFNULL(pa.suburb,''),'|',
+                        IFNULL(pa.state,''),'|',
+                        IFNULL(pa.postcode,''),'|'
+                        SEPARATOR '~'
+                    )
+                END AS da_string,
+                CASE
+                    WHEN c.billing_address = 0
+                    THEN NULL
+                    ELSE
+                    GROUP_CONCAT(
+                    	IFNULL(ba.address,''),'|',
+                        IFNULL(ba.address_2,''),'|',
+                        IFNULL(ba.suburb,''),'|',
+                        IFNULL(ba.state,''),'|',
+                        IFNULL(ba.postcode,''),'|'
+                        SEPARATOR '~'
+                    )
+                END AS ba_string,
             FROM
                 {$this->table} c JOIN
                 {$this->contacts_table} cc ON cc.client_id = c.id LEFT JOIN
