@@ -25,6 +25,7 @@ class Client extends Model{
       */
     public $table = "clients";
     public $contacts_table = "clients_contacts";
+    public $addresses_table = "addresses";
     public $charges_table = "client_charges";
 
     public function __construct(){}
