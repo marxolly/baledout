@@ -167,7 +167,7 @@ class Client extends Model{
                         IFNULL(ba.postcode,''),'|'
                         SEPARATOR '~'
                     )
-                END AS ba_string,
+                END AS ba_string
             FROM
                 {$this->table} c JOIN
                 {$this->contacts_table} cc ON cc.client_id = c.id LEFT JOIN
