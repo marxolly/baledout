@@ -11,7 +11,7 @@
             </div>
         </div>
         <?php if(count($clients)):?>
-            <?php echo "<pre>",print_r($clients),"</pre>";die();?>
+            <?php //echo "<pre>",print_r($clients),"</pre>";die();?>
             <div id="waiting" class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Drawing Table..</h2>
@@ -33,18 +33,17 @@
                         <tbody>
                             <?php foreach($clients as $c):
                                 $logo_path = DOC_ROOT.'/images/client_logos/tn_'.$c['logo'];
-                                if($c['delivery_address'] > 0)
+                                $da_string = $ba_string = "";
+                                if($c['postal_address'] > 0)
                                 {
-
+                                    $da_array = explode("|", $c['da_string']);
+                                    $da_string = "<h4>Postal Address</h4>".Utility::formatAddressWeb($da_array);
                                 }
-                                $add_array = [
-                                    'address'   => $c['address'],
-                                    'address_2' => $c['address_2'],
-                                    'suburb'    => $c['suburb'],
-                                    'state'     => $c['state'],
-                                    'postcode'  => $c['postcode']
-                                ];
-                                $add_string = Utility::formatAddressWeb($add_array);
+                                if($c['billing_address'] > 0)
+                                {
+                                    $ba_array = explode("|", $c['ba_string']);
+                                    $ba_string = "<h4>Billing Address</h4>".Utility::formatAddressWeb($ba_array);
+                                }
                                 ?>
                                 <tr>
                                     <td>
@@ -53,7 +52,7 @@
                                         <?php endif;?>
                                         <?php echo $c['client_name'];?>
                                     </td>
-                                    <td><?php echo $add_string;?></td>
+                                    <td><?php echo $da_string.$ba_string;?></td>
                                     <td><?php if(!empty($c['contacts'])) echo Utility::generateContactsString($c['contacts']);?></td>
                                     <td>
                                         <p><a class="btn btn-outline-bo" href="/clients/edit-client/client=<?php echo $c['id'];?>" >Edit Details</a></p>
