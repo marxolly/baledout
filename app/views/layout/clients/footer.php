@@ -6,8 +6,11 @@
             var actions = {
                 common: {
                     init: function(){
-                        autoCompleter.addressAutoComplete($('#address'));
-                        autoCompleter.suburbAutoComplete($('#suburb'));
+                        autoCompleter.addressAutoComplete($('#postaladdress'), "postal");
+                        autoCompleter.suburbAutoComplete($('#postalsuburb'), "postal");
+
+                        autoCompleter.addressAutoComplete($('#billingaddress'), "billing");
+                        autoCompleter.suburbAutoComplete($('#billingsuburb'), "billing");
                     },
                     addContact: function(){
                         $("a.add-contact").click(function(e){
