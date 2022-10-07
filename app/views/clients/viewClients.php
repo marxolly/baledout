@@ -36,12 +36,12 @@
                                 $da_string = $ba_string = "";
                                 if($c['postal_address'] > 0)
                                 {
-                                    $da_array = explode("|", $c['da_string']);
+                                    list($da_array['address'],$da_array['address_2'],$da_array['suburb'],$da_array['state'],$da_array['postcode']) = explode("|", $c['da_string']);
                                     $da_string = "<h4>Postal Address</h4>".Utility::formatAddressWeb($da_array);
                                 }
                                 if($c['billing_address'] > 0)
                                 {
-                                    $ba_array = explode("|", $c['ba_string']);
+                                    list($ba_array['address'],$ba_array['address_2'],$ba_array['suburb'],$ba_array['state'],$ba_array['postcode']) = explode("|", $c['ba_string']);
                                     $ba_string = "<h4>Billing Address</h4>".Utility::formatAddressWeb($ba_array);
                                 }
                                 ?>
