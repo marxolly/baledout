@@ -50,23 +50,23 @@ class Client extends Model{
 
         $client_id = $db->insertQuery($this->table, $client_values);
 
-        if(!empty($data['postaladdress']) && !empty($data['postalsuburb']) && !empty($data['postalstate']) && !empty($data['postalpostcode']) )
+        if(!empty($data['deliveryaddress']) && !empty($data['deliverysuburb']) && !empty($data['deliverystate']) && !empty($data['deliverypostcode']) )
         {
-            $postal_array = [
-                'address'   => $data['postaladdress'],
-                'suburb'    => $data['postalsuburb'],
-                'state'     => $data['postalstate'],
-                'postcode'  => $data['postalpostcode'],
+            $delivery_array = [
+                'address'   => $data['deliveryaddress'],
+                'suburb'    => $data['deliverysuburb'],
+                'state'     => $data['deliverystate'],
+                'postcode'  => $data['deliverypostcode'],
             ];
-            if( isset($data['postaladdress2']) && !empty($data['postaladdress2']))
-                $postal_array['address_2'] = $data['postaladdress2'];
-            if( !$postal_id = $db->queryValue('addresses', $postal_array) )
+            if( isset($data['deliveryaddress2']) && !empty($data['deliveryaddress2']))
+                $delivery_array['address_2'] = $data['deliveryaddress2'];
+            if( !$delivery_id = $db->queryValue('addresses', $delivery_array) )
             {
                 //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
-                $postal_id = $db->insertQuery('addresses', $postal_array);
+                $delivery_id = $db->insertQuery('addresses', $delivery_array);
 
             }
-            $db->updateDatabaseField($this->table, 'postal_address', $postal_id, $client_id);
+            $db->updateDatabaseField($this->table, 'delivery_address', $delivery_id, $client_id);
         }
 
         if(!empty($data['billingaddress']) && !empty($data['billingsuburb']) && !empty($data['billingstate']) && !empty($data['billingpostcode']) )
@@ -143,15 +143,15 @@ class Client extends Model{
                     SEPARATOR '~'
                 ) AS contacts,
                 CASE
-                    WHEN c.postal_address = 0
+                    WHEN c.delivery_address = 0
                     THEN NULL
                     ELSE
                     GROUP_CONCAT(
-                    	IFNULL(pa.address,''),'|',
-                        IFNULL(pa.address_2,''),'|',
-                        IFNULL(pa.suburb,''),'|',
-                        IFNULL(pa.state,''),'|',
-                        IFNULL(pa.postcode,''),'|'
+                    	IFNULL(da.address,''),'|',
+                        IFNULL(da.address_2,''),'|',
+                        IFNULL(da.suburb,''),'|',
+                        IFNULL(da.state,''),'|',
+                        IFNULL(da.postcode,''),'|'
                         SEPARATOR '~'
                     )
                 END AS da_string,
@@ -171,7 +171,7 @@ class Client extends Model{
             FROM
                 {$this->table} c JOIN
                 {$this->contacts_table} cc ON cc.client_id = c.id LEFT JOIN
-                {$this->addresses_table} pa ON c.postal_address = pa.id LEFT JOIN
+                {$this->addresses_table} da ON c.delivery_address = da.id LEFT JOIN
                 {$this->addresses_table} ba ON c.billing_address = ba.id
             WHERE
                 c.active = $active
