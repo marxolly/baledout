@@ -91,7 +91,7 @@ $postcode = Form::value('postcode');
                                 <h4>Delivery Address</h4>
                             </div>
                         </div>
-                        <?php $prefix = "postal"; include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
+                        <?php $prefix = "delivery"; include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
                     </div>
                     <div class="p-3 light-grey mb-3">
                         <div class="row">

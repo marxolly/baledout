@@ -1,15 +1,32 @@
 <?php
+//client_name is required
 $client_name    = empty(Form::value('client_name'))?    $client['client_name']  : Form::value('client_name');
-$address        = empty(Form::value('address'))?        $client['address']      : Form::value('address');
-$address2       = empty(Form::value('address2'))?       $client['address_2']    : Form::value('address2');
-$suburb         = empty(Form::value('suburb'))?         $client['suburb']       : Form::value('suburb');
-$state          = empty(Form::value('state'))?          $client['state']        : Form::value('state');
-$postcode       = empty(Form::value('postcode'))?       $client['postcode']     : Form::value('postcode');
-
+//delivery_address is not required
+$daa = array();
+if(!empty($client['da_string']))
+{
+    list($daa['address'], $daa['address2'],$daa['suburb'],$daa['state'],$daa['postcode']) = explode('|', $client['da_string']);
+}
+$deliveryaddress   = empty(Form::value('deliveryaddress'))?    isset($daa['address'])?  $daa['address']     : "" : Form::value('deliveryaddress');
+$deliveryaddress2  = empty(Form::value('deliveryaddress2'))?   isset($daa['address2'])? $daa['address2']    : "" : Form::value('deliveryaddress2');
+$deliverysuburb    = empty(Form::value('deliverysuburb'))?     isset($daa['suburb'])?   $daa['suburb']      : "" : Form::value('deliverysuburb');
+$deliverystate     = empty(Form::value('deliverystate'))?      isset($daa['state'])?    $daa['state']       : "" : Form::value('deliverystate');
+$deliverypostcode  = empty(Form::value('deliverypostcode'))?   isset($daa['postcode'])? $daa['postcode']    : "" : Form::value('deliverypostcode');
+//postal_address is not required
+$baa = array();
+if(!empty($client['ba_string']))
+{
+    list($baa['address'], $baa['address2'],$baa['suburb'],$baa['state'],$baa['postcode']) = explode('|', $client['ba_string']);
+}
+$billingaddress   = empty(Form::value('billingaddress'))?    isset($baa['address'])?  $baa['address']     : "" : Form::value('billingaddress');
+$billingaddress2  = empty(Form::value('billingaddress2'))?   isset($baa['address2'])? $baa['address2']    : "" : Form::value('billingaddress2');
+$billingsuburb    = empty(Form::value('billingsuburb'))?     isset($baa['suburb'])?   $baa['suburb']      : "" : Form::value('billingsuburb');
+$billingstate     = empty(Form::value('billingstate'))?      isset($baa['state'])?    $baa['state']       : "" : Form::value('billingstate');
+$billingpostcode  = empty(Form::value('billingpostcode'))?   isset($baa['postcode'])? $baa['postcode']    : "" : Form::value('billingpostcode');
+//other non required client info
 $phone          = empty(Form::value('phone'))?          $client['phone']        : Form::value('phone');
 $email          = empty(Form::value('email'))?          $client['email']        : Form::value('email');
 $website        = empty(Form::value('website'))?        $client['website']      : Form::value('website');
-
 //create the contacts array
 $contacts       = empty(Form::value('contacts'))?       $client['contacts']     : Form::value('contacts');
 if(!is_array($contacts))
@@ -138,7 +155,21 @@ else
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
-                        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Delivery Address</h4>
+                            </div>
+                        </div>
+                        <?php $prefix = "delivery"; include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <h4>Billing Address</h4>
+                                <p class="inst">If different to Delivery address</p>
+                            </div>
+                        </div>
+                        <?php $prefix = "billing"; include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
                     </div>
                 </div>
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">

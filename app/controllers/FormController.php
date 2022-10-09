@@ -110,9 +110,9 @@ class FormController extends Controller {
                 }
             }
         }
-        if(!empty($postaladdress) || !empty($postalsuburb) || !empty($postalstate) || !empty($postalpostcode) )
+        if(!empty($deliveryaddress) || !empty($deliverysuburb) || !empty($deliverystate) || !empty($deliverypostcode) )
         {
-            $this->validateAddress($postaladdress, $postalsuburb, $postalstate, $postalpostcode );
+            $this->validateAddress($deliveryaddress, $deliverysuburb, $deliverystate, $deliverypostcode );
         }
         if(!empty($billingaddress) || !empty($billingsuburb) || !empty($billingstate) || !empty($billingpostcode) )
         {
