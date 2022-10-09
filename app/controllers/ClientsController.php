@@ -70,6 +70,7 @@ class ClientsController extends Controller
             (new SiteErrorsController())->siteError("noClientFound")->send();
             return;
         }
+        echo "<pre>",print_r($client),"</pre>";die();
         //return parent::comingSoon('clients');
         //render the page
         $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/editClient.php', [
