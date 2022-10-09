@@ -37,7 +37,7 @@
                                 if($c['postal_address'] > 0)
                                 {
                                     list($da_array['address'],$da_array['address_2'],$da_array['suburb'],$da_array['state'],$da_array['postcode']) = explode("|", $c['da_string']);
-                                    $da_string = "<div class='mb-3'><h6>Postal Address</h6>".Utility::formatAddressWeb($da_array)."</div>";
+                                    $da_string = "<div class='mb-3'><h6>Delivery Address</h6>".Utility::formatAddressWeb($da_array)."</div>";
                                 }
                                 if($c['billing_address'] > 0)
                                 {
