@@ -6,8 +6,8 @@
             var actions = {
                 common: {
                     init: function(){
-                        autoCompleter.addressAutoComplete($('#postaladdress'), "postal");
-                        autoCompleter.suburbAutoComplete($('#postalsuburb'), "postal");
+                        autoCompleter.addressAutoComplete($('#deliveryaddress'), "delivery");
+                        autoCompleter.suburbAutoComplete($('#deliverysuburb'), "delivery");
 
                         autoCompleter.addressAutoComplete($('#billingaddress'), "billing");
                         autoCompleter.suburbAutoComplete($('#billingsuburb'), "billing");
