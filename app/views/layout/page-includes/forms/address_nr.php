@@ -25,7 +25,7 @@ if(!isset($prefix))
 <div class="form-group row mb-3">
     <label class="col-md-3">State</label>
     <div class="col-md-4">
-        <select id="<?php echo $prefix;?>state" name="<?php echo $prefix;?>state" class="form-control selectpicker" data-style="btn-outline-bo"><option value="0">--Select One--</option><?php echo Utility::getStateSelect(${$prefix."state"};?></select>
+        <select id="<?php echo $prefix;?>state" name="<?php echo $prefix;?>state" class="form-control selectpicker" data-style="btn-outline-bo"><option value="0">--Select One--</option><?php echo Utility::getStateSelect(${$prefix."state"});?></select>
         <?php echo Form::displayError('state');?>
     </div>
 </div>
