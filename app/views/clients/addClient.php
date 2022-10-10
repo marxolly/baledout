@@ -1,9 +1,15 @@
 <?php
-$address = Form::value('address');
-$address2 = Form::value('address2');
-$suburb = Form::value('suburb');
-$state = Form::value('state');
-$postcode = Form::value('postcode');
+$deliveryaddress = Form::value('deliveryaddress');
+$deliveryaddress2 = Form::value('deliveryaddress2');
+$deliverysuburb = Form::value('deliverysuburb');
+$deliverystate = Form::value('deliverystate');
+$deliverypostcode = Form::value('deliverypostcode');
+
+$billingaddress = Form::value('billingaddress');
+$billingaddress2 = Form::value('billingaddress2');
+$billingsuburb = Form::value('billingsuburb');
+$billingstate = Form::value('billingstate');
+$billingpostcode = Form::value('billingpostcode');
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
