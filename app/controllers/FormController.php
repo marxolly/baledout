@@ -523,7 +523,7 @@ class FormController extends Controller {
 ********************************************************************************************************************
 ********************************************************************************************************************/
     /*******************************************************************
-    ** validates entered client data
+    ** validates data entered for clients
     ********************************************************************/
     private function clientDataValidate($post_data = [])
     {
@@ -575,11 +575,11 @@ class FormController extends Controller {
         }
         if(!empty($deliveryaddress) || !empty($deliverysuburb) || !empty($deliverystate) || !empty($deliverypostcode) )
         {
-            $this->validateAddress($deliveryaddress, $deliverysuburb, $deliverystate, $deliverypostcode );
+            $this->validateAddress($deliveryaddress, $deliverysuburb, $deliverystate, $deliverypostcode, "delivery" );
         }
         if(!empty($billingaddress) || !empty($billingsuburb) || !empty($billingstate) || !empty($billingpostcode) )
         {
-            $this->validateAddress($billingaddress, $billingsuburb, $billingstate, $billingpostcode );
+            $this->validateAddress($billingaddress, $billingsuburb, $billingstate, $billingpostcode, "billing" );
         }
         //image uploads
         $field = "client_logo";
