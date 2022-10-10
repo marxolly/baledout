@@ -79,6 +79,8 @@ class FormController extends Controller {
             }
         }
         echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+
+
     }//End procClientEdit
 
     public function procClientAdd()
@@ -101,71 +103,7 @@ class FormController extends Controller {
             }
         }
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
-        if( !$this->dataSubbed($client_name) )
-        {
-            Form::setError('client_name', 'A client name is required');
-        }
-        if( $this->dataSubbed($email) )
-        {
-            if( !$this->emailValid($email) )
-            {
-                Form::setError('email', 'Please enter a valid email address');
-            }
-        }
-        if( $this->dataSubbed($website) )
-        {
-            if ( filter_var($website, FILTER_VALIDATE_URL) === false )
-            {
-                Form::setError('website', 'Please enter a valid URL');
-            }
-        }
-        foreach($post_data['contacts'] as $ind => $cd)
-        {
-            if(!$this->dataSubbed($cd['name']))
-            {
-                Form::setError('contactname_'.$ind, 'A contact name is required');
-            }
-            if($this->dataSubbed($cd['email']))
-            {
-                if(!$this->emailValid($cd['email']))
-                {
-                    Form::setError('contactemail_'.$ind, 'The email is not valid');
-                }
-            }
-        }
-        if(!empty($deliveryaddress) || !empty($deliverysuburb) || !empty($deliverystate) || !empty($deliverypostcode) )
-        {
-            $this->validateAddress($deliveryaddress, $deliverysuburb, $deliverystate, $deliverypostcode );
-        }
-        if(!empty($billingaddress) || !empty($billingsuburb) || !empty($billingstate) || !empty($billingpostcode) )
-        {
-            $this->validateAddress($billingaddress, $billingsuburb, $billingstate, $billingpostcode );
-        }
-        //image uploads
-        $field = "client_logo";
-        if($this->request->data[$field]["size"] > 0)
-        {
-            if(getimagesize($this->request->data[$field]['tmp_name']) !== false)
-            {
-                $filename = pathinfo($this->request->data[$field]['name'], PATHINFO_FILENAME);
-                $image_name = preg_replace("/[^A-Za-z0-9 ]/", '', $filename);//strip out non alphanumeric characters
-                $image_name = strtolower(str_replace(' ','_',$image_name));
-                //main image
-                $image_name = $this->uploadImage($field, 180, 100, $image_name, 'jpg', false, 'client_logos/');
-                //thumbnail image
-                $this->uploadImage($field, 100, false, "tn_".$image_name, 'jpg', false, 'client_logos/');
-                $post_data['image_name'] = $image_name;
-            }
-            else
-            {
-                Form::setError($field, 'Only upload images here');
-            }
-        }
-        elseif($_FILES[$field]['error']  !== UPLOAD_ERR_NO_FILE)
-        {
-            $error_message = $this->file_upload_error_message($_FILES[$field]['error']);
-            Form::setError($field, $error_message);
-        }
+        $this->clientDataValidate($post_data);
         if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
@@ -584,6 +522,91 @@ class FormController extends Controller {
                         Helper Functions
 ********************************************************************************************************************
 ********************************************************************************************************************/
+    /*******************************************************************
+    ** validates entered client data
+    ********************************************************************/
+    private function clientDataValidate($post_data = [])
+    {
+        foreach($post_data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        if( !$this->dataSubbed($client_name) )
+        {
+            Form::setError('client_name', 'A client name is required');
+        }
+        if( $this->dataSubbed($email) )
+        {
+            if( !$this->emailValid($email) )
+            {
+                Form::setError('email', 'Please enter a valid email address');
+            }
+        }
+        if( $this->dataSubbed($website) )
+        {
+            if ( filter_var($website, FILTER_VALIDATE_URL) === false )
+            {
+                Form::setError('website', 'Please enter a valid URL');
+            }
+        }
+        foreach($contacts as $ind => $cd)
+        {
+            if(!$this->dataSubbed($cd['name']))
+            {
+                Form::setError('contactname_'.$ind, 'A contact name is required');
+            }
+            if($this->dataSubbed($cd['email']))
+            {
+                if(!$this->emailValid($cd['email']))
+                {
+                    Form::setError('contactemail_'.$ind, 'The email is not valid');
+                }
+            }
+        }
+        if(!empty($deliveryaddress) || !empty($deliverysuburb) || !empty($deliverystate) || !empty($deliverypostcode) )
+        {
+            $this->validateAddress($deliveryaddress, $deliverysuburb, $deliverystate, $deliverypostcode );
+        }
+        if(!empty($billingaddress) || !empty($billingsuburb) || !empty($billingstate) || !empty($billingpostcode) )
+        {
+            $this->validateAddress($billingaddress, $billingsuburb, $billingstate, $billingpostcode );
+        }
+        //image uploads
+        $field = "client_logo";
+        if($this->request->data[$field]["size"] > 0)
+        {
+            if(getimagesize($this->request->data[$field]['tmp_name']) !== false)
+            {
+                $filename = pathinfo($this->request->data[$field]['name'], PATHINFO_FILENAME);
+                $image_name = preg_replace("/[^A-Za-z0-9 ]/", '', $filename);//strip out non alphanumeric characters
+                $image_name = strtolower(str_replace(' ','_',$image_name));
+                //main image
+                $image_name = $this->uploadImage($field, 180, 100, $image_name, 'jpg', false, 'client_logos/');
+                //thumbnail image
+                $this->uploadImage($field, 100, false, "tn_".$image_name, 'jpg', false, 'client_logos/');
+                $post_data['image_name'] = $image_name;
+            }
+            else
+            {
+                Form::setError($field, 'Only upload images here');
+            }
+        }
+        elseif($_FILES[$field]['error']  !== UPLOAD_ERR_NO_FILE)
+        {
+            $error_message = $this->file_upload_error_message($_FILES[$field]['error']);
+            Form::setError($field, $error_message);
+        }
+    }
     /*******************************************************************
     ** validates addresses
     ********************************************************************/
