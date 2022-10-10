@@ -41,6 +41,7 @@ class FormController extends Controller {
         $action = $this->request->param('action');
         $actions = [
             'procClientAdd',
+            'procClientEdit',
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
@@ -57,6 +58,28 @@ class FormController extends Controller {
                         Form processing Actions
 ********************************************************************************************************************
 ********************************************************************************************************************/
+
+    public function procClientEdit()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+    }//End procClientEdit
 
     public function procClientAdd()
     {
