@@ -1,6 +1,8 @@
 <?php
 //client_name is required
 $client_name    = empty(Form::value('client_name'))?    $client['client_name']  : Form::value('client_name');
+//is client active
+$active = ( $client['active'] == 1 XOR !empty(Form::value('active')) );
 //delivery_address is not required
 $daa = array();
 if(!empty($client['da_string']))
@@ -73,6 +75,15 @@ else
                             <div class="col-md-4">
                                 <input type="text" class="form-control required" name="client_name" id="client_name" value="<?php echo $client_name;?>" />
                                 <?php echo Form::displayError('client_name');?>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 text-start d-none d-md-block" for="active">Active</label>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="active" name="active" <?php if($active) echo 'checked';?>>
+                                    <label class="form-check-label d-md-none" for="active">Active</label>
+                                </div>
                             </div>
                         </div>
                         <?php if( !is_null($client['logo']) && !empty($client['logo']) ) :?>
