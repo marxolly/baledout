@@ -26,6 +26,6 @@ $details['phone'] = isset($d['phone'])? $d['phone']:"";
         <div class="col-md-4 mb-3">
             <input type="text" class="form-control" name="contacts[<?php echo $i;?>][phone]" value="<?php echo $details['phone'];?>" >
         </div>
-        <input type="hidden" name="contacts[<?php echo $i;?>][contacts_id]" value="<?php echo $details['c_id'];?>" >
+        <input type="hidden" name="contacts[<?php echo $i;?>][contact_id]" value="<?php echo $details['c_id'];?>" >
     </div>
 </div>
