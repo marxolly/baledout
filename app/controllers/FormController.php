@@ -88,10 +88,10 @@ class FormController extends Controller {
         else
         {
             //all good, add details
-            echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
-            if($client_id = $this->client->addClient($post_data))
+            //echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            if($client_id = $this->client->editClient($post_data))
             {
-                Session::set('feedback', "{$client_name}'s details has been updated");
+                Session::set('feedback', "{$client_name}'s details have been updated");
                 //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
             }
             else
