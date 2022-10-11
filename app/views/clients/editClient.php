@@ -2,7 +2,7 @@
 //client_name is required
 $client_name    = empty(Form::value('client_name'))?    $client['client_name']  : Form::value('client_name');
 //is client active
-$active = ( $client['active'] == 1 XOR empty(Form::value('active')) );
+$active = ( $client['active'] == 1 );
 //delivery_address is not required
 $daa = array();
 if(!empty($client['da_string']))
