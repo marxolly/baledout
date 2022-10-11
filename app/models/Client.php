@@ -199,7 +199,7 @@ class Client extends Model{
 
     public function updateClientInfo($data)
     {
-        echo "The request<pre>",print_r($data),"</pre>";die();
+        //echo "The request<pre>",print_r($data),"</pre>";die();
         $db = Database::openConnection();
         //set the defaults
         $client_values = array(
@@ -240,7 +240,6 @@ class Client extends Model{
         {
             $billing_array = [
                 'address'   => $data['billingaddress'],
-                'address_2' => (!empty($data['billingaddress2']))? $data['billingaddress2'] : NULL,
                 'suburb'    => $data['billingsuburb'],
                 'state'     => $data['billingstate'],
                 'postcode'  => $data['billingpostcode'],
