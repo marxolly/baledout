@@ -20,9 +20,19 @@ class Clientcontact extends Model {
     public function addContact($data)
     {
         //echo "productioncontact <pre>",print_r($data),"</pre>";die();
+        unset($data['contact_id']);
         $db = Database::openConnection();
         $id = $db->insertQuery($this->table, $data);
         return $id;
+    }
+
+    public function editContact($data, $id)
+    {
+        //echo "productioncontact <pre>",print_r($data),"</pre>";die();
+        unset($data['contact_id']);
+        $db = Database::openConnection();
+        $db->updateDatabaseFields($this->table, $data, $id);
+        return true;
     }
 }//End class
 ?>
