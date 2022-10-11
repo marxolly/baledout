@@ -199,7 +199,21 @@ class Client extends Model{
 
     public function updateClientInfo($data)
     {
-        //echo "The request<pre>",print_r($data),"</pre>";die();
+        echo "The request<pre>",print_r($data),"</pre>";die();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         $db = Database::openConnection();
         $client_values = array(
             'client_name'		=>	$data['client_name'],
