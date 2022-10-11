@@ -213,7 +213,6 @@ class Client extends Model{
 
 
 
-
         $db = Database::openConnection();
         $client_values = array(
             'client_name'		=>	$data['client_name'],
