@@ -78,7 +78,29 @@ class FormController extends Controller {
                 }
             }
         }
-        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        $this->clientDataValidate($post_data);
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //all good, add details
+            echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            if($client_id = $this->client->addClient($post_data))
+            {
+                Session::set('feedback', "{$client_name}'s details has been updated");
+                //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
+            }
+            else
+            {
+                Session::set('errorfeedback', 'A database error has occurred. Please try again');
+            }
+
+        }
+        return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=$client_id");
 
 
     }//End procClientEdit
