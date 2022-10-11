@@ -46,6 +46,12 @@
                     init: function(){
                         actions.common.init();
                         actions.common.addContact();
+                        $('form#client_edit').submit(function(e){
+                            if($(this).valid())
+                            {
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Updating Client Details...</h2></div>' });
+                            }
+                        });
                     }
                 },
                 'view-clients': {

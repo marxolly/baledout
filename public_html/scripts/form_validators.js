@@ -171,6 +171,25 @@ $(document).ready(function() {
             }
         }
     });
+    ////////////////////////////////////////////////////////////
+    $('form#client_edit').validate({
+        rules:{
+            client_logo:{
+    			accept: "image/*"
+    		},
+            website:{
+                url: true
+            }
+        },
+        messages:{
+            client_logo:{
+                accept: "Only upload image files here"
+            },
+            website:{
+                url: "Please enter a valid URL, including the http(s) part"
+            }
+        }
+    });
     ///////////////////////////////////////////////////////////////////////////////
     $('form#send_a_message').validate({
         ignore: "[contenteditable='true']:not([name])",

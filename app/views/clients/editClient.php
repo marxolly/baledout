@@ -58,7 +58,7 @@ else
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
         <?php //echo "<pre>",print_r($client),"</pre>";?>
-        <form id="client_add" method="post" enctype="multipart/form-data" action="/form/procClientEdit">
+        <form id="client_edit" method="post" enctype="multipart/form-data" action="/form/procClientEdit">
             <div class="row">
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
                     <div class="row">
