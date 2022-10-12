@@ -14,6 +14,7 @@ class ajaxfunctionsController extends Controller
         $action = $this->request->param('action');
         $actions = [
             'addClientContact',
+            'editClientContact',
             'getSuburbs'
         ];
         $form_actions = [];
@@ -33,6 +34,21 @@ class ajaxfunctionsController extends Controller
             'html'      =>  ''
         );
         $html = $this->view->render(Config::get('VIEWS_PATH') . 'layout/page-includes/forms/add_customer_contact.php', [
+            'i'     =>  $i
+        ]);
+        $data['html'] = $html;
+        $this->view->renderJson($data);
+    }
+
+    public function editClientContact()
+    {
+        $i = $this->request->data['i'];
+        $data = array(
+            'error'     =>  false,
+            'feedback'  =>  '',
+            'html'      =>  ''
+        );
+        $html = $this->view->render(Config::get('VIEWS_PATH') . 'layout/page-includes/forms/edit_customer_contact.php', [
             'i'     =>  $i
         ]);
         $data['html'] = $html;

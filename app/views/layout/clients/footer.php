@@ -12,7 +12,11 @@
                         autoCompleter.addressAutoComplete($('#billingaddress'), "billing");
                         autoCompleter.suburbAutoComplete($('#billingsuburb'), "billing");
                     },
-                    addContact: function(){
+                    addContact: function(edit){
+                        if(edit === undefined) {
+                            edit = false;
+                        }
+                        var url = (edit)? "/ajaxfunctions/editClientContact" : "/ajaxfunctions/addClientContact"
                         $("a.add-contact").click(function(e){
                             e.preventDefault();
                             var contact_count = $("div#contacts_holder div.acontact").length;
@@ -20,7 +24,7 @@
                             var data = {
                                 i: contact_count
                             }
-                            $.post('/ajaxfunctions/addClientContact', data, function(d){
+                            $.post(url, data, function(d){
                                 $('div#contacts_holder').append(d.html);
                             });
                         });
