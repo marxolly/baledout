@@ -36,7 +36,7 @@
                     },
                     deactivateContact: function(){
                         $('input.deactivate').each(function(i,e){
-                            console.log("no click yet ".this.id);
+                            console.log("no click yet "+this.id);
                             $(this).off('click').click(function(ev){
                                 console.log(this.id);
                             })
@@ -59,7 +59,7 @@
                     init: function(){
                         actions.common.init();
                         actions.common.addContact(true);
-                        actions.common.deactivateContact(); 
+                        actions.common.deactivateContact();
                         $('form#client_edit').submit(function(e){
                             if($(this).valid())
                             {
