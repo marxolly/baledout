@@ -42,7 +42,7 @@
                                 //console.log("ind: "+ind);
                                 var disab = this.checked;
                                 $('input[name="contacts['+ind+']"').each(function(){
-                                    $(this).attr('disable') = disab;
+                                    $(this).prop('disabled',disab);
                                 })
                             })
                         });
