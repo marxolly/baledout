@@ -80,7 +80,7 @@ class FormController extends Controller {
         }
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
 
-        $this->clientDataValidate($post_data);
+        $post_data['image_name'] = $this->clientDataValidate($post_data);
         if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
@@ -126,7 +126,8 @@ class FormController extends Controller {
             }
         }
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
-        $this->clientDataValidate($post_data);
+        //$this->clientDataValidate($post_data);
+        $post_data['image_name'] = $this->clientDataValidate($post_data);
         if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
@@ -564,6 +565,7 @@ class FormController extends Controller {
                 }
             }
         }
+        $image_name = "default.png";
         if( !$this->dataSubbed($client_name) )
         {
             Form::setError('client_name', 'A client name is required');
@@ -608,6 +610,7 @@ class FormController extends Controller {
         }
         //image uploads
         $field = "client_logo";
+        $image_name = "default.png";
         if($this->request->data[$field]["size"] > 0)
         {
             if(getimagesize($this->request->data[$field]['tmp_name']) !== false)
@@ -619,7 +622,7 @@ class FormController extends Controller {
                 $image_name = $this->uploadImage($field, 180, 100, $image_name, 'jpg', false, 'client_logos/');
                 //thumbnail image
                 $this->uploadImage($field, 100, false, "tn_".$image_name, 'jpg', false, 'client_logos/');
-                $post_data['image_name'] = $image_name;
+                //$post_data['image_name'] = $image_name;
             }
             else
             {
@@ -631,6 +634,7 @@ class FormController extends Controller {
             $error_message = $this->file_upload_error_message($_FILES[$field]['error']);
             Form::setError($field, $error_message);
         }
+        return $image_name;
     }
     /*******************************************************************
     ** validates addresses
