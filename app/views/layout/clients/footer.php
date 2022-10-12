@@ -26,18 +26,20 @@
                             }
                             $.post(url, data, function(d){
                                 $('div#contacts_holder').append(d.html);
-                                console.log("appended");
+                                actions.common.deactivateContact();
                             });
-                            $('input.deactivate').each(function(i,e){
-                                    console.log("no click yet ".this.id);
-                                    $(this).off('click').click(function(ev){
-                                        console.log(this.id);
-                                    })
-                                });
                         });
                         $("a.remove-all-contacts").click(function(e){
                             e.preventDefault();
                             $('div#contacts_holder div.acontact').not(':first').remove();
+                        });
+                    },
+                    deactivateContact: function(){
+                        $('input.deactivate').each(function(i,e){
+                            console.log("no click yet ".this.id);
+                            $(this).off('click').click(function(ev){
+                                console.log(this.id);
+                            })
                         });
                     }
                 },
@@ -57,6 +59,7 @@
                     init: function(){
                         actions.common.init();
                         actions.common.addContact(true);
+                        actions.common.deactivateContact(); 
                         $('form#client_edit').submit(function(e){
                             if($(this).valid())
                             {
