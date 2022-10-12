@@ -39,7 +39,7 @@
                             //console.log("no click yet "+this.id);
                             $(this).off('change').change(function(ev){
                                 var ind = this.id.split("_")[1];
-                                //console.log("ind: "+ind);
+                                console.log("name: "+this.attributes["name"].value);
                                 var disab = this.checked;
                                 $('input[name="contacts['+ind+']"').each(function(){
                                     console.log("going to disable "+this.attributes["name"].value)
