@@ -88,7 +88,7 @@ class FormController extends Controller {
         else
         {
             //all good, add details
-            //echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
             if($this->client->updateClientInfo($post_data))
             {
                 Session::set('feedback', "{$client_name}'s details have been updated");
