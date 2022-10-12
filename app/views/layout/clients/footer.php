@@ -36,9 +36,9 @@
                     },
                     deactivateContact: function(){
                         $('input.deactivate').each(function(i,e){
-                            console.log("no click yet "+this.id);
-                            $(this).off('click').click(function(ev){
-                                console.log(this.id);
+                            //console.log("no click yet "+this.id);
+                            $(this).off('change').change(function(ev){
+                                console.log("Is checked: "+this.checked);
                             })
                         });
                     }
