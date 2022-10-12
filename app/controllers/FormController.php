@@ -583,7 +583,7 @@ class FormController extends Controller {
         }
         foreach($contacts as $ind => $cd)
         {
-            if(isset($cd['deactivated']))
+            if(isset($cd['deactivate']))
                 continue;
             if(!$this->dataSubbed($cd['name']))
             {
