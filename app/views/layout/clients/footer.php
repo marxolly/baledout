@@ -26,13 +26,14 @@
                             }
                             $.post(url, data, function(d){
                                 $('div#contacts_holder').append(d.html);
-                                $('input.deactivate').each(function(i,e){
+
+                            });
+                            $('input.deactivate').each(function(i,e){
                                     console.log("no click yet ".this.id);
                                     $(this).off('click').click(function(ev){
                                         console.log(this.id);
                                     })
                                 });
-                            });
                         });
                         $("a.remove-all-contacts").click(function(e){
                             e.preventDefault();
