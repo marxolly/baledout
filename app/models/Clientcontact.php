@@ -34,5 +34,19 @@ class Clientcontact extends Model {
         $db->updateDatabaseFields($this->table, $data, $id);
         return true;
     }
+
+    public function deactivateContact($id)
+    {
+        $db = Database::openConnection();
+        $db->updateDatabaseField( $this->table, 'active', 0, $id );
+        return true;
+    }
+
+    public function reactivateContact($id)
+    {
+        $db = Database::openConnection();
+        $db->updateDatabaseField( $this->table, 'active', 1, $id );
+        return true;
+    }
 }//End class
 ?>
