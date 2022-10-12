@@ -141,9 +141,6 @@ else
                         <div class="col-md-3">
                             <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>
                         </div>
-                        <div class="col-md-3">
-                            <a class="remove-all-contacts" style="cursor:pointer" title="Leave Only First"><h4><i class="fad fa-times-square text-danger"></i> Leave only one contact</a></h4>
-                        </div>
                     </div>
                     <div id="contacts_holder" class="p-3 light-grey mb-3">
                         <?php //echo "<pre>", var_dump($contact_array) ,"</pre>";//die(); ?>
@@ -151,10 +148,10 @@ else
                         if(!empty($contact_array)):
                             foreach($contact_array as $i => $d)
                             {
-                                include(Config::get('VIEWS_PATH')."layout/page-includes/forms/add_customer_contact.php");
+                                include(Config::get('VIEWS_PATH')."layout/page-includes/forms/edit_customer_contact.php");
                             }
                         else:
-                            include(Config::get('VIEWS_PATH')."layout/page-includes/forms/add_customer_contact.php");
+                            include(Config::get('VIEWS_PATH')."layout/page-includes/forms/edit_customer_contact.php");
                         endif;?>
                     </div>
                 </div>
