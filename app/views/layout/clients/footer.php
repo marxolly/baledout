@@ -49,7 +49,7 @@
                 'edit-client':{
                     init: function(){
                         actions.common.init();
-                        actions.common.addContact();
+                        actions.common.addContact(true);
                         $('form#client_edit').submit(function(e){
                             if($(this).valid())
                             {
