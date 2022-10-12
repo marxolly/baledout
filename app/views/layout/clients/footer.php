@@ -42,9 +42,9 @@
                                 //console.log("name: "+this.attributes["name"].value);
                                 var disab = this.checked;
                                 $('input#name_'+ind).prop('disabled',disab);
-                                $('input#email'+ind).prop('disabled',disab);
-                                $('input#role'+ind).prop('disabled',disab);
-                                $('input#phone'+ind).prop('disabled',disab);
+                                $('input#email_'+ind).prop('disabled',disab);
+                                $('input#role_'+ind).prop('disabled',disab);
+                                $('input#phone_'+ind).prop('disabled',disab);
                             })
                         });
                     }
