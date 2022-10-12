@@ -78,7 +78,7 @@ class FormController extends Controller {
                 }
             }
         }
-        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
         $this->clientDataValidate($post_data);
         if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
         {
