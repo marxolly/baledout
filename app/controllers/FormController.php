@@ -79,7 +79,7 @@ class FormController extends Controller {
             }
         }
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
-        
+
         $this->clientDataValidate($post_data);
         if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
         {
@@ -89,7 +89,7 @@ class FormController extends Controller {
         else
         {
             //all good, add details
-            echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            //echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
             if($this->client->updateClientInfo($post_data))
             {
                 Session::set('feedback', "{$client_name}'s details have been updated");
