@@ -53,7 +53,7 @@
 
 
                                 /* */
-                                $('input[name="contacts['+ind+'][]]"').each(function(index,val){
+                                $('input[name="contacts[]]"').each(function(index,val){
                                     console.log("going to disable "+this.attributes["name"].value)
                                     //$(this).prop('disabled',disab);
                                 })
