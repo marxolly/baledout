@@ -38,7 +38,9 @@
                         $('input.deactivate').each(function(i,e){
                             //console.log("no click yet "+this.id);
                             $(this).off('change').change(function(ev){
-                                console.log("Is checked: "+this.checked);
+                                //console.log("Is checked: "+this.checked);
+                                var ind = this.id.split("_")[1];
+                                console.log("inf: "+ind);
                             })
                         });
                     }
