@@ -39,25 +39,12 @@
                             //console.log("no click yet "+this.id);
                             $(this).off('change').change(function(ev){
                                 var ind = this.id.split("_")[1];
-                                console.log("name: "+this.attributes["name"].value);
+                                //console.log("name: "+this.attributes["name"].value);
                                 var disab = this.checked;
                                 $('input#name_'+ind).prop('disabled',disab);
-                                /*
-                                var inputs = $("input[name='contacts[]'")
-                                                .map(function(){
-                                                    console.log("going to disable "+this.attributes["name"].value);
-                                                    $(this).prop('disabled',disab);
-                                                });
-                                */
-
-
-
-                                /*
-                                $('input[name="contacts[]]"').each(function(index,val){
-                                    console.log("going to disable "+this.attributes["name"].value)
-                                    //$(this).prop('disabled',disab);
-                                })
-                                */
+                                $('input#email'+ind).prop('disabled',disab);
+                                $('input#role'+ind).prop('disabled',disab);
+                                $('input#phone'+ind).prop('disabled',disab);
                             })
                         });
                     }
