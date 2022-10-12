@@ -258,16 +258,21 @@ class Client extends Model{
         $client_contact = new Clientcontact();
         foreach($data['contacts'] as $ind => $cd)
         {
-            $contact = [];
-            $contact['name'] = $cd['name'];
-            $contact['client_id'] = $data['client_id'];
-            if(isset($cd['role'])) $contact['role'] = $cd['role'];
-            if(isset($cd['email'])) $contact['email'] = $cd['email'];
-            if(isset($cd['phone'])) $contact['phone'] = $cd['phone'];
-            if($cd['contact_id'] == 0)
-                $client_contact->addContact($contact);
+            if(isset($cd['deactivate']))
+                $client_contact->deactivateContact($cd['contact_id']);
             else
-                $client_contact->editContact($contact, $cd['contact_id']);
+            {
+                $contact = [];
+                $contact['name'] = $cd['name'];
+                $contact['client_id'] = $data['client_id'];
+                if(isset($cd['role'])) $contact['role'] = $cd['role'];
+                if(isset($cd['email'])) $contact['email'] = $cd['email'];
+                if(isset($cd['phone'])) $contact['phone'] = $cd['phone'];
+                if($cd['contact_id'] == 0)
+                    $client_contact->addContact($contact);
+                else
+                    $client_contact->editContact($contact, $cd['contact_id']);
+            }
         }
         $db->updatedatabaseFields($this->table, $client_values, $data['client_id']);
         return true;
