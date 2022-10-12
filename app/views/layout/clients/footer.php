@@ -43,6 +43,7 @@
                                 var disab = this.checked;
                                 var inputs = $("input[name='contacts["+ind+"]']")
                                                 .map(function(){
+                                                    console.log("going to disable "+this.attributes["name"].value);
                                                     $(this).prop('disabled',disab);
                                                 });
 
