@@ -128,7 +128,7 @@ class Client extends Model{
         return($db->queryData($query));
     }
 
-    public function getClientsDetails($active = 1, $client_id = 0)
+    public function getClientsDetails($active = -1, $client_id = 0)
     {
         $db = Database::openConnection();
         $q = "
@@ -174,10 +174,12 @@ class Client extends Model{
                 {$this->addresses_table} da ON c.delivery_address = da.id LEFT JOIN
                 {$this->addresses_table} ba ON c.billing_address = ba.id
             WHERE
-                c.active = $active
+                cc.active = 1
         ";
         if($client_id > 0)
             $q .= " AND c.id = $client_id";
+        if($active >= 0)
+            $q .= " AND c.active = $active";
         $q .= "
             GROUP BY
                 c.id

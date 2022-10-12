@@ -62,8 +62,8 @@ class ClientsController extends Controller
             return;
         }
         $client_id = $this->request->params['args']['client'];
-        $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
-        $client = $this->client->getClientsDetails($active, $client_id);
+        //$active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
+        $client = $this->client->getClientsDetails(-1, $client_id);
         if(empty($client))
         {
             //no client data found
