@@ -7,6 +7,15 @@ $details['email'] = isset($d['email'])? $d['email']:"";
 $details['phone'] = isset($d['phone'])? $d['phone']:"";
 ?>
 <div class="p-3 light-grey mb-3 acontact">
+    <div class="form-group row mb-3">
+        <label class="col-md-2 text-start d-none d-md-block" for="contacts_<?php echo $i;?>_deactivate">Deactivate Contact</label>
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input deactivate" type="checkbox" id="contacts_<?php echo $i;?>_deactivate" name="contacts[<?php echo $i;?>][Deactivate]" <?php if(!empty(Form::value('delete_logo'))) echo 'checked';?>>
+                <label class="form-check-label d-md-none" for="contacts_<?php echo $i;?>_deactivate">Deactivate Contact</label>
+            </div>
+        </div>
+    </div>
     <div class="form-group row">
         <label class="col-md-2 mb-3">Name</label>
         <div class="col-md-4 mb-3">
