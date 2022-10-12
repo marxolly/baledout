@@ -26,7 +26,7 @@
                             }
                             $.post(url, data, function(d){
                                 $('div#contacts_holder').append(d.html);
-
+                                console.log("appended");
                             });
                             $('input.deactivate').each(function(i,e){
                                     console.log("no click yet ".this.id);
