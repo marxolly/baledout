@@ -41,21 +41,23 @@
                                 var ind = this.id.split("_")[1];
                                 console.log("name: "+this.attributes["name"].value);
                                 var disab = this.checked;
+
+                                /*
                                 var inputs = $("input[name='contacts[]'")
                                                 .map(function(){
                                                     console.log("going to disable "+this.attributes["name"].value);
                                                     $(this).prop('disabled',disab);
                                                 });
-
-
-
-
-                                /*
-                                $('input[name="contacts['+ind+']"').each(function(){
-                                    console.log("going to disable "+this.attributes["name"].value)
-                                    $(this).prop('disabled',disab);
-                                })
                                 */
+
+
+
+                                /* */
+                                $('input[name="contacts['+ind+'][]"').each(function(index,val){
+                                    console.log("going to disable "+this.attributes["name"].value)
+                                    //$(this).prop('disabled',disab);
+                                })
+
                             })
                         });
                     }
