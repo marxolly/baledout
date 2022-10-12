@@ -41,7 +41,7 @@
                                 var ind = this.id.split("_")[1];
                                 console.log("name: "+this.attributes["name"].value);
                                 var disab = this.checked;
-
+                                $('input#name_'+ind).prop('disabled',disab);
                                 /*
                                 var inputs = $("input[name='contacts[]'")
                                                 .map(function(){
@@ -52,12 +52,12 @@
 
 
 
-                                /* */
+                                /*
                                 $('input[name="contacts[]]"').each(function(index,val){
                                     console.log("going to disable "+this.attributes["name"].value)
                                     //$(this).prop('disabled',disab);
                                 })
-
+                                */
                             })
                         });
                     }
