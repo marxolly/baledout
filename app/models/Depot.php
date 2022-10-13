@@ -8,7 +8,7 @@
   *
   */
 
- class Client extends Model{
+ class Depot extends Model{
 
      /**
       * Table name for this & extending classes.
