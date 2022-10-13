@@ -28,7 +28,7 @@ class DepotsController extends Controller
     {
         Config::setJsConfig('curPage', "add-depot");
         Config::set('curPage', "add-depot");
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/depots/", Config::get('VIEWS_PATH') . 'clients/addDepot.php', [
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/depots/", Config::get('VIEWS_PATH') . 'depots/addDepot.php', [
             'page_title'    =>  "Add Depot",
             'pht'           =>  ": Add Depot"
         ]);

@@ -11,7 +11,7 @@ $postcode = Form::value('postcode');
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?>
         <div class="row">
             <div class="col text-end">
-                <p><a href="/clients/view-clients/" class="btn btn-outline-bo">Return to Client List</a></p>
+                <p><a href="/depots/view-depots/" class="btn btn-outline-bo">Return to Depot List</a></p>
             </div>
         </div>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
