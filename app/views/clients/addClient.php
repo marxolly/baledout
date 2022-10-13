@@ -81,7 +81,7 @@ $billingpostcode = Form::value('billingpostcode');
                         </div>
                     </div>
                     <div id="contacts_holder" class="p-3 light-grey mb-3">
-                        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/add_customer_contact.php");?>
+                        <?php $required = 1; include(Config::get('VIEWS_PATH')."layout/page-includes/forms/add_customer_contact.php");?>
                     </div>
                 </div>
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
