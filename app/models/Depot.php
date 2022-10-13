@@ -47,7 +47,7 @@
                         IFNULL(da.postcode,''),'|'
                         SEPARATOR '~'
                     )
-                END AS a_string,
+                END AS a_string
             FROM
                 {$this->table} d LEFT JOIN
                 {$this->contacts_table} dc ON dc.depot_id = d.id LEFT JOIN
