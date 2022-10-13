@@ -63,7 +63,7 @@
             GROUP BY
                 d.id
             ORDER BY
-                d.client_name
+                d.depot_name
         ";
         //die($q);
         if($depot_id > 0)
