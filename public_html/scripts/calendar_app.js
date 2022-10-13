@@ -97,6 +97,19 @@
             )
         ;
 
+        nextButton.hover(
+            function(){
+                $(this).html("<h2><i class='fa-regular fa-circle-chevron-right'></i></h2>")
+            },
+            function(){
+                $(this).html( "<h2><i class='fa-light fa-circle-chevron-right'></i></h2>" )
+            }
+        )
+        .click(function(e){
+            cal.next();
+            update();
+        });
+        /*
         nextButton
             .on('mouseenter',
                 function(){
@@ -115,7 +128,7 @@
                 }
             )
         ;
-
+        */
         todayButton.on('click', function () {
             cal.today();
             update();
@@ -204,12 +217,20 @@
                 backgroundColor: '#03bd9e',
             }
         ],
+        gridSelection: {
+            enableDblClick: true,
+            enableClick: false
+        },
+        defaultView: 'week',
         week: {
             workweek: true,
             hourStart: 3,
             hourEnd: 18,
             eventView: ['time'],
             taskView: false
+        },
+        month: {
+            workweek: true
         },
         timezone: {
             zones: [
@@ -220,8 +241,8 @@
             ],
         },
         usageStatistics: false,
-        useFormPopup: true,
-        useDetailPopup: true,
+        useFormPopup: false,
+        useDetailPopup: false,
         eventFilter: function (event) {
             var currentView = cal.getViewName();
             if (currentView === 'month') {
@@ -241,18 +262,6 @@
     });
 
     // Init
-    /*prevButton
-    .css("cursor","pointer")
-    .hover(
-        function(){
-            $(this).html("<h2><i class='fa-regular fa-circle-chevron-left'></i></h2>");
-            console.log('hover in');
-        },
-        function(){
-            $(this).html("<h2><i class='fa-light fa-circle-chevron-left'></i></h2>");
-            console.log('hover out');
-        }
-    );*/
     bindInstanceEvents();
     bindAppEvents();
     update();

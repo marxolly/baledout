@@ -40,6 +40,8 @@ class FormController extends Controller {
         parent::beforeAction();
         $action = $this->request->param('action');
         $actions = [
+            'procClientAdd',
+            'procClientEdit',
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
@@ -57,6 +59,100 @@ class FormController extends Controller {
 ********************************************************************************************************************
 ********************************************************************************************************************/
 
+    public function procClientEdit()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        if($image_name = $this->clientDataValidate($post_data))
+            $post_data['image_name'] = $image_name;
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //all good, add details
+            //echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            if($this->client->updateClientInfo($post_data))
+            {
+                Session::set('feedback', "{$client_name}'s details have been updated");
+                //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
+            }
+            else
+            {
+                Session::set('errorfeedback', 'A database error has occurred. Please try again');
+            }
+
+        }
+        return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=$client_id");
+
+
+    }//End procClientEdit
+
+    public function procClientAdd()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        //$this->clientDataValidate($post_data);
+        if($image_name = $this->clientDataValidate($post_data))
+            $post_data['image_name'] = $image_name;
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //all good, add details
+
+            if($client_id = $this->client->addClient($post_data))
+            {
+                Session::set('feedback', "$client_name has been added to the system");
+                //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
+            }
+            else
+            {
+                Session::set('errorfeedback', 'A database error has occurred. Please try again');
+            }
+
+        }
+        return $this->redirector->to(PUBLIC_ROOT."clients/add-client/");
+    } // End procClientAdd()
+/********************************************************************************************************************
+********************************************************************************************************************/
     public function procLogin()
     {
         //echo "<pre>",print_r($this->request),"</pre>";die();
@@ -452,9 +548,98 @@ class FormController extends Controller {
 ********************************************************************************************************************
 ********************************************************************************************************************/
     /*******************************************************************
+    ** validates data entered for clients
+    ********************************************************************/
+    private function clientDataValidate($post_data = [])
+    {
+        foreach($post_data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        $image_name = false;
+        if( !$this->dataSubbed($client_name) )
+        {
+            Form::setError('client_name', 'A client name is required');
+        }
+        if( $this->dataSubbed($email) )
+        {
+            if( !$this->emailValid($email) )
+            {
+                Form::setError('email', 'Please enter a valid email address');
+            }
+        }
+        if( $this->dataSubbed($website) )
+        {
+            if ( filter_var($website, FILTER_VALIDATE_URL) === false )
+            {
+                Form::setError('website', 'Please enter a valid URL');
+            }
+        }
+        foreach($contacts as $ind => $cd)
+        {
+            if(isset($cd['deactivate']))
+                continue;
+            if(!$this->dataSubbed($cd['name']))
+            {
+                Form::setError('contactname_'.$ind, 'A contact name is required');
+            }
+            if($this->dataSubbed($cd['email']))
+            {
+                if(!$this->emailValid($cd['email']))
+                {
+                    Form::setError('contactemail_'.$ind, 'The email is not valid');
+                }
+            }
+        }
+        if(!empty($deliveryaddress) || !empty($deliverysuburb) || !empty($deliverystate) || !empty($deliverypostcode) )
+        {
+            $this->validateAddress($deliveryaddress, $deliverysuburb, $deliverystate, $deliverypostcode, "delivery" );
+        }
+        if(!empty($billingaddress) || !empty($billingsuburb) || !empty($billingstate) || !empty($billingpostcode) )
+        {
+            $this->validateAddress($billingaddress, $billingsuburb, $billingstate, $billingpostcode, "billing" );
+        }
+        //image uploads
+        $field = "client_logo";
+        if($this->request->data[$field]["size"] > 0)
+        {
+            if(getimagesize($this->request->data[$field]['tmp_name']) !== false)
+            {
+                $filename = pathinfo($this->request->data[$field]['name'], PATHINFO_FILENAME);
+                $image_name = preg_replace("/[^A-Za-z0-9 ]/", '', $filename);//strip out non alphanumeric characters
+                $image_name = strtolower(str_replace(' ','_',$image_name));
+                //main image
+                $image_name = $this->uploadImage($field, 180, 100, $image_name, 'jpg', false, 'client_logos/');
+                //thumbnail image
+                $this->uploadImage($field, 100, false, "tn_".$image_name, 'jpg', false, 'client_logos/');
+                //$post_data['image_name'] = $image_name;
+            }
+            else
+            {
+                Form::setError($field, 'Only upload images here');
+            }
+        }
+        elseif($_FILES[$field]['error']  !== UPLOAD_ERR_NO_FILE)
+        {
+            $error_message = $this->file_upload_error_message($_FILES[$field]['error']);
+            Form::setError($field, $error_message);
+        }
+        return $image_name;
+    }
+    /*******************************************************************
     ** validates addresses
     ********************************************************************/
-    public function validateAddress($address, $suburb, $state, $postcode, $country, $ignore_address_error, $prefix = "", $session_var = false)
+    public function validateAddress($address, $suburb, $state, $postcode, $prefix = "", $session_var = false)
     {
         if( !$this->dataSubbed($address) )
         {
@@ -464,17 +649,6 @@ class FormController extends Controller {
             }
             Form::setError($prefix.'address', 'An address is required');
         }
-        elseif( !$ignore_address_error )
-        {
-            if( (!preg_match("/(?:[A-Za-z].*?\d|\d.*?[A-Za-z])/i", $address)) && (!preg_match("/(?:care of)|(c\/o)|( co )/i", $address)) )
-            {
-                if($session_var)
-                {
-                    Session::set($session_var, true);
-                }
-                Form::setError($prefix.'address', 'The address must include both letters and numbers');
-            }
-        }
         if(!$this->dataSubbed($postcode))
         {
             if($session_var)
@@ -483,61 +657,42 @@ class FormController extends Controller {
             }
             Form::setError($prefix.'postcode', "A delivery postcode is required");
         }
-        if(!$this->dataSubbed($country))
+        if(!$this->dataSubbed($suburb))
+		{
+		    if($session_var)
+            {
+                Session::set($session_var, true);
+            }
+			Form::setError($prefix.'suburb', "A delivery suburb is required for Australian addresses");
+		}
+		if(!$this->dataSubbed($state))
+		{
+		    if($session_var)
+            {
+                Session::set($session_var, true);
+            }
+			Form::setError($prefix.'state', "A delivery state is required for Australian addresses");
+		}
+        $aResponse = $this->Postcode->validateSuburb($suburb, $state, str_pad($postcode,4,'0',STR_PAD_LEFT));
+        $error_string = "";
+        if(isset($aResponse['errors']))
+        {
+            foreach($aResponse['errors'] as $e)
+            {
+                $error_string .= $e['message']." ";
+            }
+        }
+        elseif($aResponse['found'] === false)
+        {
+            $error_string .= "Postcode does not match suburb or state";
+        }
+        if(strlen($error_string))
         {
             if($session_var)
             {
                 Session::set($session_var, true);
             }
-            Form::setError($prefix.'country', "A delivery country is required");
-        }
-        elseif(strlen($country) > 2)
-        {
-            if($session_var)
-            {
-                Session::set($session_var, true);
-            }
-            Form::setError($prefix.'country', "Please use the two letter ISO code");
-        }
-        elseif($country == "AU")
-        {
-            if(!$this->dataSubbed($suburb))
-    		{
-    		    if($session_var)
-                {
-                    Session::set($session_var, true);
-                }
-    			Form::setError($prefix.'suburb', "A delivery suburb is required for Australian addresses");
-    		}
-    		if(!$this->dataSubbed($state))
-    		{
-    		    if($session_var)
-                {
-                    Session::set($session_var, true);
-                }
-    			Form::setError($prefix.'state', "A delivery state is required for Australian addresses");
-    		}
-            $aResponse = $this->Postcode->validateSuburb($suburb, $state, str_pad($postcode,4,'0',STR_PAD_LEFT));
-            $error_string = "";
-            if(isset($aResponse['errors']))
-            {
-                foreach($aResponse['errors'] as $e)
-                {
-                    $error_string .= $e['message']." ";
-                }
-            }
-            elseif($aResponse['found'] === false)
-            {
-                $error_string .= "Postcode does not match suburb or state";
-            }
-            if(strlen($error_string))
-            {
-                if($session_var)
-                {
-                    Session::set($session_var, true);
-                }
-                Form::setError($prefix.'postcode', $error_string);
-            }
+            Form::setError($prefix.'postcode', $error_string);
         }
     }
 

@@ -159,8 +159,8 @@ $admin = array(
             'menu-icon' => '<i class="fad fa-download d-lg-none"></i>'
         )
     ),
-    'contacts'  => array(
-        'contacts-index'    => false,
+    'contact-us'  => array(
+        'contact-us-index'    => false,
         'default-icon'  => array(
             'display'   => false,
             'icon'      => '<i class="fa-duotone fa-envelopes-bulk fa-2x"></i>',
