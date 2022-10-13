@@ -6,11 +6,25 @@
             var actions = {
                 common: {
                     init: function(){
-                        autoCompleter.addressAutoComplete($('#deliveryaddress'), "delivery");
-                        autoCompleter.suburbAutoComplete($('#deliverysuburb'), "delivery");
-
-                        autoCompleter.addressAutoComplete($('#billingaddress'), "billing");
-                        autoCompleter.suburbAutoComplete($('#billingsuburb'), "billing");
+                        autoCompleter.addressAutoComplete($('#address'));
+                        autoCompleter.suburbAutoComplete($('#suburb'));
+                    }.
+                    addContact: function(edit){
+                        if(edit === undefined) {
+                            edit = false;
+                        }
+                    }
+                },
+                'add-depot': {
+                    init: function(){
+                        actions.common.init();
+                        actions.common.addContact();
+                        $('form#depot_add').submit(function(e){
+                            if($(this).valid())
+                            {
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Adding Depot...</h2></div>' });
+                            }
+                        });
                     }
                 },
                 'view-depots': {

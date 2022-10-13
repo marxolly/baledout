@@ -24,6 +24,16 @@ class DepotsController extends Controller
         parent::displayIndex(get_class());
     }
 
+    public function addDepot()
+    {
+        Config::setJsConfig('curPage', "add-depot");
+        Config::set('curPage', "add-depot");
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/depots/", Config::get('VIEWS_PATH') . 'clients/addDepot.php', [
+            'page_title'    =>  "Add Depot",
+            'pht'           =>  ": Add Depot"
+        ]);
+    }
+
     public function viewDepots()
     {
         Config::setJsConfig('curPage', "view-depots");
