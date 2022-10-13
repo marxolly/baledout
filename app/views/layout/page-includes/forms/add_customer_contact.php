@@ -9,7 +9,7 @@ $details['phone'] = isset($d['phone'])? $d['phone']:"";
 ?>
 <div class="p-3 light-grey mb-3 acontact">
     <div class="form-group row">
-        <label class="col-md-2 mb-3">Name</label>
+        <label class="col-md-2 mb-3"><?php if($required):?><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> <?php endif;?>Name</label>
         <div class="col-md-4 mb-3">
             <input type="text" class="form-control <?php echo $required;?>" name="contacts[<?php echo $i;?>][name]" value="<?php echo $details['name'];?>" >
             <?php echo Form::displayError('contactname_'.$i);?>
