@@ -10,9 +10,8 @@
                 <p class="text-right"><?php echo $link_text;?></p>
             </div>
         </div>
-    </div>
-    <?php if(count($depots)):?>
-        <?php //echo "<pre>",print_r($depots),"</pre>";die();?>
+        <?php if(count($depots)):?>
+            <?php //echo "<pre>",print_r($depots),"</pre>";die();?>
             <div id="waiting" class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Drawing Table..</h2>
