@@ -8,7 +8,7 @@
                     init: function(){
                         autoCompleter.addressAutoComplete($('#address'));
                         autoCompleter.suburbAutoComplete($('#suburb'));
-                    }.
+                    },
                     addContact: function(edit){
                         if(edit === undefined) {
                             edit = false;
