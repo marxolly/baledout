@@ -57,6 +57,17 @@ $postcode = Form::value('postcode');
                 </div>
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
                     <div class="row">
+                        <div class="col">
+                            <h3>Depot Address</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
+                    </div>
+                </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
                         <div class="col-md-6">
                             <h3>Depot Contacts</h3>
                             <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
