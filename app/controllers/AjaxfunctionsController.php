@@ -28,7 +28,7 @@ class ajaxfunctionsController extends Controller
     public function addClientContact()
     {
         $i = $this->request->data['i'];
-        $required = isset($this->request->data['required']);
+        $required = $this->request->data['required'];
         $data = array(
             'error'     =>  false,
             'feedback'  =>  '',
