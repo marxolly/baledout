@@ -83,6 +83,21 @@ $postcode = Form::value('postcode');
                         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/add_customer_contact.php");?>
                     </div>
                 </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Save Depot</h3>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <div class="form-group row">
+                            <div class="col-md-4 offset-md-3 text-center text-md-start">
+                                <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>" />
+                                <button type="submit" class="btn btn-outline-bo" id="submitter">Add This Depot</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
