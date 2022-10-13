@@ -22,7 +22,8 @@
                             var contact_count = $("div#contacts_holder div.acontact").length;
                             //console.log('packages: '+contact_count);
                             var data = {
-                                i: contact_count
+                                i: contact_count,
+                                required: true
                             }
                             $.post(url, data, function(d){
                                 $('div#contacts_holder').append(d.html);

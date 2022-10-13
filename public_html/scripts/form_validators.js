@@ -154,7 +154,18 @@ $(document).ready(function() {
     });
     ////////////////////////////////////////////////////////////
     $('form#depot_add').validate({
-        
+        rules:{
+            abbreviation: {
+                remote: {
+                    url: '/ajaxfunctions/checkDepotAbbrevs'
+                }
+            }
+        },
+        messages:{
+            abbreviations: {
+                remote: 'This abbreviation is already in use, abbreviations must be unique'
+            }
+        }
     });
     ////////////////////////////////////////////////////////////
     $('form#client_add').validate({

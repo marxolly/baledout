@@ -84,4 +84,22 @@
         return $db->queryValue($this->table, array('id' => $depot_id), 'depot_name');
     }
 
+    public function checkDepotAbbrevs($abbrev, $current_abbrev)
+    {
+        $db = Database::openConnection();
+        $abbrev = strtoupper($abbrev);
+        $current_abbrev = strtoupper($current_abbrev);
+        $q = "SELECT abbreviation FROM {$this->table}";
+        $rows = $db->queryData($q);
+        $valid = 'true';
+        foreach($rows as $row)
+        {
+        	if($abbrev == strtoupper($row['abbrev']) && $abbrev != $current_abbrev)
+        	{
+        		$valid = 'false';
+        	}
+        }
+        return $valid;
+    }
+
  }//end class

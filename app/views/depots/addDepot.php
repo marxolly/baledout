@@ -4,7 +4,7 @@ $address2 = Form::value('address2');
 $suburb = Form::value('suburb');
 $state = Form::value('state');
 $postcode = Form::value('postcode');
-
+$required = false;
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">

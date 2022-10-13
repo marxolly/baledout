@@ -1,6 +1,6 @@
 <?php
 $i = (isset($i))? $i : 0;
-$required = (isset($required))? "required" : "";
+$required = ($required)? "required" : "";
 $details['c_id'] = isset($d['contact_id'])? $d['contact_id']:0;
 $details['name'] = isset($d['name'])? $d['name']:"";
 $details['role'] = isset($d['role'])? $d['role']:"";

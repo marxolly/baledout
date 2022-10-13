@@ -13,6 +13,20 @@
                         if(edit === undefined) {
                             edit = false;
                         }
+                        var url = (edit)? "/ajaxfunctions/editClientContact" : "/ajaxfunctions/addClientContact"
+                        $("a.add-contact").click(function(e){
+                            e.preventDefault();
+                            var contact_count = $("div#contacts_holder div.acontact").length;
+                            //console.log('packages: '+contact_count);
+                            var data = {
+                                i: contact_count,
+                                required: false
+                            }
+                            $.post(url, data, function(d){
+                                $('div#contacts_holder').append(d.html);
+                                //actions.common.deactivateContact();
+                            });
+                        });
                     }
                 },
                 'add-depot': {
