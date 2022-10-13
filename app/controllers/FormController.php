@@ -79,8 +79,8 @@ class FormController extends Controller {
             }
         }
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
-
-        $post_data['image_name'] = $this->clientDataValidate($post_data);
+        if($image_name = $this->clientDataValidate($post_data))
+            $post_data['image_name'] = $image_name;
         if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
@@ -127,7 +127,8 @@ class FormController extends Controller {
         }
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
         //$this->clientDataValidate($post_data);
-        $post_data['image_name'] = $this->clientDataValidate($post_data);
+        if($image_name = $this->clientDataValidate($post_data))
+            $post_data['image_name'] = $image_name;
         if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
@@ -565,7 +566,7 @@ class FormController extends Controller {
                 }
             }
         }
-        $image_name = "default.png";
+        $image_name = false;
         if( !$this->dataSubbed($client_name) )
         {
             Form::setError('client_name', 'A client name is required');
@@ -610,7 +611,6 @@ class FormController extends Controller {
         }
         //image uploads
         $field = "client_logo";
-        $image_name = "default.png";
         if($this->request->data[$field]["size"] > 0)
         {
             if(getimagesize($this->request->data[$field]['tmp_name']) !== false)
