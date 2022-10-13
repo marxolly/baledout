@@ -24,6 +24,21 @@ class DepotsController extends Controller
         parent::displayIndex(get_class());
     }
 
+    public function viewDepots()
+    {
+        Config::setJsConfig('curPage', "view-depots");
+        Config::set('curPage', "view-depots");
+        $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
+        $depots = $this->depot->getDepotsDetails($active);
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/depots/", Config::get('VIEWS_PATH') . 'depots/viewDepots.php',
+        [
+            'active'        =>  $active,
+            'pht'           =>  ": View Depots",
+            'depots'       =>  $depots,
+            'page_title'    =>  "View Depots"
+        ]);
+    }
+
     public function isAuthorized()
     {
         $action = $this->request->param('action');
