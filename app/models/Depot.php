@@ -58,7 +58,7 @@
         if($depot_id > 0)
             $q .= " AND d.id = $depot_id";
         if($active >= 0)
-            $q .= " AND c.active = $active";
+            $q .= " AND d.active = $active";
         $q .= "
             GROUP BY
                 d.id
