@@ -40,6 +40,36 @@ $postcode = Form::value('postcode');
                                 <?php echo Form::displayError('abbreviation');?>
                             </div>
                         </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Phone</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="phone" id="phone" value="<?php echo Form::value('phone');?>" />
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Email</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control email" name="email" id="email" value="<?php echo Form::value('email');?>" />
+                                <?php echo Form::displayError('email');?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Depot Contacts</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="remove-all-contacts" style="cursor:pointer" title="Remove All Contacts"><h4><i class="fad fa-times-square text-danger"></i> Remove All Contacts</a></h4>
+                        </div>
+                    </div>
+                    <div id="contacts_holder" class="p-3 light-grey mb-3">
+                        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/add_customer_contact.php");?>
                     </div>
                 </div>
             </div>
