@@ -29,7 +29,8 @@
                         });
                         $("a.remove-all-contacts").click(function(e){
                             e.preventDefault();
-                            $('div#contacts_holder div.acontact').not(':first').remove().find('input').each(function(i,e){
+                            $('div#contacts_holder div.acontact').not(':first').remove().find('input');
+                            $('div#contacts_holder div.acontact').each(function(i,e){
                                 $(this).val('');
                             });
                         });
