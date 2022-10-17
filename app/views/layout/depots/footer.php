@@ -27,6 +27,13 @@
                                 //actions.common.deactivateContact();
                             });
                         });
+                        $("a.remove-all-contacts").click(function(e){
+                            e.preventDefault();
+                            $('div#contacts_holder div.acontact').not(':first').remove().find('input').each(function(i,e){
+                                $(this).val('');
+                            });
+                        });
+
                     }
                 },
                 'add-depot': {
