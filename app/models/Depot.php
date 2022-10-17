@@ -102,4 +102,15 @@
         return $valid;
     }
 
+    public function depotAbbreviationTaken($abbrev, $current_abbrev = false)
+    {
+        $db = Database::openConnection();
+        if($current_abbrev)
+        {
+            return ($db->fieldValueTaken($this->table, $abbrev, 'abbreviation') && $abbrev != $current_abbrev);
+        }
+        return $db->fieldValueTaken($this->table, $abbrev, 'abbreviation');
+
+    }
+
  }//end class
