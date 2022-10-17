@@ -42,6 +42,7 @@ class FormController extends Controller {
         $actions = [
             'procClientAdd',
             'procClientEdit',
+            'procDepotAdd',
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
