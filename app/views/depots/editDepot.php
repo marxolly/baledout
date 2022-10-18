@@ -38,6 +38,7 @@ else
 {
     $contact_array = $contacts;
 }
+$required = false; 
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
@@ -101,6 +102,28 @@ else
                             <div class="col-md-4">
                                 <input type="text" class="form-control" name="website" id="website" value="<?php echo $website;?>" />
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Depot Address</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
+                    </div>
+                </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                     <div class="row">
+                        <div class="col-md-6">
+                            <h3>Depot Contacts</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>
                         </div>
                     </div>
                 </div>
