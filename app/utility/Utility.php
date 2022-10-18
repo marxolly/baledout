@@ -293,10 +293,13 @@ class Utility{
     {
         $contacts_string = "";
         $conts = explode("~", $contacts);
-        foreach($conts as $c)
+        foreach($conts as $i => $c)
         {
             list($contact_id, $c_name,$c_role,$c_email,$c_phone) = explode('|', $c);
-            $contacts_string .= "<div class='border-bottom border-secondary border-bottom-dashed mb-3 pb-3'>";
+            if($i < ( count($conts) - 1 ))
+                $contacts_string .= "<div class='border-bottom border-secondary border-bottom-dashed mb-3 pb-3'>";
+            else
+                $contacts_string .= "<div class='mb-3 pb-3'>";
             $contacts_string .= "<span class='font-weight-bold'>".ucwords($c_name)."</span>";
             if(!empty($c_role)) $contacts_string .= "<br>$c_role";
             if(!empty($c_phone)) $contacts_string .= "<br>$c_phone";
