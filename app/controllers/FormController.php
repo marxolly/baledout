@@ -118,7 +118,23 @@ class FormController extends Controller {
                 }
             }
         }
-        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        $this->depotDataValidate($post_data);
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            //all good, add details
+            if($client_id = $this->depot->addDepot($post_data))
+                Session::set('feedback', "$depot_name ($abbreviation) has been added to the system");
+            else
+                Session::set('errorfeedback', 'A database error has occurred. Please try again');
+        }
+        return $this->redirector->to(PUBLIC_ROOT."depots/edit-depot/depot=$depot_id");
     } //end procDepotEdit
 
     public function procClientEdit()
