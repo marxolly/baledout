@@ -162,7 +162,7 @@ $(document).ready(function() {
             }
         },
         messages:{
-            abbreviations: {
+            abbreviation: {
                 remote: 'This abbreviation is already in use, abbreviations must be unique'
             }
         }
