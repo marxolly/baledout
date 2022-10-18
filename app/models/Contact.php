@@ -20,7 +20,7 @@ class Contact extends Model {
 
     public function addContact($data, $type)
     {
-        $table = $type."_contacts_table";
+        $table = $type."_contacts";
         //echo "productioncontact <pre>",print_r($data),"</pre>";die();
         unset($data['contact_id']);
         $db = Database::openConnection();
@@ -30,7 +30,7 @@ class Contact extends Model {
 
     public function editContact($data, $id, $type)
     {
-        $table = $type."_contacts_table";
+        $table = $type."_contacts";
         //echo "productioncontact <pre>",print_r($data),"</pre>";die();
         unset($data['contact_id']);
         $db = Database::openConnection();
@@ -40,7 +40,7 @@ class Contact extends Model {
 
     public function deactivateContact($id, $type)
     {
-        $table = $type."_contacts_table";
+        $table = $type."_contacts";
         $db = Database::openConnection();
         $db->updateDatabaseField( $table, 'active', 0, $id );
         return true;
@@ -48,7 +48,7 @@ class Contact extends Model {
 
     public function reactivateContact($id, $type)
     {
-        $table = $type."_contacts_table";
+        $table = $type."_contacts";
         $db = Database::openConnection();
         $db->updateDatabaseField( $table, 'active', 1, $id );
         return true;
