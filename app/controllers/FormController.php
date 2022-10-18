@@ -90,7 +90,7 @@ class FormController extends Controller {
         {
             echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
         }
-        return $this->redirector->to(PUBLIC_ROOT."clients/add-depot/");
+        return $this->redirector->to(PUBLIC_ROOT."depots/add-depot/");
     }   //End procDepotAdd
 
     public function procClientEdit()
