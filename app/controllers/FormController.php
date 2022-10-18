@@ -618,7 +618,7 @@ class FormController extends Controller {
         else
         {
             $current_abbrev = ( isset($current_abbreviation) )? $current_abbreviation : false;
-            if($this->depot->depotAbbreviationTaken($abbreviation,$current_abbrev));
+            if($this->depot->depotAbbreviationTaken($abbreviation,$current_abbrev))
                 Form::setError('abbreviation', 'This abbreviation is already in use.<br>Abbreviations must be unique');
         }
         foreach($contacts as $ind => $cd)

@@ -104,9 +104,9 @@
 
     public function depotAbbreviationTaken($abbrev, $current_abbrev = false)
     {
-        echo $abbrev;
-        echo "<p>Current Abbrev: $current_abbrev</p>";
-        die();
+        //echo $abbrev;
+        //echo "<p>Current Abbrev: $current_abbrev</p>";
+        //die();
         $db = Database::openConnection();
         if($current_abbrev)
         {
