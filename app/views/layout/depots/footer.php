@@ -53,8 +53,8 @@
                     init: function(){
                         var dt_options = {
                             "columnDefs": [
-                                { "orderable": false, "targets": [2,3] },
-                                { "searchable": false, "targets": [3]}
+                                { "orderable": false, "targets": [2,3,4,5,6] },
+                                { "searchable": false, "targets": [6]}
                             ],
                             "order": [],
                             "mark": true
