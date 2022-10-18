@@ -86,6 +86,9 @@
 
     public function checkDepotAbbrevs($abbrev, $current_abbrev)
     {
+        //echo $abbrev;
+        //echo "<p>Current Abbrev: $current_abbrev</p>";
+        //die();
         $db = Database::openConnection();
         $abbrev = strtoupper($abbrev);
         $current_abbrev = strtoupper($current_abbrev);
@@ -94,7 +97,7 @@
         $valid = 'true';
         foreach($rows as $row)
         {
-        	if($abbrev == strtoupper($row['abbrev']) && $abbrev != $current_abbrev)
+        	if($abbrev == strtoupper($row['abbreviation']) && $abbrev != $current_abbrev)
         	{
         		$valid = 'false';
         	}
