@@ -42,15 +42,17 @@
                                     list($a_array['address'],$a_array['address_2'],$a_array['suburb'],$a_array['state'],$a_array['postcode']) = explode("|", $d['a_string']);
                                     $a_string = "<div class='mb-3'>".Utility::formatAddressWeb($a_array)."</div>";
                                 }?>
-                                <td><?php echo ucwords($d['depot_name']);?></td>
-                                <td><?php echo strtoupper($d['abbreviation']);?></td>
-                                <td><?php echo $d['phone'];?></td>
-                                <td><?php echo $email;?></td>
-                                <td><?php echo $a_string;?></td>
-                                <td><?php if(!empty($d['contacts'])) echo Utility::generateContactsString($d['contacts']);?></td>
-                                <td>
-                                    <p><a class="btn btn-outline-bo" href="/depots/edit-depot/depot=<?php echo $d['id'];?>" >Edit Details</a></p>
-                                </td>
+                                <tr>
+                                    <td><?php echo ucwords($d['depot_name']);?></td>
+                                    <td><?php echo strtoupper($d['abbreviation']);?></td>
+                                    <td><?php echo $d['phone'];?></td>
+                                    <td><?php echo $email;?></td>
+                                    <td><?php echo $a_string;?></td>
+                                    <td><?php if(!empty($d['contacts'])) echo Utility::generateContactsString($d['contacts']);?></td>
+                                    <td>
+                                        <p><a class="btn btn-outline-bo" href="/depots/edit-depot/depot=<?php echo $d['id'];?>" >Edit Details</a></p>
+                                    </td>
+                                </tr>
                             <?php endforeach;?>
                         </tbody>
                     </table>
