@@ -38,7 +38,7 @@ else
 {
     $contact_array = $contacts;
 }
-$required = false; 
+$required = false;
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
@@ -117,7 +117,7 @@ $required = false;
                     </div>
                 </div>
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
-                     <div class="row">
+                    <div class="row">
                         <div class="col-md-6">
                             <h3>Depot Contacts</h3>
                             <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
@@ -125,6 +125,18 @@ $required = false;
                         <div class="col-md-3">
                             <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>
                         </div>
+                    </div>
+                    <div id="contacts_holder" class="p-3 light-grey mb-3">
+                        <?php //echo "<pre>", var_dump($contact_array) ,"</pre>";//die(); ?>
+                        <?php
+                        if(!empty($contact_array)):
+                            foreach($contact_array as $i => $d)
+                            {
+                                include(Config::get('VIEWS_PATH')."layout/page-includes/forms/edit_customer_contact.php");
+                            }
+                        else:
+                            include(Config::get('VIEWS_PATH')."layout/page-includes/forms/edit_customer_contact.php");
+                        endif;?>
                     </div>
                 </div>
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
