@@ -42,7 +42,7 @@
                                     list($a_array['address'],$a_array['address_2'],$a_array['suburb'],$a_array['state'],$a_array['postcode']) = explode("|", $d['a_string']);
                                     $a_string = "<div class='mb-3'>".Utility::formatAddressWeb($a_array)."</div>";
                                 }?>
-                                <td><?php echo ucwords($d['name']);?></td>
+                                <td><?php echo ucwords($d['depot_name']);?></td>
                                 <td><?php echo strtoupper($d['abbreviation']);?></td>
                                 <td><?php echo $d['phone'];?></td>
                                 <td><?php echo $email;?></td>
