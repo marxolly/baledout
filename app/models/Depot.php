@@ -37,10 +37,10 @@
         if(!empty($data['address']) && !empty($data['suburb']) && !empty($data['state']) && !empty($data['postcode']) )
         {
             $address_array = [
-                'address'   => $data['deliveryaddress'],
-                'suburb'    => $data['deliverysuburb'],
-                'state'     => $data['deliverystate'],
-                'postcode'  => $data['deliverypostcode'],
+                'address'   => $data['address'],
+                'suburb'    => $data['suburb'],
+                'state'     => $data['state'],
+                'postcode'  => $data['postcode'],
             ];
             if( isset($data['address2']) && !empty($data['address2']))
                 $address_array['address_2'] = $data['address2'];
