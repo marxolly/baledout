@@ -49,6 +49,19 @@
                         });
                     }
                 },
+                'edit-depot':{
+                    init: function(){
+                        actions.common.init();
+                        actions.common.addContact(true);
+                        actions.common.deactivateContact();
+                        $('form#depot_edit').submit(function(e){
+                            if($(this).valid())
+                            {
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Updating Depot Details...</h2></div>' });
+                            }
+                        });
+                    }
+                },
                 'view-depots': {
                     init: function(){
                         var dt_options = {

@@ -168,6 +168,22 @@ $(document).ready(function() {
         }
     });
     ////////////////////////////////////////////////////////////
+    $('form#depot_edit').validate({
+        rules:{
+            abbreviation: {
+                remote: {
+                    url: '/ajaxfunctions/checkDepotAbbrevs',
+                    data: { 'current_abbrev': function(){ return $("#current_abbreviation").val(); } }
+                }
+            }
+        },
+        messages:{
+            abbreviation: {
+                remote: 'This abbreviation is already in use, abbreviations must be unique'
+            }
+        }
+    });
+    ////////////////////////////////////////////////////////////
     $('form#client_add').validate({
         rules:{
             client_logo:{

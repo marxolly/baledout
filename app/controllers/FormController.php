@@ -43,6 +43,7 @@ class FormController extends Controller {
             'procClientAdd',
             'procClientEdit',
             'procDepotAdd',
+            'procDepotEdit',
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
@@ -90,13 +91,35 @@ class FormController extends Controller {
         {
             //echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
             //all good, add details
-            if($client_id = $this->depot->addDepot($post_data)) 
+            if($client_id = $this->depot->addDepot($post_data))
                 Session::set('feedback', "$depot_name ($abbreviation) has been added to the system");
             else
                 Session::set('errorfeedback', 'A database error has occurred. Please try again');
         }
         return $this->redirector->to(PUBLIC_ROOT."depots/add-depot/");
     }   //End procDepotAdd
+
+    public function procDepotEdit()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+    } //end procDepotEdit
 
     public function procClientEdit()
     {
