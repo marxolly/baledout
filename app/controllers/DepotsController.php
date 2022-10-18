@@ -62,7 +62,7 @@ class DepotsController extends Controller
         }
         $depot_id = $this->request->params['args']['depot'];
         $depot = $this->depot->getDepotsDetails(-1, $depot_id);
-        echo "<pre>",print_r($depot),"</pre>";die();
+        //echo "<pre>",print_r($depot),"</pre>";die();
         if(empty($depot))
         {
             //no deopt data found
