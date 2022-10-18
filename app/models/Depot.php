@@ -21,6 +21,12 @@
 
     public function __construct(){}
 
+    public function addDepot($data)
+    {
+        echo "The request<pre>",print_r($data),"</pre>";die();
+        $db = Database::openConnection();
+    }
+
     public function getDepotsDetails($active = -1, $depot_id = 0)
     {
         $db = Database::openConnection();
