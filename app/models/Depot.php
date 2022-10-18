@@ -26,7 +26,8 @@
         //echo "The request<pre>",print_r($data),"</pre>";die();
         $db = Database::openConnection();
         $depot_values = array(
-            'depot_name'		=>	$data['depot_name']
+            'depot_name'		=>	$data['depot_name'],
+            'abbreviation'		=>	$data['abbreviation']
         );
         if(!empty($data['email'])) $client_vales['email'] = $data['email'];
         if(!empty($data['phone'])) $client_vales['phone'] = $data['phone'];
