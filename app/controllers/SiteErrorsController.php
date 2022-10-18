@@ -39,6 +39,22 @@ class SiteErrorsController extends Controller{
         ]);
     }
 
+    public function noDepotId()
+    {
+        //render the error page
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/default/", Config::get('ERRORS_PATH') . 'noDepotId.php', [
+            'pht'   => ": No Depot ID"
+        ]);
+    }
+
+    public function noDepotFound()
+    {
+        //render the error page
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/default/", Config::get('ERRORS_PATH') . 'noDepotFound.php', [
+            'pht'   => ": No Depot Found"
+        ]);
+    }
+
     public function noJobId()
     {
         //render the error page

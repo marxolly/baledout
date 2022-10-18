@@ -49,6 +49,32 @@ class DepotsController extends Controller
         ]);
     }
 
+    public function editDepot()
+    {
+        Config::setJsConfig('curPage', "edit-depot");
+        Config::set('curPage', "edit-depot");
+        if(!isset($this->request->params['args']['depot']))
+        {
+            //no depot id to update
+            (new SiteErrorsController())->siteError("noDepotId")->send();
+            return;
+        }
+        $depot_id = $this->request->params['args']['depot'];
+        $depot = $this->depot->getDepotsDetails(-1, $depot_id);
+        if(empty($depot))
+        {
+            //no deopt data found
+            (new SiteErrorsController())->siteError("noDepotFound")->send();
+            return;
+        }
+        //render the page
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/depots/", Config::get('VIEWS_PATH') . 'depots/editDepot.php', [
+            'pht'           =>  ": Edit Depot",
+            'page_title'    =>  "Edit Depot: ".ucwords($depot['depot_name'])."(".strtoupper($depot['abbreviation']).")",
+            'depot'        =>  $depot
+        ]);
+    }
+
     public function isAuthorized()
     {
         $action = $this->request->param('action');

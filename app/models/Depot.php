@@ -44,10 +44,10 @@
             ];
             if( isset($data['address2']) && !empty($data['address2']))
                 $address_array['address_2'] = $data['address2'];
-            if( !$address_id = $db->queryValue('addresses', $address_array) )
+            if( !$address_id = $db->queryValue($this->addresses_table, $address_array) )
             {
                 //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
-                $address_id = $db->insertQuery('addresses', $address_array);
+                $address_id = $db->insertQuery($this->addresses_table, $address_array);
 
             }
             $db->updateDatabaseField($this->table, 'address', $address_id, $depot_id);
