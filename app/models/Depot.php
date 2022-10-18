@@ -101,7 +101,7 @@
                 {$this->contacts_table} dc ON dc.depot_id = d.id LEFT JOIN
                 {$this->addresses_table} da ON d.address = da.id
             WHERE
-                dc.active = 1
+                dc.active = 1 OR ISNULL(dc.id)
         ";
         if($depot_id > 0)
             $q .= " AND d.id = $depot_id";
