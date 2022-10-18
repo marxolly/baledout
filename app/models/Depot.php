@@ -113,7 +113,7 @@
             ORDER BY
                 d.depot_name
         ";
-        //die($q);
+        die($q);
         if($depot_id > 0)
             return ($db->queryRow($q));
         else
