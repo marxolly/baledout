@@ -51,6 +51,7 @@ class DepotsController extends Controller
 
     public function editDepot()
     {
+        echo "<pre>",print_r($this->request->params),"</pre>";die();
         Config::setJsConfig('curPage', "edit-depot");
         Config::set('curPage', "edit-depot");
         if(!isset($this->request->params['args']['depot']))
