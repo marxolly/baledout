@@ -23,8 +23,49 @@
 
     public function addDepot($data)
     {
-        echo "The request<pre>",print_r($data),"</pre>";die();
+        //echo "The request<pre>",print_r($data),"</pre>";die();
         $db = Database::openConnection();
+        $depot_values = array(
+            'depot_name'		=>	$data['depot_name']
+        );
+        if(!empty($data['email'])) $client_vales['email'] = $data['email'];
+        if(!empty($data['phone'])) $client_vales['phone'] = $data['phone'];
+
+        $depot_id = $db->insertQuery($this->table, $depot_values);
+
+        if(!empty($data['address']) && !empty($data['suburb']) && !empty($data['state']) && !empty($data['postcode']) )
+        {
+            $address_array = [
+                'address'   => $data['deliveryaddress'],
+                'suburb'    => $data['deliverysuburb'],
+                'state'     => $data['deliverystate'],
+                'postcode'  => $data['deliverypostcode'],
+            ];
+            if( isset($data['address2']) && !empty($data['address2']))
+                $address_array['address_2'] = $data['address2'];
+            if( !$address_id = $db->queryValue('addresses', $address_array) )
+            {
+                //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
+                $address_id = $db->insertQuery('addresses', $address_array);
+
+            }
+            $db->updateDatabaseField($this->table, 'address', $address_id, $depot_id);
+        }
+
+        $depot_contact = new Contact();
+        foreach($data['contacts'] as $ind => $cd)
+        {
+            if( empty($cd['name']) && empty($cd['role']) )
+                continue;
+            $contact = [];
+            $contact['depot_id'] = $depot_id;
+            if(isset($cd['name'])) $contact['name'] = $cd['name'];
+            if(isset($cd['role'])) $contact['role'] = $cd['role'];
+            if(isset($cd['email'])) $contact['email'] = $cd['email'];
+            if(isset($cd['phone'])) $contact['phone'] = $cd['phone'];
+            $depot_contact->addContact($contact, "depots");
+        }
+        return $depot_id;
     }
 
     public function getDepotsDetails($active = -1, $depot_id = 0)
