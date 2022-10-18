@@ -74,6 +74,15 @@ else
                                 <?php echo Form::displayError('abbreviation');?>
                             </div>
                         </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 text-start d-none d-md-block" for="active">Active</label>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="active" name="active" <?php if($active) echo 'checked';?>>
+                                    <label class="form-check-label d-md-none" for="active">Active</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
