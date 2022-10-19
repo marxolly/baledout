@@ -120,12 +120,6 @@ $required = false;
                     <div class="row">
                         <div class="col-md-6">
                             <h3>Depot Contacts</h3>
-                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
-                            <?php if($required === true):?>
-                                <p>Required is true</p>
-                            <?php else:?>
-                                <p>Required is false</p>
-                            <?php endif;?>
                         </div>
                         <div class="col-md-3">
                             <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>
