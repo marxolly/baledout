@@ -52,7 +52,8 @@ class ajaxfunctionsController extends Controller
             'html'      =>  ''
         );
         $html = $this->view->render(Config::get('VIEWS_PATH') . 'layout/page-includes/forms/edit_customer_contact.php', [
-            'i'     =>  $i
+            'i'         =>  $i,
+            'required'  => $required
         ]);
         $data['html'] = $html;
         $this->view->renderJson($data);
