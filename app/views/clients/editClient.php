@@ -48,6 +48,7 @@ else
 {
     $contact_array = $contacts;
 }
+$required = true;
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
