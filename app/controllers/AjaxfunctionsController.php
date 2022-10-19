@@ -29,7 +29,7 @@ class ajaxfunctionsController extends Controller
     {
         //echo "<pre>",print_r($this->request->data),"</pre>";die();
         $i = $this->request->data['i'];
-        $required = $this->request->data['required'];
+        $required = (bool)$this->request->data['required'];
         $data = array(
             'error'     =>  false,
             'feedback'  =>  '',
@@ -47,7 +47,7 @@ class ajaxfunctionsController extends Controller
     {
         //echo "<pre>",print_r($this->request->data),"</pre>";die();
         $i = $this->request->data['i'];
-        $required = $this->request->data['required'];
+        $required = (bool)$this->request->data['required'];
         $data = array(
             'error'     =>  false,
             'feedback'  =>  '',
