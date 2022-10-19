@@ -8,11 +8,6 @@ $details['email'] = isset($d['email'])? $d['email']:"";
 $details['phone'] = isset($d['phone'])? $d['phone']:"";
 ?>
 <div class="p-3 light-grey mb-3 acontact">
-    <?php if($required === true):?>
-                                <p>Required is true</p>
-                            <?php else:?>
-                                <p>Required is false</p>
-                            <?php endif;?>
     <div class="form-group row">
         <label class="col-md-2 mb-3"><?php if($required === true):?><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> <?php endif;?>Name</label>
         <div class="col-md-4 mb-3">
