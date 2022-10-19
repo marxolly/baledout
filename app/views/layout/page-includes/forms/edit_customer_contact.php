@@ -8,6 +8,11 @@ $details['email'] = isset($d['email'])? $d['email']:"";
 $details['phone'] = isset($d['phone'])? $d['phone']:"";
 ?>
 <div class="p-3 light-grey mb-3 acontact">
+    <?php if($required === true):?>
+                                <p>Required is true</p>
+                            <?php else:?>
+                                <p>Required is false</p>
+                            <?php endif;?>
     <?php if($i>0 || $required === false):?>
         <div class="form-group row mb-3">
             <label class="col-md-2 text-start d-none d-md-block" for="contacts_<?php echo $i;?>_deactivate">Deactivate Contact</label>
