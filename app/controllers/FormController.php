@@ -127,12 +127,17 @@ class FormController extends Controller {
         }
         else
         {
-            echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            //echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
             //all good, add details
-            if($client_id = $this->depot->addDepot($post_data))
-                Session::set('feedback', "$depot_name ($abbreviation) has been added to the system");
+            if($this->depot->updatDepotInfo($post_data))
+            {
+                Session::set('feedback', "{$depot_name}'s details have been updated");
+                //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
+            }
             else
+            {
                 Session::set('errorfeedback', 'A database error has occurred. Please try again');
+            }
         }
         return $this->redirector->to(PUBLIC_ROOT."depots/edit-depot/depot=$depot_id");
     } //end procDepotEdit

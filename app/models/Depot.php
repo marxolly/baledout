@@ -120,6 +120,67 @@
             return ($db->queryData($q));
     }
 
+    public function updateDepotInfo($data)
+    {
+        //echo "The request<pre>",print_r($data),"</pre>";die();
+        $db = Database::openConnection();
+        //set the defaults
+        $depot_values = array(
+            'depot_name'    => $data['depot_name'],
+            'abbreviation'  => $data['abbreviation'],
+            'email'         => NULL,
+            'phone'         => NULL,
+            'website'       => NULL,
+            'active'        => (isset($data['active']))? 1:0,
+            'address'       => 0
+        );
+        //make changes
+        if(!empty($data['email'])) $depot_values['email'] = $data['email'];
+        if(!empty($data['phone'])) $depot_values['phone'] = $data['phone'];
+        if(!empty($data['website'])) $depot_values['website'] = $data['website'];
+        //update addresses
+        if(!empty($data['address']) && !empty($data['suburb']) && !empty($data['state']) && !empty($data['postcode']) )
+        {
+            $address_array = [
+                'address'   => $data['address'],
+                'suburb'    => $data['suburb'],
+                'state'     => $data['state'],
+                'postcode'  => $data['postcode'],
+            ];
+            if( isset($data['address2']) && !empty($data['address2']))
+                $address_array['address_2'] = $data['address2'];
+            if( !$address_id = $db->queryValue('addresses', $address_array) )
+            {
+                //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
+                $address_id = $db->insertQuery('addresses', $address_array);
+
+            }
+            $client_values['address'] = $address_id;
+        }
+        //update contacts
+        $depot_contact = new Contact();
+        foreach($data['contacts'] as $ind => $cd)
+        {
+            if(isset($cd['deactivate']))
+                $depot_contact->deactivateContact($cd['contact_id'], "depots");
+            else
+            {
+                $contact = [];
+                $contact['depot_id'] = $data['depot_id'];
+                if(isset($cd['name'])) $contact['name'] = $cd['name'];
+                if(isset($cd['role'])) $contact['role'] = $cd['role'];
+                if(isset($cd['email'])) $contact['email'] = $cd['email'];
+                if(isset($cd['phone'])) $contact['phone'] = $cd['phone'];
+                if($cd['contact_id'] == 0)
+                    $client_contact->addContact($contact, "depots");
+                else
+                    $client_contact->editContact($contact, $cd['contact_id'], "depots");
+            }
+        }
+        $db->updatedatabaseFields($this->table, $client_values, $data['client_id']);
+        return true;
+    }
+
     public function getDepotId($name)
     {
         $db = Database::openConnection();
