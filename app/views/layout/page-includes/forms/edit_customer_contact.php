@@ -8,7 +8,7 @@ $details['email'] = isset($d['email'])? $d['email']:"";
 $details['phone'] = isset($d['phone'])? $d['phone']:"";
 ?>
 <div class="p-3 light-grey mb-3 acontact">
-    <?php if($required === true):?>
+    <?php if($required == true):?>
                                 <p>Required is true</p>
                             <?php else:?>
                                 <p>Required is false</p>
