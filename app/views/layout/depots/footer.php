@@ -35,6 +35,22 @@
                             });
                         });
 
+                    },
+                    deactivateContact: function(){
+                        /*
+                        $('input.deactivate').each(function(i,e){
+                            //console.log("no click yet "+this.id);
+                            $(this).off('change').change(function(ev){
+                                var ind = this.id.split("_")[1];
+                                //console.log("name: "+this.attributes["name"].value);
+                                var disab = this.checked;
+                                $('input#name_'+ind).prop('disabled',disab);
+                                $('input#email_'+ind).prop('disabled',disab);
+                                $('input#role_'+ind).prop('disabled',disab);
+                                $('input#phone_'+ind).prop('disabled',disab);
+                            })
+                        });
+                        */
                     }
                 },
                 'add-depot': {
