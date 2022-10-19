@@ -172,9 +172,9 @@
                 if(isset($cd['email'])) $contact['email'] = $cd['email'];
                 if(isset($cd['phone'])) $contact['phone'] = $cd['phone'];
                 if($cd['contact_id'] == 0)
-                    $client_contact->addContact($contact, "depots");
+                    $depot_contact->addContact($contact, "depots");
                 else
-                    $client_contact->editContact($contact, $cd['contact_id'], "depots");
+                    $depot_contact->editContact($contact, $cd['contact_id'], "depots");
             }
         }
         $db->updatedatabaseFields($this->table, $client_values, $data['client_id']);
