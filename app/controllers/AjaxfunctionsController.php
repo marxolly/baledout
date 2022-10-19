@@ -46,6 +46,7 @@ class ajaxfunctionsController extends Controller
     public function editClientContact()
     {
         $i = $this->request->data['i'];
+        $required = $this->request->data['required'];
         $data = array(
             'error'     =>  false,
             'feedback'  =>  '',
