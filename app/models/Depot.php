@@ -177,7 +177,7 @@
                     $depot_contact->editContact($contact, $cd['contact_id'], "depots");
             }
         }
-        $db->updatedatabaseFields($this->table, $client_values, $data['client_id']);
+        $db->updatedatabaseFields($this->table, $client_values, $data['depot_id']);
         return true;
     }
 
