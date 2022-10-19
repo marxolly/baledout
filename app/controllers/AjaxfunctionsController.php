@@ -48,6 +48,7 @@ class ajaxfunctionsController extends Controller
         echo "<pre>",var_dump($this->request->data),"</pre>";//die();
         $i = $this->request->data['i'];
         $required = (bool)$this->request->data['required'];
+        echo var_dump($required);
         $data = array(
             'error'     =>  false,
             'feedback'  =>  '',
