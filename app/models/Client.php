@@ -255,7 +255,7 @@ class Client extends Model{
             $client_values['billing_address'] = $billing_id;
         }
         //update contacts
-        $client_contact = new Clientcontact();
+        $client_contact = new Contact();
         foreach($data['contacts'] as $ind => $cd)
         {
             if(isset($cd['deactivate']))
