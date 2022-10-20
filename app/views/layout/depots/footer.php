@@ -6,11 +6,8 @@
             var actions = {
                 common: {
                     init: function(){
-                        autoCompleter.addressAutoComplete($('#deliveryaddress'), "delivery");
-                        autoCompleter.suburbAutoComplete($('#deliverysuburb'), "delivery");
-
-                        autoCompleter.addressAutoComplete($('#billingaddress'), "billing");
-                        autoCompleter.suburbAutoComplete($('#billingsuburb'), "billing");
+                        autoCompleter.addressAutoComplete($('#address'));
+                        autoCompleter.suburbAutoComplete($('#suburb'));
                     },
                     addContact: function(edit){
                         if(edit === undefined) {
@@ -23,19 +20,24 @@
                             //console.log('packages: '+contact_count);
                             var data = {
                                 i: contact_count,
-                                required: true
+                                required: 0
                             }
                             $.post(url, data, function(d){
                                 $('div#contacts_holder').append(d.html);
-                                actions.common.deactivateContact();
+                                //actions.common.deactivateContact();
                             });
                         });
                         $("a.remove-all-contacts").click(function(e){
                             e.preventDefault();
                             $('div#contacts_holder div.acontact').not(':first').remove();
+                            $('div#contacts_holder div.acontact').find('input').each(function(i,e){
+                                $(this).val('');
+                            });
                         });
+
                     },
                     deactivateContact: function(){
+                        /*
                         $('input.deactivate').each(function(i,e){
                             //console.log("no click yet "+this.id);
                             $(this).off('change').change(function(ev){
@@ -48,44 +50,45 @@
                                 $('input#phone_'+ind).prop('disabled',disab);
                             })
                         });
+                        */
                     }
                 },
-                'add-client': {
+                'add-depot': {
                     init: function(){
                         actions.common.init();
                         actions.common.addContact();
-                        $('form#client_add').submit(function(e){
+                        $('form#depot_add').submit(function(e){
                             if($(this).valid())
                             {
-                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Adding Client...</h2></div>' });
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Adding Depot...</h2></div>' });
                             }
                         });
                     }
                 },
-                'edit-client':{
+                'edit-depot':{
                     init: function(){
                         actions.common.init();
                         actions.common.addContact(true);
                         actions.common.deactivateContact();
-                        $('form#client_edit').submit(function(e){
+                        $('form#depot_edit').submit(function(e){
                             if($(this).valid())
                             {
-                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Updating Client Details...</h2></div>' });
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Updating Depot Details...</h2></div>' });
                             }
                         });
                     }
                 },
-                'view-clients': {
+                'view-depots': {
                     init: function(){
                         var dt_options = {
                             "columnDefs": [
-                                { "orderable": false, "targets": [1,2,3] },
-                                { "searchable": false, "targets": [3]}
+                                { "orderable": false, "targets": [2,3,4,5,6] },
+                                { "searchable": false, "targets": [6]}
                             ],
                             "order": [],
                             "mark": true
                         }
-                        var table = dataTable.init($('table#client_list_table'), dt_options );
+                        var table = dataTable.init($('table#depot_list_table'), dt_options );
                     }
                 }
             }

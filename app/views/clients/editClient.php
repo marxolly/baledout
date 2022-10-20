@@ -48,6 +48,7 @@ else
 {
     $contact_array = $contacts;
 }
+$required = true;
 ?>
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
@@ -136,7 +137,6 @@ else
                         <div class="col-md-6">
                             <h3>Client Contacts</h3>
                             <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
-                            <p class="inst">At least one contact name is required</p>
                         </div>
                         <div class="col-md-3">
                             <a class="add-contact" style="cursor:pointer" title="Add Another Contact"><h4><i class="fad fa-plus-square text-success"></i> Add another</a></h4>

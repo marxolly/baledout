@@ -87,7 +87,7 @@ class Client extends Model{
             $db->updateDatabaseField($this->table, 'billing_address', $billing_id, $client_id);
         }
 
-        $client_contact = new Clientcontact();
+        $client_contact = new Contact();
         foreach($data['contacts'] as $ind => $cd)
         {
             $contact = [];
@@ -96,7 +96,7 @@ class Client extends Model{
             if(isset($cd['role'])) $contact['role'] = $cd['role'];
             if(isset($cd['email'])) $contact['email'] = $cd['email'];
             if(isset($cd['phone'])) $contact['phone'] = $cd['phone'];
-            $client_contact->addContact($contact);
+            $client_contact->addContact($contact, "clients");
         }
         return $client_id;
     }
@@ -255,11 +255,11 @@ class Client extends Model{
             $client_values['billing_address'] = $billing_id;
         }
         //update contacts
-        $client_contact = new Clientcontact();
+        $client_contact = new Contact();
         foreach($data['contacts'] as $ind => $cd)
         {
             if(isset($cd['deactivate']))
-                $client_contact->deactivateContact($cd['contact_id']);
+                $client_contact->deactivateContact($cd['contact_id'], "clients");
             else
             {
                 $contact = [];
@@ -269,9 +269,9 @@ class Client extends Model{
                 if(isset($cd['email'])) $contact['email'] = $cd['email'];
                 if(isset($cd['phone'])) $contact['phone'] = $cd['phone'];
                 if($cd['contact_id'] == 0)
-                    $client_contact->addContact($contact);
+                    $client_contact->addContact($contact, "clients");
                 else
-                    $client_contact->editContact($contact, $cd['contact_id']);
+                    $client_contact->editContact($contact, $cd['contact_id'], "clients");
             }
         }
         $db->updatedatabaseFields($this->table, $client_values, $data['client_id']);

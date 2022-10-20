@@ -42,6 +42,8 @@ class FormController extends Controller {
         $actions = [
             'procClientAdd',
             'procClientEdit',
+            'procDepotAdd',
+            'procDepotEdit',
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
@@ -58,6 +60,87 @@ class FormController extends Controller {
                         Form processing Actions
 ********************************************************************************************************************
 ********************************************************************************************************************/
+
+    public function procDepotAdd()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        $this->depotDataValidate($post_data);
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            //all good, add details
+            if($client_id = $this->depot->addDepot($post_data))
+                Session::set('feedback', "$depot_name ($abbreviation) has been added to the system");
+            else
+                Session::set('errorfeedback', 'A database error has occurred. Please try again');
+        }
+        return $this->redirector->to(PUBLIC_ROOT."depots/add-depot/");
+    }   //End procDepotAdd
+
+    public function procDepotEdit()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        $this->depotDataValidate($post_data);
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //echo "ALL GOOD<pre>POST DATA",print_r($post_data),"</pre>"; die();
+            //all good, add details
+            if($this->depot->updateDepotInfo($post_data))
+            {
+                Session::set('feedback', "{$depot_name}'s details have been updated");
+                //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
+            }
+            else
+            {
+                Session::set('errorfeedback', 'A database error has occurred. Please try again');
+            }
+        }
+        return $this->redirector->to(PUBLIC_ROOT."depots/edit-depot/depot=$depot_id");
+    } //end procDepotEdit
 
     public function procClientEdit()
     {
@@ -137,7 +220,6 @@ class FormController extends Controller {
         else
         {
             //all good, add details
-
             if($client_id = $this->client->addClient($post_data))
             {
                 Session::set('feedback', "$client_name has been added to the system");
@@ -147,7 +229,6 @@ class FormController extends Controller {
             {
                 Session::set('errorfeedback', 'A database error has occurred. Please try again');
             }
-
         }
         return $this->redirector->to(PUBLIC_ROOT."clients/add-client/");
     } // End procClientAdd()
@@ -547,6 +628,65 @@ class FormController extends Controller {
                         Helper Functions
 ********************************************************************************************************************
 ********************************************************************************************************************/
+    /*******************************************************************
+    ** validates data entered for depots
+    ********************************************************************/
+    private function depotDataValidate($post_data = [])
+    {
+        foreach($post_data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        if( !$this->dataSubbed($depot_name) )
+        {
+            Form::setError('depot_name', 'A depot name is required');
+        }
+        if( $this->dataSubbed($email) )
+        {
+            if( !$this->emailValid($email) )
+            {
+                Form::setError('email', 'Please enter a valid email address');
+            }
+        }
+        if( !$this->dataSubbed($abbreviation) )
+        {
+            Form::setError('abbreviation', 'An abbreviation is required');
+        }
+        else
+        {
+            $current_abbrev = ( isset($current_abbreviation) )? $current_abbreviation : false;
+            if($this->depot->depotAbbreviationTaken($abbreviation,$current_abbrev))
+                Form::setError('abbreviation', 'This abbreviation is already in use.<br>Abbreviations must be unique');
+        }
+        foreach($contacts as $ind => $cd)
+        {
+            if(isset($cd['deactivate']))
+                continue;
+            if(!$this->dataSubbed($cd['name']))
+                continue;
+            if($this->dataSubbed($cd['email']))
+            {
+                if(!$this->emailValid($cd['email']))
+                {
+                    Form::setError('contactemail_'.$ind, 'The email is not valid');
+                }
+            }
+        }
+        if(!empty($address) || !empty($suburb) || !empty($state) || !empty($postcode) )
+        {
+            $this->validateAddress($address, $suburb, $state, $postcode );
+        }
+    }
     /*******************************************************************
     ** validates data entered for clients
     ********************************************************************/

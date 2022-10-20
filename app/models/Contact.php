@@ -1,6 +1,6 @@
 <?php
     /**
-    * Client Contact Class
+    * Contact Class
     *
 
     * @author     Mark Solly <mark@baledout.com.au>
@@ -14,38 +14,43 @@
         getSelectContactsByClient($client_id, $selected = false)
 
     */
-class Clientcontact extends Model {
-    public $table = "clients_contacts";
+class Contact extends Model {
+    public $client_contacts_table = "clients_contacts";
+    public $depot_contacts_table = "depots_contacts";
 
-    public function addContact($data)
+    public function addContact($data, $type)
     {
+        $table = $type."_contacts";
         //echo "productioncontact <pre>",print_r($data),"</pre>";die();
         unset($data['contact_id']);
         $db = Database::openConnection();
-        $id = $db->insertQuery($this->table, $data);
+        $id = $db->insertQuery($table, $data);
         return $id;
     }
 
-    public function editContact($data, $id)
+    public function editContact($data, $id, $type)
     {
+        $table = $type."_contacts";
         //echo "productioncontact <pre>",print_r($data),"</pre>";die();
         unset($data['contact_id']);
         $db = Database::openConnection();
-        $db->updateDatabaseFields($this->table, $data, $id);
+        $db->updateDatabaseFields($table, $data, $id);
         return true;
     }
 
-    public function deactivateContact($id)
+    public function deactivateContact($id, $type)
     {
+        $table = $type."_contacts";
         $db = Database::openConnection();
-        $db->updateDatabaseField( $this->table, 'active', 0, $id );
+        $db->updateDatabaseField( $table, 'active', 0, $id );
         return true;
     }
 
-    public function reactivateContact($id)
+    public function reactivateContact($id, $type)
     {
+        $table = $type."_contacts";
         $db = Database::openConnection();
-        $db->updateDatabaseField( $this->table, 'active', 1, $id );
+        $db->updateDatabaseField( $table, 'active', 1, $id );
         return true;
     }
 }//End class
