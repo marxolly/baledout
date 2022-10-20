@@ -37,7 +37,7 @@
 
                     },
                     deactivateContact: function(){
-                        /*
+                        /*   */
                         $('input.deactivate').each(function(i,e){
                             //console.log("no click yet "+this.id);
                             $(this).off('change').change(function(ev){
@@ -50,7 +50,7 @@
                                 $('input#phone_'+ind).prop('disabled',disab);
                             })
                         });
-                        */
+
                     }
                 },
                 'add-depot': {
