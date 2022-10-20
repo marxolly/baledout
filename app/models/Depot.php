@@ -98,10 +98,10 @@
                 END AS a_string
             FROM
                 {$this->table} d LEFT JOIN
-                {$this->contacts_table} dc ON dc.depot_id = d.id LEFT JOIN
+                {$this->contacts_table} dc ON dc.depot_id = d.id AND dc.active = 1 LEFT JOIN
                 {$this->addresses_table} da ON d.address = da.id
             WHERE
-                ( dc.active = 1 OR ISNULL(dc.id) )
+                ( 1 = 1 )
         ";
         if($depot_id > 0)
             $q .= " AND d.id = $depot_id";
