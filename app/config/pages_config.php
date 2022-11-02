@@ -94,8 +94,12 @@ $admin = array(
         'default-icon'  => array(
             'display'   => false,
             'icon'      => '<span class="fa-2x align-middle"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i></span>',
-            'menu-icon' => '<span class="align-middle d-lg-none"><i class="fa-thin fa-steering-wheel" data-fa-transform="shrink-6 down-6" data-fa-mask="fad fa-user"></i></span>'
-        )
+            'menu-icon' => '<span class="align-middle d-lg-none"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i></span>'
+        ),
+        'add-driver'    => [
+            'display'   => true,
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><span class="fa-2x align-middle"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i></span><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-6 right-12"></i></span></div>'
+        ]
     ),
     'financials'    => array(
         'financials-index'  => true,
