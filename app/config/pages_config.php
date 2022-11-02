@@ -98,7 +98,7 @@ $admin = array(
         ),
         'add-driver'    => [
             'display'   => true,
-            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-6 right-12"></i></span></div>'
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-6 right-6"></i></span></div>'
         ]
     ),
     'financials'    => array(
