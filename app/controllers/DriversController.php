@@ -35,6 +35,21 @@ class DriversController extends Controller
         ]);
     }
 
+    public function viewDrivers()
+    {
+        Config::setJsConfig('curPage', "view-drivers");
+        Config::set('curPage', "view-drivers");
+        $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
+        //$clients = $this->client->getClientsDetails($active);
+        return parent::comingSoon('drivers');
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/viewClients.php',
+        [
+            'active'        =>  $active,
+            'pht'           =>  ": View Clients",
+            'clients'       =>  $clients,
+            'page_title'    =>  "View Clients"
+        ]);
+    }
 
     public function isAuthorized()
     {
