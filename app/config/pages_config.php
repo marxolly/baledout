@@ -93,7 +93,7 @@ $admin = array(
         'drivers-index' => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<span class="fa-2x align-middle"><i class="fa-duotone fa-steering-wheel" data-fa-transform="shrink-4 down-4" data-fa-mask="fa-solid fa-user"></i></span>',
+            'icon'      => '<span class="fa-2x align-middle"><i class="fa-light fa-steering-wheel" data-fa-transform="shrink-4 down-4" data-fa-mask="fa-solid fa-user"></i></span>',
             'menu-icon' => '<span class="align-middle d-lg-none"><i class="fa-solid fa-steering-wheel" data-fa-transform="shrink-6 down-6" data-fa-mask="fad fa-user"></i></span>'
         )
     ),
