@@ -5,7 +5,7 @@
 /************
 * Button Links Scripting
 ************/
-$('a.button-link').each(function(){
+$('a.has-spinner').each(function(){
     $(this).prop("disabled", false);
     $(this).click(function(ev){
         $(this).prop("disabled", true);
