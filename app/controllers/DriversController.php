@@ -24,7 +24,7 @@ class DriversController extends Controller
         parent::displayIndex(get_class());
     }
 
-    public function addClient()
+    public function addDriver()
     {
         Config::setJsConfig('curPage', "add-driver");
         Config::set('curPage', "add-driver");
