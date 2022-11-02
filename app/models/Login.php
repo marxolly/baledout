@@ -80,7 +80,7 @@ class Login extends Model{
     public function setCurrentLogTime($userId)
     {
         $db = Database::openConnection();
-        $db->updateDatabaseField('users', 'current_log', now(), $userId);
+        $db->updateDatabaseField('users', 'current_log', time(), $userId);
         return true;
     }
 
