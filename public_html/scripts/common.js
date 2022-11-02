@@ -3,6 +3,24 @@
 ************/
 
 /************
+* Button Links Scripting
+************/
+$('a.button-link').each(function(){
+    $(this).prop("disabled", false);
+    $(this).click(function(ev){
+        $(this).prop("disabled", true);
+        $(this).data('btntext', $(this).text());
+        var text = 'Loading';
+        if($(THIS).data('btntext') != undefined && $(this).data('btntext') != ""){
+            var text = $(this).data('btntext');
+        }
+        $(this).html('<span class="spinner"><i class="fa fa-spinner fa-spin" title="button-loader"></i></span> '+text);
+        $(this).addClass('active');
+    });
+});
+
+
+/************
 * Navigation Scripting
 ************/
  $(function () {
