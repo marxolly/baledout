@@ -3,6 +3,24 @@
 ************/
 
 /************
+* Button Links Scripting
+************/
+$('a.has-spinner').each(function(){
+    $(this).prop("disabled", false);
+    $(this).click(function(ev){
+        $(this).prop("disabled", true);
+        $(this).data('btntext', $(this).text());
+        var text = 'Loading';
+        if($(this).data('btntext') != undefined && $(this).data('btntext') != ""){
+            var text = $(this).data('btntext');
+        }
+        $(this).html('<span class="spinner"><i class="fa-duotone fa-circle-notch fa-spin"></i></span> '+text);
+        $(this).addClass('active');
+    });
+});
+
+
+/************
 * Navigation Scripting
 ************/
  $(function () {

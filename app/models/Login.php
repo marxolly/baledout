@@ -52,6 +52,7 @@ class Login extends Model{
 
     /**
      * Logout by removing the Session and Cookies.
+     * Updates the last login time
      *
      * @access public
      * @param  integer $userId
@@ -59,8 +60,28 @@ class Login extends Model{
      */
     public function logOut($userId){
 
+        $db = Database::openConnection();
+        $db->query("
+            UPDATE users
+            SET `last_log` = `current_log`
+            WHERE `id` = $userId
+        ");
         Session::remove();
         Cookie::remove($userId);
+    }
+
+    /**
+     * Set the Login In time to now.
+     *
+     * @access public
+     * @param  integer $userId
+     *
+     */
+    public function setCurrentLogTime($userId)
+    {
+        $db = Database::openConnection();
+        $db->updateDatabaseField('users', 'current_log', time(), $userId);
+        return true;
     }
 
     /**
