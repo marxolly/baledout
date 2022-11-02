@@ -14,7 +14,7 @@ $('a.has-spinner').each(function(){
         if($(this).data('btntext') != undefined && $(this).data('btntext') != ""){
             var text = $(this).data('btntext');
         }
-        $(this).html('<span class="spinner"><i class="fa-duotone fa-spinner"></i></span> '+text);
+        $(this).html('<span class="spinner"><i class="fa-duotone fa-spinner fa-spin"></i></span> '+text);
         $(this).addClass('active');
     });
 });
