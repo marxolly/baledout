@@ -101,6 +101,8 @@ class AuthComponent extends Component{
 
          $auth = Utility::normalize($config);
 
+         echo "<pre>",var_dump($auth),"</pre>";die();
+
          foreach($auth as $method => $config){
 
              $method = "_" . ucfirst($method) . ucfirst($type);
