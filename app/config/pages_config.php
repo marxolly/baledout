@@ -99,13 +99,7 @@ $admin = array(
         ),
         'add-driver'    => [
             'display'   => true,
-            'icon'      => '
-                <span class="fa-stack fa-3x">
-                    <i class="fa-duotone fa-user fa-stack-1x"></i>
-                    <i class="fa-duotone fa-stack-1x fa-steering-wheel fa-inverse" data-fa-transform="shrink-6 down-4"></i>
-                    <i class="fa-solid fa-plus fa-stack-1x" data-fa-transform="shrink-8 up-6 right-8"></i>
-                </span>
-            '
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-duotone fa-user"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-6 right-8"></i></span></div>'
         ],
         'view-drivers'    => [
             'display'   => true,
