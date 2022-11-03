@@ -60,12 +60,15 @@ class Login extends Model{
      */
     public function logOut($userId){
 
-        $db = Database::openConnection();
-        $db->query("
-            UPDATE users
-            SET `last_log` = `current_log`
-            WHERE `id` = $userId
-        ");
+        if(!empty($userId))
+        {
+            $db = Database::openConnection();
+            $db->query("
+                UPDATE users
+                SET `last_log` = `current_log`, `session_id` = NULL
+                WHERE `id` = $userId
+            ");
+        }
         Session::remove();
         Cookie::remove($userId);
     }
