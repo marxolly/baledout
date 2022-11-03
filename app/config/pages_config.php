@@ -94,7 +94,7 @@ $admin = array(
         'default-icon'  => array(
             'display'   => false,
             //'icon'      => '<span class="fa-2x align-middle"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i></span>',
-            'icon'      => '<span class="fa-stack fa-2x"><i class="fa-duotone fa-stack-1x fa-steering-wheel fa-inverse" data-fa-transform="shrink-6 down-4"></i><i class="fa-solid fa-user fa-stack-1x"></i></span>',
+            'icon'      => '<span class="fa-stack fa-2x"><i class="fa-solid fa-user fa-stack-1x"></i><i class="fa-duotone fa-stack-1x fa-steering-wheel fa-inverse" data-fa-transform="shrink-6 down-4"></i></span>',
             'menu-icon' => '<span class="align-middle d-lg-none"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i></span>'
         ),
         'add-driver'    => [
