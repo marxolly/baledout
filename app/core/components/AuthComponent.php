@@ -101,7 +101,7 @@ class AuthComponent extends Component{
 
          $auth = Utility::normalize($config);
 
-         //echo "<pre>",var_dump($auth),"</pre>";die();
+         echo "<pre>",var_dump($auth),"</pre>";die();
 
          foreach($auth as $method => $config){
 
