@@ -296,7 +296,7 @@ class FormController extends Controller {
                 "users_name"        => $user['name'],
                 "client_id"         => $user['client_id'],
                 "is_admin_user"     => $this->user->isAdminUser($userId),
-                "is_warehouse_user" => $this->user->isWarehouseUser($userId)
+                "is_driver_user"    => $this->user->isDriverUser($userId)
             ]);
             //set the cookie to remember the user
             Cookie::reset($userId);
