@@ -65,7 +65,7 @@ class Login extends Model{
             $db = Database::openConnection();
             $db->query("
                 UPDATE users
-                SET `last_log` = `current_log`, `session_id` = NULL
+                SET `last_log` = `current_log`, `session_id` = NULL, `current_log` = 0
                 WHERE `id` = $userId
             ");
         }
@@ -83,6 +83,8 @@ class Login extends Model{
     public function setCurrentLogTime($userId)
     {
         $db = Database::openConnection();
+        if($current_log = $db->queryValue('users', ['id' => $userId], 'current_log') > 0)
+            $db->updateDatabaseField( 'users', 'last_log', $current_log, $userId );
         $db->updateDatabaseField('users', 'current_log', time(), $userId);
         return true;
     }
