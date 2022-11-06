@@ -83,7 +83,8 @@ class Login extends Model{
     public function setCurrentLogTime($userId)
     {
         $db = Database::openConnection();
-        if($current_log = $db->queryValue('users', ['id' => $userId], 'current_log') > 0)
+        $current_log = $db->queryValue('users', ['id' => $userId], 'current_log');
+        if($current_log  > 0)//system logged them out due expired cookie or logged in too many places
             $db->updateDatabaseField( 'users', 'last_log', $current_log, $userId );
         $db->updateDatabaseField('users', 'current_log', time(), $userId);
         return true;
