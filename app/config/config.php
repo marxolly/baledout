@@ -38,7 +38,7 @@ return array(
      * COOKIE_SECRET_KEY: A random value to make the cookie more secure. Now Stored in database
      *
      */
-    "COOKIE_EXPIRY"         => 25,
+    "COOKIE_EXPIRY"         => 604800,
     "SESSION_COOKIE_EXPIRY" => 25,
     "COOKIE_DOMAIN"         => '',
     "COOKIE_PATH"           => '/',
