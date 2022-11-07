@@ -76,7 +76,7 @@ class Cookie{
             $db = Database::openConnection();
             $query    = "SELECT id, cookie_token FROM users WHERE id = :id AND cookie_token = :cookie_token LIMIT 1";
             $array = array(
-                'id'            =>  self::$userId,
+                    'id'            =>  self::$userId,
                 'cookie_token'  =>  self::$token
             );
             $db->queryRow("SELECT id, cookie_token FROM users WHERE id = :id AND cookie_token = :cookie_token LIMIT 1", $array);
