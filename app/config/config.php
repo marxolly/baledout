@@ -25,6 +25,8 @@ return array(
      * COOKIE_RUNTIME: How long should a cookie be valid by seconds.
      *      - 1209600 means 2 weeks
      *      - 604800 means 1 week
+     *      - 86400 means 24 hours
+     *      - 43200 means 12 hours
      * COOKIE_DOMAIN: The domain where the cookie is valid for.
      *      COOKIE_DOMAIN mightn't work with "localhost", ".localhost", "127.0.0.1", or ".127.0.0.1". If so, leave it as empty string, false or null.
      *      @see http://stackoverflow.com/questions/1134290/cookies-on-localhost-with-explicit-domain
@@ -37,7 +39,7 @@ return array(
      *
      */
     "COOKIE_EXPIRY"         => 1209600,
-    "SESSION_COOKIE_EXPIRY" => 604800,
+    "SESSION_COOKIE_EXPIRY" => 25,
     "COOKIE_DOMAIN"         => '',
     "COOKIE_PATH"           => '/',
     "COOKIE_SECURE"         => true,
