@@ -443,13 +443,14 @@ class FormController extends Controller {
             $this->user->updateProfileInfo($post_data, Session::getUserId());
             //reset some session data
             Session::reset([
-                "user_id"       => Session::getUserId(),
-                "role"          => $this->user->getUserRoleName($role_id),
-                "ip"            => $this->request->clientIp(),
-                "user_agent"    => $this->request->userAgent(),
-                "users_name"    => $name,
-                "client_id"     => $client_id,
-                "is_admin_user" => $this->user->isAdminUser()
+                "user_id"           => Session::getUserId(),
+                "role"              => $this->user->getUserRoleName($role_id),
+                "ip"                => $this->request->clientIp(),
+                "user_agent"        => $this->request->userAgent(),
+                "users_name"        => $name,
+                "client_id"         => $client_id,
+                "is_admin_user"     => $this->user->isAdminUser(),
+                "is_driver_user"    => $this->user->isDriverUser(Session::getUserId())
             ]);
             //set the cookie to remember the user
             Cookie::reset(Session::getUserId());
