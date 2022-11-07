@@ -39,7 +39,7 @@ return array(
      *
      */
     "COOKIE_EXPIRY"         => 604800,
-    "SESSION_COOKIE_EXPIRY" => 25,
+    "SESSION_COOKIE_EXPIRY" => 43200,
     "COOKIE_DOMAIN"         => '',
     "COOKIE_PATH"           => '/',
     "COOKIE_SECURE"         => true,

@@ -65,7 +65,7 @@ class Login extends Model{
             $db = Database::openConnection();
             $db->query("
                 UPDATE users
-                SET `last_log` = `current_log`, `session_id` = NULL, `current_log` = 0
+                SET `last_log` = `current_log`, `session_id` = NULL, `current_log` = 0, `session_expires` = 0
                 WHERE `id` = $userId
             ");
         }
