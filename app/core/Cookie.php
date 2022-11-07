@@ -76,7 +76,7 @@ class Cookie{
             $db = Database::openConnection();
             $query    = "SELECT id, cookie_token FROM users WHERE id = :id AND cookie_token = :cookie_token LIMIT 1";
             $array = array(
-                'id'            =>  self::$userId,
+                    'id'            =>  self::$userId,
                 'cookie_token'  =>  self::$token
             );
             $db->queryRow("SELECT id, cookie_token FROM users WHERE id = :id AND cookie_token = :cookie_token LIMIT 1", $array);
@@ -143,7 +143,7 @@ class Cookie{
         self::$hashedCookie = hash('sha256', self::$userId . ':' . self::$token  . Config::get('COOKIE_SECRET_KEY'));
         $authCookie = $cookieFirstPart . ':' . self::$hashedCookie;
 
-        setcookie('auth', $authCookie, time() + Config::get('COOKIE_EXPIRY'), Config::get('COOKIE_PATH'), Config::get('COOKIE_DOMAIN'), Config::get('COOKIE_SECURE'), Config::get('COOKIE_HTTP'));
+        setcookie('auth', $authCookie, time() + Config::get('SESSION_COOKIE_EXPIRY'), Config::get('COOKIE_PATH'), Config::get('COOKIE_DOMAIN'), Config::get('COOKIE_SECURE'), Config::get('COOKIE_HTTP'));
     }
 
 }

@@ -93,16 +93,17 @@ $admin = array(
         'drivers-index' => true,
         'default-icon'  => array(
             'display'   => false,
-            'icon'      => '<span class="fa-2x align-middle"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i></span>',
+            //'icon'      => '<span class="fa-2x align-middle"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i></span>',
+            'icon'      => '<span class="fa-stack fa-2x"><i class="fa-duotone fa-user fa-stack-1x"></i><i class="fa-regular fa-stack-1x fa-steering-wheel fa-inverse" data-fa-transform="shrink-6 down-4"></i></span>',
             'menu-icon' => '<span class="align-middle d-lg-none"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i></span>'
         ),
         'add-driver'    => [
             'display'   => true,
-            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-6 right-8"></i></span></div>'
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-duotone fa-user"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-6 right-8"></i></span></div>'
         ],
         'view-drivers'    => [
             'display'   => true,
-            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-solid fa-user"></i><i class="fa-solid fa-binoculars" data-fa-transform="shrink-10 up-6 right-8 rotate-30"></i></span></div>'
+            'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-duotone fa-user"></i><i class="fa-solid fa-binoculars" data-fa-transform="shrink-10 up-6 right-8 rotate-30"></i></span></div>'
         ]
     ),
     'financials'    => array(

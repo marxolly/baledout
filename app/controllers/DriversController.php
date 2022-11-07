@@ -35,6 +35,34 @@ class DriversController extends Controller
         ]);
     }
 
+    public function editDriver()
+    {
+        echo "<pre>",print_r($this->request->params),"</pre>";die();
+        Config::setJsConfig('curPage', "edit-driver");
+        Config::set('curPage', "edit-driver");
+        if(!isset($this->request->params['args']['driver']))
+        {
+            //no driver id to update
+            (new SiteErrorsController())->siteError("noDriverId")->send();
+            return;
+        }
+        $driver_id = $this->request->params['args']['driver'];
+        $driver = $this->driver->getDriverDetails(-1, $driver_id);
+        //echo "<pre>",print_r($driver),"</pre>";die();
+        if(empty($driver))
+        {
+            //no driver data found
+            (new SiteErrorsController())->siteError("noDriverFound")->send();
+            return;
+        }
+        //render the page
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/depots/", Config::get('VIEWS_PATH') . 'depots/editDepot.php', [
+            'pht'           =>  ": Edit Driver",
+            'page_title'    =>  "Edit Driver: ".ucwords($driver['name']),
+            'driver'        =>  $driver
+        ]);
+    }
+
     public function viewDrivers()
     {
         Config::setJsConfig('curPage', "view-drivers");

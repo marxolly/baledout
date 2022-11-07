@@ -60,12 +60,15 @@ class Login extends Model{
      */
     public function logOut($userId){
 
-        $db = Database::openConnection();
-        $db->query("
-            UPDATE users
-            SET `last_log` = `current_log`
-            WHERE `id` = $userId
-        ");
+        if(!empty($userId))
+        {
+            $db = Database::openConnection();
+            $db->query("
+                UPDATE users
+                SET `last_log` = `current_log`, `session_id` = NULL, `current_log` = 0, `session_expires` = 0
+                WHERE `id` = $userId
+            ");
+        }
         Session::remove();
         Cookie::remove($userId);
     }
@@ -80,7 +83,10 @@ class Login extends Model{
     public function setCurrentLogTime($userId)
     {
         $db = Database::openConnection();
-        $db->updateDatabaseField('users', 'current_log', time(), $userId);
+        $current_log = $db->queryValue('users', ['id' => $userId], 'current_log');
+        if($current_log  > 0)//system logged them out due expired cookie or logged in too many places
+            $db->updateDatabaseField( 'users', 'last_log', $current_log, $userId );
+        $db->updateDatabaseFields('users', ['current_log' => time(), 'session_expires'  => time() + Config::get('SESSION_COOKIE_EXPIRY')], $userId);
         return true;
     }
 
