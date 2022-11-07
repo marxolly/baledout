@@ -86,7 +86,7 @@ class Login extends Model{
         $current_log = $db->queryValue('users', ['id' => $userId], 'current_log');
         if($current_log  > 0)//system logged them out due expired cookie or logged in too many places
             $db->updateDatabaseField( 'users', 'last_log', $current_log, $userId );
-        $db->updateDatabaseFields('users', ['current_log' => time(), 'session_expires'  => time()+25], $userId);
+        $db->updateDatabaseFields('users', ['current_log' => time(), 'session_expires'  => time() + Config::get('SESSION_COOKIE_EXPIRY')], $userId);
         return true;
     }
 
