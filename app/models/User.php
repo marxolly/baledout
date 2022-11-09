@@ -209,12 +209,13 @@ class User extends Model{
         $check = "";
         $ex = "";
         if(!empty($exclude))
-            $ex = "AND `name` NOT IN ('".implode(",",$exclude)."')";
+            $ex = "AND `name` NOT IN ('".implode("','",$exclude)."')";
         $ret_string = "";
         $user_role_id = $db->queryValue($this->table, array('id' => Session::getUserId()), 'role_id');
         $user_rank = $db->queryValue('user_roles', array('id' => $user_role_id), 'ranking');
         $q = "
             SELECT id, name
+            FROM user_roles
             WHERE active = 1 AND ranking >= $user_rank $ex
             ORDER BY name
         ";
