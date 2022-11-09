@@ -150,7 +150,7 @@ $(document).ready(function() {
         },
         mesaages:{
             email:{
-                remote: "This Email Is already Registered"
+                remote: "This Email Is Already Registered"
             }
         }
     });
