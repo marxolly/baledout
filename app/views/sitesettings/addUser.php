@@ -4,6 +4,8 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?>
+        <p class="inst">Drivers cannot be added here.<br>
+                            To add a driver user, click <a href="/drivers/add-driver">this link</a></p>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
         <form id="add_user" method="post" action="/form/procUserAdd">
@@ -13,8 +15,7 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
                         <div class="col">
                             <h3>User Details</h3>
                             <p class="inst">fields marked <sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> are required</p>
-                            <p class="inst">Drivers cannot be added here.<br>
-                            To add a driver user, click <a href="/drivers/add-driver">this link</a></p>
+
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
