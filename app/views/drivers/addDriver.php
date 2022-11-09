@@ -18,5 +18,43 @@ $required = true;
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
         <form id="driver_add" method="post" action="/form/procDriverAdd">
+            <div class="row">
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Driver Login Details</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup>Name</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control required" name="name" id="name" value="<?php echo Form::value('name');?>" />
+                                <?php echo Form::displayError('name');?>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Email</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control email" name="email" id="email" value="<?php echo Form::value('email');?>" />
+                                <?php echo Form::displayError('email');?>
+                            </div>
+                        </div>
+                        <?php if(Session::getUserRole() == "super admin"):?>
+                             <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label text-end d-none d-md-block" for="test_user">Test User</label>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="test_user" name="test_user" <?php if(!empty(Form::value('test_user'))) echo 'checked';?>>
+                                        <label class="form-check-label d-md-none" for="test_user">Test User</label>
+                                    </div>
+                                </div>
+                             </div>
+                        <?php endif;?>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
