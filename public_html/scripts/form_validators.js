@@ -87,6 +87,17 @@ $(document).ready(function() {
         return contacts.length > 0;
     }, 'Please select at least one seat');
 
+    $.validator.addMethod('validateABN', function(value, element){
+        if (value.length != 11 || isNaN(parseInt(value)))
+            return false;
+        var weighting = [10,1,3,5,7,9,11,13,15,17,19];
+        var tally = (parseInt(value[0]) - 1) * weighting[0];
+        for (var i = 1; i < value.length; i++){
+            tally += (parseInt(value[i]) * weighting[i]);
+        }
+        return (tally % 89) == 0;
+    }, 'Not a valid ABN');
+
     //$.validator.addMethod("uniqueUserRole", $.validator.methods.remote, "User Role names need to be unique");
 
     ////////////////////////////////////////////////////////////
@@ -146,11 +157,17 @@ $(document).ready(function() {
                 remote: {
                     url: '/ajaxfunctions/checkUserEmail'
                 }
+            },
+            abn:{
+                validateABN: true
             }
         },
         messages:{
             email:{
                 remote: "This Email Is Already Registered"
+            },
+            abn:{
+                validateABN: "Not a Valid ABN"
             }
         }
     });
