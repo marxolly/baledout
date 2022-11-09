@@ -17,5 +17,6 @@ $required = true;
         </div>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
+        <form id="driver_add" method="post" action="/form/procDriverAdd">
     </div>
 </div>
