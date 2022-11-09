@@ -148,7 +148,7 @@ $(document).ready(function() {
                 }
             }
         },
-        mesaages:{
+        messages:{
             email:{
                 remote: "This Email Is Already Registered"
             }
