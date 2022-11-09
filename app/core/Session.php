@@ -360,8 +360,9 @@ class Session{
         $_SESSION["user_id"]             = (int)$data["user_id"];
         $_SESSION["role"]                = $data["role"];
         $_SESSION['users_name']          = $data['users_name'];
-        $_SESSION['client_id']           = $data['client_id'];
         $_SESSION['is_admin_user']       = $data['is_admin_user'];
+        $_SESSION['is_driver_user']      = $data['is_driver_user'];
+        $_SESSION['is_client_user']      = $data['is_client_user'];
         //extra client data
 
         // save these values in the session,
