@@ -28,10 +28,10 @@ class DriversController extends Controller
     {
         Config::setJsConfig('curPage', "add-driver");
         Config::set('curPage', "add-driver");
-        return parent::comingSoon('drivers');
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/addClient.php', [
-            'page_title'    =>  "Add Client",
-            'pht'           =>  ": Add Client"
+        //return parent::comingSoon('drivers');
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/drivers/", Config::get('VIEWS_PATH') . 'drivers/addDriver.php', [
+            'page_title'    =>  "Add Driver",
+            'pht'           =>  ": Add Driver"
         ]);
     }
 

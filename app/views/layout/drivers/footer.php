@@ -10,6 +10,17 @@
                         autoCompleter.suburbAutoComplete($('#suburb'));
                     }
                 },
+                'add-driver': {
+                    init: function(){
+                        actions.common.init();
+                        $('form#driver_add').submit(function(e){
+                            if($(this).valid())
+                            {
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Adding Driver and Sending Welcome Email...</h2></div>' });
+                            }
+                        });
+                    }
+                },
                 'view-drivers': {
                     init: function(){
                         var dt_options = {
