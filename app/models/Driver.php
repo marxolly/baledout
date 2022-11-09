@@ -25,7 +25,53 @@ class Driver extends Model{
     */
     public $table = "drivers";
     public $addresses_table = "addresses";
+    public $users_table = "users";
 
     public function __construct(){}
+
+
+    public function getDriversDetails($active = -1, $driver_id = 0)
+    {
+        $db = Database::openConnection();
+        $q = "
+            SELECT
+                d.*,
+                dd.*,
+                CASE
+                    WHEN d.address = 0
+                    THEN NULL
+                    ELSE
+                    GROUP_CONCAT(
+                    	IFNULL(a.address,''),'|',
+                        IFNULL(a.address_2,''),'|',
+                        IFNULL(a.suburb,''),'|',
+                        IFNULL(a.state,''),'|',
+                        IFNULL(a.postcode,''),'|'
+                        SEPARATOR '~'
+                    )
+                END AS a_string
+            FROM
+                {$this->table} d LEFT JOIN
+                {$this->addresses_table} a ON d.address = a.id LEFT JOIN
+                {$this->users_table} dd ON d.user_id = dd.id
+            WHERE
+                1 = 1
+        ";
+        if($driver_id > 0)
+            $q .= " AND d.id = $driver_id";
+        if($active >= 0)
+            $q .= " AND d.active = $active";
+        $q .= "
+            GROUP BY
+                d.id
+            ORDER BY
+                d.name
+        ";
+        //die($q);
+        if($driver_id > 0)
+            return ($db->queryRow($q));
+        else
+            return ($db->queryData($q));
+    }
 
 }
