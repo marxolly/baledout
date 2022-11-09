@@ -28,7 +28,7 @@ $required = true;
                     </div>
                     <div class="p-3 light-grey mb-3">
                         <div class="form-group row mb-3">
-                            <label class="col-md-3"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup>Name</label>
+                            <label class="col-md-3"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Name</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control required" name="name" id="name" value="<?php echo Form::value('name');?>" />
                                 <?php echo Form::displayError('name');?>
@@ -37,7 +37,7 @@ $required = true;
                         <div class="form-group row mb-3">
                             <label class="col-md-3">Email</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control email" name="email" id="email" value="<?php echo Form::value('email');?>" />
+                                <input type="text" class="form-control email" name="email" id="email" value="<?php echo Form::value('email');?>" placeholder="They will use this to login" >
                                 <?php echo Form::displayError('email');?>
                             </div>
                         </div>
