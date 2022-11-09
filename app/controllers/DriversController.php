@@ -74,7 +74,7 @@ class DriversController extends Controller
         [
             'active'        =>  $active,
             'pht'           =>  ": View Drivers",
-            'clients'       =>  $drivers,
+            'drivers'       =>  $drivers,
             'page_title'    =>  "View Drivers"
         ]);
     }
