@@ -1,5 +1,5 @@
 <?php
-    $link_text = (!$active)? "<a href='/drivers/view-drivers' class='btn btn-outline-bo has-spinner'>View Active Drivers</a>" : "<a href='/drivers/view-drivers/active=0' class='btn btn-outline-bo has-spinner'>View Inactive Clients</a>";
+    $link_text = (!$active)? "<a href='/drivers/view-drivers' class='btn btn-outline-bo has-spinner'>View Active Drivers</a>" : "<a href='/drivers/view-drivers/active=0' class='btn btn-outline-bo has-spinner'>View Inactive Drivers</a>";
     $i = 1;
 ?>
 <div id="page-wrapper">
