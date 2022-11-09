@@ -13,6 +13,8 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
                         <div class="col">
                             <h3>User Details</h3>
                             <p class="inst">fields marked <sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> are required</p>
+                            <p class="inst">Drivers cannot be added here.<br>
+                            To add a driver user, click <a href="/drivers/add-driver">this link</a></p>
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
