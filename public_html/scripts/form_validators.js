@@ -88,6 +88,7 @@ $(document).ready(function() {
     }, 'Please select at least one seat');
 
     $.validator.addMethod('validateABN', function(value, element){
+        value.replace(/\s/g,'');//strip out the spaces
         if (value.length != 11 || isNaN(parseInt(value)))
             return false;
         var weighting = [10,1,3,5,7,9,11,13,15,17,19];
