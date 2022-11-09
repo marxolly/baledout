@@ -69,8 +69,6 @@ $required = true;
                                 <?php echo Form::displayError('company_name');?>
                             </div>
                         </div>
-                    </div>
-                    <div class="p-3 light-grey mb-3">
                         <div class="form-group row mb-3">
                             <label class="col-md-3"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> ABN</label>
                             <div class="col-md-4">
