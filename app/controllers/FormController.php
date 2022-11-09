@@ -44,6 +44,7 @@ class FormController extends Controller {
             'procClientEdit',
             'procDepotAdd',
             'procDepotEdit',
+            'procDriverAdd',
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
@@ -232,6 +233,28 @@ class FormController extends Controller {
         }
         return $this->redirector->to(PUBLIC_ROOT."clients/add-client/");
     } // End procClientAdd()
+
+    public function procDriverAdd()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+    } // End procDriverAdd()
 /********************************************************************************************************************
 ********************************************************************************************************************/
     public function procLogin()
