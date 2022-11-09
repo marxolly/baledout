@@ -62,7 +62,29 @@ $required = true;
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
-
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Company Name</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control required" name="company_name" id="company_name" value="<?php echo Form::value('company_name');?>" />
+                                <?php echo Form::displayError('company_name');?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> ABN</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control required" name="abn" id="abn" value="<?php echo Form::value('abn');?>" />
+                                <?php echo Form::displayError('abn');?>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3">Phone</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="phone" id="phone" value="<?php echo Form::value('phone');?>" />
+                            </div>
+                        </div>
+                        <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
                     </div>
                 </div>
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
