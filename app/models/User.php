@@ -319,4 +319,11 @@ class User extends Model{
 
         return $db->fieldValueTaken('users', $email, 'email');
     }
+
+    public function checkUserEmail($email)
+    {
+        if($this->emailTaken($email))
+            return 'false';
+        return 'true';
+    }
 }

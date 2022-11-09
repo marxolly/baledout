@@ -86,7 +86,7 @@ class ajaxfunctionsController extends Controller
     {
         //echo "<pre>",print_r($this->request),"</pre>";die();
         $request = trim($this->request->query['email']);
-        $this->view->renderBoolean($this->user->emailTaken($request));
+        $this->view->renderBoolean($this->user->checkUserEmail($request));
     }
 /***********************************************************************************************************
  ***********************************************************************************************************
