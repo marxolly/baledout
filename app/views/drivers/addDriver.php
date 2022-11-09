@@ -37,7 +37,7 @@ $required = true;
                         <div class="form-group row mb-3">
                             <label class="col-md-3">Email</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control email" name="email" id="email" value="<?php echo Form::value('email');?>" placeholder="They will use this to login" >
+                                <input type="text" class="form-control required email" name="email" id="email" value="<?php echo Form::value('email');?>" placeholder="They will use this to login" >
                                 <?php echo Form::displayError('email');?>
                             </div>
                         </div>
