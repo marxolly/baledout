@@ -4,8 +4,13 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?>
-        <p class="inst">Drivers cannot be added here.<br>
-                            To add a driver user, click <a href="/drivers/add-driver">this link</a></p>
+        <div class="row text-danger">
+            <div class="col">
+                <p class="inst">Drivers cannot be added here.<br>
+                To add a driver user, click <a href="/drivers/add-driver">this link</a></p>
+            </div>
+        </div>
+
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
         <form id="add_user" method="post" action="/form/procUserAdd">
