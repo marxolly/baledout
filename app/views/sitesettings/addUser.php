@@ -7,7 +7,7 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
         <div class="row errorbox">
             <div class="col">
                 <p class="text-danger">Drivers cannot be added here.<br>
-                To add a driver user, click <a href="/drivers/add-driver">this link</a></p>
+                To add a Driver User, click <a href="/drivers/add-driver">this link</a></p>
             </div>
         </div>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
@@ -40,7 +40,7 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
                         <div class="form-group row mb-3">
                             <label class="col-md-3 col-form-label"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Role</label>
                             <div class="col-md-4">
-                                <select id="role_id" name="role_id" class="form-control selectpicker" data-style="btn-outline-secondary"><option value="0">--Select One--</option><?php echo $this->controller->user->getSelectUserRoles(Form::value('role_id'));?></select>
+                                <select id="role_id" name="role_id" class="form-control selectpicker" data-style="btn-outline-secondary"><option value="0">--Select One--</option><?php echo $this->controller->user->getSelectUserRoles(Form::value('role_id'), ['driver']);?></select>
                                 <?php echo Form::displayError('role_id');?>
                             </div>
                         </div>
