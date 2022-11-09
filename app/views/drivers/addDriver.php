@@ -54,6 +54,17 @@ $required = true;
                         <?php endif;?>
                     </div>
                 </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Driver Business Details</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+
+                    </div>
+                </div>
             </div>
         </form>
     </div>
