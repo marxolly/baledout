@@ -287,16 +287,16 @@ class FormController extends Controller {
         else
         {
             //echo "<pre>",print_r($this->request),"</pre>"; die();
-            // reset session
+            //reset some session data
             Session::reset([
                 "user_id"           => $userId,
                 "role"              => $this->user->getUserRoleName($user["role_id"]),
                 "ip"                => $userIp,
                 "user_agent"        => $userAgent,
                 "users_name"        => $user['name'],
-                "client_id"         => $user['client_id'],
                 "is_admin_user"     => $this->user->isAdminUser($userId),
-                "is_driver_user"    => $this->user->isDriverUser($userId)
+                "is_driver_user"    => $this->user->isDriverUser($userId),
+                "is_client_user"    => $this->user->isClientUser($userId)
             ]);
             //set the cookie to remember the user
             Cookie::reset($userId);
@@ -448,9 +448,9 @@ class FormController extends Controller {
                 "ip"                => $this->request->clientIp(),
                 "user_agent"        => $this->request->userAgent(),
                 "users_name"        => $name,
-                "client_id"         => $client_id,
-                "is_admin_user"     => $this->user->isAdminUser(),
-                "is_driver_user"    => $this->user->isDriverUser(Session::getUserId())
+                "is_admin_user"     => $this->user->isAdminUser(Session::getUserId()),
+                "is_driver_user"    => $this->user->isDriverUser(Session::getUserId()),
+                "is_client_user"    => $this->user->isClientUser(Session::getUserId())
             ]);
             //set the cookie to remember the user
             Cookie::reset(Session::getUserId());

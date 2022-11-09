@@ -4,6 +4,12 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
 <div id="page-wrapper">
     <div id="page_container" class="container-xxl">
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?>
+        <div class="row errorbox">
+            <div class="col">
+                <p class="text-danger">Drivers cannot be added here.<br>
+                To add a Driver User, click <a href="/drivers/add-driver">this link</a></p>
+            </div>
+        </div>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
         <form id="add_user" method="post" action="/form/procUserAdd">
@@ -13,6 +19,7 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
                         <div class="col">
                             <h3>User Details</h3>
                             <p class="inst">fields marked <sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> are required</p>
+
                         </div>
                     </div>
                     <div class="p-3 light-grey mb-3">
@@ -33,7 +40,7 @@ $display = (!empty(Form::value('role_id')) && Form::value('role_id') == $client_
                         <div class="form-group row mb-3">
                             <label class="col-md-3 col-form-label"><sup><small><i class="fas fa-asterisk text-danger"></i></small></sup> Role</label>
                             <div class="col-md-4">
-                                <select id="role_id" name="role_id" class="form-control selectpicker" data-style="btn-outline-secondary"><option value="0">--Select One--</option><?php echo $this->controller->user->getSelectUserRoles(Form::value('role_id'));?></select>
+                                <select id="role_id" name="role_id" class="form-control selectpicker" data-style="btn-outline-secondary"><option value="0">--Select One--</option><?php echo $this->controller->user->getSelectUserRoles(Form::value('role_id'), ['driver']);?></select>
                                 <?php echo Form::displayError('role_id');?>
                             </div>
                         </div>
