@@ -68,14 +68,14 @@ class DriversController extends Controller
         Config::setJsConfig('curPage', "view-drivers");
         Config::set('curPage', "view-drivers");
         $active = (isset($this->request->params['args']['active']))? $this->request->params['args']['active'] : 1;
-        //$clients = $this->client->getClientsDetails($active);
-        return parent::comingSoon('drivers');
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/clients/", Config::get('VIEWS_PATH') . 'clients/viewClients.php',
+        $drivers = $this->driver->getDriversDetails($active);
+        //return parent::comingSoon('drivers');
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/drivers/", Config::get('VIEWS_PATH') . 'drivers/viewDrivers.php',
         [
             'active'        =>  $active,
-            'pht'           =>  ": View Clients",
-            'clients'       =>  $clients,
-            'page_title'    =>  "View Clients"
+            'pht'           =>  ": View Drivers",
+            'clients'       =>  $drivers,
+            'page_title'    =>  "View Drivers"
         ]);
     }
 
