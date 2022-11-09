@@ -203,14 +203,22 @@ class User extends Model{
         return $db->queryValue("user_roles", array('name' => 'client'));
     }
 
-    public function getSelectUserRoles($selected = false)
+    public function getSelectUserRoles($selected = false, $exclude = [])
     {
         $db = Database::openConnection();
         $check = "";
+        $ex = "";
+        if(!empty($exclude))
+            $ex = "AND `name` NOT IN (".implode(",",$exclude).")";
         $ret_string = "";
         $user_role_id = $db->queryValue($this->table, array('id' => Session::getUserId()), 'role_id');
         $user_rank = $db->queryValue('user_roles', array('id' => $user_role_id), 'ranking');
-        $types = $db->queryData("SELECT id, name FROM user_roles WHERE active = 1 AND ranking >= $user_rank ORDER BY name");
+        $q = "
+            SELECT id, name
+            WHERE active = 1 AND ranking >= $user_rank $ex
+            ORDER BY name
+        ";
+        $types = $db->queryData($q);
         foreach($types as $t)
         {
             $label = $t['name'];
