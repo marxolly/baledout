@@ -140,6 +140,21 @@ $(document).ready(function() {
     //Validators
     ///////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
+    $('form#driver_add').validate({
+        rules:{
+            email:{
+                remote: {
+                    url: '/ajaxfunctions/checkUserEmail'
+                }
+            }
+        },
+        mesaages:{
+            email:{
+                remote: "This Email Is already Registered"
+            }
+        }
+    });
+    ////////////////////////////////////////////////////////////
     $('form#add_user').validate({
         rules:{
             role_id:{
