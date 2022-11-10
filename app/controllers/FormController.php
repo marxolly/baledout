@@ -293,9 +293,10 @@ class FormController extends Controller {
         {
             //all good, insert the driver
             $post_data['role_id'] = $this->user->getUserRoleId('driver');
-            echo "<pre>ALL GOOD",print_r($post_data),"</pre>"; die();
-            $this->user->addUser($post_data);
-            Session::set('feedback', "<p>That user has been added to the system</p>");
+            //echo "<pre>ALL GOOD",print_r($post_data),"</pre>"; die();
+            $post_data['user_id'] = $this->user->addUser($post_data);
+            $driver_id = $this->driver->addDriver($post_data);
+            Session::set('feedback', "<p>$name has been setup as a Driver in the system</p>");
             if(!isset($test_user))
             {
                 //send the email
