@@ -84,7 +84,7 @@ class Driver extends Model{
         $valid = 'true';
         foreach($rows as $row)
         {
-        	if($ABN == preg_replace('/\s+/',$row['abn']) && $ABN != $current_ABN)
+        	if($ABN == preg_replace('/\s+/','',$row['abn']) && $ABN != $current_ABN)
         	{
         		$valid = 'false';
         	}
