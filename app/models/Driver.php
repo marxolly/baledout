@@ -70,7 +70,7 @@ class Driver extends Model{
         $q = "
             SELECT
                 d.*,
-                dd.*,
+                dd.session_expires,dd.last_log,dd.current_log,dd.profile_picture,
                 CASE
                     WHEN d.address = 0
                     THEN NULL
