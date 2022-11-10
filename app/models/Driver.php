@@ -29,6 +29,40 @@ class Driver extends Model{
 
     public function __construct(){}
 
+    public function addDriver($data)
+    {
+        $db = Database::openConnection();
+        $driver_values = array(
+            'name'		=>	$data['name'],
+            'company_name'  => $data['company_name'],
+            'user_id'       => $data['user_id'],
+            'abn'           => preg_replace('/\s+/', '', $data['abn'])
+        );
+        if(!empty($data['phone'])) $driver_vales['phone'] = $data['phone'];
+        $driver_id = $db->insertQuery($this->table, $driver_values);
+
+        if(!empty($data['address']) && !empty($data['suburb']) && !empty($data['state']) && !empty($data['postcode']) )
+        {
+            $address_array = [
+                'address'   => $data['address'],
+                'suburb'    => $data['suburb'],
+                'state'     => $data['state'],
+                'postcode'  => $data['postcode'],
+            ];
+            if( isset($data['address2']) && !empty($data['address2']))
+                $address_array['address_2'] = $data['address2'];
+            if( !$address_id = $db->queryValue('addresses', $address_array) )
+            {
+                //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
+                $address_id = $db->insertQuery('addresses', $address_array);
+
+            }
+            $db->updateDatabaseField($this->table, 'address', $address_id, $driver_id);
+        }
+
+        return $driver_id;
+    }
+
 
     public function getDriversDetails($active = -1, $driver_id = 0)
     {
