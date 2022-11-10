@@ -160,7 +160,10 @@ $(document).ready(function() {
                 }
             },
             abn:{
-                validateABN: true
+                validateABN: true,
+                remote:{
+                    url: 'ajaxfunctions/checkDriverABN'
+                }
             }
         },
         messages:{
@@ -168,7 +171,8 @@ $(document).ready(function() {
                 remote: "This Email Is Already Registered"
             },
             abn:{
-                validateABN: "Not a Valid ABN"
+                validateABN: "Not a Valid ABN",
+                remote: "This ABN is already Registered with us"
             }
         }
     });

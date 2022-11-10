@@ -74,4 +74,22 @@ class Driver extends Model{
             return ($db->queryData($q));
     }
 
+    public function checkDriverABN($ABN, $current_ABN)
+    {
+        $db = Database::openConnection();
+        $ABN = preg_replace('/\s+/', '', $ABN);
+        $current_ABN = preg_replace('/\s+/', '', $current_ABN);
+        $q = "SELECT abn FROM {$this->table}";
+        $rows = $db->queryData($q);
+        $valid = 'true';
+        foreach($rows as $row)
+        {
+        	if($ABN == preg_replace('/\s+/',$row['abn']) && $ABN != $current_ABN)
+        	{
+        		$valid = 'false';
+        	}
+        }
+        return $valid;
+    }
+
 }
