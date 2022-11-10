@@ -162,7 +162,7 @@ $(document).ready(function() {
             abn:{
                 validateABN: true,
                 remote:{
-                    url: 'ajaxfunctions/checkDriverABN'
+                    url: '/ajaxfunctions/checkDriverABN'
                 }
             }
         },
