@@ -92,4 +92,18 @@ class Driver extends Model{
         return $valid;
     }
 
+    public function driverABNTaken($ABN, $current_ABN = false)
+    {
+        //echo $abbrev;
+        //echo "<p>Current Abbrev: $current_abbrev</p>";
+        //die();
+        $db = Database::openConnection();
+        if($current_ABN)
+        {
+            return ($db->fieldValueTaken($this->table, $ABN, 'abn') && $ABN != $current_ABN);
+        }
+        return $db->fieldValueTaken($this->table, $ABN, 'abn');
+
+    }
+
 }

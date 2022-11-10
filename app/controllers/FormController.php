@@ -253,7 +253,48 @@ class FormController extends Controller {
                 }
             }
         }
-        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        if( !$this->dataSubbed($name) )
+        {
+            Form::setError('name', 'A name is required');
+        }
+        if(!$this->dataSubbed($email))
+        {
+            Form::setError('email', 'An email is required');
+        }
+        elseif( !$this->emailValid($email))
+        {
+            Form::setError('email', 'Please enter a valid email');
+        }
+        elseif( $this->user->emailTaken($email))
+        {
+            Form::setError('email', 'This email is already registered');
+        }
+        if(!$this->dataSubbed($company_name))
+        {
+            Form::setError('company_name', 'A Company name is required');
+        }
+        if(!$this->dataSubbed($abn))
+        {
+            Form::setError('abn', 'An ABN is required');
+        }
+        elseif(!$this->abnValid($abn))
+            Form::setError('abn', 'Not a valid ABN');
+        elseif($this->driver->driverABNTaken($abn))
+            Form::setError('abn', 'ABN already registered');
+        if(!empty($address) || !empty($suburb) || !empty($state) || !empty($postcode) )
+            $this->validateAddress($address, $suburb, $state, $postcode );
+        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //all good, add details
+            echo "<pre>ALL GOOD",print_r($post_data),"</pre>"; die(); 
+        }
+        return $this->redirector->to(PUBLIC_ROOT."drivers/add-driver");
     } // End procDriverAdd()
 /********************************************************************************************************************
 ********************************************************************************************************************/
@@ -902,6 +943,16 @@ class FormController extends Controller {
       	}
 	}//end emailValid()
 
+    /*******************************************************************
+   ** validates an ABN
+   ********************************************************************/
+   public function abnValid($ABN)
+   {
+        $ABN = preg_replace('/\s+/', '', $ABN);
+        if( filter_var($ABN, FILTER_VALIDATE_INT) === false )
+            return false;
+        return (floor(log10($ABN) + 1) == 11 );
+   } // end abnValid()
     /*******************************************************************
    ** Returns human readable errors for file uploads
    ********************************************************************/
