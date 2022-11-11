@@ -202,9 +202,9 @@ class AuthComponent extends Component{
                 "ip"                => $this->request->clientIp(),
                 "user_agent"        => $this->request->userAgent(),
                 "users_name"        => $users_name,
-                "is_admin_user"     => $this->user->isAdminUser(Cookie::getUserId()),
-                "is_driver_user"    => $this->user->isDriverUser(Cookie::getUserId()),
-                "is_client_user"    => $this->user->isClientUser(Cookie::getUserId())
+                "is_admin_user"     => $this->controller->user->isAdminUser(Cookie::getUserId()),
+                "is_driver_user"    => $this->controller->user->isDriverUser(Cookie::getUserId()),
+                "is_client_user"    => $this->controller->user->isClientUser(Cookie::getUserId())
             ]);
 
             // reset cookie, Cookie token is usable only once
