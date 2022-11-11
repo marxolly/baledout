@@ -64,7 +64,7 @@ class Driver extends Model{
     }
 
 
-    public function getDriversDetails($active = -1, $driver_id = 0)
+    public function getDriverDetails($active = -1, $driver_id = 0)
     {
         $db = Database::openConnection();
         $q = "

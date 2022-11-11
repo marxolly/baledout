@@ -71,4 +71,19 @@ class SiteErrorsController extends Controller{
         ]);
     }
 
+    public function noDriverId()
+    {
+        //render the error page
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/default/", Config::get('VIEWS_PATH') . 'errors/noDriverId.php', [
+            'pht'   => ": No Driver ID"
+        ]);
+    }
+
+    public function noDriverFound()
+    {
+        //render the error page
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/default/", Config::get('VIEWS_PATH') . 'errors/noDriverFound.php', [
+            'pht'   => ": No Driver Found"
+        ]);
+    }
 }

@@ -37,7 +37,7 @@ class DriversController extends Controller
 
     public function editDriver()
     {
-        echo "<pre>",print_r($this->request->params),"</pre>";die();
+        //echo "<pre>",print_r($this->request->params),"</pre>";die();
         Config::setJsConfig('curPage', "edit-driver");
         Config::set('curPage', "edit-driver");
         if(!isset($this->request->params['args']['driver']))
@@ -47,7 +47,7 @@ class DriversController extends Controller
             return;
         }
         $driver_id = $this->request->params['args']['driver'];
-        $driver = $this->driver->getDriverDetails(-1, $driver_id);
+        $driver = $this->driver->getDriversDetails(-1, $driver_id);
         //echo "<pre>",print_r($driver),"</pre>";die();
         if(empty($driver))
         {
