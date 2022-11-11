@@ -43,10 +43,12 @@
                                 }
                                 ?>
                                 <td>
-                                    <?php if(file_exists($ppp)):?>
-                                        <img src="/images/profile_pictures/<?php echo $d['profile_picture'];?>" alt="profile picture" class="thumbnail" /><br>
-                                    <?php endif;?>
-                                    <?php echo $d['name'];?>
+                                    <div class="text-center">
+                                        <?php if(file_exists($ppp)):?>
+                                            <img src="/images/profile_pictures/<?php echo $d['profile_picture'];?>" alt="profile picture" class="thumbnail" />
+                                        <?php endif;?>
+                                        <h5><?php echo $d['name'];?> </h5>
+                                    </div>
                                 </td>
                                 <td><?php echo $at;?></td>
                                 <td></td>
