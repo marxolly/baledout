@@ -33,6 +33,7 @@
                         </thead>
                         <tbody>
                             <?php foreach($drivers as $d):
+                                $ppp = DOC_ROOT.'/images/profile_pictures/'.$d['profile_picture'];
                                 $at = "<h5>".$d['company_name']."<h5>";
                                 if(!empty($d['phone'])) $at .= "<br>".$d['phone'];
                                 if($d['address'] > 0)
@@ -41,7 +42,18 @@
                                     $at .= "<br>".Utility::formatAddressWeb($a_array);
                                 }
                                 ?>
-
+                                <td>
+                                    <?php if(file_exists($ppp)):?>
+                                        <img src="/images/profile_pictures/<?php echo $d['profile_picture'];?>" alt="profile picture" class="img-thumbnail" /><br>
+                                    <?php endif;?>
+                                    <?php echo $d['name'];?>
+                                </td>
+                                <td><?php echo $at;?></td>
+                                <td></td>
+                                <td>
+                                    <p><a class="btn btn-outline-bo has-spinner" href="/jobs/">Assign Job</a></p>
+                                    <p><a class="btn btn-outline-bo has-spinner" href="/drivers/edit-driver/driver=<?php echo $d['id'];?>" >Edit Details</a></p>
+                                </td>
                             <?php endforeach;?>
                         </tbody>
                     </table>
