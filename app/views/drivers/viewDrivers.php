@@ -37,7 +37,7 @@
                                 if(!empty($d['phone'])) $at .= "<br>".$d['phone'];
                                 if($d['address'] > 0)
                                 {
-                                    list($a_array['address'],$a_array['address_2'],$a_array['suburb']$a_array['state'],$a_array['postcode']) = explode("|", $d['a_string']);
+                                    list($a_array['address'],$a_array['address_2'],$a_array['suburb'],$a_array['state'],$a_array['postcode']) = explode("|", $d['a_string']);
                                     $at .= "<br>".Utility::formatAddressWeb($a_array);
                                 }
                                 ?>
