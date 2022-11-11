@@ -50,6 +50,7 @@
                                 </td>
                                 <td><?php echo $at;?></td>
                                 <td></td>
+                                <td></td>
                                 <td>
                                     <p><a class="btn btn-outline-bo has-spinner" href="/jobs/">Assign Job</a></p>
                                     <p><a class="btn btn-outline-bo has-spinner" href="/drivers/edit-driver/driver=<?php echo $d['id'];?>" >Edit Details</a></p>
