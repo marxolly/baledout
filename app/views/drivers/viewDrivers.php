@@ -44,7 +44,7 @@
                                 ?>
                                 <td>
                                     <?php if(file_exists($ppp)):?>
-                                        <img src="/images/profile_pictures/<?php echo $d['profile_picture'];?>" alt="profile picture" class="img-thumbnail" /><br>
+                                        <img src="/images/profile_pictures/<?php echo $d['profile_picture'];?>" alt="profile picture" class="thumbnail" /><br>
                                     <?php endif;?>
                                     <?php echo $d['name'];?>
                                 </td>
