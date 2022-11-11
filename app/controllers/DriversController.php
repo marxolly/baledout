@@ -56,7 +56,7 @@ class DriversController extends Controller
             return;
         }
         //render the page
-        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/depots/", Config::get('VIEWS_PATH') . 'depots/editDepot.php', [
+        $this->view->renderWithLayouts(Config::get('VIEWS_PATH') . "layout/drivers/", Config::get('VIEWS_PATH') . 'drivers/editDriver.php', [
             'pht'           =>  ": Edit Driver",
             'page_title'    =>  "Edit Driver: ".ucwords($driver['name']),
             'driver'        =>  $driver

@@ -21,6 +21,11 @@
                         });
                     }
                 },
+                'edit-driver': {
+                    init: function(){
+                        actions.common.init();
+                    }
+                }
                 'view-drivers': {
                     init: function(){
                         var dt_options = {
