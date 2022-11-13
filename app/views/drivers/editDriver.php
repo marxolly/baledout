@@ -9,7 +9,7 @@ $active = ( $driver['active'] == 1 );
 $aa = array();
 if(!empty($driver['a_string']))
 {
-    list($aa['address'], $aa['address2'],$aa['suburb'],$aa['state'],$aa['postcode']) = explode('|', $driver['da_string']);
+    list($aa['address'], $aa['address2'],$aa['suburb'],$aa['state'],$aa['postcode']) = explode('|', $driver['a_string']);
 }
 $address   = empty(Form::value('address'))?    isset($aa['address'])?  $aa['address']     : "" : Form::value('address');
 $address2  = empty(Form::value('address2'))?   isset($aa['address2'])? $aa['address2']    : "" : Form::value('address2');
