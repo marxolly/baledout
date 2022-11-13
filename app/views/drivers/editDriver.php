@@ -19,7 +19,7 @@ $postcode  = empty(Form::value('postcode'))?   isset($aa['postcode'])? $aa['post
 //other non required driver info
 $phone     = empty(Form::value('phone'))?   $driver['phone'] : Form::value('phone');
 //non editable info
-$email = $driver['email'];
+//$email = $driver['email'];
 $ppp = DOC_ROOT.'/images/profile_pictures/'.$driver['profile_picture'];
 ?>
 <div id="page-wrapper">
