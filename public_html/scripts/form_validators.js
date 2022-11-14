@@ -152,6 +152,24 @@ $(document).ready(function() {
     //Validators
     ///////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
+    $('form#driver_edit').validate({
+        rules:{
+            abn:{
+                validateABN: true,
+                remote:{
+                    url: '/ajaxfunctions/checkDriverABN',
+                    data: { 'current_abn': function(){ return $("#current_abn").val(); } }
+                }
+            }
+        },
+        messages:{
+            abn:{
+                validateABN: "Not a Valid ABN",
+                remote: "This ABN is already Registered with us"
+            }
+        }
+    })
+    ////////////////////////////////////////////////////////////
     $('form#driver_add').validate({
         rules:{
             email:{
