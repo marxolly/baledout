@@ -2,7 +2,7 @@
 //name, compay_name, abn are required
 $name           = empty(Form::value('name'))?           $driver['name']         : Form::value('name');
 $company_name   = empty(Form::value('company_name'))?   $driver['company_name'] : Form::value('company_name');
-$abn            = empty(Form::value('abn'))?            $driver['abn']          : Form::value('company_name');
+$abn            = empty(Form::value('abn'))?            $driver['abn']          : Form::value('abn');
 //is driver active
 $active = ( $driver['active'] == 1 );
 //address is not required
