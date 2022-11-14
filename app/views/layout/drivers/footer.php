@@ -8,17 +8,15 @@
                     init: function(){
                         autoCompleter.addressAutoComplete($('#address'));
                         autoCompleter.suburbAutoComplete($('#suburb'));
-                        $('input#abn').on('keyup change', function(ev){
-                            var value = $(ev.target).val();
-                            value = value.split(" ").join("");
-                            var newval = [
-                                value.slice(0, 2),
-                                value.slice(2, 5),
-                                value.slice(5, 8),
-                                value.slice(8, 11)
-                            ].join(" ").trim();
-                            $('input#abn').val(newval)
-                        })
+                    },
+                    'format-abn': function(value){
+                        value = value.split(" ").join("");
+                        return [
+                            value.slice(0, 2),
+                            value.slice(2, 5),
+                            value.slice(5, 8),
+                            value.slice(8, 11)
+                        ].join(" ").trim();
                     }
                 },
                 'add-driver': {
@@ -35,6 +33,7 @@
                 'edit-driver': {
                     init: function(){
                         actions.common.init();
+                        $('input#abn').val(actions.common['format-abn']($('input#abn').val()))
                     }
                 },
                 'view-drivers': {
