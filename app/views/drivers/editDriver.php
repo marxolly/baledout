@@ -27,11 +27,27 @@ $ppp = DOC_ROOT.'/images/profile_pictures/'.$driver['profile_picture'];
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/page_top.php");?>
         <div class="row">
             <div class="col text-end">
-                <p><a href="/clients/view-clients/" class="btn btn-outline-bo has-spinner">Return to Client List</a></p>
+                <p><a href="/drivers/view-drivers/" class="btn btn-outline-bo has-spinner">Return to Driver List</a></p>
             </div>
         </div>
         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/form-top.php");?>
         <?php echo Form::displayError('general');?>
-        <?php echo "<pre>",print_r($driver),"</pre>";?>
+        <?php //echo "<pre>",print_r($driver),"</pre>";?>
+        <form id="driver_edit" method="post" action="/form/procDriverEdit">
+            <div class="row">
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Driver Details</h3>
+                            <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/required_fields.php");?>
+                            <p class="inst">Email is used as a username, so cannot be changed</p>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
