@@ -22,6 +22,10 @@
                 'add-driver': {
                     init: function(){
                         actions.common.init();
+                        $('input#abn').on('keyup keypress blur change', function(ev){
+                            var abn = $(this).val();
+                            $(this).val(actions.common['format-abn'](abn));
+                        })
                         $('form#driver_add').submit(function(e){
                             if($(this).valid())
                             {
