@@ -33,7 +33,12 @@
                 'edit-driver': {
                     init: function(){
                         actions.common.init();
-                        $('input#abn').val(actions.common['format-abn']($('input#abn').val()))
+                        var abn = $('input#abn').val()
+                        $('input#abn').val(actions.common['format-abn'](abn));
+                        $('input#abn').on('keyup, change', function(ev){
+                            abn = $(this).val();
+                            $(this).val(actions.common['format-abn'](abn));
+                        })
                     }
                 },
                 'view-drivers': {
