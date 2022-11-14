@@ -103,7 +103,7 @@ $admin = array(
         ],
         'edit-driver'   => [
             'display'   => false,
-            'icon'      = ''
+            'icon'      => ''
         ],
         'view-drivers'    => [
             'display'   => true,
