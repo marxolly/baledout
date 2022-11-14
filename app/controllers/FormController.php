@@ -327,7 +327,46 @@ class FormController extends Controller {
                 }
             }
         }
-        echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        if( !$this->dataSubbed($name) )
+        {
+            Form::setError('name', 'A name is required');
+        }
+        if(!$this->dataSubbed($company_name))
+        {
+            Form::setError('company_name', 'A Company name is required');
+        }
+        if(!$this->dataSubbed($abn))
+        {
+            Form::setError('abn', 'An ABN is required');
+        }
+        elseif(!$this->abnValid($abn))
+            Form::setError('abn', 'Not a valid ABN');
+        elseif($this->driver->driverABNTaken($abn, $current_abn))
+            Form::setError('abn', 'ABN already registered');
+        if(!empty($address) || !empty($suburb) || !empty($state) || !empty($postcode) )
+            $this->validateAddress($address, $suburb, $state, $postcode );
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //all good, insert the driver
+            //$post_data['role_id'] = $this->user->getUserRoleId('driver');
+            echo "<pre>ALL GOOD",print_r($post_data),"</pre>"; die();
+            $post_data['user_id'] = $this->user->addUser($post_data);
+            $driver_id = $this->driver->addDriver($post_data);
+            Session::set('feedback', "<p>$name has been setup as a Driver in the system</p>");
+            if(!isset($test_user))
+            {
+                //send the email
+                Email::sendNewUserEmail($name, $email);
+                $_SESSION['feedback'] .= "<p>password setup instructions have been emailed to $email</p>";
+            }
+        }
+        return $this->redirector->to(PUBLIC_ROOT."drivers/add-driver");
 
     } //End procDriverEdit
 /********************************************************************************************************************
