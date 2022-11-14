@@ -81,6 +81,7 @@ $ppp = DOC_ROOT.'/images/profile_pictures/'.$driver['profile_picture'];
                                 <input type="text" class="form-control" name="phone" id="phone" value="<?php echo $phone;?>" />
                             </div>
                         </div>
+                         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?> 
                     </div>
                 </div>
             </div>
