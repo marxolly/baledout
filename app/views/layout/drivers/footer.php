@@ -42,7 +42,13 @@
                         $('input#abn').on('keyup keypress blur change', function(ev){
                             abn = $(this).val();
                             $(this).val(actions.common['format-abn'](abn));
-                        })
+                        });
+                        $('form#driver_edit').submit(function(e){
+                            if($(this).valid())
+                            {
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Updating Driver Details...</h2></div>' });
+                            }
+                        });
                     }
                 },
                 'view-drivers': {
