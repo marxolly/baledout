@@ -52,6 +52,14 @@ $ppp = DOC_ROOT.'/images/profile_pictures/'.$driver['profile_picture'];
                             </div>
                         </div>
                     </div>
+                    <?php if(file_exists($ppp)):?>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3"></label>
+                            <div class="md-4">
+                                <img src="/images/profile_pictures/<?php echo $driver['profile_picture'];?>" alt="profile picture" class="thumbnail" /> 
+                            </div>
+                        </div>
+                    <?php endif;?>
                 </div>
                 <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
                     <div class="row">
