@@ -366,7 +366,7 @@ class FormController extends Controller {
                 $_SESSION['feedback'] .= "<p>password setup instructions have been emailed to $email</p>";
             }
         }
-        return $this->redirector->to(PUBLIC_ROOT."drivers/add-driver");
+        return $this->redirector->to(PUBLIC_ROOT."drivers/edit-driver/driver=$driver_id");
 
     } //End procDriverEdit
 /********************************************************************************************************************
