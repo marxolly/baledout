@@ -81,7 +81,23 @@ $ppp = DOC_ROOT.'/images/profile_pictures/'.$driver['profile_picture'];
                                 <input type="text" class="form-control" name="phone" id="phone" value="<?php echo $phone;?>" />
                             </div>
                         </div>
-                         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?> 
+                         <?php include(Config::get('VIEWS_PATH')."layout/page-includes/forms/address_nr.php");?>
+                    </div>
+                </div>
+                <div class="p-3 pb-0 mb-2 rounded-top form-section-holder">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Save The Changes</h3>
+                        </div>
+                    </div>
+                    <div class="p-3 light-grey mb-3">
+                        <div class="form-group row">
+                            <div class="col-md-4 offset-md-3 text-center text-md-start">
+                                <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>">
+                                <input type="hidden" name="driver_id" value="<?php echo $driver['id']; ?>">
+                                <button type="submit" class="btn btn-outline-bo" id="submitter">Edit Driver</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
