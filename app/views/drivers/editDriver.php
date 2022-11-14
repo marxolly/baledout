@@ -102,6 +102,7 @@ $ppp = DOC_ROOT.'/images/profile_pictures/'.$driver['profile_picture'];
                             <div class="col-md-4 offset-md-3 text-center text-md-start">
                                 <input type="hidden" name="csrf_token" value="<?php echo Session::generateCsrfToken(); ?>">
                                 <input type="hidden" name="driver_id" value="<?php echo $driver['id']; ?>">
+                                <input type="hidden" name="current_abn" id="current_abn" value="<?php echo $driver['abn'];?>">
                                 <button type="submit" class="btn btn-outline-bo" id="submitter">Edit Driver</button>
                             </div>
                         </div>
