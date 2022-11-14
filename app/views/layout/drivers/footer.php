@@ -43,6 +43,9 @@
                             abn = $(this).val();
                             $(this).val(actions.common['format-abn'](abn));
                         });
+                        $('#address, #suburb, #postcode, #state').change(function(e){
+                            $(this).valid();
+                        });
                         $('form#driver_edit').submit(function(e){
                             if($(this).valid())
                             {
