@@ -8,6 +8,17 @@
                     init: function(){
                         autoCompleter.addressAutoComplete($('#address'));
                         autoCompleter.suburbAutoComplete($('#suburb'));
+                        $('input#abn').on('keyup change', function(ev){
+                            var value = $(ev.target).val();
+                            value = value.split(" ").join("");
+                            var newval = [
+                                value.slice(0, 2),
+                                value.slice(2, 5),
+                                value.slice(5, 8),
+                                value.slice(8, 11)
+                            ].join(" ").trim();
+                            $('input#abn').val(newval)
+                        })
                     }
                 },
                 'add-driver': {
