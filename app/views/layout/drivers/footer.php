@@ -35,7 +35,7 @@
                         actions.common.init();
                         var abn = $('input#abn').val()
                         $('input#abn').val(actions.common['format-abn'](abn));
-                        $('input#abn').on('keyup, change', function(ev){
+                        $('input#abn').on('keyup keypress blur change', function(ev){
                             abn = $(this).val();
                             $(this).val(actions.common['format-abn'](abn));
                         })
