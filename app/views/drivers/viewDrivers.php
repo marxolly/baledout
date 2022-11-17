@@ -35,12 +35,14 @@
                             <?php foreach($drivers as $d):
                                 $ppp = DOC_ROOT.'/images/profile_pictures/'.$d['profile_picture'];
                                 $at = "<h5>".$d['company_name']."<h5>";
+                                $at .= "<p>ABN: ".$d['abn'];
                                 if(!empty($d['phone'])) $at .= "<br>".$d['phone'];
                                 if($d['address'] > 0)
                                 {
                                     list($a_array['address'],$a_array['address_2'],$a_array['suburb'],$a_array['state'],$a_array['postcode']) = explode("|", $d['a_string']);
                                     $at .= "<br>".Utility::formatAddressWeb($a_array);
                                 }
+                                $at .= "</p>";
                                 ?>
                                 <td>
                                     <div class="text-center">
