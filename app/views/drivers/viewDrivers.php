@@ -34,7 +34,7 @@
                         <tbody>
                             <?php foreach($drivers as $d):
                                 $ppp = DOC_ROOT.'/images/profile_pictures/'.$d['profile_picture'];
-                                $at = "<h5>".$d['company_name']."<h5>";
+                                $at = "<h5>".$d['company_name']."</h5>";
                                 $at .= "<p>ABN: ".$d['abn'];
                                 if(!empty($d['phone'])) $at .= "<br>".$d['phone'];
                                 if($d['address'] > 0)
