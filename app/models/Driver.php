@@ -29,11 +29,48 @@ class Driver extends Model{
 
     public function __construct(){}
 
+    public function updateDriverInfo($data)
+    {
+        //echo "The request<pre>",print_r($data),"</pre>";die();
+        $db = Database::openConnection();
+        //set the defaults
+        $driver_values = array(
+            'name'	        => $data['name'],
+            'company_name'  => $data['company_name'],
+            'phone'         => NULL,
+            'active'        => (isset($data['active']))? 1:0,
+            'address'       => 0,
+            'abn'           => preg_replace('/\s+/', '', $data['abn'])
+        );
+        //make changes
+        if(!empty($data['phone'])) $driver_vales['phone'] = $data['phone'];
+        if(!empty($data['address']) && !empty($data['suburb']) && !empty($data['state']) && !empty($data['postcode']) )
+        {
+            $address_array = [
+                'address'   => $data['address'],
+                'suburb'    => $data['suburb'],
+                'state'     => $data['state'],
+                'postcode'  => $data['postcode'],
+            ];
+            if( isset($data['address2']) && !empty($data['address2']))
+                $address_array['address_2'] = $data['address2'];
+            if( !$address_id = $db->queryValue('addresses', $address_array) )
+            {
+                //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
+                $address_id = $db->insertQuery('addresses', $address_array);
+            }
+            //$db->updateDatabaseField($this->table, 'address', $address_id, $driver_id);
+            $driver_values['address'] = $address_id;
+        }
+        $db->updatedatabaseFields($this->table, $driver_values, $data['driver_id']);
+        return true;
+    }
+
     public function addDriver($data)
     {
         $db = Database::openConnection();
         $driver_values = array(
-            'name'		=>	$data['name'],
+            'name'		    =>	$data['name'],
             'company_name'  => $data['company_name'],
             'user_id'       => $data['user_id'],
             'abn'           => preg_replace('/\s+/', '', $data['abn'])

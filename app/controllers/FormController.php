@@ -354,20 +354,19 @@ class FormController extends Controller {
         else
         {
             //all good, insert the driver
-            //$post_data['role_id'] = $this->user->getUserRoleId('driver');
-            echo "<pre>ALL GOOD",print_r($post_data),"</pre>"; die();
-            $post_data['user_id'] = $this->user->addUser($post_data);
-            $driver_id = $this->driver->addDriver($post_data);
-            Session::set('feedback', "<p>$name has been setup as a Driver in the system</p>");
-            if(!isset($test_user))
+            //echo "<pre>ALL GOOD",print_r($post_data),"</pre>"; die();
+            if($this->driver->updateDriverInfo($post_data))
             {
-                //send the email
-                Email::sendNewUserEmail($name, $email);
-                $_SESSION['feedback'] .= "<p>password setup instructions have been emailed to $email</p>";
+                Session::set('feedback', "{$name}'s details have been updated");
+                //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
             }
+            else
+            {
+                Session::set('errorfeedback', 'A database error has occurred. Please try again');
+            }
+
         }
         return $this->redirector->to(PUBLIC_ROOT."drivers/edit-driver/driver=$driver_id");
-
     } //End procDriverEdit
 /********************************************************************************************************************
 ********************************************************************************************************************/
