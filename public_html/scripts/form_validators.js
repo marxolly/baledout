@@ -155,17 +155,12 @@ $(document).ready(function() {
     $('form#driver_edit').validate({
         rules:{
             abn:{
-                validateABN: true,
-                remote:{
-                    url: '/ajaxfunctions/checkDriverABN',
-                    data: { 'current_abn': function(){ return $("#current_abn").val(); } }
-                }
+                validateABN: true
             }
         },
         messages:{
             abn:{
-                validateABN: "Not a Valid ABN",
-                remote: "This ABN is already Registered with us"
+                validateABN: "Not a Valid ABN"
             }
         }
     })
@@ -178,10 +173,7 @@ $(document).ready(function() {
                 }
             },
             abn:{
-                validateABN: true,
-                remote:{
-                    url: '/ajaxfunctions/checkDriverABN'
-                }
+                validateABN: true
             }
         },
         messages:{
@@ -189,8 +181,7 @@ $(document).ready(function() {
                 remote: "This Email Is Already Registered"
             },
             abn:{
-                validateABN: "Not a Valid ABN",
-                remote: "This ABN is already Registered with us"
+                validateABN: "Not a Valid ABN"
             }
         }
     });
