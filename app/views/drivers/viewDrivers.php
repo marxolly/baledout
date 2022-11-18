@@ -24,11 +24,11 @@
                     <table id="driver_list_table" class="table-striped table-hover" width="100%">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Company</th>
-                                <th>Current Job</th>
-                                <th>Login Status</th>
-                                <th></th>
+                                <th data-priority="1">Name</th>
+                                <th data-priority="2">Company</th>
+                                <th data-priority="2">Current Job</th>
+                                <th data-priority="3">Login Status</th>
+                                <th data-priority="1"></th>
                             </tr>
                         </thead>
                         <tbody>
