@@ -11,7 +11,7 @@
             </div>
         </div>
         <?php if(count($drivers)):?>
-            <?php echo "<pre>",print_r($drivers),"</pre>";die();?>
+            <?php //echo "<pre>",print_r($drivers),"</pre>";die();?>
             <div id="waiting" class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Drawing Table..</h2>
@@ -44,21 +44,23 @@
                                 }
                                 $at .= "</p>";
                                 ?>
-                                <td>
-                                    <div class="text-center">
-                                        <?php if(file_exists($ppp)):?>
-                                            <img src="/images/profile_pictures/<?php echo $d['profile_picture'];?>" alt="profile picture" class="thumbnail" />
-                                        <?php endif;?>
-                                        <h5><?php echo $d['name'];?> </h5>
-                                    </div>
-                                </td>
-                                <td><?php echo $at;?></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <p><a class="btn btn-outline-bo has-spinner" href="/jobs/">Assign Job</a></p>
-                                    <p><a class="btn btn-outline-bo has-spinner" href="/drivers/edit-driver/driver=<?php echo $d['id'];?>" >Edit Details</a></p>
-                                </td>
+                                <tr>
+                                    <td>
+                                        <div class="text-center">
+                                            <?php if(file_exists($ppp)):?>
+                                                <img src="/images/profile_pictures/<?php echo $d['profile_picture'];?>" alt="profile picture" class="thumbnail" />
+                                            <?php endif;?>
+                                            <h5><?php echo $d['name'];?> </h5>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $at;?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <p><a class="btn btn-outline-bo has-spinner" href="/jobs/">Assign Job</a></p>
+                                        <p><a class="btn btn-outline-bo has-spinner" href="/drivers/edit-driver/driver=<?php echo $d['id'];?>" >Edit Details</a></p>
+                                    </td>
+                                </tr>
                             <?php endforeach;?>
                         </tbody>
                     </table>
