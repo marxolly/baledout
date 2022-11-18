@@ -17,6 +17,16 @@ class Utility{
         return strtolower(str_replace(" ","_",$string));
     }
 
+    public function formatABN($abn)
+    {
+        //remove all spaces first
+        $abn = preg_replace('/\s+/', '', $abn);
+        //format as "XX XXX XXX XXX"
+        $array = str_split($abn);
+        $formatted_abn = array_slice($array,0,2)." ".array_slice($array,2,3)." ".array_slice($array,5,3)." ".array_slice($array,8,3);
+        return $formatted_abn;
+    }
+
     public static function toWords($string, $ucw = true)
     {
         if($ucw)
