@@ -17,7 +17,7 @@ class Utility{
         return strtolower(str_replace(" ","_",$string));
     }
 
-    public function formatABN($abn)
+    public static function formatABN($abn)
     {
         //remove all spaces first
         $abn = preg_replace('/\s+/', '', $abn);
