@@ -11,7 +11,7 @@
             </div>
         </div>
         <?php if(count($drivers)):?>
-            <?php //echo "<pre>",print_r($drivers),"</pre>";die();?>
+            <?php echo "<pre>",print_r($drivers),"</pre>";die();?>
             <div id="waiting" class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Drawing Table..</h2>
