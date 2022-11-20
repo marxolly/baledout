@@ -44,6 +44,8 @@ class FormController extends Controller {
             'procClientEdit',
             'procDepotAdd',
             'procDepotEdit',
+            'procDriverAdd',
+            'procDriverEdit',
             'procForgotPassword',
             'procLogin',
             'procProfileUpdate',
@@ -82,7 +84,7 @@ class FormController extends Controller {
         }
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
         $this->depotDataValidate($post_data);
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -120,7 +122,7 @@ class FormController extends Controller {
         }
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
         $this->depotDataValidate($post_data);
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -164,7 +166,7 @@ class FormController extends Controller {
         //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
         if($image_name = $this->clientDataValidate($post_data))
             $post_data['image_name'] = $image_name;
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -212,7 +214,7 @@ class FormController extends Controller {
         //$this->clientDataValidate($post_data);
         if($image_name = $this->clientDataValidate($post_data))
             $post_data['image_name'] = $image_name;
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -232,6 +234,140 @@ class FormController extends Controller {
         }
         return $this->redirector->to(PUBLIC_ROOT."clients/add-client/");
     } // End procClientAdd()
+
+    public function procDriverAdd()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        if( !$this->dataSubbed($name) )
+        {
+            Form::setError('name', 'A name is required');
+        }
+        if(!$this->dataSubbed($email))
+        {
+            Form::setError('email', 'An email is required');
+        }
+        elseif( !$this->emailValid($email))
+        {
+            Form::setError('email', 'Please enter a valid email');
+        }
+        elseif( $this->user->emailTaken($email))
+        {
+            Form::setError('email', 'This email is already registered');
+        }
+        if(!$this->dataSubbed($company_name))
+        {
+            Form::setError('company_name', 'A Company name is required');
+        }
+        if(!$this->dataSubbed($abn))
+        {
+            Form::setError('abn', 'An ABN is required');
+        }
+        elseif(!$this->abnValid($abn))
+            Form::setError('abn', 'Not a valid ABN');
+        elseif($this->driver->driverABNTaken($abn))
+            Form::setError('abn', 'ABN already registered');
+        if(!empty($address) || !empty($suburb) || !empty($state) || !empty($postcode) )
+            $this->validateAddress($address, $suburb, $state, $postcode );
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //all good, insert the driver
+            $post_data['role_id'] = $this->user->getUserRoleId('driver');
+            //echo "<pre>ALL GOOD",print_r($post_data),"</pre>"; die();
+            $post_data['user_id'] = $this->user->addUser($post_data);
+            $driver_id = $this->driver->addDriver($post_data);
+            Session::set('feedback', "<p>$name has been setup as a Driver in the system</p>");
+            if(!isset($test_user))
+            {
+                //send the email
+                Email::sendNewUserEmail($name, $email);
+                $_SESSION['feedback'] .= "<p>password setup instructions have been emailed to $email</p>";
+            }
+        }
+        return $this->redirector->to(PUBLIC_ROOT."drivers/add-driver");
+    } // End procDriverAdd()
+
+    public function procDriverEdit()
+    {
+        $post_data = array();
+        foreach($this->request->data as $field => $value)
+        {
+            if(!is_array($value))
+            {
+                ${$field} = $value;
+                $post_data[$field] = $value;
+            }
+            else
+            {
+                foreach($value as $key => $avalue)
+                {
+                    $post_data[$field][$key] = $avalue;
+                    ${$field}[$key] = $avalue;
+                }
+            }
+        }
+        //echo "<pre>POST DATA",print_r($post_data),"</pre>"; die();
+        if( !$this->dataSubbed($name) )
+        {
+            Form::setError('name', 'A name is required');
+        }
+        if(!$this->dataSubbed($company_name))
+        {
+            Form::setError('company_name', 'A Company name is required');
+        }
+        if(!$this->dataSubbed($abn))
+        {
+            Form::setError('abn', 'An ABN is required');
+        }
+        elseif(!$this->abnValid($abn))
+            Form::setError('abn', 'Not a valid ABN');
+        elseif($this->driver->driverABNTaken($abn, $current_abn))
+            Form::setError('abn', 'ABN already registered');
+        if(!empty($address) || !empty($suburb) || !empty($state) || !empty($postcode) )
+            $this->validateAddress($address, $suburb, $state, $postcode );
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
+            Session::set('error_array', Form::getErrorArray());
+        }
+        else
+        {
+            //all good, insert the driver
+            //echo "<pre>ALL GOOD",print_r($post_data),"</pre>"; die();
+            if($this->driver->updateDriverInfo($post_data))
+            {
+                Session::set('feedback', "{$name}'s details have been updated");
+                //return $this->redirector->to(PUBLIC_ROOT."clients/edit-client/client=".$client_id);
+            }
+            else
+            {
+                Session::set('errorfeedback', 'A database error has occurred. Please try again');
+            }
+
+        }
+        return $this->redirector->to(PUBLIC_ROOT."drivers/edit-driver/driver=$driver_id");
+    } //End procDriverEdit
 /********************************************************************************************************************
 ********************************************************************************************************************/
     public function procLogin()
@@ -271,19 +407,19 @@ class FormController extends Controller {
         {
             Form::setError('password', 'Please enter your password');
         }
-        if(Form::$num_errors == 0):		/* No entry errors */
+        if(Form::$num_errors == 0):        /* No entry errors */
             if(password_verify($password, $user["hashed_password"]) === false)
             {
                 Form::setError("general","Email and Password combination was not found");
                 $this->login->handleIpFailedLogin($userIp, $email);
             }
         endif;
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
-		{
-		    Session::set('value_array', $_POST);
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
+        {
+            Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
-			return $this->redirector->login($redirect);
-		}
+            return $this->redirector->login($redirect);
+        }
         else
         {
             //echo "<pre>",print_r($this->request),"</pre>"; die();
@@ -326,7 +462,7 @@ class FormController extends Controller {
         {
             Form::setError('email', 'Please enter a valid email address');
         }
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -431,7 +567,7 @@ class FormController extends Controller {
                 $post_data['hashed_password'] = password_hash($new_password, PASSWORD_DEFAULT, array('cost' => Config::get('HASH_COST_FACTOR')));
             }
         }
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -492,7 +628,7 @@ class FormController extends Controller {
         {
             Form::setError('message', "Please enter a message");
         }
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -536,7 +672,7 @@ class FormController extends Controller {
         {
             Form::setError('confirm_password', 'Passwords do not match');
         }
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -605,7 +741,7 @@ class FormController extends Controller {
                 Form::setError('client_id', 'Please select a client');
             }
         }
-        if(Form::$num_errors > 0)		/* Errors exist, have user correct them */
+        if(Form::$num_errors > 0)        /* Errors exist, have user correct them */
         {
             Session::set('value_array', $_POST);
             Session::set('error_array', Form::getErrorArray());
@@ -800,21 +936,21 @@ class FormController extends Controller {
             Form::setError($prefix.'postcode', "A delivery postcode is required");
         }
         if(!$this->dataSubbed($suburb))
-		{
-		    if($session_var)
+        {
+            if($session_var)
             {
                 Session::set($session_var, true);
             }
-			Form::setError($prefix.'suburb', "A delivery suburb is required for Australian addresses");
-		}
-		if(!$this->dataSubbed($state))
-		{
-		    if($session_var)
+            Form::setError($prefix.'suburb', "A delivery suburb is required for Australian addresses");
+        }
+        if(!$this->dataSubbed($state))
+        {
+            if($session_var)
             {
                 Session::set($session_var, true);
             }
-			Form::setError($prefix.'state', "A delivery state is required for Australian addresses");
-		}
+            Form::setError($prefix.'state', "A delivery state is required for Australian addresses");
+        }
         $aResponse = $this->Postcode->validateSuburb($suburb, $state, str_pad($postcode,4,'0',STR_PAD_LEFT));
         $error_string = "";
         if(isset($aResponse['errors']))
@@ -841,48 +977,58 @@ class FormController extends Controller {
     /*******************************************************************
     ** validates empty data fields
     ********************************************************************/
-	public function dataSubbed($data)
-	{
-		if(!$data || strlen($data = trim($data)) == 0)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}//end dataSubbed()
+    public function dataSubbed($data)
+    {
+        if(!$data || strlen($data = trim($data)) == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }//end dataSubbed()
 
     /*******************************************************************
    ** validates email addresses
    ********************************************************************/
-	public function emailValid($email)
-	{
-		if(!$email || strlen($email = trim($email)) == 0)
-		{
-         	return false;
-      	}
-      	else
-		{
+    public function emailValid($email)
+    {
+        if(!$email || strlen($email = trim($email)) == 0)
+        {
+             return false;
+          }
+          else
+        {
             return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
-        	 /* Check if valid email address
-         	$regex = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i";
-         	if(!preg_match($regex,$email))
-			{
-            	return false;
-         	}
-         	else
-			{
-				return true;
-			}
+             /* Check if valid email address
+             $regex = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i";
+             if(!preg_match($regex,$email))
+            {
+                return false;
+             }
+             else
+            {
+                return true;
+            }
             */
-      	}
-	}//end emailValid()
+          }
+    }//end emailValid()
 
+    /*******************************************************************
+   ** validates an ABN
+   ********************************************************************/
+   public function abnValid($ABN)
+   {
+        $ABN = preg_replace('/\s+/', '', $ABN);
+        if( filter_var($ABN, FILTER_VALIDATE_INT) === false )
+            return false;
+        return (floor(log10($ABN) + 1) == 11 );
+   } // end abnValid()
     /*******************************************************************
    ** Returns human readable errors for file uploads
    ********************************************************************/
-	private function file_upload_error_message($error_code) {
+    private function file_upload_error_message($error_code) {
         switch ($error_code) {
             case UPLOAD_ERR_INI_SIZE:
                 return 'The uploaded file exceeds the maximum upload size allowed by the server';
@@ -900,8 +1046,8 @@ class FormController extends Controller {
                 return 'File upload stopped by extension';
             default:
                 return 'Unknown upload error';
-        	}
-	}
+            }
+    }
 
 
 

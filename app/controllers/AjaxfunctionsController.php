@@ -74,12 +74,27 @@ class ajaxfunctionsController extends Controller
  Form validator functions
  ***********************************************************************************************************
  **********************************************************************************************************/
-   public function checkDepotAbbrevs()
+    public function checkDepotAbbrevs()
     {
         //echo "<pre>",print_r($this->request),"</pre>";die();
         $request = trim($this->request->query['abbreviation']);
         $current_abbrev = isset($this->request->query['current_abbrev'])? trim($this->request->query['current_abbrev']) : "";
         $this->view->renderBoolean($this->depot->checkDepotAbbrevs($request, $current_abbrev));
+    }
+
+     public function checkDriverABN()
+    {
+        //echo "<pre>",print_r($this->request),"</pre>";die();
+        $request = trim($this->request->query['abn']);
+        $current_abn = isset($this->request->query['current_abn'])? trim($this->request->query['current_abn']) : "";
+        $this->view->renderBoolean($this->driver->checkDriverABN($request, $current_abn));
+    }
+
+    public function checkUserEmail()
+    {
+        //echo "<pre>",print_r($this->request),"</pre>";die();
+        $request = trim($this->request->query['email']);
+        $this->view->renderBoolean($this->user->checkUserEmail($request));
     }
 /***********************************************************************************************************
  ***********************************************************************************************************

@@ -101,6 +101,10 @@ $admin = array(
             'display'   => true,
             'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-duotone fa-user"></i><i class="fa-solid fa-plus" data-fa-transform="shrink-8 up-6 right-8"></i></span></div>'
         ],
+        'edit-driver'   => [
+            'display'   => false,
+            'icon'      => ''
+        ],
         'view-drivers'    => [
             'display'   => true,
             'icon'      => '<div class="fa-3x"><span class="fa-layers fa-fw"><i class="fa-regular fa-steering-wheel" data-fa-transform="shrink-6 down-4" data-fa-mask="fa-duotone fa-user"></i><i class="fa-solid fa-binoculars" data-fa-transform="shrink-10 up-6 right-8 rotate-30"></i></span></div>'

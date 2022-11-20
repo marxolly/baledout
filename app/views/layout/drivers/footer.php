@@ -8,14 +8,58 @@
                     init: function(){
                         autoCompleter.addressAutoComplete($('#address'));
                         autoCompleter.suburbAutoComplete($('#suburb'));
+                    },
+                    'format-abn': function(value){
+                        value = value.split(" ").join("");
+                        return [
+                            value.slice(0, 2),
+                            value.slice(2, 5),
+                            value.slice(5, 8),
+                            value.slice(8, 11)
+                        ].join(" ").trim();
+                    }
+                },
+                'add-driver': {
+                    init: function(){
+                        actions.common.init();
+                        $('input#abn').on('keyup keypress blur change', function(ev){
+                            var abn = $(this).val();
+                            $(this).val(actions.common['format-abn'](abn));
+                        })
+                        $('form#driver_add').submit(function(e){
+                            if($(this).valid())
+                            {
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Adding Driver and Sending Welcome Email...</h2></div>' });
+                            }
+                        });
+                    }
+                },
+                'edit-driver': {
+                    init: function(){
+                        actions.common.init();
+                        var abn = $('input#abn').val()
+                        $('input#abn').val(actions.common['format-abn'](abn));
+                        $('input#abn').on('keyup keypress blur change', function(ev){
+                            abn = $(this).val();
+                            $(this).val(actions.common['format-abn'](abn));
+                        });
+                        $('#address, #suburb, #postcode, #state').change(function(e){
+                            $(this).valid();
+                        });
+                        $('form#driver_edit').submit(function(e){
+                            if($(this).valid())
+                            {
+                                $.blockUI({ message: '<div style="height:140px; padding-top:20px;"><h2>Updating Driver Details...</h2></div>' });
+                            }
+                        });
                     }
                 },
                 'view-drivers': {
                     init: function(){
                         var dt_options = {
                             "columnDefs": [
-                                { "orderable": false, "targets": [1,2,3] },
-                                { "searchable": false, "targets": [3]}
+                                { "orderable": false, "targets": [2,3,4] },
+                                { "searchable": false, "targets": [4]}
                             ],
                             "order": [],
                             "mark": true

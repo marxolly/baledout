@@ -29,6 +29,77 @@ class Driver extends Model{
 
     public function __construct(){}
 
+    public function updateDriverInfo($data)
+    {
+        //echo "The request<pre>",print_r($data),"</pre>";die();
+        $db = Database::openConnection();
+        //set the defaults
+        $driver_values = array(
+            'name'	        => $data['name'],
+            'company_name'  => $data['company_name'],
+            'phone'         => NULL,
+            'active'        => (isset($data['active']))? 1:0,
+            'address'       => 0,
+            'abn'           => preg_replace('/\s+/', '', $data['abn'])
+        );
+        //make changes
+        if(!empty($data['phone'])) $driver_vales['phone'] = $data['phone'];
+        if(!empty($data['address']) && !empty($data['suburb']) && !empty($data['state']) && !empty($data['postcode']) )
+        {
+            $address_array = [
+                'address'   => $data['address'],
+                'suburb'    => $data['suburb'],
+                'state'     => $data['state'],
+                'postcode'  => $data['postcode'],
+            ];
+            if( isset($data['address2']) && !empty($data['address2']))
+                $address_array['address_2'] = $data['address2'];
+            if( !$address_id = $db->queryValue('addresses', $address_array) )
+            {
+                //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
+                $address_id = $db->insertQuery('addresses', $address_array);
+            }
+            //$db->updateDatabaseField($this->table, 'address', $address_id, $driver_id);
+            $driver_values['address'] = $address_id;
+        }
+        $db->updatedatabaseFields($this->table, $driver_values, $data['driver_id']);
+        return true;
+    }
+
+    public function addDriver($data)
+    {
+        $db = Database::openConnection();
+        $driver_values = array(
+            'name'		    =>	$data['name'],
+            'company_name'  => $data['company_name'],
+            'user_id'       => $data['user_id'],
+            'abn'           => preg_replace('/\s+/', '', $data['abn'])
+        );
+        if(!empty($data['phone'])) $driver_vales['phone'] = $data['phone'];
+        $driver_id = $db->insertQuery($this->table, $driver_values);
+
+        if(!empty($data['address']) && !empty($data['suburb']) && !empty($data['state']) && !empty($data['postcode']) )
+        {
+            $address_array = [
+                'address'   => $data['address'],
+                'suburb'    => $data['suburb'],
+                'state'     => $data['state'],
+                'postcode'  => $data['postcode'],
+            ];
+            if( isset($data['address2']) && !empty($data['address2']))
+                $address_array['address_2'] = $data['address2'];
+            if( !$address_id = $db->queryValue('addresses', $address_array) )
+            {
+                //echo "DID NOT FIND <pre>",print_r($postal_array),"</pre>";die();
+                $address_id = $db->insertQuery('addresses', $address_array);
+
+            }
+            $db->updateDatabaseField($this->table, 'address', $address_id, $driver_id);
+        }
+
+        return $driver_id;
+    }
+
 
     public function getDriversDetails($active = -1, $driver_id = 0)
     {
@@ -36,7 +107,7 @@ class Driver extends Model{
         $q = "
             SELECT
                 d.*,
-                dd.*,
+                dd.session_expires,dd.last_log,dd.current_log,dd.profile_picture,
                 CASE
                     WHEN d.address = 0
                     THEN NULL
@@ -72,6 +143,38 @@ class Driver extends Model{
             return ($db->queryRow($q));
         else
             return ($db->queryData($q));
+    }
+
+    public function checkDriverABN($ABN, $current_ABN)
+    {
+        $db = Database::openConnection();
+        $ABN = preg_replace('/\s+/', '', $ABN);
+        $current_ABN = preg_replace('/\s+/', '', $current_ABN);
+        $q = "SELECT abn FROM {$this->table}";
+        $rows = $db->queryData($q);
+        $valid = 'true';
+        foreach($rows as $row)
+        {
+        	if($ABN == preg_replace('/\s+/','',$row['abn']) && $ABN != $current_ABN)
+        	{
+        		$valid = 'false';
+        	}
+        }
+        return $valid;
+    }
+
+    public function driverABNTaken($ABN, $current_ABN = false)
+    {
+        //echo $abbrev;
+        //echo "<p>Current Abbrev: $current_abbrev</p>";
+        //die();
+        $db = Database::openConnection();
+        if($current_ABN)
+        {
+            return ($db->fieldValueTaken($this->table, $ABN, 'abn') && $ABN != $current_ABN);
+        }
+        return $db->fieldValueTaken($this->table, $ABN, 'abn');
+
     }
 
 }

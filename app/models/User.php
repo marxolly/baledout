@@ -92,8 +92,7 @@ class User extends Model{
         $vals = array(
             'name'      => $data['name'],
             'email'     => $data['email'],
-            'role_id'   => $data['role_id'],
-            'client_id' => $data['client_id']
+            'role_id'   => $data['role_id']
         );
         if(isset($data['test_user']))
         {
@@ -318,5 +317,12 @@ class User extends Model{
         $db = Database::openConnection();
 
         return $db->fieldValueTaken('users', $email, 'email');
+    }
+
+    public function checkUserEmail($email)
+    {
+        if($this->emailTaken($email))
+            return 'false';
+        return 'true';
     }
 }
