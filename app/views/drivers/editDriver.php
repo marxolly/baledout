@@ -51,6 +51,15 @@ $ppp = DOC_ROOT.'/images/profile_pictures/'.$driver['profile_picture'];
                                 <?php echo Form::displayError('name');?>
                             </div>
                         </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 text-start d-none d-md-block" for="active">Active</label>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="active" name="active" <?php if($active) echo 'checked';?>>
+                                    <label class="form-check-label d-md-none" for="active">Active</label>
+                                </div>
+                            </div>
+                        </div>
                         <?php if(file_exists($ppp)):?>
                             <div class="form-group row mb-3">
                                 <div class="col-md-4 offset-md-3">
